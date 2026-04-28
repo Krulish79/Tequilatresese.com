@@ -1797,38 +1797,40 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — text on top (justified), bottles side-by-side in a row below */
+  /* Hero on mobile — text justified on the left, bottles stacked vertically next to it */
   .hero-inner{
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
   }
-  .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
-  .hero-copy{ text-align: justify; }
+  .hero{ align-items: center; padding-top: 6rem; padding-bottom: 3rem; }
+  .hero-copy{ text-align: justify; min-width: 0; }
   .hero-copy p,
   .hero-copy .lede{ text-align: justify !important; max-width: 100%; }
-  /* 2 × 2 stat grid */
+  /* Stats stack 1-col on the narrower left side */
   .hero-meta{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 1.25rem;
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: .75rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
   }
   .hero-meta > div{ flex: initial; }
-  /* Bottles side by side in a horizontal row below the copy */
+  /* Bottle trio on the right column — 3 bottles stacked vertically */
   .hero-trio{
     min-height: 0;
+    min-width: 0;
     width: 100%;
-    justify-self: center;
+    justify-self: end;
     margin: 0;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
-    gap: clamp(.25rem, 1vw, .75rem);
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
   }
-  .hero-bottle{ width: auto; }
-  .hero-bottle img{ height: clamp(180px, 28vh, 260px); width: auto; max-width: 100%; }
+  .hero-bottle{ width: 100%; display: flex; justify-content: center; }
+  .hero-bottle img{ height: auto; max-height: clamp(95px, 14vh, 135px); width: auto; max-width: 100%; }
+  .hero-bottle figcaption{ display: none; }
+  .hero-bottle::after{ display: none; }
 
   /* Mobile section layout — title on top, media in middle, body text below.
      Uses display:contents on the copy wrapper so its children flatten into
