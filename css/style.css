@@ -1788,39 +1788,37 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero stays 2-col on mobile — copy on the left, bottles trio on the right */
+  /* Hero on mobile — clean single-column stack: copy first, then the bottle trio.
+     Reads premium and gives both pieces room to breathe. */
   .hero-inner{
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    gap: .75rem;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
   }
-  .hero{ align-items: center; padding-top: 6rem; padding-bottom: 4rem; }
-  .hero-copy{ text-align: left; min-width: 0; }
+  .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
+  .hero-copy{ text-align: left; }
   .hero-copy p,
-  .hero-copy .lede{ text-align: left !important; max-width: 100%; }
-  /* 4 stats wrap to 2 × 2 on mobile so they stay inside the narrowed copy column */
+  .hero-copy .lede{ text-align: left !important; }
+  /* 2 × 2 grid for the four stat boxes so they don't overflow */
   .hero-meta{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: .75rem 1rem;
-    margin-top: 1.25rem;
-    padding-top: 1rem;
+    gap: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
   }
   .hero-meta > div{ flex: initial; }
+  /* Bottle trio: 3 bottles in a horizontal row below the copy */
   .hero-trio{
-    min-height: 0;
-    min-width: 0;
-    width: 100%;
-    justify-self: end;
+    min-height: 280px;
+    justify-self: center;
     margin: 0;
-    flex-direction: column;
-    align-items: center;
-    gap: .25rem;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(.25rem, 1vw, .75rem);
   }
-  .hero-bottle{ width: 100%; }
-  .hero-bottle img{ height: auto; max-height: clamp(95px, 13vh, 130px); width: auto; max-width: 100%; }
-  .hero-bottle figcaption{ display: none; }
-  .hero-bottle::after{ display: none; }
+  .hero-bottle img{ height: clamp(180px, 28vh, 260px); width: auto; max-width: 100%; }
 
   /* Mobile section layout — title on top, media in middle, body text below.
      Uses display:contents on the copy wrapper so its children flatten into
@@ -1907,15 +1905,34 @@ body.lightbox-open{ overflow: hidden; }
 
   .store-grid{ grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
 
-  /* Two-row layout on mobile: 2 leads on top, 3 facts below — both rows evenly spaced */
-  .ribbon-grid{ grid-template-columns: repeat(6, 1fr); gap: 1.5rem .75rem; padding-left: .5rem; padding-right: .5rem; }
-  .ribbon-grid > div{ border-left: 0; padding: 0 .35rem; gap: .35rem; }
+  /* Two-row layout on mobile: 2 leads on top, 3 facts below — sized to fit the phone */
+  .ribbon-grid{
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem .5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .ribbon-grid > div{
+    border-left: 0;
+    padding: 0;
+    gap: .35rem;
+    min-width: 0;
+  }
   .ribbon-grid > div:nth-child(1),
   .ribbon-grid > div:nth-child(2){ grid-column: span 3; }
   .ribbon-grid > div:nth-child(n+3){ grid-column: span 2; }
-  .ribbon strong{ font-size: clamp(1rem, 3.2vw, 1.5rem); line-height: 1.1; }
-  .ribbon-lead strong{ font-size: clamp(1.1rem, 3.6vw, 1.6rem); }
-  .ribbon span{ font-size: .58rem; letter-spacing: .14em; }
+  .ribbon strong{
+    font-size: clamp(.85rem, 2.6vw, 1.2rem);
+    line-height: 1.1;
+    word-break: break-word;
+  }
+  .ribbon-lead strong{ font-size: clamp(.95rem, 3vw, 1.35rem); }
+  .ribbon span{
+    font-size: .5rem;
+    letter-spacing: .12em;
+    line-height: 1.2;
+    word-break: break-word;
+  }
 
   .footer-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
 }
