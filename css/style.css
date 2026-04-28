@@ -1776,6 +1776,11 @@ body.lightbox-open{ overflow: hidden; }
 @media (max-width: 960px){
   .primary-nav{ display:none; }
   .menu-toggle{ display:inline-flex; }
+  /* Long place line was pushing the menu off-screen — allow it to wrap on phones,
+     and shrink the brand-block so the header-tools always fit on the right. */
+  .brand{ max-width: 60%; }
+  .brand-caption-place{ white-space: normal; line-height: 1.25; }
+  .brand-logo{ height: 42px; }
 
   .primary-nav.is-open{
     display:flex;
@@ -1951,7 +1956,18 @@ body.lightbox-open{ overflow: hidden; }
     word-break: break-word;
   }
 
-  .footer-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
+  /* On phones: brand on top (full width), then nav + social side by side
+     so Origin and Instagram sit on the same row at the top of the grid below. */
+  .footer-grid{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand  brand"
+      "nav    social";
+    gap: 2rem 1.5rem;
+  }
+  .footer-brand-block{ grid-area: brand; }
+  .site-footer nav{ grid-area: nav; }
+  .footer-social{ grid-area: social; }
 }
 
 @media (max-width: 540px){
