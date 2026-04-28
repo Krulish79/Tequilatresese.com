@@ -717,7 +717,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   font-style: italic;
   font-size: 1.15rem;
   color: var(--copper-deep);
-  margin-top: 2rem !important;
+  margin-top: .5rem !important;
   text-align: left !important;
 }
 
