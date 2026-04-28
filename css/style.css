@@ -1874,17 +1874,24 @@ body.lightbox-open{ overflow: hidden; }
     margin: 0 auto;
     width: 100%;
   }
-  /* Bottles in Expressions — comfortably inside the box on mobile */
+  /* Bottles in Expressions on mobile — match the store-card look (bottle sits on
+     a tight bottom shadow, anisotropic ground pool from ::after) */
   .expression-media{
     aspect-ratio: 4/5;
     max-width: 280px;
-    padding: 1rem;
-    align-items: center;
+    padding: 2rem 1rem .5rem;
+    align-items: flex-end;
   }
   .expression-media img{
     height: 80%;
     width: auto;
     max-width: 70%;
+  }
+  /* Same ground-shadow tuning as the store: bottom 6px, width 60%, height 24px */
+  .expression-media::after{
+    bottom: 6px;
+    width: 60%;
+    height: 24px;
   }
 
   /* Reverse rows still come out in the same flat order on mobile */
