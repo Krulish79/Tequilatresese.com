@@ -702,6 +702,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   border: 1px solid var(--copper);
   pointer-events:none;
 }
+@media (max-width: 960px){
+  /* Hide decorative outlined square on phones — it crowds the body text */
+  .story-ornament{ display: none; }
+}
 .story-copy p{
   color: var(--ink-soft);
   margin: 0 0 1.1rem;
