@@ -1,0 +1,18 @@
+# macOS metadata
+.DS_Store
+
+# Adobe Illustrator source files (not needed for the website)
+*.ai
+
+# Claude Code session data (local only)
+.claude/
+
+# Editor / OS junk
+*.swp
+*.swo
+Thumbs.db
+
+# Node / build artifacts (just in case)
+node_modules/
+dist/
+build/
