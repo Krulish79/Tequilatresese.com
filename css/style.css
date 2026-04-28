@@ -1788,37 +1788,40 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — clean single-column stack: copy first, then the bottle trio.
-     Reads premium and gives both pieces room to breathe. */
+  /* Hero on mobile — text on the left, bottles stacked on the right */
   .hero-inner{
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
   }
-  .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
-  .hero-copy{ text-align: left; }
+  .hero{ align-items: center; padding-top: 6rem; padding-bottom: 4rem; }
+  .hero-copy{ text-align: left; min-width: 0; }
   .hero-copy p,
-  .hero-copy .lede{ text-align: left !important; }
-  /* 2 × 2 grid for the four stat boxes so they don't overflow */
+  .hero-copy .lede{ text-align: left !important; max-width: 100%; }
+  /* Stats stack vertically (1 column) on the narrow left side so they don't overflow */
   .hero-meta{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 1.25rem;
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: .75rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
   }
   .hero-meta > div{ flex: initial; }
-  /* Bottle trio: 3 bottles in a horizontal row below the copy */
+  /* Bottle trio: 3 bottles stacked vertically on the right column */
   .hero-trio{
-    min-height: 280px;
-    justify-self: center;
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+    justify-self: end;
     margin: 0;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
-    gap: clamp(.25rem, 1vw, .75rem);
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
   }
-  .hero-bottle img{ height: clamp(180px, 28vh, 260px); width: auto; max-width: 100%; }
+  .hero-bottle{ width: 100%; display: flex; justify-content: center; }
+  .hero-bottle img{ height: auto; max-height: clamp(95px, 14vh, 135px); width: auto; max-width: 100%; }
+  .hero-bottle figcaption{ display: none; }
+  .hero-bottle::after{ display: none; }
 
   /* Mobile section layout — title on top, media in middle, body text below.
      Uses display:contents on the copy wrapper so its children flatten into
@@ -1917,6 +1920,9 @@ body.lightbox-open{ overflow: hidden; }
     padding: 0;
     gap: .35rem;
     min-width: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
   }
   .ribbon-grid > div:nth-child(1),
   .ribbon-grid > div:nth-child(2){ grid-column: span 3; }
