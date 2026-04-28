@@ -24,7 +24,7 @@
   --sans:   'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
   --maxw: 1280px;
-  --pad:  clamp(1.25rem, 4vw, 2.5rem);
+  --pad:  clamp(1.75rem, 5vw, 2.5rem);
   --radius: 2px;
 
   --ease: cubic-bezier(.2,.6,.2,1);
@@ -1037,7 +1037,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   position: relative;
   z-index: 1;
   max-height: 100%;
+  max-width: 100%;
   width: auto;
+  height: auto;
   object-fit: contain;
   /* Sharp contact line + small ambient — no long airborne shadow */
   filter:
@@ -1263,7 +1265,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 }
 
 @media (max-width: 720px){
-  .gallery-grid{ grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  /* Stay at 3 cols on phones — smaller cells, but the 2 wide tiles fill any
+     would-be gaps and give a clean 6×3 rectangle (no orphan cells). */
+  .gallery-grid{ grid-template-columns: repeat(3, 1fr); gap: .5rem; }
   .gallery-item--wide{ grid-column: span 2; aspect-ratio: 3/2; }
 }
 
@@ -1525,6 +1529,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .site-footer nav a:hover{ color: var(--paper); }
 .footer-social{
   display:flex; flex-direction:column; gap:.6rem;
+  align-items: flex-end;
+  text-align: right;
   font-size:.82rem;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -1542,7 +1548,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 }
 .footer-bottom{
   padding-top: 1.5rem;
-  display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+  display:flex; justify-content:center; align-items:center; gap:.5rem 1.25rem; flex-wrap:wrap;
+  text-align: center;
   font-size: .82rem;
   color: rgba(251,247,238,.7);
   letter-spacing: .08em;
@@ -1762,28 +1769,83 @@ body.lightbox-open{ overflow: hidden; }
 
   .hero-inner{ grid-template-columns: 1fr; gap: 2rem; }
   .hero{ align-items: flex-start; padding-top: 6rem; }
-  .hero-trio{ min-height: 360px; }
-  .hero-bottle img{ height: clamp(220px, 30vh, 320px); }
-  .hero-bottle--center img{ height: clamp(250px, 34vh, 360px); }
+  .hero-trio{ min-height: 280px; justify-self: center; margin: 0; }
+  .hero-bottle img{ height: clamp(160px, 24vh, 240px); }
 
+  /* Mobile section layout — title on top, media in middle, body text below.
+     Uses display:contents on the copy wrapper so its children flatten into
+     the parent flex order. Single uniform gap keeps spacing consistent. */
   .story-grid,
-  .contact-grid,
   .step,
   .expression{
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 3vw, 1.75rem);
+    grid-template-columns: 1fr; /* keep for fallback */
   }
+  .contact-grid{ grid-template-columns: 1fr; }
+
+  .story-copy,
+  .step-copy,
+  .expression-copy{
+    display: contents;
+  }
+
+  /* Title group — order 1 (eyebrow / step-num / expression-tag + heading) */
+  .story-copy > .eyebrow,
+  .step-copy > .step-num,
+  .expression-copy > .expression-tag{ order: 1; margin: 0; }
+
+  .story-copy > .display-sm,
+  .step-copy > .display-xs,
+  .expression-copy > .display-xs{ order: 2; margin: 0; }
+
+  /* Media — order 3 */
+  .story-media,
+  .step-media,
+  .expression-media{
+    order: 3;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  /* Bottles in Expressions — make sure they fit comfortably inside the box on mobile */
+  .expression-media{
+    aspect-ratio: 3/4;
+    padding: 1.5rem 1rem .75rem;
+  }
+  .expression-media img{
+    max-height: 92%;
+    max-width: 80%;
+  }
+
+  /* Reverse rows still come out in the same flat order on mobile */
   .step.reverse,
   .expression.reverse{ direction: ltr; }
-  .step.reverse .step-media,
-  .expression.reverse .expression-media{ order: -1; }
-  .step .step-media,
-  .expression .expression-media{ order: -1; max-width: 520px; }
+
+  /* Body content — order 4 (everything else inside the copy wrappers) */
+  .story-copy > p,
+  .story-copy > .signature,
+  .story-copy > .cert-logos,
+  .step-copy > p,
+  .expression-copy > p,
+  .expression-copy > .tasting,
+  .expression-copy > .spec-pills,
+  .expression-copy > .expression-actions{ order: 4; }
+
   .tasting > div{ grid-template-columns: 80px 1fr; gap: 1rem; }
 
   .store-grid{ grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
 
-  .ribbon-grid{ grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
-  .ribbon-grid > div{ border-left: 0; }
+  /* Two-row layout on mobile: 2 leads on top, 3 facts below — both rows evenly spaced */
+  .ribbon-grid{ grid-template-columns: repeat(6, 1fr); gap: 1.5rem .75rem; }
+  .ribbon-grid > div{ border-left: 0; padding: 0 .25rem; gap: .35rem; }
+  .ribbon-grid > div:nth-child(1),
+  .ribbon-grid > div:nth-child(2){ grid-column: span 3; }
+  .ribbon-grid > div:nth-child(n+3){ grid-column: span 2; }
+  .ribbon strong{ font-size: clamp(1rem, 3.2vw, 1.5rem); line-height: 1.1; }
+  .ribbon-lead strong{ font-size: clamp(1.1rem, 3.6vw, 1.6rem); }
+  .ribbon span{ font-size: .58rem; letter-spacing: .14em; }
 
   .footer-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
 }
