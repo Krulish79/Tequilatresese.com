@@ -215,6 +215,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   letter-spacing: .24em;
   text-transform: uppercase;
   color: var(--muted);
+  margin-top: .65rem;
 }
 .brand-caption .caption-main{
   font-weight: 600;
@@ -230,6 +231,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   text-transform: uppercase;
   color: var(--muted);
   margin-top: .15rem;
+  white-space: nowrap;
 }
 .site-header:not(.is-scrolled) .brand-caption-place{ color: rgba(251,247,238,.55); }
 .brand{
@@ -712,6 +714,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   font-size: 1.15rem;
   color: var(--copper-deep);
   margin-top: 2rem !important;
+  text-align: left !important;
 }
 
 /* Organic certification logos — first flush-left to paragraph, last flush-right,
@@ -1483,10 +1486,13 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  align-items:start;
+  align-items: start;
   padding-bottom: 1.75rem;
   border-bottom: 1px solid rgba(251,247,238,.1);
 }
+/* Top-align the nav and social with each other — same offset from the row top */
+.site-footer nav,
+.footer-social{ margin-top: 0; padding-top: 0; }
 .footer-brand-block{
   display: flex;
   flex-direction: column;
@@ -1794,11 +1800,21 @@ body.lightbox-open{ overflow: hidden; }
   /* Title group — order 1 (eyebrow / step-num / expression-tag + heading) */
   .story-copy > .eyebrow,
   .step-copy > .step-num,
-  .expression-copy > .expression-tag{ order: 1; margin: 0; }
+  .expression-copy > .expression-tag{
+    order: 1;
+    margin: 0;
+    text-align: center;
+    align-self: center;     /* center the inline-flex eyebrow with its decorative line */
+  }
 
   .story-copy > .display-sm,
   .step-copy > .display-xs,
-  .expression-copy > .display-xs{ order: 2; margin: 0; }
+  .expression-copy > .display-xs{
+    order: 2;
+    margin: 0;
+    text-align: center;
+    text-wrap: balance;     /* spreads lines so no single-word widow at the end */
+  }
 
   /* Media — order 3 */
   .story-media,
@@ -1809,14 +1825,15 @@ body.lightbox-open{ overflow: hidden; }
     margin: 0 auto;
     width: 100%;
   }
-  /* Bottles in Expressions — make sure they fit comfortably inside the box on mobile */
+  /* Bottles in Expressions — fit fully inside the box on mobile */
   .expression-media{
-    aspect-ratio: 3/4;
-    padding: 1.5rem 1rem .75rem;
+    aspect-ratio: 4/5;
+    max-width: 320px;
+    padding: 1.5rem 1rem 1rem;
   }
   .expression-media img{
-    max-height: 92%;
-    max-width: 80%;
+    max-height: 78%;
+    max-width: 55%;
   }
 
   /* Reverse rows still come out in the same flat order on mobile */
@@ -1838,8 +1855,8 @@ body.lightbox-open{ overflow: hidden; }
   .store-grid{ grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
 
   /* Two-row layout on mobile: 2 leads on top, 3 facts below — both rows evenly spaced */
-  .ribbon-grid{ grid-template-columns: repeat(6, 1fr); gap: 1.5rem .75rem; }
-  .ribbon-grid > div{ border-left: 0; padding: 0 .25rem; gap: .35rem; }
+  .ribbon-grid{ grid-template-columns: repeat(6, 1fr); gap: 1.5rem .75rem; padding-left: .5rem; padding-right: .5rem; }
+  .ribbon-grid > div{ border-left: 0; padding: 0 .35rem; gap: .35rem; }
   .ribbon-grid > div:nth-child(1),
   .ribbon-grid > div:nth-child(2){ grid-column: span 3; }
   .ribbon-grid > div:nth-child(n+3){ grid-column: span 2; }
