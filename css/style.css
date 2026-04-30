@@ -339,6 +339,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
+  display: none; /* drifting smoke plumes — hidden (rendered as visible circles on some screens) */
 }
 .smoke-plume{
   position: absolute;
