@@ -149,12 +149,12 @@ body{
   margin: 0 0 6mm;
   min-height: 0;
 }
-/* Bottle sits at the TOP of its column — raised. Anchors with the first line of copy. */
+/* Bottle aligns with the bottom of the specs grid (last cell) in the right column */
 .sheet-bottle{
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: center;
-  padding: 0;
+  padding: 0 0 38mm; /* push bottle up by ~origin-block height so its bottom lines up with the last spec row */
   position: relative;
 }
 .sheet-bottle img{
@@ -390,6 +390,7 @@ body{
     gap: 3mm;
     margin-bottom: 2.5mm;
   }
+  .sheet-bottle{ padding: 0 0 14mm; }   /* push bottle up so bottom aligns with last spec row, not origin */
   .sheet-bottle img{ max-height: 75mm; }
   .sheet-h2{ font-size: 12pt; }
   .sheet-tag{ font-size: 4.5pt; letter-spacing: .22em; margin-bottom: 1mm; }
