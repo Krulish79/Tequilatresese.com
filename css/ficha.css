@@ -361,8 +361,11 @@ body{
   .sheet{
     width: 100%;
     max-width: none;
+    /* No fixed aspect-ratio on phones — let the sheet grow tall enough to fit
+       all the content (otherwise it'd cut off at Letter proportions). */
     height: auto;
-    aspect-ratio: 8.5 / 11;
+    min-height: 0;
+    aspect-ratio: auto;
     padding: 4.5mm 4.5mm 3.5mm;
   }
   .sheet::before{ top: 2mm; left: 2mm; right: 2mm; bottom: 2mm; }
