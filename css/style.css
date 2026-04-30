@@ -1738,12 +1738,13 @@ a[href="#store"]{
 }
 .footer-bottom{
   padding-top: 1.5rem;
-  display:flex; justify-content:center; align-items:center; gap:.5rem 1.25rem; flex-wrap:wrap;
-  text-align: center;
+  display:flex; justify-content:space-between; align-items:center; gap:.5rem 1.25rem; flex-wrap:wrap;
   font-size: .82rem;
   color: rgba(251,247,238,.7);
   letter-spacing: .08em;
 }
+.footer-bottom > :first-child{ text-align: left; }
+.footer-bottom > :last-child{ text-align: right; }
 
 /* ─────────── IN-FLOW SCROLL CUE ─────────── */
 /* Unified style — every arrow uses the same font, size, spacing.

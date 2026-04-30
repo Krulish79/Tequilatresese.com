@@ -14,12 +14,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=20260430a" />
+  <link rel="stylesheet" href="css/style.css?v=20260430b" />
   <style>
     /* Chinese typography fallback — pair Noto Sans/Serif SC with the brand fonts */
     :root{
       --sans: 'Inter', 'Noto Sans SC', ui-sans-serif, system-ui, -apple-system, sans-serif;
       --serif: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+    }
+    /* Pull header tools (lang switcher + menu) inward so they align with the
+       visible right edge of the rightmost bottle in the hero. */
+    @media (min-width: 961px){
+      .header-tools{ margin-right: clamp(1rem, 2.5vw, 2.5rem); }
     }
   </style>
 </head>
@@ -746,6 +751,6 @@
     </button>
   </nav>
 
-  <script src="js/script.js?v=20260430a" defer></script>
+  <script src="js/script.js?v=20260430b" defer></script>
 </body>
 </html>
