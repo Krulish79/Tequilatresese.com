@@ -1291,7 +1291,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   .gallery-item--wide{ grid-column: span 2; aspect-ratio: 3/2; }
 }
 
-/* ─────────── STORE ─────────── */
+/* ─────────── STORE — temporarily hidden until shop is ready ─────────── */
+.store,
+a[href="#store"]{
+  display: none !important;
+}
 .store{
   padding: clamp(5rem, 10vw, 9rem) 0;
   background: var(--paper);
