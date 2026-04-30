@@ -312,27 +312,22 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 }
 .hero-bg{
   position:absolute; inset:0;
-  background-image: url('../images/hero-cellar.jpg');
-  /* Show the full photo without scaling up — keeps bottles at native size,
-     reveals more of the cellar around them. Dark fill matches cellar tones. */
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  /* Gentle enhancement — depth without going red. Saturation pulled way back. */
+  /* Layered background — top to bottom:
+       1. Horizontal edge fade (dark color at left/right, transparent in middle)
+       2. Vertical edge fade (dark color at top/bottom, transparent in middle)
+       3. Cellar photo
+       4. Solid dark fill
+     Where the gradients are solid dark they hide the photo edges; where they
+     fade to transparent the photo shows through. No more hard cutoff. */
+  background:
+    linear-gradient(90deg, #15100c 0%, transparent 10%, transparent 90%, #15100c 100%) no-repeat,
+    linear-gradient(180deg, #15100c 0%, transparent 8%, transparent 92%, #15100c 100%) no-repeat,
+    url('../images/hero-cellar.jpg') center / contain no-repeat,
+    #15100c;
+  /* Gentle enhancement — depth without going red */
   filter: brightness(1.0) saturate(1.15) contrast(1.12);
-  /* Fade the photo edges into the dark fill behind so there's no hard cutoff
-     where the contained image meets the surrounding background. */
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, black 6%, black 94%, transparent 100%);
-  mask-image:
-    linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, black 6%, black 94%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
   z-index: -3;
 }
-/* Dark cellar fill sits BEHIND the masked image so the fade reveals it cleanly */
 .hero{ background-color: #15100c; }
 .hero-bg::after{
   content:"";
@@ -2042,14 +2037,21 @@ body.lightbox-open{ overflow: hidden; }
       "stats trio";
     gap: 1.25rem 1rem;
     align-items: start;
+    /* Pull hero copy in alignment with the header brand block (which is at
+       container padding edge) — remove any letter-spacing optical offset. */
+    padding-left: 0;
+    padding-right: 0;
   }
   .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
   .hero-copy{ display: contents; }
-  .hero-title{ grid-area: title; }
+  .hero-title{ grid-area: title; padding-left: 0 !important; }
+  .hero-label{ padding-left: 0 !important; }   /* drop optical offset on mobile */
   .hero .lede{
     grid-area: lede;
     text-align: justify !important;
     max-width: 100%;
+    padding-left: 0;
+    margin-left: 0;
   }
   /* Stats stay on the LEFT column, stacked vertically (small) */
   .hero-meta{
