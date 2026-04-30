@@ -2037,15 +2037,17 @@ body.lightbox-open{ overflow: hidden; }
       "stats trio";
     gap: 1.25rem 1rem;
     align-items: start;
-    /* Pull hero copy in alignment with the header brand block (which is at
-       container padding edge) — remove any letter-spacing optical offset. */
-    padding-left: 0;
-    padding-right: 0;
+    /* Tighter side padding on mobile so the hero copy sits at the same x-pos
+       as the header brand block (which sits at container --pad edge of about
+       2rem). Brand visual edge is closer to viewport edge than --pad due to
+       the logo's intrinsic transparent margin — match it here with 1rem. */
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
   .hero-copy{ display: contents; }
   .hero-title{ grid-area: title; padding-left: 0 !important; }
-  .hero-label{ padding-left: 0 !important; }   /* drop optical offset on mobile */
+  .hero-label{ padding-left: 0 !important; }
   .hero .lede{
     grid-area: lede;
     text-align: justify !important;
