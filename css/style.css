@@ -318,11 +318,22 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: #15100c;
   /* Vivid + warm: amber bottles glow, cellar wood saturates */
   filter: brightness(1.05) saturate(1.5) contrast(1.22);
+  /* Fade the photo edges into the dark fill behind so there's no hard cutoff
+     where the contained image meets the surrounding background. */
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
   z-index: -3;
 }
+/* Dark cellar fill sits BEHIND the masked image so the fade reveals it cleanly */
+.hero{ background-color: #15100c; }
 .hero-bg::after{
   content:"";
   position:absolute; inset:0;
@@ -1987,7 +1998,15 @@ body.lightbox-open{ overflow: hidden; }
   .menu-toggle{ display:inline-flex; }
   /* Long place line was pushing the menu off-screen — allow it to wrap on phones,
      and shrink the brand-block so the header-tools always fit on the right. */
-  .brand{ max-width: 60%; }
+  .brand{
+    max-width: 60%;
+    justify-self: start;       /* anchor brand to left edge of header */
+    justify-items: start;      /* anchor each grid item (logo, captions) to left */
+    text-align: left;
+  }
+  .brand-logo,
+  .brand-caption,
+  .brand-caption-place{ justify-self: start; }
   .brand-caption-place{ white-space: normal; line-height: 1.25; }
   .brand-logo{ height: 42px; }
   /* Hero photo on phones — center the contained image in the dark cellar fill */
