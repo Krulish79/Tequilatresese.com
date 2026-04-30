@@ -1797,38 +1797,52 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — text justified on the left, bottles stacked vertically next to it */
+  /* Hero on mobile — title + lede across the full width on top,
+     then a 2-col row: stats on the LEFT, 3 bottles side by side on the RIGHT */
   .hero-inner{
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-    gap: 1rem;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "lede  lede"
+      "stats trio";
+    gap: 1.25rem 1rem;
+    align-items: start;
   }
-  .hero{ align-items: center; padding-top: 6rem; padding-bottom: 3rem; }
-  .hero-copy{ text-align: justify; min-width: 0; }
-  .hero-copy p,
-  .hero-copy .lede{ text-align: justify !important; max-width: 100%; }
-  /* Stats stack 1-col on the narrower left side */
+  .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
+  .hero-copy{ display: contents; }
+  .hero-title{ grid-area: title; }
+  .hero .lede{
+    grid-area: lede;
+    text-align: justify !important;
+    max-width: 100%;
+  }
+  /* Stats stay on the LEFT column, stacked vertically (small) */
   .hero-meta{
+    grid-area: stats;
     display: grid;
     grid-template-columns: 1fr;
-    gap: .75rem;
-    margin-top: 1.25rem;
+    gap: .65rem;
+    margin-top: 0;
     padding-top: 1rem;
+    align-self: start;
   }
   .hero-meta > div{ flex: initial; }
-  /* Bottle trio on the right column — 3 bottles stacked vertically */
+  /* Bottle trio on the RIGHT column — 3 bottles in a horizontal row */
   .hero-trio{
+    grid-area: trio;
     min-height: 0;
     min-width: 0;
     width: 100%;
-    justify-self: end;
     margin: 0;
-    flex-direction: column;
-    align-items: center;
-    gap: .25rem;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(.15rem, .8vw, .5rem);
+    align-self: end;
   }
-  .hero-bottle{ width: 100%; display: flex; justify-content: center; }
-  .hero-bottle img{ height: auto; max-height: clamp(95px, 14vh, 135px); width: auto; max-width: 100%; }
+  .hero-bottle{ width: auto; flex: 0 1 auto; }
+  .hero-bottle img{ height: auto; max-height: clamp(180px, 26vh, 260px); width: auto; max-width: 100%; }
   .hero-bottle figcaption{ display: none; }
   .hero-bottle::after{ display: none; }
 
