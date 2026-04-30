@@ -48,35 +48,43 @@
     revealables.forEach(el => el.classList.add('is-in'));
   }
 
-  // Contact form — open user's email client with a prefilled message
-  // Recipient depends on page language (Mandarin → Gabriel, EN/ES → Christopher)
+  // Contact form — POSTs directly to Web3Forms which delivers to the right inbox
+  // EN/ES → cmir@tequilatresese.com   ZH → g.marchand@tequilatresese.com
   const form = document.getElementById('contactForm');
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const status = form.querySelector('.form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
     const lang = (document.documentElement.lang || 'en').toLowerCase();
 
     // Localised UI strings
     const t = lang.startsWith('zh') ? {
       missing: '请填写所有必填字段。',
-      sending: '正在打开您的邮件客户端…',
+      sending: '发送中…',
+      success: '感谢。您的留言已送达。',
+      error: '发送出错,请稍后再试。',
       subject: 'Tequila Tres Ese — 来自网站的留言',
       labels: { first: '姓名', last: '姓氏', email: '邮箱', message: '留言' }
     } : lang.startsWith('es') ? {
       missing: 'Por favor completa los campos requeridos.',
-      sending: 'Abriendo tu cliente de correo…',
+      sending: 'Enviando…',
+      success: 'Gracias. Tu mensaje ha sido enviado.',
+      error: 'Hubo un error al enviar. Inténtalo de nuevo más tarde.',
       subject: 'Tequila Tres Ese — Mensaje desde el sitio web',
       labels: { first: 'Nombre', last: 'Apellido', email: 'Correo', message: 'Mensaje' }
     } : {
       missing: 'Please complete the required fields.',
-      sending: 'Opening your email client…',
+      sending: 'Sending…',
+      success: 'Gracias. Your message has been sent.',
+      error: 'There was an error sending. Please try again later.',
       subject: 'Tequila Tres Ese — Message from the website',
       labels: { first: 'First name', last: 'Last name', email: 'Email', message: 'Message' }
     };
 
-    const recipient = lang.startsWith('zh')
-      ? 'g.marchand@tequilatresese.com'
-      : 'cmir@tequilatresese.com';
+    // Web3Forms access key per recipient
+    const accessKey = lang.startsWith('zh')
+      ? '5b32331f-6329-4f6b-be5c-5c057b41b9f7'   // → g.marchand@tequilatresese.com
+      : '0fab7455-334d-4466-8263-a0ecf7e9492e';  // → cmir@tequilatresese.com
 
     if (!form.checkValidity()) {
       status.textContent = t.missing;
@@ -84,15 +92,45 @@
     }
 
     const data = new FormData(form);
-    const body =
+    const fullName = `${data.get('first') || ''} ${data.get('last') || ''}`.trim();
+
+    // Build the payload Web3Forms expects
+    const payload = new FormData();
+    payload.append('access_key', accessKey);
+    payload.append('subject', t.subject);
+    payload.append('from_name', 'Tequila Tres Ese — Website');
+    payload.append('name', fullName);
+    payload.append('email', data.get('email') || '');
+    // Plain-readable message body — keeps the email easy to read in the inbox
+    payload.append('message',
       `${t.labels.first}: ${data.get('first') || ''}\n` +
       `${t.labels.last}: ${data.get('last') || ''}\n` +
-      `${t.labels.email}: ${data.get('email') || ''}\n\n` +
-      `${t.labels.message}:\n${data.get('message') || ''}\n`;
+      `${t.labels.email}: ${data.get('email') || ''}\n` +
+      `${t.labels.message}:\n${data.get('message') || ''}\n`
+    );
+    // Honeypot — Web3Forms drops spam if this is filled
+    payload.append('botcheck', '');
 
-    const mailto = `mailto:${recipient}?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(body)}`;
     status.textContent = t.sending;
-    window.location.href = mailto;
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: payload
+      });
+      const result = await res.json();
+      if (result && result.success) {
+        status.textContent = t.success;
+        form.reset();
+      } else {
+        status.textContent = t.error;
+      }
+    } catch (err) {
+      status.textContent = t.error;
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 
   // Store buttons (stub)
