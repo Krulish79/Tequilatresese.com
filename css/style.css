@@ -1285,6 +1285,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
     radial-gradient(circle at 50% 38%, rgba(176,133,66,.18), transparent 65%),
     linear-gradient(180deg, var(--bg-soft), var(--bg));
 }
+.cocktail-media.is-missing img{ display: none; }   /* hide the broken-image icon */
 .cocktail-media.is-missing::before{
   content: "";
   position: absolute;
