@@ -48,17 +48,51 @@
     revealables.forEach(el => el.classList.add('is-in'));
   }
 
-  // Contact form (stub)
+  // Contact form — open user's email client with a prefilled message
+  // Recipient depends on page language (Mandarin → Gabriel, EN/ES → Christopher)
   const form = document.getElementById('contactForm');
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const status = form.querySelector('.form-status');
+    const lang = (document.documentElement.lang || 'en').toLowerCase();
+
+    // Localised UI strings
+    const t = lang.startsWith('zh') ? {
+      missing: '请填写所有必填字段。',
+      sending: '正在打开您的邮件客户端…',
+      subject: 'Tequila Tres Ese — 来自网站的留言',
+      labels: { first: '姓名', last: '姓氏', email: '邮箱', message: '留言' }
+    } : lang.startsWith('es') ? {
+      missing: 'Por favor completa los campos requeridos.',
+      sending: 'Abriendo tu cliente de correo…',
+      subject: 'Tequila Tres Ese — Mensaje desde el sitio web',
+      labels: { first: 'Nombre', last: 'Apellido', email: 'Correo', message: 'Mensaje' }
+    } : {
+      missing: 'Please complete the required fields.',
+      sending: 'Opening your email client…',
+      subject: 'Tequila Tres Ese — Message from the website',
+      labels: { first: 'First name', last: 'Last name', email: 'Email', message: 'Message' }
+    };
+
+    const recipient = lang.startsWith('zh')
+      ? 'g.marchand@tequilatresese.com'
+      : 'cmir@tequilatresese.com';
+
     if (!form.checkValidity()) {
-      status.textContent = 'Please complete the required fields.';
+      status.textContent = t.missing;
       return;
     }
-    status.textContent = 'Gracias. Your message has been sent.';
-    form.reset();
+
+    const data = new FormData(form);
+    const body =
+      `${t.labels.first}: ${data.get('first') || ''}\n` +
+      `${t.labels.last}: ${data.get('last') || ''}\n` +
+      `${t.labels.email}: ${data.get('email') || ''}\n\n` +
+      `${t.labels.message}:\n${data.get('message') || ''}\n`;
+
+    const mailto = `mailto:${recipient}?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(body)}`;
+    status.textContent = t.sending;
+    window.location.href = mailto;
   });
 
   // Store buttons (stub)
