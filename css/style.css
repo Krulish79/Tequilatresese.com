@@ -313,25 +313,32 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  background-size: cover;
+  /* Show the full photo without scaling up — keeps bottles at native size,
+     reveals more of the cellar around them. Dark fill matches cellar tones. */
+  background-size: contain;
   background-position: center center;
-  filter: brightness(.78) saturate(1.02);
+  background-repeat: no-repeat;
+  background-color: #15100c;
+  /* Richer colour, more contrast — kills the "pale, dim" look */
+  filter: brightness(.95) saturate(1.28) contrast(1.15);
   z-index: -3;
 }
 .hero-bg::after{
   content:"";
   position:absolute; inset:0;
-  /* Subtle vignette only — let the cellar light from the windows breathe. */
+  /* Warm spot of light over the bottles, soft shadows in the corners */
   background:
-    radial-gradient(ellipse at 30% 25%, rgba(0,0,0,.0), transparent 55%),
-    radial-gradient(circle at 0% 100%, rgba(0,0,0,.35), transparent 55%);
+    radial-gradient(ellipse at 75% 55%, rgba(255,200,130,.10), transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgba(0,0,0,.4), transparent 55%),
+    radial-gradient(ellipse at 100% 0%, rgba(0,0,0,.35), transparent 55%);
 }
 .hero-veil{
   position:absolute; inset:0;
-  /* Darkening gradient on the LEFT (where copy sits), bottles on right stay clear */
+  /* Darken the LEFT half (where copy sits) so text reads clearly,
+     leave the right (bottles + cellar light) clean */
   background:
-    linear-gradient(90deg, rgba(14,12,9,.7) 0%, rgba(14,12,9,.45) 35%, rgba(14,12,9,.1) 60%, transparent 100%),
-    linear-gradient(180deg, rgba(14,12,9,.25) 0%, transparent 30%, rgba(14,12,9,.5) 100%);
+    linear-gradient(90deg, rgba(14,12,9,.65) 0%, rgba(14,12,9,.35) 35%, rgba(14,12,9,.05) 60%, transparent 100%),
+    linear-gradient(180deg, rgba(14,12,9,.15) 0%, transparent 25%, rgba(14,12,9,.45) 100%);
   z-index:-2;
 }
 
@@ -1955,9 +1962,8 @@ body.lightbox-open{ overflow: hidden; }
   .brand{ max-width: 60%; }
   .brand-caption-place{ white-space: normal; line-height: 1.25; }
   .brand-logo{ height: 42px; }
-  /* Hero photo: shift the focal point toward the bottles on the right so
-     they stay visible when the image is cropped to the narrow phone viewport. */
-  .hero-bg{ background-position: 78% center; }
+  /* Hero photo on phones — center the contained image in the dark cellar fill */
+  .hero-bg{ background-position: center center; }
   .hero-veil{
     background:
       linear-gradient(180deg, rgba(14,12,9,.55) 0%, rgba(14,12,9,.25) 30%, rgba(14,12,9,.65) 100%);
