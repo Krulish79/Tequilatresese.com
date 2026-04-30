@@ -278,6 +278,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .lang-btn{
   padding: .25rem .1rem;
   opacity: .6;
+  text-decoration: none;
+  color: inherit;
   transition: opacity .3s var(--ease);
 }
 .lang-btn.is-active{ opacity: 1; }
