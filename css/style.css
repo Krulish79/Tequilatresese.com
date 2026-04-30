@@ -318,8 +318,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  /* Vivid + warm: amber bottles glow, cellar wood saturates */
-  filter: brightness(1.05) saturate(1.5) contrast(1.22);
+  /* Gentle enhancement — depth without going red. Saturation pulled way back. */
+  filter: brightness(1.0) saturate(1.15) contrast(1.12);
   /* Fade the photo edges into the dark fill behind so there's no hard cutoff
      where the contained image meets the surrounding background. */
   -webkit-mask-image:
