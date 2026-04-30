@@ -319,8 +319,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #15100c;
-  /* Richer colour, more contrast — kills the "pale, dim" look */
-  filter: brightness(.95) saturate(1.28) contrast(1.15);
+  /* Vivid + warm: amber bottles glow, cellar wood saturates */
+  filter: brightness(1.05) saturate(1.5) contrast(1.22);
   z-index: -3;
 }
 .hero-bg::after{
@@ -466,9 +466,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   color: rgba(251,247,238,.6);
 }
 
-/* bottle trio — bottles are now in the cellar background image; keep the grid
-   cell but render the trio as invisible click hot-spots over the photo bottles
-   so users can still tap them to jump to each expression. */
+/* bottle trio — bottles are now in the cellar background image. Keep the grid
+   cell so the copy stays on the left, but hide the PNG overlays AND their
+   click hot-spots (those don't align with where the bottles are in the photo). */
 .hero-trio{
   position: relative;
   display: flex;
@@ -477,10 +477,38 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   gap: clamp(0rem, .4vw, .5rem);
   min-height: 620px;
   padding: 0;
-  visibility: hidden;          /* hide PNG overlays — bottles live in the bg photo */
+  visibility: hidden;
+  pointer-events: none;
 }
-.hero-trio .hero-bottle-link{
-  visibility: visible;         /* keep links clickable (a → expression sections) */
+
+/* Invisible click hot-spots positioned directly over the three bottles in
+   the cellar photo so taps go to the correct expression section. */
+.hero-photo-link{
+  position: absolute;
+  top: 28%;
+  bottom: 6%;
+  width: 9%;
+  z-index: 4;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  transition: background .25s var(--ease);
+}
+.hero-photo-link:hover{
+  background: rgba(255,200,130,.06);   /* very subtle amber lift on hover */
+}
+.hero-photo-link:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+/* Horizontal positions match the three bottle centres in hero-cellar.jpg */
+.hero-photo-link--blanco{ left: 52.5%; }
+.hero-photo-link--reposado{ left: 62%; }
+.hero-photo-link--anejo{ left: 71.5%; }
+@media (max-width: 960px){
+  /* On phones the photo crops/scales differently — disable hot-spots and
+     let users tap the nav menu instead. */
+  .hero-photo-link{ display: none; }
 }
 /* Floor shading removed — bottles blend with the wood on their own. */
 .hero-bottle{
