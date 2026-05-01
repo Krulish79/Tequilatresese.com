@@ -390,10 +390,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Push the hero copy block right to align with the visible left edge of
-     the TRES ESE logo image in the header (which sits at brand-block left
-     plus the logo's intrinsic transparent margin). */
-  padding-left: clamp(3rem, 5.5vw, 5rem);
+  /* Push the hero copy block right to align with the TRES ESE logo in the
+     header (the brand block sits well inside container --pad). */
+  padding-left: clamp(6rem, 11vw, 11rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
