@@ -313,7 +313,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  background-size: contain;
+  /* Slightly smaller than contain so the bottles read smaller and the hero
+     copy on the left has more breathing room (was 100% contain). */
+  background-size: 82% auto;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #15100c;
