@@ -392,9 +392,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Push the hero copy block right to align with the TRES ESE logo in the
-     header (the brand block sits well inside container --pad). */
-  padding-left: clamp(6rem, 11vw, 11rem);
+  /* Match the visible left edge of the TRES ESE logo image in the header.
+     Brand block sits at .container --pad; logo glyph is roughly that + the
+     PNG's intrinsic transparent margin (small). Use --pad here (no override)
+     so the hero copy lines up with the brand-block left exactly. */
+  padding-left: var(--pad);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
