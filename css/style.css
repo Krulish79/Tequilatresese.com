@@ -389,6 +389,12 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
+  /* Override container --pad so the hero copy aligns with the visual edge of
+     the header brand block (logo + captions sit closer to the viewport edge
+     because of the logo's intrinsic transparent margin). Same value on desktop
+     and mobile keeps the layout consistent. */
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
@@ -2027,7 +2033,9 @@ body.lightbox-open{ overflow: hidden; }
   .primary-nav.is-open a{ color: var(--ink); }
 
   /* Hero on mobile — title + lede across the full width on top,
-     then a 2-col row: stats on the LEFT, 3 bottles side by side on the RIGHT */
+     then a 2-col row: stats on the LEFT, 3 bottles side by side on the RIGHT
+     (Side padding is set globally on .hero-inner — 1rem — so it stays
+     consistent across desktop and mobile.) */
   .hero-inner{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2037,12 +2045,6 @@ body.lightbox-open{ overflow: hidden; }
       "stats trio";
     gap: 1.25rem 1rem;
     align-items: start;
-    /* Tighter side padding on mobile so the hero copy sits at the same x-pos
-       as the header brand block (which sits at container --pad edge of about
-       2rem). Brand visual edge is closer to viewport edge than --pad due to
-       the logo's intrinsic transparent margin — match it here with 1rem. */
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
   .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
   .hero-copy{ display: contents; }
