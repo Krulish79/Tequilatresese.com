@@ -313,14 +313,14 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  /* Slightly smaller than contain so the bottles read smaller and the hero
-     copy on the left has more breathing room (was 100% contain). */
-  background-size: 82% auto;
+  /* Cap at intrinsic source size (1290 px) so the image is never upscaled
+     on wide screens. Stays SHARP, and bottles read smaller on big monitors. */
+  background-size: min(100%, 1290px) auto;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #15100c;
-  /* Gentle enhancement — depth without going red */
-  filter: brightness(1.0) saturate(1.15) contrast(1.12);
+  /* Brighter — was reading too dark in the bottles */
+  filter: brightness(1.18) saturate(1.18) contrast(1.1);
   z-index: -3;
 }
 .hero{ background-color: #15100c; }
@@ -414,6 +414,16 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+.hero-place{
+  font-family: var(--sans);
+  font-size: clamp(.7rem, .85vw, .82rem);
+  font-weight: 400;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: rgba(176, 133, 66, .8);
+  margin: .85rem 0 0;
+  padding-left: .15em;
 }
 .hero-label{
   margin: 1.75rem 0 .15rem;
@@ -2033,20 +2043,20 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — title + lede across the full width on top,
-     then a 2-col row: stats on the LEFT, 3 bottles side by side on the RIGHT
-     (Side padding is set globally on .hero-inner — 1rem — so it stays
-     consistent across desktop and mobile.) */
+  /* Hero on mobile — title + place + lede across the full width on top,
+     then a 2-col row: stats on the LEFT, 3 bottles side by side on the RIGHT */
   .hero-inner{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "title title"
+      "place place"
       "lede  lede"
       "stats trio";
-    gap: 1.25rem 1rem;
+    gap: 1rem 1rem;
     align-items: start;
   }
+  .hero-place{ grid-area: place; }
   .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
   .hero-copy{ display: contents; }
   .hero-title{ grid-area: title; padding-left: 0 !important; }
