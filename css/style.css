@@ -327,18 +327,24 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg::after{
   content:"";
   position:absolute; inset:0;
-  /* Aggressive dissolve on the right — gradient fades the photo into the dark
-     cellar fill long before the image edge, so the right side blends instead
-     of cutting hard. Left side is more conservative since the copy lives there. */
+  /* Strong fade on ALL FOUR sides — image dissolves into the dark cellar fill
+     instead of cutting hard at any edge. Generous transition zones (~30% wide
+     on the sides, ~18% on top/bottom) so the entire perimeter blurs out. */
   background:
     linear-gradient(90deg,
       #15100c 0%,
-      rgba(21,16,12,.85) 12%,
-      transparent 28%,
-      transparent 55%,                 /* photo fully visible only up to ~55% */
-      rgba(21,16,12,.6) 75%,           /* gradual dark on the right */
-      #15100c 92%),
-    linear-gradient(180deg, #15100c 0%, transparent 14%, transparent 86%, #15100c 100%);
+      rgba(21,16,12,.7) 18%,
+      transparent 35%,
+      transparent 65%,
+      rgba(21,16,12,.7) 82%,
+      #15100c 100%),
+    linear-gradient(180deg,
+      #15100c 0%,
+      rgba(21,16,12,.6) 10%,
+      transparent 22%,
+      transparent 78%,
+      rgba(21,16,12,.6) 90%,
+      #15100c 100%);
   pointer-events: none;
 }
 .hero-veil{
@@ -392,11 +398,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Match the visible left edge of the TRES ESE logo image in the header.
-     Brand block sits at .container --pad; logo glyph is roughly that + the
-     PNG's intrinsic transparent margin (small). Use --pad here (no override)
-     so the hero copy lines up with the brand-block left exactly. */
-  padding-left: var(--pad);
+  /* Align hero copy with the visible left edge of the TRES ESE logo image.
+     The logo PNG has a small transparent margin, so the visible glyph sits
+     slightly inside the brand-block edge. Offset hero copy by that amount. */
+  padding-left: calc(var(--pad) + .75rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
