@@ -325,13 +325,18 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg::after{
   content:"";
   position:absolute; inset:0;
-  /* Strong dark fade on all four sides covers the contained photo's hard edges
-     so it dissolves smoothly into the dark cellar fill behind. Wide transition
-     zones (25% horizontal, 12% vertical) ensure the image edges fall inside
-     the gradient — no more hard rectangle. */
+  /* Aggressive dissolve on the right — gradient fades the photo into the dark
+     cellar fill long before the image edge, so the right side blends instead
+     of cutting hard. Left side is more conservative since the copy lives there. */
   background:
-    linear-gradient(90deg, #15100c 0%, transparent 26%, transparent 74%, #15100c 100%),
-    linear-gradient(180deg, #15100c 0%, transparent 13%, transparent 87%, #15100c 100%);
+    linear-gradient(90deg,
+      #15100c 0%,
+      rgba(21,16,12,.85) 12%,
+      transparent 28%,
+      transparent 55%,                 /* photo fully visible only up to ~55% */
+      rgba(21,16,12,.6) 75%,           /* gradual dark on the right */
+      #15100c 92%),
+    linear-gradient(180deg, #15100c 0%, transparent 14%, transparent 86%, #15100c 100%);
   pointer-events: none;
 }
 .hero-veil{
@@ -385,8 +390,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* No padding override — let .container --pad apply so the hero copy starts
-     at the same x-position as the header brand (TRES ESE logo) above. */
+  /* Push the hero copy block right to align with the visible left edge of
+     the TRES ESE logo image in the header (which sits at brand-block left
+     plus the logo's intrinsic transparent margin). */
+  padding-left: clamp(3rem, 5.5vw, 5rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
@@ -489,26 +496,27 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
    the cellar photo so taps go to the correct expression section. */
 .hero-photo-link{
   position: absolute;
-  top: 28%;
-  bottom: 6%;
-  width: 9%;
+  top: 32%;
+  bottom: 8%;
+  width: 7%;
   z-index: 4;
   cursor: pointer;
+  /* Truly invisible — no hover background, no border, no outline */
   background: transparent;
   border: 0;
-  transition: background .25s var(--ease);
+  text-decoration: none;
 }
-.hero-photo-link:hover{
-  background: rgba(255,200,130,.06);   /* very subtle amber lift on hover */
-}
+.hero-photo-link:hover,
+.hero-photo-link:focus,
 .hero-photo-link:focus-visible{
-  outline: 2px solid var(--gold);
-  outline-offset: -2px;
+  background: transparent;
+  outline: none;
 }
-/* Horizontal positions match the three bottle centres in hero-cellar.jpg */
-.hero-photo-link--blanco{ left: 52.5%; }
-.hero-photo-link--reposado{ left: 62%; }
-.hero-photo-link--anejo{ left: 71.5%; }
+/* Bottle centres in cropped hero-cellar.jpg (1290x736), assuming a typical
+   wide viewport (≥16:9). Positions are in viewport-percent and approximate. */
+.hero-photo-link--blanco{ left: 57%; }
+.hero-photo-link--reposado{ left: 66%; }
+.hero-photo-link--anejo{ left: 74.5%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
