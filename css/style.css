@@ -312,18 +312,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 }
 .hero-bg{
   position:absolute; inset:0;
-  /* Layered background — top to bottom:
-       1. Horizontal edge fade (dark color at left/right, transparent in middle)
-       2. Vertical edge fade (dark color at top/bottom, transparent in middle)
-       3. Cellar photo
-       4. Solid dark fill
-     Where the gradients are solid dark they hide the photo edges; where they
-     fade to transparent the photo shows through. No more hard cutoff. */
-  background:
-    linear-gradient(90deg, #15100c 0%, transparent 10%, transparent 90%, #15100c 100%) no-repeat,
-    linear-gradient(180deg, #15100c 0%, transparent 8%, transparent 92%, #15100c 100%) no-repeat,
-    url('../images/hero-cellar.jpg') center / contain no-repeat,
-    #15100c;
+  background-image: url('../images/hero-cellar.jpg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #15100c;
   /* Gentle enhancement — depth without going red */
   filter: brightness(1.0) saturate(1.15) contrast(1.12);
   z-index: -3;
@@ -332,11 +325,14 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg::after{
   content:"";
   position:absolute; inset:0;
-  /* Warm spot of light over the bottles, soft shadows in the corners */
+  /* Strong dark fade on all four sides covers the contained photo's hard edges
+     so it dissolves smoothly into the dark cellar fill behind. Wide transition
+     zones (25% horizontal, 12% vertical) ensure the image edges fall inside
+     the gradient — no more hard rectangle. */
   background:
-    radial-gradient(ellipse at 75% 55%, rgba(255,200,130,.10), transparent 50%),
-    radial-gradient(ellipse at 0% 100%, rgba(0,0,0,.4), transparent 55%),
-    radial-gradient(ellipse at 100% 0%, rgba(0,0,0,.35), transparent 55%);
+    linear-gradient(90deg, #15100c 0%, transparent 26%, transparent 74%, #15100c 100%),
+    linear-gradient(180deg, #15100c 0%, transparent 13%, transparent 87%, #15100c 100%);
+  pointer-events: none;
 }
 .hero-veil{
   position:absolute; inset:0;
@@ -389,12 +385,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Override container --pad so the hero copy aligns with the visual edge of
-     the header brand block (logo + captions sit closer to the viewport edge
-     because of the logo's intrinsic transparent margin). Same value on desktop
-     and mobile keeps the layout consistent. */
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* No padding override — let .container --pad apply so the hero copy starts
+     at the same x-position as the header brand (TRES ESE logo) above. */
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
