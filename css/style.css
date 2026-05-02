@@ -315,8 +315,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background-image: url('../images/hero-cellar.jpg');
   /* Image reduced 10% (1260 → 1134) — bottles a touch smaller. */
   background-size: min(100%, 1134px) auto;
-  /* Shifted ~10% left so bottles align with "Contact" in the header. */
-  background-position: 55% center;
+  /* Position: 5% further left horizontally and 5% lower vertically */
+  background-position: 50% 55%;
   background-repeat: no-repeat;
   background-color: #15100c;
   /* Brighter — was reading too dark in the bottles */
@@ -512,9 +512,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
    the cellar photo so taps go to the correct expression section. */
 .hero-photo-link{
   position: absolute;
-  top: 35%;
-  bottom: 10%;
-  width: 5%;       /* tighter so adjacent bottles don't overlap clicks */
+  top: 40%;          /* image lowered, hot-spot follows */
+  bottom: 5%;
+  width: 5%;
   z-index: 4;
   cursor: pointer;
   /* Truly invisible — no hover background, no border, no outline */
@@ -528,11 +528,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image is 1134px wide max at background-position 55%.
-   Trio sits roughly under "Contact" in the nav. */
-.hero-photo-link--blanco{ left: 56%; }
-.hero-photo-link--reposado{ left: 61.5%; }
-.hero-photo-link--anejo{ left: 67%; }
+/* Bottle centres — image is 1134px wide max at background-position 50% 55%
+   (5% left + 5% lower than before). */
+.hero-photo-link--blanco{ left: 53.5%; }
+.hero-photo-link--reposado{ left: 59%; }
+.hero-photo-link--anejo{ left: 64.5%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
