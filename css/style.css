@@ -339,9 +339,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
       #15100c 100%),
     linear-gradient(180deg,
       #15100c 0%,
-      rgba(21,16,12,.6) 10%,
-      transparent 22%,
-      transparent 78%,
+      #15100c 22%,                   /* solid dark covers the image's top edge */
+      rgba(21,16,12,.8) 27%,
+      transparent 38%,
+      transparent 76%,
       rgba(21,16,12,.6) 90%,
       #15100c 100%);
   pointer-events: none;
