@@ -400,8 +400,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Hero copy left edge aligns with the main TRES ESE logo (no extra shift). */
-  padding-left: var(--pad);
+  /* Hero copy pushed way right so its left edge aligns with the left margin
+     of the photo area on the right. */
+  padding-left: clamp(10rem, 18vw, 18rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
