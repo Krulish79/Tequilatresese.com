@@ -313,9 +313,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  /* Cap smaller than intrinsic source so bottles read smaller and the photo
-     leaves breathing room around the hero copy. */
-  background-size: min(100%, 1050px) auto;
+  /* Image bumped up 20% (1050 → 1260) so the bottles read larger. */
+  background-size: min(100%, 1260px) auto;
   /* Shift photo right so the bottle trio sits roughly under "Contact" in the
      header navigation. */
   background-position: 65% center;
@@ -400,9 +399,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Hero copy pushed way right so its left edge aligns with the left margin
-     of the photo area on the right. */
-  padding-left: clamp(10rem, 18vw, 18rem);
+  /* Hero copy — shifted left by ~10% of viewport from the previous setting */
+  padding-left: clamp(7rem, 12vw, 12rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
@@ -531,11 +529,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image is 1050px wide max at background-position 65% center.
-   Hot-spot left edges (each 5% wide) are centered on each bottle. */
-.hero-photo-link--blanco{ left: 60.5%; }
+/* Bottle centres — image is now 1260px wide max at background-position 65%.
+   Bigger image moves bottles slightly farther apart in viewport-percent. */
+.hero-photo-link--blanco{ left: 59.5%; }
 .hero-photo-link--reposado{ left: 65.5%; }
-.hero-photo-link--anejo{ left: 70.5%; }
+.hero-photo-link--anejo{ left: 71.5%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
