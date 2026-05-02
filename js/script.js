@@ -1,4 +1,18 @@
 (() => {
+  // Hero video — gradually slow playback in the last 1.5 seconds so it
+  // eases to a stop instead of cutting hard. Plays through once then freezes.
+  const heroVid = document.querySelector('video.hero-bg');
+  if (heroVid) {
+    const slowdownWindow = 1.5;   // seconds before end where slowdown begins
+    heroVid.addEventListener('timeupdate', () => {
+      const remaining = heroVid.duration - heroVid.currentTime;
+      if (remaining < slowdownWindow && remaining > 0) {
+        // Ease playback rate from 1.0 down toward 0.15 as we approach the end
+        heroVid.playbackRate = Math.max(0.15, remaining / slowdownWindow);
+      }
+    });
+  }
+
   // Header shadow on scroll
   const header = document.getElementById('siteHeader');
   const onScroll = () => {
