@@ -313,9 +313,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  /* Image shifted 20% further left (horizontal: 50% → 30%) */
+  /* Image at horizontal 30%, lowered to vertical 60% (5% lower than before) */
   background-size: min(100%, 1247px) auto;
-  background-position: 30% 55%;
+  background-position: 30% 60%;
   background-repeat: no-repeat;
   background-color: #15100c;
   /* Neutral — let the new image's natural tones come through */
@@ -511,9 +511,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
    the cellar photo so taps go to the correct expression section. */
 .hero-photo-link{
   position: absolute;
-  top: 40%;          /* image lowered, hot-spot follows */
+  top: 40%;          /* image lowered to bg-pos 60% — band moves down too */
   bottom: 5%;
-  width: 5%;
+  width: 6%;
   z-index: 4;
   cursor: pointer;
   /* Truly invisible — no hover background, no border, no outline */
