@@ -2063,28 +2063,31 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — minimal: brand title flush-left over the video, which
-     pans and then stops on its final frame so the bottles stay in view. */
-  .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
+  /* Hero on mobile — minimal: brand title flush-left over the still poster
+     (the video is paused via JS on mobile, so visitors see the bottles
+     immediately instead of watching a pan). */
+  .hero{
+    align-items: flex-start;
+    padding: 5rem 0 3rem;          /* clear the fixed header at top */
+  }
   .hero-inner{
     display: block;
-    padding: 2rem 0 0;
+    padding: 0;
     text-align: left;
   }
   .hero-place,
   .hero .lede,
   .hero-meta,
   .hero-trio{ display: none; }
-  /* Video bright enough on mobile so the bottles are clearly visible when
-     the pan stops at the final frame. */
+  /* Hide the Discover arrow at the bottom of the hero on mobile */
+  .scroll-link--hero{ display: none !important; }
   .hero-bg{ filter: brightness(.95) saturate(1.05) contrast(1.05); }
-  .hero-copy{
-    display: block;
-    text-align: left;
-  }
+  .hero-copy{ display: block; text-align: left; }
+  /* Equal top + left padding for the title — both 1.5rem, so the visual
+     space above and to the left of "TEQUILA / Tres Ese / Orgánico" matches. */
   .hero-title{
-    margin: 3rem 0 0;
-    padding-left: 0 !important;
+    margin: 1.5rem 0 0;
+    padding-left: 1.5rem !important;
     text-align: left;
   }
   .hero-label{ padding-left: 0 !important; text-align: left; }

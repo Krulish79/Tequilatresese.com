@@ -1,6 +1,13 @@
 (() => {
-  // Hero video plays through once and freezes on its final frame at full
-  // opacity — no fade, no slowdown (both caused visible artefacts).
+  // Hero video — on mobile, don't play it. Visitors see the still poster
+   // image (which already has the bottles in frame). Saves bandwidth and
+   // makes the bottles visible immediately, no panning to wait through.
+  const heroVid = document.querySelector('video.hero-bg');
+  if (heroVid && window.matchMedia('(max-width: 960px)').matches) {
+    heroVid.removeAttribute('autoplay');
+    heroVid.preload = 'none';
+    heroVid.pause();
+  }
 
   // Header shadow on scroll
   const header = document.getElementById('siteHeader');
