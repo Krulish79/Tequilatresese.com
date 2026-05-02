@@ -310,25 +310,27 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   overflow: hidden;
   isolation: isolate;
 }
+/* Hero VIDEO — sized and positioned the way the still image was: capped at
+   1247px wide, anchored at horizontal 30% / vertical 60%. Plays muted on
+   loop, with the still image as a poster fallback while the video buffers. */
 .hero-bg{
-  position:absolute; inset:0;
-  background-image: url('../images/hero-cellar.jpg');
-  /* Image at horizontal 30%, lowered to vertical 60% (5% lower than before) */
-  background-size: min(100%, 1247px) auto;
-  background-position: 30% 60%;
-  background-repeat: no-repeat;
-  background-color: #15100c;
-  /* Neutral — let the new image's natural tones come through */
+  position: absolute;
+  width: 100%;
+  max-width: 1247px;
+  height: auto;
+  max-height: 100%;
+  left: 30%;
+  top: 60%;
+  transform: translate(-30%, -60%);
+  object-fit: contain;
   filter: brightness(1.05) saturate(1) contrast(1.05);
   z-index: -3;
 }
 .hero{ background-color: #15100c; }
-.hero-bg::after{
-  content:"";
-  position:absolute; inset:0;
-  /* Strong fade on ALL FOUR sides — image dissolves into the dark cellar fill
-     instead of cutting hard at any edge. Generous transition zones (~30% wide
-     on the sides, ~18% on top/bottom) so the entire perimeter blurs out. */
+/* Edge-fade overlay — same dark gradients on all four sides as before, plus a
+   strong top fade so the video's top edge buries into pure black. */
+.hero-edge-fade{
+  position: absolute; inset: 0;
   background:
     linear-gradient(90deg,
       #15100c 0%,
@@ -339,13 +341,14 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
       #15100c 100%),
     linear-gradient(180deg,
       #15100c 0%,
-      #15100c 22%,                   /* solid dark covers the image's top edge */
+      #15100c 22%,
       rgba(21,16,12,.8) 27%,
       transparent 38%,
       transparent 76%,
       rgba(21,16,12,.6) 90%,
       #15100c 100%);
   pointer-events: none;
+  z-index: -2;
 }
 .hero-veil{
   position:absolute; inset:0;
@@ -2025,8 +2028,18 @@ body.lightbox-open{ overflow: hidden; }
   .brand-caption-place{ justify-self: start; }
   .brand-caption-place{ white-space: normal; line-height: 1.25; }
   .brand-logo{ height: 42px; }
-  /* Hero photo on phones — center the contained image in the dark cellar fill */
-  .hero-bg{ background-position: center center; }
+  /* Hero video on phones — full-bleed, centered, no max-width cap */
+  .hero-bg{
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    left: 0;
+    top: 0;
+    transform: none;
+    object-fit: cover;
+    object-position: center center;
+  }
   .hero-veil{
     background:
       linear-gradient(180deg, rgba(14,12,9,.55) 0%, rgba(14,12,9,.25) 30%, rgba(14,12,9,.65) 100%);
