@@ -399,8 +399,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* No padding override — .container already provides --pad on left/right.
-     Header brand and hero copy both inherit the same --pad and align evenly. */
+  /* Push hero copy right so its left edge aligns with the right edge of the
+     header logo (text starts where the logo ends). */
+  padding-left: clamp(5rem, 8vw, 8rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
