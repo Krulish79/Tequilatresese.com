@@ -2063,30 +2063,31 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — minimal and uncluttered. Just the brand title and the
-     cellar photo as backdrop. Everything else is repeated elsewhere. */
+  /* Hero on mobile — minimal: brand title flush-left over the video, which
+     pans and then stops on its final frame so the bottles stay in view. */
+  .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
   .hero-inner{
     display: block;
-    padding-top: 2rem;
+    padding: 2rem 0 0;
+    text-align: left;
   }
   .hero-place,
   .hero .lede,
   .hero-meta,
   .hero-trio{ display: none; }
-  /* Cellar photo sits as quiet atmosphere behind the brand title. */
-  .hero-bg{ filter: brightness(.5) saturate(1.05) contrast(1.05); }
-  /* Center the title nicely on the phone — it's the only content here */
+  /* Video bright enough on mobile so the bottles are clearly visible when
+     the pan stops at the final frame. */
+  .hero-bg{ filter: brightness(.95) saturate(1.05) contrast(1.05); }
   .hero-copy{
-    align-self: center;
+    display: block;
     text-align: left;
   }
   .hero-title{
-    margin: 4rem 0;
+    margin: 3rem 0 0;
+    padding-left: 0 !important;
+    text-align: left;
   }
-  .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
-  .hero-copy{ display: contents; }
-  .hero-title{ grid-area: title; padding-left: 0 !important; }
-  .hero-label{ padding-left: 0 !important; }
+  .hero-label{ padding-left: 0 !important; text-align: left; }
   .hero .lede{
     grid-area: lede;
     text-align: justify !important;
