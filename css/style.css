@@ -310,13 +310,12 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   overflow: hidden;
   isolation: isolate;
 }
-/* Hero VIDEO — sized and positioned the way the still image was: capped at
-   1247px wide, anchored at horizontal 30% / vertical 60%. Plays muted on
-   loop, with the still image as a poster fallback while the video buffers. */
+/* Hero VIDEO — capped at 1372px wide (10% bigger), anchored at horizontal
+   30% / vertical 60%. Plays muted once and stops on its last frame. */
 .hero-bg{
   position: absolute;
   width: 100%;
-  max-width: 1247px;
+  max-width: 1372px;
   height: auto;
   max-height: 100%;
   left: 30%;
@@ -531,10 +530,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image at background-position 30% 55% (20% further left). */
-.hero-photo-link--blanco{ left: 50%; }
-.hero-photo-link--reposado{ left: 56%; }
-.hero-photo-link--anejo{ left: 62%; }
+/* Bottle centres — video grown 10% (1247 → 1372), so bottles spread slightly. */
+.hero-photo-link--blanco{ left: 52%; }
+.hero-photo-link--reposado{ left: 58%; }
+.hero-photo-link--anejo{ left: 65%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
