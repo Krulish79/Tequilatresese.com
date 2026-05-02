@@ -318,8 +318,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background-position: 30% 55%;
   background-repeat: no-repeat;
   background-color: #15100c;
-  /* Brighter — was reading too dark in the bottles */
-  filter: brightness(1.18) saturate(1.18) contrast(1.1);
+  /* Neutral — let the new image's natural tones come through */
+  filter: brightness(1.05) saturate(1) contrast(1.05);
   z-index: -3;
 }
 .hero{ background-color: #15100c; }
