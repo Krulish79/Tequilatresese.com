@@ -337,9 +337,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
       #15100c 0%,
       rgba(21,16,12,.7) 18%,
       transparent 35%,
-      transparent 65%,
-      rgba(21,16,12,.7) 82%,
-      #15100c 100%),
+      transparent 68%,                /* keep bottle area (52-65%) clean */
+      rgba(21,16,12,.55) 76%,         /* fade kicks in past the bottles */
+      rgba(21,16,12,.85) 86%,
+      #15100c 96%),
     linear-gradient(180deg,
       #15100c 0%,
       rgba(21,16,12,.95) 12%,       /* heavy alpha straddles the image top edge */
