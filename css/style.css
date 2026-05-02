@@ -2031,7 +2031,9 @@ body.lightbox-open{ overflow: hidden; }
   .brand-caption-place{ justify-self: start; }
   .brand-caption-place{ white-space: normal; line-height: 1.25; }
   .brand-logo{ height: 42px; }
-  /* Hero video on phones — full-bleed, centered, no max-width cap */
+  /* Hero video/poster on phones — full-bleed, anchored so the BOTTLES (in the
+     right portion of the image) sit roughly in the middle-right of the viewport,
+     where the user's red-circle annotation indicated. */
   .hero-bg{
     width: 100%;
     max-width: none;
@@ -2041,7 +2043,7 @@ body.lightbox-open{ overflow: hidden; }
     top: 0;
     transform: none;
     object-fit: cover;
-    object-position: center center;
+    object-position: 72% 65%;
   }
   .hero-veil{
     background:
@@ -2083,11 +2085,11 @@ body.lightbox-open{ overflow: hidden; }
   .scroll-link--hero{ display: none !important; }
   .hero-bg{ filter: brightness(.95) saturate(1.05) contrast(1.05); }
   .hero-copy{ display: block; text-align: left; }
-  /* Equal top + left padding for the title — both 1.5rem, so the visual
-     space above and to the left of "TEQUILA / Tres Ese / Orgánico" matches. */
+  /* Title hugs the left edge of the viewport (matches the red-line annotation
+     in the user's screenshot — flush left at minimal padding). */
   .hero-title{
     margin: 1.5rem 0 0;
-    padding-left: 1.5rem !important;
+    padding-left: .5rem !important;
     text-align: left;
   }
   .hero-label{ padding-left: 0 !important; text-align: left; }
