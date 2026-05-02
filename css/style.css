@@ -2050,31 +2050,26 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — keep it clean: title + bottles only. Stats, place, and
-     lede paragraph are repeated elsewhere (footer, ribbon, story) and clutter
-     the first screen on a phone. */
+  /* Hero on mobile — minimal and uncluttered. Just the brand title and the
+     cellar photo as backdrop. Everything else is repeated elsewhere. */
   .hero-inner{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "title"
-      "trio";
-    gap: 2rem;
-    align-items: start;
+    display: block;
+    padding-top: 2rem;
   }
   .hero-place,
   .hero .lede,
-  .hero-meta{ display: none; }
-  /* Re-enable the standalone bottle trio on mobile (it's hidden on desktop
-     because the cellar photo includes bottles — but on a portrait phone the
-     photo crops awkwardly, so the standalone bottles read better). */
-  .hero-trio{
-    visibility: visible;
-    pointer-events: auto;
+  .hero-meta,
+  .hero-trio{ display: none; }
+  /* Cellar photo sits as quiet atmosphere behind the brand title. */
+  .hero-bg{ filter: brightness(.5) saturate(1.05) contrast(1.05); }
+  /* Center the title nicely on the phone — it's the only content here */
+  .hero-copy{
+    align-self: center;
+    text-align: left;
   }
-  /* Dim the cellar photo on mobile so it sits as quiet atmosphere behind
-     the title and the standalone bottle trio (which is the visual focus). */
-  .hero-bg{ filter: brightness(.55) saturate(1.1) contrast(1.05); }
+  .hero-title{
+    margin: 4rem 0;
+  }
   .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
   .hero-copy{ display: contents; }
   .hero-title{ grid-area: title; padding-left: 0 !important; }
