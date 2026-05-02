@@ -1,14 +1,16 @@
 (() => {
-  // Hero video — gradually slow playback in the last 1.5 seconds so it
-  // eases to a stop instead of cutting hard. Plays through once then freezes.
+  // Hero video — fade the opacity gently in the last 1.5 seconds so the end
+  // doesn't cut hard. Playback rate stays at 1.0 (so the video itself doesn't
+  // stutter); the cross-fade happens in the GPU-accelerated opacity layer.
   const heroVid = document.querySelector('video.hero-bg');
   if (heroVid) {
-    const slowdownWindow = 1.5;   // seconds before end where slowdown begins
+    let faded = false;
     heroVid.addEventListener('timeupdate', () => {
-      const remaining = heroVid.duration - heroVid.currentTime;
-      if (remaining < slowdownWindow && remaining > 0) {
-        // Ease playback rate from 1.0 down toward 0.15 as we approach the end
-        heroVid.playbackRate = Math.max(0.15, remaining / slowdownWindow);
+      if (!faded && heroVid.duration > 0
+          && heroVid.duration - heroVid.currentTime < 1.5) {
+        faded = true;
+        heroVid.style.transition = 'opacity 1.5s ease-out';
+        heroVid.style.opacity = '0.55';   // soft dissolve at the end
       }
     });
   }

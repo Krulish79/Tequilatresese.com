@@ -342,9 +342,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
       #15100c 100%),
     linear-gradient(180deg,
       #15100c 0%,
-      #15100c 22%,
-      rgba(21,16,12,.8) 27%,
-      transparent 38%,
+      rgba(21,16,12,.85) 8%,        /* lighter top blur — image shows higher */
+      rgba(21,16,12,.4) 18%,
+      transparent 28%,
       transparent 76%,
       rgba(21,16,12,.6) 90%,
       #15100c 100%);
