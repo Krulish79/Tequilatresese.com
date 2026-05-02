@@ -313,9 +313,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  /* Cap at intrinsic source size (1500 px) so the image is never upscaled
-     on wide screens. Stays SHARP, and bottles read smaller on big monitors. */
-  background-size: min(100%, 1500px) auto;
+  /* Cap smaller than intrinsic source so bottles read smaller and the photo
+     leaves breathing room around the hero copy. */
+  background-size: min(100%, 1050px) auto;
   /* Shift photo right so the bottle trio sits roughly under "Contact" in the
      header navigation. */
   background-position: 65% center;
@@ -400,9 +400,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Push hero copy right so its left edge aligns with the right edge of the
-     header logo (text starts where the logo ends). */
-  padding-left: clamp(9rem, 14vw, 14rem);
+  /* Hero copy left edge aligns with the main TRES ESE logo (no extra shift). */
+  padding-left: var(--pad);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
@@ -531,11 +530,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image at background-position 65% center, so bottles sit
-   slightly right of viewport center, roughly under the nav's "Contact" link. */
-.hero-photo-link--blanco{ left: 61.5%; }
-.hero-photo-link--reposado{ left: 69%; }
-.hero-photo-link--anejo{ left: 76%; }
+/* Bottle centres — image is now 1050px wide max at background-position 65%
+   center. Bottles in the trio sit roughly under "Contact" in the nav. */
+.hero-photo-link--blanco{ left: 62%; }
+.hero-photo-link--reposado{ left: 67%; }
+.hero-photo-link--anejo{ left: 72%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
@@ -2051,20 +2050,31 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — title + place + lede across the full width on top,
-     then a 2-col row: stats on the LEFT, 3 bottles side by side on the RIGHT */
+  /* Hero on mobile — keep it clean: title + bottles only. Stats, place, and
+     lede paragraph are repeated elsewhere (footer, ribbon, story) and clutter
+     the first screen on a phone. */
   .hero-inner{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "title title"
-      "place place"
-      "lede  lede"
-      "stats trio";
-    gap: 1rem 1rem;
+      "title"
+      "trio";
+    gap: 2rem;
     align-items: start;
   }
-  .hero-place{ grid-area: place; }
+  .hero-place,
+  .hero .lede,
+  .hero-meta{ display: none; }
+  /* Re-enable the standalone bottle trio on mobile (it's hidden on desktop
+     because the cellar photo includes bottles — but on a portrait phone the
+     photo crops awkwardly, so the standalone bottles read better). */
+  .hero-trio{
+    visibility: visible;
+    pointer-events: auto;
+  }
+  /* Dim the cellar photo on mobile so it sits as quiet atmosphere behind
+     the title and the standalone bottle trio (which is the visual focus). */
+  .hero-bg{ filter: brightness(.55) saturate(1.1) contrast(1.05); }
   .hero{ align-items: flex-start; padding-top: 6rem; padding-bottom: 3rem; }
   .hero-copy{ display: contents; }
   .hero-title{ grid-area: title; padding-left: 0 !important; }
