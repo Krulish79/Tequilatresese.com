@@ -316,9 +316,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   /* Cap at intrinsic source size (1290 px) so the image is never upscaled
      on wide screens. Stays SHARP, and bottles read smaller on big monitors. */
   background-size: min(100%, 1290px) auto;
-  /* Photo shifted right but a touch less than before — bottles closer to
-     center-right of the viewport. */
-  background-position: 65% center;
+  /* Photo centered — bottles sit naturally to the right within the photo */
+  background-position: center center;
   background-repeat: no-repeat;
   background-color: #15100c;
   /* Brighter — was reading too dark in the bottles */
@@ -400,9 +399,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Hero copy aligns with the brand block in the header (where the TEQUILA
-     caption text sits). Same value as the .container --pad they share. */
-  padding-left: var(--pad);
+  /* No padding override — .container already provides --pad on left/right.
+     Header brand and hero copy both inherit the same --pad and align evenly. */
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
@@ -531,11 +529,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image is now positioned at background-position: 65%, so
-   bottles sit slightly left of where they were. */
-.hero-photo-link--blanco{ left: 62%; }
-.hero-photo-link--reposado{ left: 68%; }
-.hero-photo-link--anejo{ left: 75%; }
+/* Bottle centres — image centered in viewport (background-position: center) */
+.hero-photo-link--blanco{ left: 58%; }
+.hero-photo-link--reposado{ left: 65%; }
+.hero-photo-link--anejo{ left: 72%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
