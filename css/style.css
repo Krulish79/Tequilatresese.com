@@ -316,7 +316,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   /* Cap at intrinsic source size (1290 px) so the image is never upscaled
      on wide screens. Stays SHARP, and bottles read smaller on big monitors. */
   background-size: min(100%, 1290px) auto;
-  background-position: center center;
+  /* Shift photo right so the bottles sit well in the right half — matches
+     the hero copy that's pushed right on the left half. */
+  background-position: 75% center;
   background-repeat: no-repeat;
   background-color: #15100c;
   /* Brighter — was reading too dark in the bottles */
@@ -398,10 +400,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: end;
   gap: clamp(2rem, 5vw, 4rem);
-  /* Align hero copy with the visible left edge of the TRES ESE logo image.
-     The logo PNG has a small transparent margin, so the visible glyph sits
-     slightly inside the brand-block edge. Offset hero copy by that amount. */
-  padding-left: calc(var(--pad) + .75rem);
+  /* Push the hero copy block well to the right — aligning with where the
+     TRES ESE logo sits visually inside the header. */
+  padding-left: clamp(8rem, 14vw, 14rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
@@ -530,11 +531,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres in cropped hero-cellar.jpg (1290x736), assuming a typical
-   wide viewport (≥16:9). Positions are in viewport-percent and approximate. */
-.hero-photo-link--blanco{ left: 57%; }
-.hero-photo-link--reposado{ left: 66%; }
-.hero-photo-link--anejo{ left: 74.5%; }
+/* Bottle centres — image is now positioned at background-position: 75% so
+   bottles sit in the right portion of the viewport. */
+.hero-photo-link--blanco{ left: 65%; }
+.hero-photo-link--reposado{ left: 71.5%; }
+.hero-photo-link--anejo{ left: 78%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
