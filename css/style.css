@@ -316,8 +316,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   /* Cap at intrinsic source size (1500 px) so the image is never upscaled
      on wide screens. Stays SHARP, and bottles read smaller on big monitors. */
   background-size: min(100%, 1500px) auto;
-  /* Photo centered — bottles sit naturally to the right within the photo */
-  background-position: center center;
+  /* Shift photo right so the bottle trio sits roughly under "Contact" in the
+     header navigation. */
+  background-position: 65% center;
   background-repeat: no-repeat;
   background-color: #15100c;
   /* Brighter — was reading too dark in the bottles */
@@ -530,10 +531,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image centered in viewport (background-position: center) */
-.hero-photo-link--blanco{ left: 58%; }
-.hero-photo-link--reposado{ left: 65%; }
-.hero-photo-link--anejo{ left: 72%; }
+/* Bottle centres — image at background-position 65% center, so bottles sit
+   slightly right of viewport center, roughly under the nav's "Contact" link. */
+.hero-photo-link--blanco{ left: 61.5%; }
+.hero-photo-link--reposado{ left: 69%; }
+.hero-photo-link--anejo{ left: 76%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
