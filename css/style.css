@@ -313,9 +313,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  /* Cap at intrinsic source size (1290 px) so the image is never upscaled
+  /* Cap at intrinsic source size (1500 px) so the image is never upscaled
      on wide screens. Stays SHARP, and bottles read smaller on big monitors. */
-  background-size: min(100%, 1290px) auto;
+  background-size: min(100%, 1500px) auto;
   /* Photo centered — bottles sit naturally to the right within the photo */
   background-position: center center;
   background-repeat: no-repeat;
