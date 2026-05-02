@@ -313,10 +313,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .hero-bg{
   position:absolute; inset:0;
   background-image: url('../images/hero-cellar.jpg');
-  /* Image reduced 10% (1260 → 1134) — bottles a touch smaller. */
-  background-size: min(100%, 1134px) auto;
-  /* Position: 5% further left horizontally and 5% lower vertically */
-  background-position: 50% 55%;
+  /* Bottles grown 10% (1134 → 1247) and shifted 10% right */
+  background-size: min(100%, 1247px) auto;
+  background-position: 60% 55%;
   background-repeat: no-repeat;
   background-color: #15100c;
   /* Brighter — was reading too dark in the bottles */
@@ -528,11 +527,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image is 1134px wide max at background-position 50% 55%
-   (5% left + 5% lower than before). */
-.hero-photo-link--blanco{ left: 53.5%; }
-.hero-photo-link--reposado{ left: 59%; }
-.hero-photo-link--anejo{ left: 64.5%; }
+/* Bottle centres — image is 1247px wide max at background-position 60% 55%
+   (10% larger and 10% right of previous). */
+.hero-photo-link--blanco{ left: 60%; }
+.hero-photo-link--reposado{ left: 66%; }
+.hero-photo-link--anejo{ left: 72%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
