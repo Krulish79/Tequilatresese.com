@@ -515,9 +515,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
    the cellar photo so taps go to the correct expression section. */
 .hero-photo-link{
   position: absolute;
-  top: 32%;
-  bottom: 8%;
-  width: 7%;
+  top: 35%;
+  bottom: 10%;
+  width: 5%;       /* tighter so adjacent bottles don't overlap clicks */
   z-index: 4;
   cursor: pointer;
   /* Truly invisible — no hover background, no border, no outline */
@@ -531,11 +531,11 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   background: transparent;
   outline: none;
 }
-/* Bottle centres — image is now 1050px wide max at background-position 65%
-   center. Bottles in the trio sit roughly under "Contact" in the nav. */
-.hero-photo-link--blanco{ left: 62%; }
-.hero-photo-link--reposado{ left: 67%; }
-.hero-photo-link--anejo{ left: 72%; }
+/* Bottle centres — image is 1050px wide max at background-position 65% center.
+   Hot-spot left edges (each 5% wide) are centered on each bottle. */
+.hero-photo-link--blanco{ left: 60.5%; }
+.hero-photo-link--reposado{ left: 65.5%; }
+.hero-photo-link--anejo{ left: 70.5%; }
 @media (max-width: 960px){
   /* On phones the photo crops/scales differently — disable hot-spots and
      let users tap the nav menu instead. */
