@@ -401,7 +401,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   gap: clamp(2rem, 5vw, 4rem);
   /* Push hero copy right so its left edge aligns with the right edge of the
      header logo (text starts where the logo ends). */
-  padding-left: clamp(5rem, 8vw, 8rem);
+  padding-left: clamp(9rem, 14vw, 14rem);
 }
 .hero-copy{ align-self: center; }
 .hero-trio{
