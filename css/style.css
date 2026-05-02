@@ -342,9 +342,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
       #15100c 100%),
     linear-gradient(180deg,
       #15100c 0%,
-      rgba(21,16,12,.85) 8%,        /* lighter top blur — image shows higher */
-      rgba(21,16,12,.4) 18%,
-      transparent 28%,
+      rgba(21,16,12,.95) 12%,       /* heavy alpha straddles the image top edge */
+      rgba(21,16,12,.7) 18%,         /* fades through it smoothly */
+      rgba(21,16,12,.35) 23%,
+      transparent 30%,                /* clean image from here down */
       transparent 76%,
       rgba(21,16,12,.6) 90%,
       #15100c 100%);
