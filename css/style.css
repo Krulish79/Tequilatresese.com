@@ -2031,9 +2031,9 @@ body.lightbox-open{ overflow: hidden; }
   .brand-caption-place{ justify-self: start; }
   .brand-caption-place{ white-space: normal; line-height: 1.25; }
   .brand-logo{ height: 42px; }
-  /* Hero video/poster on phones — full-bleed, anchored so the BOTTLES (in the
-     right portion of the image) sit roughly in the middle-right of the viewport,
-     where the user's red-circle annotation indicated. */
+  /* Hero video/poster on phones — fit the WHOLE image so all 3 bottles are
+     visible (smaller, but you can see them all). object-position centers it
+     vertically and slightly right so the bottles sit in the middle-right. */
   .hero-bg{
     width: 100%;
     max-width: none;
@@ -2042,8 +2042,8 @@ body.lightbox-open{ overflow: hidden; }
     left: 0;
     top: 0;
     transform: none;
-    object-fit: cover;
-    object-position: 72% 65%;
+    object-fit: contain;
+    object-position: 60% center;
   }
   .hero-veil{
     background:
@@ -2080,18 +2080,25 @@ body.lightbox-open{ overflow: hidden; }
   .hero-place,
   .hero .lede,
   .hero-meta,
-  .hero-trio{ display: none; }
+  .hero-trio{ display: none !important; }
+  /* Kill any borders inside the hero on mobile (was a floating horizontal line) */
+  .hero *{ border-top-width: 0 !important; border-bottom-width: 0 !important; }
   /* Hide the Discover arrow at the bottom of the hero on mobile */
   .scroll-link--hero{ display: none !important; }
   .hero-bg{ filter: brightness(.95) saturate(1.05) contrast(1.05); }
   .hero-copy{ display: block; text-align: left; }
-  /* Title hugs the left edge of the viewport (matches the red-line annotation
-     in the user's screenshot — flush left at minimal padding). */
+  /* Equal left + top breathing room around the title — both 1.25rem so the
+     space above and to the left of "TEQUILA / Tres Ese / Orgánico" matches
+     visually. */
   .hero-title{
-    margin: 1.5rem 0 0;
-    padding-left: .5rem !important;
+    margin: 1.25rem 0 0;
+    padding-left: 1.25rem !important;
     text-align: left;
   }
+  /* Hero meta block (when shown anywhere) and any other hero text use the
+     same left indent so the whole copy column lines up. */
+  .hero-copy > *{ padding-left: 1.25rem; }
+  .hero-copy > .hero-title{ padding-left: 1.25rem; }
   .hero-label{ padding-left: 0 !important; text-align: left; }
   .hero .lede{
     grid-area: lede;
