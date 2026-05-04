@@ -1120,7 +1120,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   justify-content: center;
   background: var(--bg-soft);
   overflow: hidden;
-  padding: 2rem 1rem 1.5rem;
+  /* Bottom padding gives space under the bottle for the shadow to sit
+     against (and lifts the visual base off the frame edge). */
+  padding: 1rem 0 4.5rem;
 }
 .expression-media::before{
   content:"";
@@ -1129,37 +1131,42 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   pointer-events: none;
   z-index: 0;
 }
-.expression-media{
-  padding: 2rem 1rem .25rem; /* tighten the bottom so the bottle visually meets its shadow */
-}
 .expression-media img{
   position: relative;
   z-index: 1;
-  max-height: 100%;
-  max-width: 100%;
+  /* New square (1024×1024) bottle PNGs — fill the frame's height and let the
+     transparent margins overflow horizontally (clipped by overflow: hidden).
+     The visible bottle column reads at a much bigger size. */
+  height: 110%;
   width: auto;
-  height: auto;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
-  /* Sharp contact line + small ambient — no long airborne shadow */
+  /* Tight contact shadow on the bottle itself — keeps glass crisp */
   filter:
-    drop-shadow(0 2px 0 rgba(28,18,8,.85))
-    drop-shadow(0 3px 3px rgba(28,18,8,.4));
+    drop-shadow(0 1px 0 rgba(28,18,8,.7))
+    drop-shadow(0 2px 2px rgba(28,18,8,.35));
 }
-/* Anisotropic ground shadow — darker at the top edge (right under the base) */
+/* Realistic ground shadow — raised, soft, multi-layer. Sits directly under
+   the bottle base, not at the frame's bottom edge. */
 .expression-media::after{
   content:"";
   position:absolute;
   left: 50%;
-  bottom: 4px;
+  bottom: 2.25rem;          /* raised so it tucks under the bottle base */
   transform: translateX(-50%);
-  width: 64%;
-  height: 26px;
-  background: radial-gradient(ellipse 50% 50% at 50% 30%,
-              rgba(0,0,0,.85) 0%,
-              rgba(0,0,0,.45) 28%,
-              rgba(0,0,0,.18) 55%,
-              transparent 88%);
-  filter: blur(6px);
+  width: 52%;
+  height: 18px;
+  background:
+    radial-gradient(ellipse 50% 60% at 50% 30%,
+      rgba(0,0,0,.7) 0%,
+      rgba(0,0,0,.35) 35%,
+      rgba(0,0,0,.12) 60%,
+      transparent 90%),
+    radial-gradient(ellipse 70% 40% at 50% 50%,
+      rgba(0,0,0,.18) 0%,
+      transparent 80%);
+  filter: blur(5px);
   pointer-events: none;
   z-index: 0;
 }
@@ -2226,24 +2233,24 @@ body.lightbox-open{ overflow: hidden; }
     margin: 0 auto;
     width: 100%;
   }
-  /* Bottles in Expressions on mobile — match the store-card look (bottle sits on
-     a tight bottom shadow, anisotropic ground pool from ::after) */
+  /* Bottles in Expressions on mobile — square 1024×1024 PNGs filling the
+     frame's height; transparent margins overflow horizontally (clipped). */
   .expression-media{
     aspect-ratio: 4/5;
     max-width: 280px;
-    padding: 2rem 1rem .5rem;
+    padding: 1rem 0 4rem;
     align-items: flex-end;
   }
   .expression-media img{
-    height: 80%;
+    height: 110%;
     width: auto;
-    max-width: 70%;
+    max-width: none;
+    max-height: none;
   }
-  /* Same ground-shadow tuning as the store: bottom 6px, width 60%, height 24px */
   .expression-media::after{
-    bottom: 6px;
-    width: 60%;
-    height: 24px;
+    bottom: 2rem;
+    width: 50%;
+    height: 14px;
   }
 
   /* Reverse rows still come out in the same flat order on mobile */
