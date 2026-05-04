@@ -2073,7 +2073,7 @@ body.lightbox-open{ overflow: hidden; }
      immediately instead of watching a pan). */
   .hero{
     align-items: flex-start;
-    padding: 4rem 0 3rem;          /* title up 30% (was 6rem) */
+    padding: 2.6rem 0 3rem;        /* title up another 35% (4rem → 2.6rem) */
   }
   .hero-inner{
     display: block;
