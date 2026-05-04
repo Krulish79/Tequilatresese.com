@@ -2030,7 +2030,10 @@ body.lightbox-open{ overflow: hidden; }
   .brand-caption,
   .brand-caption-place{ justify-self: start; }
   .brand-caption-place{ white-space: normal; line-height: 1.25; }
-  .brand-logo{ height: 42px; }
+  /* Hide the TEQUILA · ORGÁNICO caption on mobile (declutter), only show logo */
+  .brand-caption{ display: none; }
+  /* Lower the logo on mobile so it sits a bit below the top edge of the header */
+  .brand-logo{ height: 42px; margin-top: .5rem; }
   /* Hero video/poster on phones — fit the WHOLE image so all 3 bottles are
      visible (smaller, but you can see them all). object-position centers it
      vertically and slightly right so the bottles sit in the middle-right. */
@@ -2102,10 +2105,13 @@ body.lightbox-open{ overflow: hidden; }
   }
   .hero-meta span{ font-size: .9rem; font-weight: 500; }
   .hero-meta em{ font-size: .55rem; letter-spacing: .22em; }
-  /* Hero photo grown 20%, shifted left 20%, raised 40%, with strong top fade */
+  /* Hero photo on mobile — cover (fills viewport) with the focal point on
+     the bottles in the right portion of the image. Scaled up modestly so the
+     bottles read clearly on a phone. */
   .hero-bg{
-    transform: scale(1.2) translate(-20%, -40%);
-    transform-origin: center center;
+    object-fit: cover;
+    object-position: 70% 60%;
+    transform: none;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
   .hero *{ border-top-width: 0 !important; border-bottom-width: 0 !important; }
