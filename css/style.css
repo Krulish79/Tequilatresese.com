@@ -2073,7 +2073,7 @@ body.lightbox-open{ overflow: hidden; }
      immediately instead of watching a pan). */
   .hero{
     align-items: flex-start;
-    padding: 5rem 0 3rem;          /* clear the fixed header at top */
+    padding: 3.75rem 0 3rem;       /* title raised 25% (5rem → 3.75rem) */
   }
   .hero-inner{
     display: block;
@@ -2105,12 +2105,11 @@ body.lightbox-open{ overflow: hidden; }
   }
   .hero-meta span{ font-size: .9rem; font-weight: 500; }
   .hero-meta em{ font-size: .55rem; letter-spacing: .22em; }
-  /* Hero photo on mobile — cover (fills viewport) with the focal point on
-     the bottles in the right portion of the image. Scaled up modestly so the
-     bottles read clearly on a phone. */
+  /* Hero photo on mobile — cover, focal point shifted further so the right
+     portion (with the bottles) sits more centrally. */
   .hero-bg{
     object-fit: cover;
-    object-position: 70% 60%;
+    object-position: 40% 60%;
     transform: none;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
