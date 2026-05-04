@@ -2077,11 +2077,51 @@ body.lightbox-open{ overflow: hidden; }
     padding: 0;
     text-align: left;
   }
+  /* Lede and place line stay hidden on mobile (already in story / footer) */
   .hero-place,
-  .hero .lede,
-  .hero-meta,
-  .hero-trio{ display: none !important; }
-  /* Kill any borders inside the hero on mobile (was a floating horizontal line) */
+  .hero .lede{ display: none !important; }
+  /* Bring back the claims on the right, smaller, stacked vertically */
+  .hero-meta{
+    display: flex !important;
+    flex-direction: column;
+    gap: .5rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 1.25rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: auto;
+    text-align: right;
+    z-index: 3;
+  }
+  .hero-meta > div{
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1;
+    gap: .15rem;
+  }
+  .hero-meta span{ font-size: .85rem; font-weight: 500; }
+  .hero-meta em{ font-size: .55rem; letter-spacing: .22em; }
+  /* Bring back the standalone bottle trio so all 3 are clearly visible on
+     mobile (the photo poster bottles can be hard to read at phone scale) */
+  .hero-trio{
+    display: flex !important;
+    visibility: visible !important;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: .25rem;
+    margin: 1rem auto 0;
+    min-height: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .hero-bottle{ width: auto; flex: 0 1 auto; }
+  .hero-bottle img{ height: auto; max-height: clamp(180px, 28vh, 260px); width: auto; max-width: 100%; }
+  .hero-bottle figcaption{ display: none; }
+  .hero-bottle::after{ display: none; }
+  /* Kill any borders inside the hero on mobile (the floating horizontal line) */
   .hero *{ border-top-width: 0 !important; border-bottom-width: 0 !important; }
   /* Hide the Discover arrow at the bottom of the hero on mobile */
   .scroll-link--hero{ display: none !important; }
