@@ -1138,9 +1138,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   /* Anchor the image's bottom 12% BELOW the frame edge — pushes the visible
      bottle (centered in the square PNG with transparent margins) down so its
      base sits in the frame's lower area, right on top of the shadow. */
-  bottom: -8%;
+  bottom: 2%;          /* raised 10% from -8% */
   transform: translateX(-50%);
-  height: 96%;        /* reduced 20% from 120% */
+  height: 96%;
   width: auto;
   max-width: none;
   max-height: none;
@@ -2244,7 +2244,7 @@ body.lightbox-open{ overflow: hidden; }
   }
   .expression-media img{
     height: 96%;
-    bottom: -6%;
+    bottom: 4%;          /* raised 10% from -6% */
   }
   .expression-media::after{
     bottom: 2rem;
