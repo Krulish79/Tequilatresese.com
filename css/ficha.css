@@ -160,7 +160,7 @@ body{
 }
 .sheet-bottle img{
   max-width: 100%;
-  max-height: 135mm;
+  max-height: 230mm;     /* grown 70% so the new square PNG bottles read big */
   object-fit: contain;
   /* Tight contact shadow — no floating disc */
   filter:
@@ -392,7 +392,7 @@ body{
     margin-bottom: 2.5mm;
   }
   .sheet-bottle{ padding: 0; }            /* bottle aligns to the bottom of the right-column content */
-  .sheet-bottle img{ max-height: 95mm; }  /* a bit bigger than before */
+  .sheet-bottle img{ max-height: 160mm; }  /* mobile bottle grown 70% */
   .sheet-h2{ font-size: 12pt; }
   .sheet-tag{ font-size: 4.5pt; letter-spacing: .22em; margin-bottom: 1mm; }
   .sheet-lede{ font-size: 7pt; line-height: 1.35; max-width: none; }

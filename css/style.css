@@ -1132,17 +1132,18 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   z-index: 0;
 }
 .expression-media img{
-  position: relative;
+  position: absolute;
   z-index: 1;
-  /* New square (1024×1024) bottle PNGs — fill the frame's height and let the
-     transparent margins overflow horizontally (clipped by overflow: hidden).
-     The visible bottle column reads at a much bigger size. */
-  height: 110%;
+  left: 50%;
+  /* Anchor the image's bottom 12% BELOW the frame edge — pushes the visible
+     bottle (centered in the square PNG with transparent margins) down so its
+     base sits in the frame's lower area, right on top of the shadow. */
+  bottom: -10%;
+  transform: translateX(-50%);
+  height: 120%;
   width: auto;
   max-width: none;
   max-height: none;
-  object-fit: contain;
-  /* Tight contact shadow on the bottle itself — keeps glass crisp */
   filter:
     drop-shadow(0 1px 0 rgba(28,18,8,.7))
     drop-shadow(0 2px 2px rgba(28,18,8,.35));
@@ -2242,10 +2243,8 @@ body.lightbox-open{ overflow: hidden; }
     align-items: flex-end;
   }
   .expression-media img{
-    height: 110%;
-    width: auto;
-    max-width: none;
-    max-height: none;
+    height: 120%;
+    bottom: -8%;
   }
   .expression-media::after{
     bottom: 2rem;
