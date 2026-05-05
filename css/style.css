@@ -2149,8 +2149,8 @@ body.lightbox-open{ overflow: hidden; }
   .hero-label{
     padding-left: 0 !important;
     text-align: left;
-    font-size: .82rem;            /* slightly smaller on phones */
-    margin-top: .9rem;            /* lowered — sits lower under the logo */
+    font-size: .62rem;            /* smaller on phones */
+    margin-top: 1.6rem;           /* lowered further down the screen */
   }
   .hero .lede{
     grid-area: lede;
