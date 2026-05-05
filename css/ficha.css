@@ -158,16 +158,18 @@ body{
   position: relative;
 }
 .sheet-bottle img{
-  /* Square 1024×1024 PNGs need an explicit width to read at the right size —
-     was being constrained by max-width:100% to the 58 mm column width,
-     making the bottle effectively 58×58. Explicit 95 mm overflows the
-     column visually but is fine because the right column has plenty of
-     room. */
-  width: 95mm;
+  /* Square 1024×1024 PNGs — explicit width grows the bottle past the column.
+     Absolute positioning with negative bottom drops the image so the visible
+     bottle base lands directly on the shadow below. */
+  position: absolute;
+  left: 50%;
+  bottom: -8mm;
+  transform: translateX(-50%);
+  width: 133mm;          /* 40% bigger than the previous 95 mm */
   height: auto;
   max-width: none;
   max-height: none;
-  /* Tight glass shadow only — ground shadow is the ::after below */
+  z-index: 1;
   filter:
     drop-shadow(0 .5pt 0 rgba(42,34,24,.85))
     drop-shadow(0 2pt 2pt rgba(42,34,24,.35));
@@ -194,7 +196,6 @@ body{
   pointer-events: none;
   z-index: 0;
 }
-.sheet-bottle img{ position: relative; z-index: 1; }
 .sheet-content{
   display: flex;
   flex-direction: column;
@@ -419,8 +420,8 @@ body{
     margin-bottom: 2.5mm;
   }
   .sheet-bottle{ padding: 0; }            /* bottle aligns to the bottom of the right-column content */
-  .sheet-bottle{ padding: 0 0 10mm; }
-  .sheet-bottle img{ width: 70mm; height: auto; max-width: none; max-height: none; }
+  .sheet-bottle{ padding: 0 0 10mm; min-height: 110mm; }
+  .sheet-bottle img{ width: 98mm; bottom: -6mm; }
   .sheet-bottle::after{ bottom: 4mm; width: 45mm; height: 4mm; }
   .sheet-h2{ font-size: 12pt; }
   .sheet-tag{ font-size: 4.5pt; letter-spacing: .22em; margin-bottom: 1mm; }
