@@ -2077,7 +2077,7 @@ body.lightbox-open{ overflow: hidden; }
      immediately instead of watching a pan). */
   .hero{
     align-items: flex-start;
-    padding: 2.6rem 0 3rem;        /* title up another 35% (4rem → 2.6rem) */
+    padding: 1.4rem 0 3rem;        /* title raised closer to the logo */
   }
   .hero-inner{
     display: block;
@@ -2113,7 +2113,7 @@ body.lightbox-open{ overflow: hidden; }
      so the bottles fill the viewport. */
   .hero-bg{
     object-fit: cover;
-    object-position: 100% 60%;
+    object-position: 90% 60%;       /* bottles shifted 10% toward center */
     transform: none;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
