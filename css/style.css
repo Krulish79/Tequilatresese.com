@@ -2034,8 +2034,13 @@ body.lightbox-open{ overflow: hidden; }
   .brand-caption,
   .brand-caption-place{ justify-self: start; }
   .brand-caption-place{ white-space: normal; line-height: 1.25; }
-  /* Hide the TEQUILA · ORGÁNICO caption on mobile (declutter), only show logo */
-  .brand-caption{ display: none; }
+  /* TEQUILA · ORGÁNICO caption shown on mobile too — sized to fit cleanly under the logo */
+  .brand-caption{
+    font-size: .58rem;
+    letter-spacing: .22em;
+    margin-top: .35rem;
+  }
+  .brand-caption .caption-main{ font-size: 1em; letter-spacing: .22em; }
   /* Lower the logo on mobile so it sits a bit below the top edge of the header */
   .brand-logo{ height: 42px; margin-top: .5rem; }
   /* Hero video/poster on phones — fit the WHOLE image so all 3 bottles are
@@ -2084,9 +2089,10 @@ body.lightbox-open{ overflow: hidden; }
     padding: 0;
     text-align: left;
   }
-  /* Lede, place line, and standalone bottle PNGs all hidden on mobile */
+  /* Lede, place line, in-hero "Tequila" label, and standalone bottle PNGs all hidden on mobile */
   .hero-place,
   .hero .lede,
+  .hero-label,
   .hero-trio{ display: none !important; }
   /* Claims sit directly under "Orgánico" on the left — small inline list */
   .hero-meta{
@@ -2146,12 +2152,6 @@ body.lightbox-open{ overflow: hidden; }
      same left indent so the whole copy column lines up. */
   .hero-copy > *{ padding-left: 1.25rem; }
   .hero-copy > .hero-title{ padding-left: 1.25rem; }
-  .hero-label{
-    padding-left: 0 !important;
-    text-align: left;
-    font-size: .62rem;            /* smaller on phones */
-    margin-top: 1.6rem;           /* lowered further down the screen */
-  }
   .hero .lede{
     grid-area: lede;
     text-align: justify !important;
