@@ -174,25 +174,22 @@ body{
     drop-shadow(0 .5pt 0 rgba(42,34,24,.85))
     drop-shadow(0 2pt 2pt rgba(42,34,24,.35));
 }
-/* Realistic ground shadow — soft pool tucked directly under the bottle base */
+/* Realistic ground shadow — soft elliptical pool tucked under the bottle base */
 .sheet-bottle::after{
   content:"";
   position: absolute;
   left: 50%;
-  bottom: 6mm;
+  bottom: 9mm;            /* raised to sit at the visible bottle base */
   transform: translateX(-50%);
-  width: 60mm;
-  height: 5mm;
+  width: 38mm;            /* narrower — matches bottle base width */
+  height: 4mm;
   background:
-    radial-gradient(ellipse 50% 60% at 50% 35%,
-      rgba(28,18,8,.55) 0%,
-      rgba(28,18,8,.25) 35%,
-      rgba(28,18,8,.08) 65%,
-      transparent 90%),
-    radial-gradient(ellipse 70% 40% at 50% 50%,
-      rgba(28,18,8,.15) 0%,
-      transparent 80%);
-  filter: blur(2.5pt);
+    radial-gradient(ellipse 50% 100% at 50% 50%,
+      rgba(28,18,8,.7) 0%,
+      rgba(28,18,8,.35) 40%,
+      rgba(28,18,8,.12) 70%,
+      transparent 95%);
+  filter: blur(3pt);
   pointer-events: none;
   z-index: 0;
 }
@@ -422,7 +419,7 @@ body{
   .sheet-bottle{ padding: 0; }            /* bottle aligns to the bottom of the right-column content */
   .sheet-bottle{ padding: 0 0 10mm; min-height: 110mm; }
   .sheet-bottle img{ width: 98mm; bottom: -6mm; }
-  .sheet-bottle::after{ bottom: 4mm; width: 45mm; height: 4mm; }
+  .sheet-bottle::after{ bottom: 6mm; width: 28mm; height: 3mm; }
   .sheet-h2{ font-size: 12pt; }
   .sheet-tag{ font-size: 4.5pt; letter-spacing: .22em; margin-bottom: 1mm; }
   .sheet-lede{ font-size: 7pt; line-height: 1.35; max-width: none; }
