@@ -163,9 +163,9 @@ body{
      bottle base lands directly on the shadow below. */
   position: absolute;
   left: 50%;
-  bottom: -12mm;           /* grounded — visible base meets the column's end */
+  bottom: -11mm;           /* grounded — visible base meets the column's end */
   transform: translateX(-50%);
-  width: 179mm;            /* 10% smaller than 199 mm */
+  width: 170mm;            /* 5% smaller than 179 mm */
   height: auto;
   max-width: none;
   max-height: none;
@@ -181,7 +181,7 @@ body{
   left: 50%;
   bottom: -3mm;           /* tucked just under the grounded bottle base */
   transform: translateX(-50%);
-  width: 50mm;
+  width: 48mm;
   height: 3mm;
   background:
     radial-gradient(ellipse 50% 100% at 50% 50%,
@@ -418,8 +418,8 @@ body{
   }
   .sheet-bottle{ padding: 0; }            /* bottle aligns to the bottom of the right-column content */
   .sheet-bottle{ padding: 0 0 10mm; min-height: 110mm; }
-  .sheet-bottle img{ width: 131mm; bottom: -8mm; }
-  .sheet-bottle::after{ bottom: -2mm; width: 36mm; height: 2.5mm; }
+  .sheet-bottle img{ width: 124mm; bottom: -7mm; }
+  .sheet-bottle::after{ bottom: -2mm; width: 34mm; height: 2.5mm; }
   .sheet-h2{ font-size: 12pt; }
   .sheet-tag{ font-size: 4.5pt; letter-spacing: .22em; margin-bottom: 1mm; }
   .sheet-lede{ font-size: 7pt; line-height: 1.35; max-width: none; }
