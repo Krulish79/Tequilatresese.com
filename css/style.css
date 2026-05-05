@@ -1148,26 +1148,22 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
     drop-shadow(0 1px 0 rgba(28,18,8,.7))
     drop-shadow(0 2px 2px rgba(28,18,8,.35));
 }
-/* Realistic ground shadow — raised, soft, multi-layer. Sits directly under
-   the bottle base, not at the frame's bottom edge. */
+/* Soft contact shadow — narrow ellipse directly under the bottle base */
 .expression-media::after{
   content:"";
   position:absolute;
   left: 50%;
-  bottom: 2.25rem;          /* raised so it tucks under the bottle base */
+  bottom: 3rem;
   transform: translateX(-50%);
-  width: 52%;
-  height: 18px;
+  width: 28%;
+  height: 8px;
   background:
-    radial-gradient(ellipse 50% 60% at 50% 30%,
-      rgba(0,0,0,.7) 0%,
-      rgba(0,0,0,.35) 35%,
-      rgba(0,0,0,.12) 60%,
-      transparent 90%),
-    radial-gradient(ellipse 70% 40% at 50% 50%,
-      rgba(0,0,0,.18) 0%,
-      transparent 80%);
-  filter: blur(5px);
+    radial-gradient(ellipse 50% 100% at 50% 50%,
+      rgba(0,0,0,.55) 0%,
+      rgba(0,0,0,.25) 40%,
+      rgba(0,0,0,.08) 70%,
+      transparent 95%);
+  filter: blur(4px);
   pointer-events: none;
   z-index: 0;
 }
@@ -2247,9 +2243,9 @@ body.lightbox-open{ overflow: hidden; }
     bottom: 4%;          /* raised 10% from -6% */
   }
   .expression-media::after{
-    bottom: 2rem;
-    width: 50%;
-    height: 14px;
+    bottom: 2.5rem;
+    width: 28%;
+    height: 7px;
   }
 
   /* Reverse rows still come out in the same flat order on mobile */
