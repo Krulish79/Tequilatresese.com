@@ -2113,7 +2113,7 @@ body.lightbox-open{ overflow: hidden; }
      so the bottles fill the viewport. */
   .hero-bg{
     object-fit: cover;
-    object-position: 94% 60%;       /* a smidge right — aligns with menu icon */
+    object-position: 88% 60%;       /* nudged a touch back to the left */
     transform: none;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
@@ -2146,7 +2146,12 @@ body.lightbox-open{ overflow: hidden; }
      same left indent so the whole copy column lines up. */
   .hero-copy > *{ padding-left: 1.25rem; }
   .hero-copy > .hero-title{ padding-left: 1.25rem; }
-  .hero-label{ padding-left: 0 !important; text-align: left; }
+  .hero-label{
+    padding-left: 0 !important;
+    text-align: left;
+    font-size: .82rem;            /* slightly smaller on phones */
+    margin-top: .9rem;            /* lowered — sits lower under the logo */
+  }
   .hero .lede{
     grid-area: lede;
     text-align: justify !important;
