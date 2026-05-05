@@ -1146,19 +1146,20 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   max-height: none;
   filter:
     drop-shadow(0 1px 0 rgba(28,18,8,.7))
-    drop-shadow(0 2px 2px rgba(28,18,8,.35));
+    drop-shadow(0 2px 2px rgba(28,18,8,.35))
+    drop-shadow(10px 4px 6px rgba(0,0,0,.22));   /* directional cast to the right */
 }
-/* Soft contact shadow — narrow ellipse directly under the bottle base */
+/* Soft contact shadow — narrow ellipse tucked under the bottle base, offset right */
 .expression-media::after{
   content:"";
   position:absolute;
-  left: 50%;
+  left: 54%;            /* shifted right of center for a directional pool */
   bottom: 3rem;
   transform: translateX(-50%);
-  width: 28%;
-  height: 8px;
+  width: 32%;
+  height: 9px;
   background:
-    radial-gradient(ellipse 50% 100% at 50% 50%,
+    radial-gradient(ellipse 60% 100% at 40% 50%,
       rgba(0,0,0,.55) 0%,
       rgba(0,0,0,.25) 40%,
       rgba(0,0,0,.08) 70%,
@@ -2243,8 +2244,9 @@ body.lightbox-open{ overflow: hidden; }
     bottom: 4%;          /* raised 10% from -6% */
   }
   .expression-media::after{
+    left: 54%;
     bottom: 2.5rem;
-    width: 28%;
+    width: 32%;
     height: 7px;
   }
 
