@@ -1146,20 +1146,19 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   max-height: none;
   filter:
     drop-shadow(0 1px 0 rgba(28,18,8,.7))
-    drop-shadow(0 2px 2px rgba(28,18,8,.35))
-    drop-shadow(10px 4px 6px rgba(0,0,0,.22));   /* directional cast to the right */
+    drop-shadow(0 2px 2px rgba(28,18,8,.35));   /* shadow only beneath, no side cast */
 }
-/* Soft contact shadow — narrow ellipse tucked under the bottle base, offset right */
+/* Soft contact shadow — narrow ellipse tucked under the bottle base */
 .expression-media::after{
   content:"";
   position:absolute;
-  left: 54%;            /* shifted right of center for a directional pool */
+  left: 50%;            /* centered under the bottle */
   bottom: 3rem;
   transform: translateX(-50%);
-  width: 32%;
-  height: 9px;
+  width: 28%;
+  height: 8px;
   background:
-    radial-gradient(ellipse 60% 100% at 40% 50%,
+    radial-gradient(ellipse 50% 100% at 50% 50%,
       rgba(0,0,0,.55) 0%,
       rgba(0,0,0,.25) 40%,
       rgba(0,0,0,.08) 70%,
