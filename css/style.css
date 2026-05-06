@@ -2124,7 +2124,7 @@ body.lightbox-open{ overflow: hidden; }
      so the bottles fill the viewport. */
   .hero-bg{
     object-fit: cover;
-    object-position: 80% 60%;       /* shifted so all 3 bottles sit centered in view */
+    object-position: 95% 60%;       /* trio centered visually in the viewport */
     transform: none;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
@@ -2325,6 +2325,6 @@ body.lightbox-open{ overflow: hidden; }
 
 @media (max-width: 540px){
   .contact-form .row{ grid-template-columns: 1fr; }
-  .hero{ padding: 5rem 0 3rem; }
+  .hero{ padding: 5.6rem 0 3rem; }
   .scroll-link--hero{ display:none; }
 }
