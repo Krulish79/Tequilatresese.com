@@ -2080,10 +2080,19 @@ body.lightbox-open{ overflow: hidden; }
 
   /* Hero on mobile — minimal: brand title flush-left over the still poster
      (the video is paused via JS on mobile, so visitors see the bottles
-     immediately instead of watching a pan). */
+     immediately instead of watching a pan). Height locked to small-viewport
+     height so the image doesn't grow when the address bar hides on scroll. */
   .hero{
     align-items: flex-start;
     padding: 1.4rem 0 3rem;        /* title raised closer to the logo */
+    min-height: 100svh;
+    height: 100svh;
+    max-height: 100svh;
+  }
+  /* Background image also locked so cover-scaling doesn't recalculate */
+  .hero-bg{
+    height: 100svh !important;
+    max-height: 100svh;
   }
   .hero-inner{
     display: block;
