@@ -2096,32 +2096,35 @@ body.lightbox-open{ overflow: hidden; }
   .hero-label,
   .hero-title,
   .hero-trio{ display: none !important; }
-  /* Claims sit on the left, '100%' tucked right under the header */
+  /* Claims now run across the top of the hero — three short columns, equally spaced */
   .hero-meta{
     display: flex !important;
-    flex-direction: column;
-    gap: .55rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: .5rem;
     position: static;
-    margin: .5rem 0 0;          /* '100%' sits just below the header */
-    padding: 0 0 0 1.25rem;
+    margin: .75rem 0 0;
+    padding: 0 1.25rem;
     border: 0;
-    width: auto;
-    text-align: left;
+    width: 100%;
+    text-align: center;
     z-index: 3;
   }
   .hero-meta > div{
+    flex: 1 1 0;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     line-height: 1;
-    gap: .15rem;
+    gap: .2rem;
   }
-  .hero-meta span{ font-size: .9rem; font-weight: 500; }
-  .hero-meta em{ font-size: .55rem; letter-spacing: .22em; }
+  .hero-meta span{ font-size: .82rem; font-weight: 500; }
+  .hero-meta em{ font-size: .5rem; letter-spacing: .22em; }
   /* Hero photo on mobile — cover, focal point pushed all the way to the right
      so the bottles fill the viewport. */
   .hero-bg{
     object-fit: cover;
-    object-position: 88% 60%;       /* nudged a touch back to the left */
+    object-position: 50% 60%;       /* bottles centered in the viewport */
     transform: none;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
@@ -2161,14 +2164,9 @@ body.lightbox-open{ overflow: hidden; }
     padding-left: 0;
     margin-left: 0;
   }
-  /* Stats stay on the LEFT column, stacked vertically (small), pushed down the screen */
+  /* Override removed — claims now run horizontally across the top */
   .hero-meta{
-    grid-area: stats;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: .65rem;
-    margin-top: 14vh;          /* lowered, but eased back up a bit */
-    padding-top: 0;
+    margin-top: .75rem;
     align-self: start;
   }
   .hero-meta > div{ flex: initial; }
