@@ -2089,10 +2089,11 @@ body.lightbox-open{ overflow: hidden; }
     padding: 0;
     text-align: left;
   }
-  /* Lede, place line, in-hero "Tequila" label, and standalone bottle PNGs all hidden on mobile */
+  /* Big title, lede, place line, in-hero label, and standalone bottle PNGs all hidden on mobile */
   .hero-place,
   .hero .lede,
   .hero-label,
+  .hero-title,
   .hero-trio{ display: none !important; }
   /* Claims sit directly under "Orgánico" on the left — small inline list */
   .hero-meta{
