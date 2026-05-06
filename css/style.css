@@ -2095,13 +2095,13 @@ body.lightbox-open{ overflow: hidden; }
   .hero-label,
   .hero-title,
   .hero-trio{ display: none !important; }
-  /* Claims sit on the left, lowered down the screen */
+  /* Claims sit on the left, '100%' tucked right under the header */
   .hero-meta{
     display: flex !important;
     flex-direction: column;
     gap: .55rem;
     position: static;
-    margin: 20vh 0 0;          /* lowered 20% (was 1.25rem) */
+    margin: .5rem 0 0;          /* '100%' sits just below the header */
     padding: 0 0 0 1.25rem;
     border: 0;
     width: auto;
