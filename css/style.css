@@ -2160,14 +2160,14 @@ body.lightbox-open{ overflow: hidden; }
     padding-left: 0;
     margin-left: 0;
   }
-  /* Stats stay on the LEFT column, stacked vertically (small) */
+  /* Stats stay on the LEFT column, stacked vertically (small), pushed down the screen */
   .hero-meta{
     grid-area: stats;
     display: grid;
     grid-template-columns: 1fr;
     gap: .65rem;
-    margin-top: 0;
-    padding-top: 1rem;
+    margin-top: 22vh;          /* lower the claims down the screen */
+    padding-top: 0;
     align-self: start;
   }
   .hero-meta > div{ flex: initial; }
