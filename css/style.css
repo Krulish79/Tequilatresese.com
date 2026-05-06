@@ -2124,7 +2124,7 @@ body.lightbox-open{ overflow: hidden; }
      so the bottles fill the viewport. */
   .hero-bg{
     object-fit: cover;
-    object-position: 90% 60%;       /* trio shifted 5% further to the right in view */
+    object-position: 92% 60%;       /* eased 2% back to the left */
     transform: none;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
