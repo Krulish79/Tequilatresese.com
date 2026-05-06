@@ -2095,13 +2095,13 @@ body.lightbox-open{ overflow: hidden; }
   .hero-label,
   .hero-title,
   .hero-trio{ display: none !important; }
-  /* Claims sit directly under "Orgánico" on the left — small inline list */
+  /* Claims sit on the left, lowered down the screen */
   .hero-meta{
     display: flex !important;
     flex-direction: column;
     gap: .55rem;
     position: static;
-    margin: 1.25rem 0 0;
+    margin: 20vh 0 0;          /* lowered 20% (was 1.25rem) */
     padding: 0 0 0 1.25rem;
     border: 0;
     width: auto;
