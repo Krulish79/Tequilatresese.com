@@ -225,7 +225,8 @@ body{
   line-height: 1.4;
   margin: 0;
   max-width: 110mm;
-  text-align: justify;
+  text-align: left;
+  text-wrap: pretty;
   hyphens: auto;
 }
 
@@ -325,7 +326,8 @@ body{
   font-size: 9pt;
   color: var(--ink-soft);
   line-height: 1.4;
-  text-align: justify;
+  text-align: left;
+  text-wrap: pretty;
   hyphens: auto;
 }
 .sheet-origin strong{
