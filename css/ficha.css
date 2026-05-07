@@ -218,13 +218,12 @@ body{
 }
 
 .sheet-lede{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 11pt;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 10pt;
   color: var(--ink-soft);
-  line-height: 1.4;
+  line-height: 1.45;
   margin: 0;
-  max-width: 110mm;
   text-align: justify;
   text-justify: inter-word;
   text-wrap: pretty;
@@ -259,12 +258,13 @@ body{
 }
 .sheet-tasting dd{
   margin: 0;
-  font-size: 9.5pt;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 10.5pt;
   color: var(--ink-soft);
-  line-height: 1.35;
-  text-align: justify;
-  text-justify: inter-word;
-  text-wrap: pretty;       /* avoid single-word widows on the last line */
+  line-height: 1.4;
+  text-align: left;        /* matches the main site's bottle-section notes — no forced gaps */
+  text-wrap: pretty;
   hyphens: auto;
 }
 
