@@ -356,6 +356,19 @@ body{
   color: var(--ink-soft);
 }
 .sheet-foot a{ color: var(--copper-deep); text-decoration: none; }
+.sheet-foot .foot-link{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5mm;
+  color: var(--copper-deep);
+  text-decoration: none;
+}
+.sheet-foot .foot-qr{
+  width: 18mm;
+  height: 18mm;
+  display: block;
+}
 
 /* ───── PRINT — US Letter 8.5 × 11 ───── */
 @page{
