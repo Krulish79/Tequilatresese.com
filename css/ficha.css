@@ -225,7 +225,8 @@ body{
   line-height: 1.4;
   margin: 0;
   max-width: 110mm;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
   text-wrap: pretty;
   hyphens: auto;
 }
@@ -261,7 +262,8 @@ body{
   font-size: 9.5pt;
   color: var(--ink-soft);
   line-height: 1.35;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
   text-wrap: pretty;       /* avoid single-word widows on the last line */
   hyphens: auto;
 }
@@ -326,7 +328,8 @@ body{
   font-size: 9pt;
   color: var(--ink-soft);
   line-height: 1.4;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
   text-wrap: pretty;
   hyphens: auto;
 }

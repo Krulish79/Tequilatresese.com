@@ -45,10 +45,12 @@ body{
   overflow-x: hidden;
 }
 
-/* Body copy — flush left, with smart wrapping that avoids single-word widows
-   and overly wide spacing between words */
+/* Justify all paragraphs — never center body copy. Inter-word spacing keeps
+   the gaps even, and text-wrap: pretty avoids leaving a single word on the
+   last line. */
 p{
-  text-align: left;
+  text-align: justify !important;
+  text-justify: inter-word;
   text-wrap: pretty;
 }
 .eyebrow, .step-num, .product-tag, .brand-sub, .footer-sub,
@@ -1206,7 +1208,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   color: var(--ink-soft);
   max-width: 54ch;
   margin: 0 auto 1.75rem;
-  text-align: left;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
   text-wrap: pretty;
 }
 
@@ -2169,7 +2173,8 @@ body.lightbox-open{ overflow: hidden; }
   .hero-copy > .hero-title{ padding-left: 1.25rem; }
   .hero .lede{
     grid-area: lede;
-    text-align: left !important;
+    text-align: justify !important;
+    text-justify: inter-word;
     text-wrap: pretty;
     max-width: 100%;
     padding-left: 0;
