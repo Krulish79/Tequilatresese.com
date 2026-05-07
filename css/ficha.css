@@ -260,7 +260,8 @@ body{
   font-size: 9.5pt;
   color: var(--ink-soft);
   line-height: 1.35;
-  text-align: justify;
+  text-align: left;
+  text-wrap: pretty;       /* avoid single-word widows on the last line */
   hyphens: auto;
 }
 
