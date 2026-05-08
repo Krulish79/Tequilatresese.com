@@ -1,12 +1,18 @@
 (() => {
-  // Hero video — on mobile, don't play it. Visitors see the still poster
-   // image (which already has the bottles in frame). Saves bandwidth and
-   // makes the bottles visible immediately, no panning to wait through.
+  // Hero video — on mobile, swap it out for a plain <img> using the same
+  // poster. Mobile browsers don't autoplay reliably and the user can't even
+  // tap to play (video is aria-hidden and behind overlays). Replacing the
+  // element entirely also avoids the video downloading on phones.
   const heroVid = document.querySelector('video.hero-bg');
   if (heroVid && window.matchMedia('(max-width: 960px)').matches) {
-    heroVid.removeAttribute('autoplay');
-    heroVid.preload = 'none';
-    heroVid.pause();
+    const poster = heroVid.getAttribute('poster') || 'images/hero-cellar.jpg';
+    const img = document.createElement('img');
+    img.className = heroVid.className;          // keep .hero-bg styling
+    img.src = poster;
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
+    img.decoding = 'async';
+    heroVid.replaceWith(img);
   }
 
   // Header shadow on scroll
