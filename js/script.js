@@ -15,6 +15,23 @@
     heroVid.replaceWith(img);
   }
 
+  // Lock the hero to the viewport height captured at page load on mobile.
+  // iOS / Android browsers shrink/grow the address bar on scroll, which
+  // changes 100vh AND (on some devices) 100svh — making the cover-scaled
+  // image visibly grow. Locking to a pixel value prevents that.
+  const lockHeroHeight = () => {
+    if (!window.matchMedia('(max-width: 960px)').matches) return;
+    const h = window.innerHeight;
+    document.documentElement.style.setProperty('--hero-h', h + 'px');
+  };
+  lockHeroHeight();
+  // Only re-lock on orientation change — NOT on resize, because address-bar
+  // collapse fires resize too, and we want to ignore that.
+  window.addEventListener('orientationchange', () => {
+    // Re-measure after the rotation completes
+    setTimeout(lockHeroHeight, 250);
+  });
+
   // Header shadow on scroll
   const header = document.getElementById('siteHeader');
   const onScroll = () => {

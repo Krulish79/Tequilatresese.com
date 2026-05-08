@@ -1467,14 +1467,18 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   text-align: left !important;
 }
 
-/* Mobile cocktail grid: 1 column on phones, 2 columns on tablets */
+/* Mobile cocktail grid — 3 across × 2 rows on phones too, tightened so the
+   six cards stay visible in a compact layout. */
 @media (max-width: 960px){
-  .cocktail-grid{ grid-template-columns: repeat(2, 1fr); gap: 2rem 1.25rem; }
+  .cocktail-grid{ grid-template-columns: repeat(3, 1fr); gap: 1.25rem .75rem; }
 }
 @media (max-width: 540px){
-  .cocktail-grid{ grid-template-columns: 1fr; gap: 1.75rem; }
-  .cocktail-body{ padding: 1.25rem 1.25rem 1.5rem; gap: .75rem; }
-  .cocktail-ingredients li{ grid-template-columns: 4rem 1fr; gap: .5rem; }
+  .cocktail-grid{ grid-template-columns: repeat(3, 1fr); gap: 1rem .5rem; }
+  .cocktail-body{ padding: .65rem .55rem .8rem; gap: .35rem; }
+  .cocktail-name{ font-size: .85rem; line-height: 1.15; }
+  .cocktail-tagline{ font-size: .6rem; letter-spacing: .04em; }
+  .cocktail-ingredients{ display: none; }   /* save space — name + photo carry the card */
+  .cocktail-actions{ display: none; }
 }
 
 /* ─────────── GALLERY ─────────── */
@@ -2083,21 +2087,20 @@ body.lightbox-open{ overflow: hidden; }
   }
   .primary-nav.is-open a{ color: var(--ink); }
 
-  /* Hero on mobile — minimal: brand title flush-left over the still poster
-     (the video is paused via JS on mobile, so visitors see the bottles
-     immediately instead of watching a pan). Height locked to small-viewport
-     height so the image doesn't grow when the address bar hides on scroll. */
+  /* Hero on mobile — height locked to a JS-captured pixel value (--hero-h)
+     so the image stays the same size when the address bar collapses on
+     scroll. Falls back to 100svh when JS hasn't run yet. */
   .hero{
     align-items: flex-start;
     padding: 1.4rem 0 3rem;        /* title raised closer to the logo */
-    min-height: 100svh;
-    height: 100svh;
-    max-height: 100svh;
+    min-height: var(--hero-h, 100svh);
+    height: var(--hero-h, 100svh);
+    max-height: var(--hero-h, 100svh);
   }
   /* Background image also locked so cover-scaling doesn't recalculate */
   .hero-bg{
-    height: 100svh !important;
-    max-height: 100svh;
+    height: var(--hero-h, 100svh) !important;
+    max-height: var(--hero-h, 100svh);
   }
   .hero-inner{
     display: block;
