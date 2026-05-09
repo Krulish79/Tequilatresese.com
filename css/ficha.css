@@ -338,6 +338,14 @@ body{
   font-weight: 500;
 }
 
+/* Foreign-language / Spanish terms in body copy (hacienda, fábrica, jimadores,
+   piñas, hornos de mampostería) — italic + warm copper-brown for brand voice. */
+.sheet-lede em,
+.sheet-origin em{
+  color: var(--copper-deep);
+  font-style: italic;
+}
+
 /* ───── Footer — sits directly below the body, no auto push ───── */
 .sheet-foot{
   margin-top: 0;

@@ -60,6 +60,12 @@ p{
   hyphens: manual;
 }
 
+/* Foreign-language / Spanish terms in body copy (hacienda, fábrica, jimadores,
+   piñas, etc.) — italic + warm copper-brown so they read as brand-styled. */
+p em{
+  color: var(--copper-deep);
+}
+
 /* subtle organic paper grain */
 body::before{
   content:"";
