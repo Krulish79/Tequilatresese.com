@@ -695,7 +695,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   object-fit: cover;
   object-position: center;
   opacity: 0;
-  transition: opacity 1.3s cubic-bezier(.45, 0, .25, 1);
+  /* Longer, softer crossfade between slides for an elegant, smooth blend */
+  transition: opacity 1.8s cubic-bezier(.4, 0, .2, 1);
   will-change: opacity;
   pointer-events: none;
   user-select: none;
@@ -706,18 +707,20 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   opacity: 1;
 }
 
-/* Slow Ken Burns drift on the active story slide — gives even a static-looking
+/* Slow Ken Burns drift on the active slide — gives even a static-looking
    clip a sense of motion (subtle zoom + pan, restarts each time the slide
-   becomes active). */
+   becomes active). Applied to both story and process-step slideshows. */
 @keyframes storyKenBurns{
   from { transform: scale(1.02) translate(0, 0); }
   to   { transform: scale(1.12) translate(-1.5%, -1%); }
 }
-.story-slide.is-active{
+.story-slide.is-active,
+.step-slide.is-active{
   animation: storyKenBurns 14s ease-out forwards;
 }
 @media (prefers-reduced-motion: reduce){
-  .story-slide.is-active{ animation: none; }
+  .story-slide.is-active,
+  .step-slide.is-active{ animation: none; }
 }
 
 /* Slide indicator dots — subtle, bottom-center */
