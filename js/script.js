@@ -266,7 +266,7 @@
         el.muted = true;
         el.playsInline = true;
         el.setAttribute('playsinline', '');
-        el.loop = true;              // short clips loop in place — advance is timer-driven
+        // No loop — each clip plays through once, then we crossfade to the next.
         el.preload = 'metadata';
       } else {
         el = document.createElement('img');
@@ -297,6 +297,9 @@
     let current = 0;
     let paused = false;
     let tick = null;
+    let endTick = null;
+
+    const clearTicks = () => { clearTimeout(tick); clearTimeout(endTick); };
 
     const playSlide = (el) => {
       if (el.tagName === 'VIDEO') {
@@ -308,12 +311,15 @@
       if (el.tagName === 'VIDEO') el.pause();
     };
 
+    // Each video plays once and the 'ended' handler advances after a short
+    // breathing pause. The timer below is a safety cap so a stalled or long
+    // video doesn't stall the slideshow; images use HOLD as before.
     const schedule = () => {
-      clearTimeout(tick);
+      clearTicks();
       if (paused) return;
-      // Fixed timer for everything — short videos loop in place so they don't
-      // freeze on the last frame, and long videos are gracefully cut at HOLD.
-      tick = setTimeout(() => go(current + 1), HOLD);
+      const el = slides[current];
+      const wait = (el.tagName === 'VIDEO') ? 15000 : HOLD;
+      tick = setTimeout(() => go(current + 1), wait);
     };
 
     const go = (i, manual = false) => {
@@ -329,11 +335,20 @@
       schedule();
     };
 
-    // Note: video advance is timer-driven (see schedule). 'ended' is irrelevant
-    // because videos loop. This guarantees order and consistent on-screen time.
+    // When a video finishes its natural duration, hold the last frame for a
+    // short beat and then advance — feels more elegant than an abrupt cut.
+    slides.forEach(s => {
+      if (s.tagName === 'VIDEO') {
+        s.addEventListener('ended', () => {
+          if (paused) return;
+          clearTicks();
+          endTick = setTimeout(() => go(current + 1), 500);
+        });
+      }
+    });
 
     const start = () => { paused = false; playSlide(slides[current]); schedule(); };
-    const stop  = () => { paused = true; clearTimeout(tick); pauseSlide(slides[current]); };
+    const stop  = () => { paused = true; clearTicks(); pauseSlide(slides[current]); };
 
     container.addEventListener('mouseenter', stop);
     container.addEventListener('mouseleave', start);
