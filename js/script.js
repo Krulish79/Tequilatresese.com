@@ -266,6 +266,7 @@
         el.muted = true;
         el.playsInline = true;
         el.setAttribute('playsinline', '');
+        el.loop = true;              // short clips loop in place — advance is timer-driven
         el.preload = 'metadata';
       } else {
         el = document.createElement('img');
@@ -310,11 +311,8 @@
     const schedule = () => {
       clearTimeout(tick);
       if (paused) return;
-      const el = slides[current];
-      if (el.tagName === 'VIDEO') {
-        // Video drives its own advance via 'ended'
-        return;
-      }
+      // Fixed timer for everything — short videos loop in place so they don't
+      // freeze on the last frame, and long videos are gracefully cut at HOLD.
       tick = setTimeout(() => go(current + 1), HOLD);
     };
 
@@ -331,11 +329,8 @@
       schedule();
     };
 
-    slides.forEach(s => {
-      if (s.tagName === 'VIDEO') {
-        s.addEventListener('ended', () => { if (!paused) go(current + 1); });
-      }
-    });
+    // Note: video advance is timer-driven (see schedule). 'ended' is irrelevant
+    // because videos loop. This guarantees order and consistent on-screen time.
 
     const start = () => { paused = false; playSlide(slides[current]); schedule(); };
     const stop  = () => { paused = true; clearTimeout(tick); pauseSlide(slides[current]); };
@@ -356,13 +351,14 @@
     start();
   };
 
-  // Initialise the Our Story slideshow (with dots + arrows)
+  // Initialise the Our Story slideshow (with dots + arrows). Hold tuned so
+  // short looping videos get enough time on screen between fades.
   const storySlideshow = document.getElementById('storySlideshow');
-  if (storySlideshow) initSlideshow(storySlideshow, { slideClass: 'story-slide', hold: 3000 });
+  if (storySlideshow) initSlideshow(storySlideshow, { slideClass: 'story-slide', hold: 8000 });
 
   // Initialise any mini-slideshows inside process steps
   document.querySelectorAll('.step-media--slideshow').forEach(el => {
-    initSlideshow(el, { slideClass: 'step-slide', hold: 3500 });
+    initSlideshow(el, { slideClass: 'step-slide', hold: 9000 });
   });
 
   // Craft Film — click-to-play with sound
