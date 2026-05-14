@@ -299,7 +299,10 @@
     let tick = null;
     let endTick = null;
 
-    const clearTicks = () => { clearTimeout(tick); clearTimeout(endTick); };
+    const clearTicks = () => {
+      clearTimeout(tick); tick = null;
+      clearTimeout(endTick); endTick = null;
+    };
 
     const playSlide = (el) => {
       if (el.tagName === 'VIDEO') {
@@ -307,8 +310,12 @@
         el.play().catch(() => {});
       }
     };
+    // Pause the *previous* slide a moment AFTER the crossfade finishes so its
+    // motion is still visible while it fades out — avoids a freeze-frame look.
     const pauseSlide = (el) => {
-      if (el.tagName === 'VIDEO') el.pause();
+      if (el.tagName === 'VIDEO') {
+        setTimeout(() => { try { el.pause(); } catch(_){} }, 1100);
+      }
     };
 
     // Each video plays once and the 'ended' handler advances after a short
@@ -335,16 +342,26 @@
       schedule();
     };
 
-    // When a video finishes its natural duration, hold the last frame for a
-    // short beat and then advance — feels more elegant than an abrupt cut.
+    // Pre-fade trigger: start advancing slightly BEFORE the current video
+    // ends, so the crossfade overlaps with the video's last seconds instead
+    // of freezing on the final frame and then jumping.
+    const FADE_LEAD = 0.9; // seconds before video end to start the crossfade
     slides.forEach(s => {
-      if (s.tagName === 'VIDEO') {
-        s.addEventListener('ended', () => {
-          if (paused) return;
-          clearTicks();
-          endTick = setTimeout(() => go(current + 1), 500);
-        });
-      }
+      if (s.tagName !== 'VIDEO') return;
+      s.addEventListener('timeupdate', function () {
+        if (paused || endTick) return;
+        if (slides[current] !== this) return;
+        const dur = this.duration;
+        if (!dur || !isFinite(dur)) return;
+        if (dur - this.currentTime <= FADE_LEAD) {
+          endTick = setTimeout(() => go(current + 1), 0);
+        }
+      });
+      // Fallback: if for any reason the timeupdate trigger is missed.
+      s.addEventListener('ended', () => {
+        if (paused || endTick) return;
+        endTick = setTimeout(() => go(current + 1), 0);
+      });
     });
 
     const start = () => { paused = false; playSlide(slides[current]); schedule(); };
