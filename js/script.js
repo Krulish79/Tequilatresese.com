@@ -304,17 +304,23 @@
       clearTimeout(endTick); endTick = null;
     };
 
+    // Reset+play a slide. If a video is already playing (pre-rolled in the
+    // last seconds of the previous slide), leave it alone — keeps motion
+    // continuous through the crossfade.
     const playSlide = (el) => {
       if (el.tagName === 'VIDEO') {
-        el.currentTime = 0;
-        el.play().catch(() => {});
+        if (el.paused) {
+          try { el.currentTime = 0; } catch(_){}
+          el.play().catch(() => {});
+        }
       }
     };
-    // Pause the *previous* slide a moment AFTER the crossfade finishes so its
-    // motion is still visible while it fades out — avoids a freeze-frame look.
+    // Pause the *previous* slide AFTER the crossfade is complete so it stays
+    // visible (and frozen on its last frame) only during the fade-out, not
+    // sooner — keeps the transition smooth and prevents a hard stop.
     const pauseSlide = (el) => {
       if (el.tagName === 'VIDEO') {
-        setTimeout(() => { try { el.pause(); } catch(_){} }, 1100);
+        setTimeout(() => { try { el.pause(); el.currentTime = 0; } catch(_){} }, 1600);
       }
     };
 
@@ -342,22 +348,32 @@
       schedule();
     };
 
-    // Pre-fade trigger: start advancing slightly BEFORE the current video
-    // ends, so the crossfade overlaps with the video's last seconds instead
-    // of freezing on the final frame and then jumping.
-    const FADE_LEAD = 0.9; // seconds before video end to start the crossfade
+    // Each video plays its FULL natural duration. In the last second of the
+    // current video we silently pre-roll the next video (still hidden — it
+    // doesn't get .is-active yet) so by the time the current video ends and
+    // the crossfade begins, the next clip is already mid-motion. The fade
+    // therefore reads as a true crossfade between two playing clips instead
+    // of a frozen-last-frame swap.
+    const PREROLL_LEAD = 1.0; // seconds before end to pre-start next clip
+    let prerolled = -1;
     slides.forEach(s => {
       if (s.tagName !== 'VIDEO') return;
       s.addEventListener('timeupdate', function () {
-        if (paused || endTick) return;
+        if (paused) return;
         if (slides[current] !== this) return;
         const dur = this.duration;
         if (!dur || !isFinite(dur)) return;
-        if (dur - this.currentTime <= FADE_LEAD) {
-          endTick = setTimeout(() => go(current + 1), 0);
+        if (dur - this.currentTime <= PREROLL_LEAD && prerolled !== current) {
+          prerolled = current;
+          const nextIdx = (current + 1) % slides.length;
+          const nx = slides[nextIdx];
+          if (nx && nx.tagName === 'VIDEO') {
+            try { nx.currentTime = 0; } catch(_){}
+            nx.play().catch(() => {});
+          }
         }
       });
-      // Fallback: if for any reason the timeupdate trigger is missed.
+      // Advance the slideshow when the current video reaches its full end.
       s.addEventListener('ended', () => {
         if (paused || endTick) return;
         endTick = setTimeout(() => go(current + 1), 0);

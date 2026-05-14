@@ -695,8 +695,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   object-fit: cover;
   object-position: center;
   opacity: 0;
-  /* Subtle crossfade between slides — soft, barely-noticeable dissolve */
-  transition: opacity 0.9s cubic-bezier(.4, 0, .2, 1);
+  /* Crossfade between slides — clearly visible dissolve, not a hard cut */
+  transition: opacity 1.5s cubic-bezier(.4, 0, .2, 1);
   will-change: opacity;
   pointer-events: none;
   user-select: none;
