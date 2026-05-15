@@ -348,16 +348,25 @@
       schedule();
     };
 
-    // Each video plays its FULL natural duration. In the last second of the
-    // current video we silently pre-roll the next video (still hidden — it
-    // doesn't get .is-active yet) so by the time the current video ends and
-    // the crossfade begins, the next clip is already mid-motion. The fade
-    // therefore reads as a true crossfade between two playing clips instead
-    // of a frozen-last-frame swap.
-    const PREROLL_LEAD = 1.0; // seconds before end to pre-start next clip
+    // Buffer the next clip as soon as the current one starts playing — gives
+    // the network plenty of time to fetch it. Then in the last 1.8s of the
+    // current video we silently pre-roll the next (still hidden) so by the
+    // time we crossfade, the next clip is already mid-motion.
+    const PREROLL_LEAD = 1.8;
     let prerolled = -1;
+    let buffered = -1;
+    const preloadNext = () => {
+      const nextIdx = (current + 1) % slides.length;
+      const nx = slides[nextIdx];
+      if (nx && nx.tagName === 'VIDEO' && buffered !== nextIdx) {
+        buffered = nextIdx;
+        nx.preload = 'auto';
+        try { nx.load(); } catch(_){}
+      }
+    };
     slides.forEach(s => {
       if (s.tagName !== 'VIDEO') return;
+      s.addEventListener('play', () => { if (slides[current] === s) preloadNext(); });
       s.addEventListener('timeupdate', function () {
         if (paused) return;
         if (slides[current] !== this) return;
