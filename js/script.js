@@ -344,17 +344,39 @@
       }
     };
 
+    // Sequenced fade-away / fade-in:
+    //   1. Current slide fades OUT to the dark backdrop (~0.85s)
+    //   2. A short dark beat
+    //   3. Next slide starts from frame 0 and fades IN (~0.85s)
+    // This reads as "fade away from one video, fade into the next" rather
+    // than an overlapping cross-dissolve.
+    const FADE_MS = 850;     // must match CSS transition on .story-slide/.step-slide
+    const DARK_BEAT_MS = 220; // brief darkness between clips
+    let transitioning = false;
     const go = (i, manual = false) => {
       if (paused && !manual) return;
+      if (transitioning) return;
       const next = ((i % slides.length) + slides.length) % slides.length;
       if (next === current) return;
-      pauseSlide(slides[current]);
-      slides[current].classList.remove('is-active');
-      current = next;
-      slides[current].classList.add('is-active');
-      dots.forEach((d, k) => d.classList.toggle('is-current', k === current));
-      playSlide(slides[current]);
-      schedule();
+      transitioning = true;
+      clearTicks();
+
+      const outgoing = slides[current];
+      const incoming = slides[next];
+
+      // 1. Fade the current slide away
+      outgoing.classList.remove('is-active');
+      pauseSlide(outgoing);
+
+      // 2. After it's gone (+ a beat of dark), bring the next one in
+      endTick = setTimeout(() => {
+        current = next;
+        dots.forEach((d, k) => d.classList.toggle('is-current', k === current));
+        playSlide(incoming);                 // starts from frame 0
+        incoming.classList.add('is-active'); // fades in
+        transitioning = false;
+        schedule();
+      }, FADE_MS + DARK_BEAT_MS);
     };
 
     // Buffer the NEXT clip as soon as the current one starts playing so it's
@@ -382,8 +404,21 @@
       });
     });
 
-    const start = () => { paused = false; playSlide(slides[current]); schedule(); };
-    const stop  = () => { paused = true; clearTicks(); pauseSlide(slides[current]); };
+    const start = () => {
+      paused = false;
+      transitioning = false;
+      // Make sure the current slide is visible & playing (a transition may
+      // have been interrupted mid-fade).
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === current));
+      playSlide(slides[current]);
+      schedule();
+    };
+    const stop  = () => {
+      paused = true;
+      transitioning = false;
+      clearTicks();
+      pauseSlide(slides[current]);
+    };
 
     container.addEventListener('mouseenter', stop);
     container.addEventListener('mouseleave', start);
