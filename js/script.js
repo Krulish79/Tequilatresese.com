@@ -283,6 +283,25 @@
     // Re-attach controls on top
     controls.forEach(c => container.appendChild(c));
 
+    // Single-video case (e.g. a pre-stitched clip): just loop it forever.
+    // No timers, no crossfade, no nav controls — the video plays start to
+    // finish and seamlessly repeats.
+    if (slides.length === 1 && slides[0].tagName === 'VIDEO') {
+      const v = slides[0];
+      v.loop = true;
+      v.preload = 'auto';
+      v.classList.add('is-active');
+      controls.forEach(c => { if (c.matches('[data-dir], .story-dots')) c.style.display = 'none'; });
+      const playOne = () => v.play().catch(() => {});
+      playOne();
+      container.addEventListener('mouseenter', () => v.pause());
+      container.addEventListener('mouseleave', playOne);
+      document.addEventListener('visibilitychange', () => {
+        document.hidden ? v.pause() : playOne();
+      });
+      return; // skip the multi-slide machinery entirely
+    }
+
     const dotsHost = container.querySelector('.story-dots');
     const dots = dotsHost ? urls.map((_, i) => {
       const d = document.createElement('button');
