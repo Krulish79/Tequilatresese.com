@@ -724,6 +724,24 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   .step-slide.is-active{ animation: none; }
 }
 
+/* Cultivation single stitched video: the source mixes portrait clips that
+   were pillarboxed (black side-bars baked into the 1280×720 frame). The
+   portrait content lives in the centre ~400px, so zoom past the bars while
+   keeping a gentle drift. Overrides the default Ken Burns for this step. */
+@keyframes cultZoom{
+  from { transform: scale(1.55) translate(0, 0); }
+  to   { transform: scale(1.66) translate(-1%, -1%); }
+}
+.step[data-step="01"] .step-slide.is-active{
+  animation: cultZoom 22s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce){
+  .step[data-step="01"] .step-slide.is-active{
+    animation: none;
+    transform: scale(1.55);
+  }
+}
+
 /* Slide indicator dots — subtle, bottom-center */
 .story-dots{
   position: absolute;
