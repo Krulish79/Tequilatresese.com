@@ -742,6 +742,22 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   }
 }
 
+/* Roasting single stitched video: same baked-in pillarbox pattern but content
+   is wider (~528px of 1280), so less zoom needed. */
+@keyframes roastZoom{
+  from { transform: scale(1.20) translate(0, 0); }
+  to   { transform: scale(1.30) translate(-1%, -1%); }
+}
+.step[data-step="02"] .step-slide.is-active{
+  animation: roastZoom 22s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce){
+  .step[data-step="02"] .step-slide.is-active{
+    animation: none;
+    transform: scale(1.20);
+  }
+}
+
 /* Slide indicator dots — subtle, bottom-center */
 .story-dots{
   position: absolute;
