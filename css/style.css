@@ -764,6 +764,25 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   }
 }
 
+/* Bottling single stitched video: 1920×1080 source pillarboxed (portrait
+   content centred ~810px wide). Zoom 1.15× past the side bars, ping-pong
+   drift for continuous motion against the looping video. */
+@keyframes bottleZoom{
+  from { transform: scale(1.15) translate3d(0, 0, 0); }
+  to   { transform: scale(1.25) translate3d(-1%, -1%, 0); }
+}
+.step[data-step="05"] .step-slide.is-active{
+  animation: bottleZoom 36s linear infinite alternate;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce){
+  .step[data-step="05"] .step-slide.is-active{
+    animation: none;
+    transform: scale(1.15) translate3d(0,0,0);
+  }
+}
+
 /* Slide indicator dots — subtle, bottom-center */
 .story-dots{
   position: absolute;
