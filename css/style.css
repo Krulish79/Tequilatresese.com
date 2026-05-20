@@ -764,12 +764,12 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   }
 }
 
-/* Bottling single stitched video: 1920×1080 source pillarboxed (portrait
-   content centred ~810px wide). Zoom 1.15× past the side bars, ping-pong
-   drift for continuous motion against the looping video. */
+/* Bottling single stitched video: source pillarboxed; the narrowest content
+   frame is ~440px wide of the 1280, so a 1.35× zoom is required to fully
+   clear the side-bars on every segment. */
 @keyframes bottleZoom{
-  from { transform: scale(1.15) translate3d(0, 0, 0); }
-  to   { transform: scale(1.25) translate3d(-1%, -1%, 0); }
+  from { transform: scale(1.35) translate3d(0, 0, 0); }
+  to   { transform: scale(1.45) translate3d(-1%, -1%, 0); }
 }
 .step[data-step="05"] .step-slide.is-active{
   animation: bottleZoom 36s linear infinite alternate;
@@ -779,7 +779,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 @media (prefers-reduced-motion: reduce){
   .step[data-step="05"] .step-slide.is-active{
     animation: none;
-    transform: scale(1.15) translate3d(0,0,0);
+    transform: scale(1.35) translate3d(0,0,0);
   }
 }
 
