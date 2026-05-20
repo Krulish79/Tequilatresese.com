@@ -727,34 +727,40 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 /* Cultivation single stitched video: the source mixes portrait clips that
    were pillarboxed (black side-bars baked into the 1280×720 frame). The
    portrait content lives in the centre ~400px, so zoom past the bars while
-   keeping a gentle drift. Overrides the default Ken Burns for this step. */
+   keeping a gentle drift. Uses translate3d for GPU compositing (stable, no
+   jitter) and ping-pongs forever so the drift never freezes against a
+   looping video. */
 @keyframes cultZoom{
-  from { transform: scale(1.55) translate(0, 0); }
-  to   { transform: scale(1.66) translate(-1%, -1%); }
+  from { transform: scale(1.55) translate3d(0, 0, 0); }
+  to   { transform: scale(1.66) translate3d(-1%, -1%, 0); }
 }
 .step[data-step="01"] .step-slide.is-active{
-  animation: cultZoom 22s ease-out forwards;
+  animation: cultZoom 36s linear infinite alternate;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 @media (prefers-reduced-motion: reduce){
   .step[data-step="01"] .step-slide.is-active{
     animation: none;
-    transform: scale(1.55);
+    transform: scale(1.55) translate3d(0,0,0);
   }
 }
 
 /* Roasting single stitched video: same baked-in pillarbox pattern but content
    is wider (~528px of 1280), so less zoom needed. */
 @keyframes roastZoom{
-  from { transform: scale(1.20) translate(0, 0); }
-  to   { transform: scale(1.30) translate(-1%, -1%); }
+  from { transform: scale(1.20) translate3d(0, 0, 0); }
+  to   { transform: scale(1.30) translate3d(-1%, -1%, 0); }
 }
 .step[data-step="02"] .step-slide.is-active{
-  animation: roastZoom 22s ease-out forwards;
+  animation: roastZoom 36s linear infinite alternate;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 @media (prefers-reduced-motion: reduce){
   .step[data-step="02"] .step-slide.is-active{
     animation: none;
-    transform: scale(1.20);
+    transform: scale(1.20) translate3d(0,0,0);
   }
 }
 
