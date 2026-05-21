@@ -783,6 +783,25 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   }
 }
 
+/* Our Story single stitched video: 1280×720 pillarboxed source (content
+   ~540px wide centred). Override the default Ken Burns with a wider zoom
+   so the bars are cropped out, ping-pong drift to match the looping video. */
+@keyframes storyZoom{
+  from { transform: scale(1.20) translate3d(0, 0, 0); }
+  to   { transform: scale(1.30) translate3d(-1%, -1%, 0); }
+}
+.story-slideshow .story-slide.is-active{
+  animation: storyZoom 36s linear infinite alternate;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce){
+  .story-slideshow .story-slide.is-active{
+    animation: none;
+    transform: scale(1.20) translate3d(0,0,0);
+  }
+}
+
 /* Slide indicator dots — subtle, bottom-center */
 .story-dots{
   position: absolute;
