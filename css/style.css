@@ -802,6 +802,25 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   }
 }
 
+/* Fermentation single stitched video: mixed portrait/landscape source, the
+   narrowest portrait segments are pillarboxed down to ~406px of 1280, so a
+   matching 1.55× zoom (like cultivation) is required to clear the bars. */
+@keyframes fermZoom{
+  from { transform: scale(1.55) translate3d(0, 0, 0); }
+  to   { transform: scale(1.66) translate3d(-1%, -1%, 0); }
+}
+.step[data-step="03"] .step-slide.is-active{
+  animation: fermZoom 36s linear infinite alternate;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce){
+  .step[data-step="03"] .step-slide.is-active{
+    animation: none;
+    transform: scale(1.55) translate3d(0,0,0);
+  }
+}
+
 /* Slide indicator dots — subtle, bottom-center */
 .story-dots{
   position: absolute;
