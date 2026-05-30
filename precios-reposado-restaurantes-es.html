@@ -23,37 +23,18 @@
     .price-notes li{margin-bottom:1mm;}
     @media (max-width:640px){.price-value{font-size:28pt;}.price-value .currency{font-size:14pt;}.price-value .suffix{font-size:11pt;}}
 
-    /* Three metadata stamps — Fecha / Elaborado por / Aprobado por.
-       Sits above the footer; QR stays in the footer on the right. */
-    .meta-stamps{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2mm;
-      margin: 3mm 0 2mm;
-    }
-    .meta-stamp{
-      border: 1px solid var(--line);
-      padding: 1.6mm 2.5mm;
-      text-align: center;
-    }
-    .meta-stamp-label{
-      display: block;
-      font-family: var(--sans);
-      font-size: 5.5pt;
-      letter-spacing: .26em;
-      text-transform: uppercase;
-      color: var(--copper-deep);
-      line-height: 1.1;
-    }
-    .meta-stamp-value{
-      display: block;
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 500;
-      font-size: 9.5pt;
+    /* Price-sheet-only override: neutralize the dark proof-cell so the
+       Grados tile matches the other spec cells. The tech sheets keep
+       the original dark treatment. */
+    .sheet-specs li.proof-cell{ background: var(--bg); border-color: var(--line); }
+    .sheet-specs .proof-cell span{ color: var(--muted); font-weight: normal; }
+    .sheet-specs .proof-cell strong{
       color: var(--ink);
-      margin-top: .6mm;
-      line-height: 1.1;
+      font-family: var(--serif);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 10pt;
+      letter-spacing: normal;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -163,9 +144,6 @@
     <div class="row"><label for="f-fb">Pie · Marca</label><input type="text" id="f-fb" data-key="foot_brand" /></div>
     <div class="row"><label for="f-fl">Pie · Legal</label><input type="text" id="f-fl" data-key="foot_legal" /></div>
     <div class="row"><label for="f-fu">Pie · URL</label><input type="text" id="f-fu" data-key="foot_url" /></div>
-    <div class="row"><label>Fecha</label><input type="text" data-key="fecha" placeholder="13 de abril 2026" /></div>
-    <div class="row"><label>Elaborado por</label><input type="text" data-key="elaborado" placeholder="Christopher Mir" /></div>
-    <div class="row"><label>Aprobado por</label><input type="text" data-key="aprobado" placeholder="R. Zambrano" /></div>
 
     <div class="actions">
       <button type="button" id="btn-print">Guardar como PDF</button>
@@ -235,21 +213,6 @@
       </div>
     </div>
 
-    <div class="meta-stamps">
-      <div class="meta-stamp">
-        <span class="meta-stamp-label">Fecha</span>
-        <span class="meta-stamp-value" id="out-fecha">13 de abril 2026</span>
-      </div>
-      <div class="meta-stamp">
-        <span class="meta-stamp-label">Elaborado por</span>
-        <span class="meta-stamp-value" id="out-elaborado">Christopher Mir</span>
-      </div>
-      <div class="meta-stamp">
-        <span class="meta-stamp-label">Aprobado por</span>
-        <span class="meta-stamp-value" id="out-aprobado">R. Zambrano</span>
-      </div>
-    </div>
-
     <footer class="sheet-foot">
       <span class="foot-brand" id="out-foot-brand">Tequila Tres Ese · Desde 1905</span>
       <span id="out-foot-legal">Hecho en México · NOM 1584 · CRT</span>
@@ -275,9 +238,6 @@
     foot_brand:   'Tequila Tres Ese · Desde 1905',
     foot_legal:   'Hecho en México · NOM 1584 · CRT',
     foot_url:     'tequilatresese.com',
-    fecha:        '13 de abril 2026',
-    elaborado:    'Christopher Mir',
-    aprobado:     'R. Zambrano',
   };
 
   // data-key → output element id
@@ -293,9 +253,6 @@
     foot_brand:   'out-foot-brand',
     foot_legal:   'out-foot-legal',
     foot_url:     'out-foot-url',
-    fecha:        'out-fecha',
-    elaborado:    'out-elaborado',
-    aprobado:     'out-aprobado',
   };
 
   function loadState(){
