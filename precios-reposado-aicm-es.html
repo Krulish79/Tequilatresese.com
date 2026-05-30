@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tres Ese · Reposado Orgánico — Lista de Precios · AICM</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/ficha.css?v=20260508a" />
+  <style>
+    .sheet-meta .doc-channel{display:inline-block;font-family:var(--sans);font-size:7pt;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);background:var(--copper-deep);padding:1.2mm 3mm;margin-top:2.5mm;}
+    .sheet-meta .doc-period{display:block;font-family:var(--sans);font-size:6.5pt;letter-spacing:.28em;text-transform:uppercase;color:var(--copper-deep);margin-top:2mm;}
+    @media (max-width:640px){.sheet-meta .doc-channel{font-size:4.5pt;letter-spacing:.22em;padding:.7mm 2mm;margin-top:1.2mm;}.sheet-meta .doc-period{font-size:4.5pt;}}
+    .sheet-meta .doc-type{color:var(--copper-deep);}
+    .price-block{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:5mm 0 5mm;margin:2mm 0 3mm;text-align:left;}
+    .price-row{display:grid;grid-template-columns:1fr 1fr;gap:6mm;align-items:end;}
+    .price-col{text-align:left;}
+    .size-label{font-family:var(--sans);font-size:6.5pt;letter-spacing:.28em;text-transform:uppercase;color:var(--copper-deep);margin:0 0 2mm;}
+    .price-value{font-family:var(--serif);font-style:italic;font-weight:500;font-size:30pt;line-height:1;color:var(--ink);margin:0;}
+    .price-value .currency{font-style:normal;font-weight:400;font-size:14pt;color:var(--copper-deep);vertical-align:top;margin-right:1.5mm;}
+    .price-value .suffix{font-style:normal;font-weight:400;font-size:12pt;color:var(--copper-deep);margin-left:1.5mm;vertical-align:top;}
+    .price-unit{font-family:var(--sans);font-size:8pt;color:var(--ink-soft);margin:5mm 0 0;}
+    .price-unit em{font-family:var(--serif);font-style:italic;font-size:9.5pt;color:var(--ink);}
+    .price-notes{list-style:none;padding:0;margin:0;font-family:var(--sans);font-size:7pt;letter-spacing:.04em;line-height:1.55;color:var(--ink-soft);}
+    .price-notes li{margin-bottom:1mm;}
+    @media (max-width:640px){.price-value{font-size:22pt;}.price-value .currency{font-size:11pt;}.price-value .suffix{font-size:10pt;}}
+
+    /* Neutralize the dark proof-cell on price sheets only. */
+    .sheet-specs li.proof-cell{ background: var(--bg); border-color: var(--line); }
+    .sheet-specs .proof-cell span{ color: var(--muted); font-weight: normal; }
+    .sheet-specs .proof-cell strong{ color: var(--ink); font-family: var(--serif); font-style: normal; font-weight: 400; font-size: 10pt; letter-spacing: normal; }
+
+    /* ─────────── EDITOR PANEL ─────────── */
+    .editor{display:none;max-width:8.5in;margin:16px auto 8px;padding:18px 22px;background:#fff;border:1px solid #ddd;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.06);font-family:'Inter',sans-serif;font-size:13px;color:#222;}
+    body.show-editor .editor{display:block;}
+    .editor h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:22px;margin:0 0 4px;letter-spacing:.02em;}
+    .editor .hint{font-size:12px;color:#666;margin:0 0 14px;}
+    .editor .row{display:grid;grid-template-columns:170px 1fr;gap:8px 14px;align-items:start;padding:8px 0;border-top:1px solid #f0eee9;}
+    .editor .row:first-of-type{border-top:0;}
+    .editor .row > label{font-weight:500;color:#444;padding-top:6px;}
+    .editor input[type="text"],.editor textarea{width:100%;padding:6px 8px;border:1px solid #ccc;border-radius:4px;font:inherit;color:#222;background:#fafafa;}
+    .editor input[type="text"]:focus,.editor textarea:focus{outline:none;border-color:#888;background:#fff;}
+    .editor textarea{min-height:60px;resize:vertical;line-height:1.45;}
+    .editor .row-2cols{display:grid;grid-template-columns:170px 1fr 1fr;gap:8px 14px;padding:8px 0;border-top:1px solid #f0eee9;align-items:start;}
+    .editor .row-2cols > label{padding-top:6px;font-weight:500;color:#444;}
+    .editor .actions{display:flex;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #f0eee9;}
+    .editor button{font:inherit;padding:8px 16px;border:1px solid #1a1a1a;background:#1a1a1a;color:#fff;border-radius:4px;cursor:pointer;letter-spacing:.03em;}
+    .editor button.secondary{background:#fff;color:#1a1a1a;}
+    .editor button:hover{opacity:.85;}
+    @media print{.editor{display:none !important;}}
+  </style>
+</head>
+<body>
+
+  <form class="editor" id="editor" autocomplete="off">
+    <h2>Editar — <em>AICM Terminal</em></h2>
+    <p class="hint">Edita los campos. La hoja se actualiza en tiempo real. Los cambios se guardan en este navegador. Al terminar, haz clic en <strong>Guardar como PDF</strong>.</p>
+
+    <div class="row"><label>Audiencia (insignia)</label><input type="text" data-key="audience" /></div>
+    <div class="row"><label>Periodo</label><input type="text" data-key="period" placeholder="Mayo 2026" /></div>
+    <div class="row"><label>Descripción / encabezado</label><textarea data-key="lede" rows="2"></textarea></div>
+
+    <div class="row-2cols"><label>700 mL</label><input type="text" data-key="price_700" placeholder="25" /><input type="text" data-key="currency_700" placeholder="USD" /></div>
+    <div class="row-2cols"><label>250 mL</label><input type="text" data-key="price_250" placeholder="15" /><input type="text" data-key="currency_250" placeholder="USD" /></div>
+    <div class="row"><label>Pie · Periodo / nota</label><input type="text" data-key="period_note" placeholder="Periodo · Mayo 2026 · precios en USD" /></div>
+
+    <div class="row"><label>Nota · Precios</label><input type="text" data-key="note_precios" /></div>
+    <div class="row"><label>Nota · Disponibilidad</label><input type="text" data-key="note_disp" /></div>
+    <div class="row"><label>Nota · Sujeto a cambios</label><input type="text" data-key="note_cambios" /></div>
+    <div class="row"><label>Pie · Marca</label><input type="text" data-key="foot_brand" /></div>
+    <div class="row"><label>Pie · Legal</label><input type="text" data-key="foot_legal" /></div>
+    <div class="row"><label>Pie · URL</label><input type="text" data-key="foot_url" /></div>
+
+    <div class="actions">
+      <button type="button" id="btn-print">Guardar como PDF</button>
+      <button type="button" id="btn-reset" class="secondary">Restablecer</button>
+    </div>
+  </form>
+
+  <div class="sheet-toolbar">
+    <button type="button" onclick="window.print()">Guardar como PDF</button>
+    <a href="es.html">← Volver al sitio</a>
+  </div>
+
+  <article class="sheet">
+    <header class="sheet-head">
+      <div class="brand-block">
+        <img class="brand-logo" src="images/Logos/logo-primary-black.png?v=20260429j" alt="Tres Ese" />
+        <span class="brand-caption">Tequila · Desde 1905</span>
+      </div>
+      <div class="sheet-meta">
+        <span class="doc-type">Lista de Precios</span>
+        <span class="doc-title">Reposado Orgánico</span>
+        <span class="doc-origin">Los Altos de Jalisco · México</span>
+        <span class="doc-channel" id="out-audience">AICM Terminal</span>
+        <span class="doc-period" id="out-period">Mayo 2026</span>
+      </div>
+    </header>
+
+    <div class="sheet-body">
+      <div class="sheet-bottle">
+        <img src="images/TresEse_Botella_Reposado.png?v=20260504bottles" alt="Botella Tres Ese Reposado Orgánico" />
+      </div>
+
+      <div class="sheet-content">
+        <div>
+          <p class="sheet-tag">Tequila Tres Ese</p>
+          <h1 class="sheet-h2">Reposado <em>Orgánico</em></h1>
+        </div>
+
+        <p class="sheet-lede" id="out-lede">Retail en terminal AICM — Aeropuerto Internacional de la Ciudad de México. Dos presentaciones del Reposado Orgánico, precios en USD.</p>
+
+        <div class="price-block">
+          <div class="price-row">
+            <div class="price-col">
+              <p class="size-label">700 mL</p>
+              <p class="price-value"><span class="currency">$</span><span id="out-price-700">25</span><span class="suffix" id="out-currency-700">USD</span></p>
+            </div>
+            <div class="price-col">
+              <p class="size-label">250 mL</p>
+              <p class="price-value"><span class="currency">$</span><span id="out-price-250">15</span><span class="suffix" id="out-currency-250">USD</span></p>
+            </div>
+          </div>
+          <p class="price-unit" id="out-period-note">Periodo · Mayo 2026 · precios en USD</p>
+        </div>
+
+        <div>
+          <p class="sheet-section-title">Especificaciones</p>
+          <ul class="sheet-specs">
+            <li><span>Categoría</span><strong>Tequila Reposado</strong></li>
+            <li><span>Agave</span><strong>100% Azul</strong></li>
+            <li><span>Reposo</span><strong>6 meses · roble francés</strong></li>
+            <li><span>Vol Alc</span><strong>43.4%</strong></li>
+            <li class="proof-cell"><span>Grados</span><strong>86.8</strong></li>
+            <li><span>Presentaciones</span><strong>700 mL · 250 mL</strong></li>
+            <li><span>Color</span><strong>Oro pajizo claro</strong></li>
+            <li><span>Aditivos</span><strong>Ninguno</strong></li>
+            <li><span>Certificación</span><strong>Orgánico</strong></li>
+          </ul>
+        </div>
+
+        <div class="sheet-origin">
+          <ul class="price-notes">
+            <li><strong>Precios —</strong> <span id="out-note-precios">Precios en USD, impuestos no incluidos.</span></li>
+            <li><strong>Disponibilidad —</strong> <span id="out-note-disp">Solo terminal AICM · CDMX.</span></li>
+            <li><strong>Sujeto a cambios —</strong> <span id="out-note-cambios">Los precios pueden actualizarse sin previo aviso.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="sheet-foot">
+      <span class="foot-brand" id="out-foot-brand">Tequila Tres Ese · Desde 1905</span>
+      <span id="out-foot-legal">Hecho en México · NOM 1584 · CRT</span>
+      <a class="foot-link" href="https://www.tequilatresese.com"><img class="foot-qr" src="images/Logos/qr-linktree.svg?v=20260507a" alt="" /><span id="out-foot-url">tequilatresese.com</span></a>
+    </footer>
+  </article>
+
+<script>
+  const STORAGE_KEY = 'tresese_pricelist_aicm_v1';
+  const DEFAULTS = {
+    audience:      'AICM Terminal',
+    period:        'Mayo 2026',
+    lede:          'Retail en terminal AICM — Aeropuerto Internacional de la Ciudad de México. Dos presentaciones del Reposado Orgánico, precios en USD.',
+    price_700:     '25',
+    currency_700:  'USD',
+    price_250:     '15',
+    currency_250:  'USD',
+    period_note:   'Periodo · Mayo 2026 · precios en USD',
+    note_precios:  'Precios en USD, impuestos no incluidos.',
+    note_disp:     'Solo terminal AICM · CDMX.',
+    note_cambios:  'Los precios pueden actualizarse sin previo aviso.',
+    foot_brand:    'Tequila Tres Ese · Desde 1905',
+    foot_legal:    'Hecho en México · NOM 1584 · CRT',
+    foot_url:      'tequilatresese.com',
+  };
+  const OUT = {
+    audience:      'out-audience',
+    period:        'out-period',
+    lede:          'out-lede',
+    price_700:     'out-price-700',
+    currency_700:  'out-currency-700',
+    price_250:     'out-price-250',
+    currency_250:  'out-currency-250',
+    period_note:   'out-period-note',
+    note_precios:  'out-note-precios',
+    note_disp:     'out-note-disp',
+    note_cambios:  'out-note-cambios',
+    foot_brand:    'out-foot-brand',
+    foot_legal:    'out-foot-legal',
+    foot_url:      'out-foot-url',
+  };
+  function loadState(){ try { return { ...DEFAULTS, ...(JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')) }; } catch { return { ...DEFAULTS }; } }
+  function saveState(s){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {} }
+  function renderField(k,v){ const el = document.getElementById(OUT[k]); if (el) el.textContent = v || ''; }
+  function renderAll(s){ Object.keys(OUT).forEach(k => renderField(k, s[k])); }
+  function applyToInputs(s){ document.querySelectorAll('[data-key]').forEach(i => { if (i.dataset.key in s) i.value = s[i.dataset.key]; }); }
+  function shouldShowEditor(){
+    const p = new URLSearchParams(location.search);
+    if (p.get('edit') === '1') return true;
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return true;
+    return false;
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    if (shouldShowEditor()) document.body.classList.add('show-editor');
+    const state = loadState();
+    applyToInputs(state);
+    renderAll(state);
+    document.querySelectorAll('[data-key]').forEach(input => {
+      input.addEventListener('input', () => {
+        state[input.dataset.key] = input.value;
+        renderField(input.dataset.key, input.value);
+        saveState(state);
+      });
+    });
+    document.getElementById('btn-print').addEventListener('click', () => window.print());
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      if (!confirm('¿Restablecer todos los campos a los valores por defecto?')) return;
+      Object.assign(state, DEFAULTS);
+      applyToInputs(state);
+      renderAll(state);
+      saveState(state);
+    });
+  });
+</script>
+
+</body>
+</html>
