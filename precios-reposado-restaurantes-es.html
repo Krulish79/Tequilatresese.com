@@ -10,7 +10,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/ficha.css?v=20260508a" />
   <style>
-    .channel-badge{display:inline-block;font-family:var(--sans);font-size:6.5pt;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);background:var(--copper-deep);padding:1mm 2.5mm;margin-bottom:2mm;}
+    .sheet-meta .doc-channel{
+      display:inline-block;
+      font-family:var(--sans);
+      font-size:7pt;
+      letter-spacing:.3em;
+      text-transform:uppercase;
+      color:var(--paper);
+      background:var(--copper-deep);
+      padding:1.2mm 3mm;
+      margin-top:2.5mm;
+    }
+    @media (max-width:640px){
+      .sheet-meta .doc-channel{ font-size:4.5pt; letter-spacing:.22em; padding:.7mm 2mm; margin-top:1.2mm; }
+    }
     .price-block{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6mm 0 5mm;margin:2mm 0 3mm;text-align:left;}
     .price-label{font-family:var(--sans);font-size:7pt;letter-spacing:.28em;text-transform:uppercase;color:var(--copper-deep);margin:0 0 2mm;}
     .price-value{font-family:var(--serif);font-style:italic;font-weight:500;font-size:38pt;line-height:1;color:var(--ink);margin:0;}
@@ -43,9 +56,10 @@
         <span class="brand-caption">Tequila · Desde 1905</span>
       </div>
       <div class="sheet-meta">
-        <span class="doc-type">Lista de Precios · Restaurantes</span>
+        <span class="doc-type">Lista de Precios</span>
         <span class="doc-title">Reposado Orgánico</span>
         <span class="doc-origin">Los Altos de Jalisco · México</span>
+        <span class="doc-channel">Restaurantes</span>
       </div>
     </header>
 
@@ -63,7 +77,6 @@
         <p class="sheet-lede">Canal restaurantes — venta a cuentas on-trade con factura directa. Reposado orgánico, hecho a mano en Los Altos de Jalisco.</p>
 
         <div class="price-block">
-          <span class="channel-badge">Restaurantes · On-trade</span>
           <p class="price-label">Precio factura al cliente</p>
           <p class="price-value"><span class="currency">$</span>567<span class="suffix">MXN</span></p>
           <p class="price-unit">Por botella · 700 ml · IEPS e IVA incluidos</p>
