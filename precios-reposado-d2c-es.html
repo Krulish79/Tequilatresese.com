@@ -3,19 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tres Ese · Reposado Orgánico — Lista de Precios</title>
+  <title>Tres Ese · Reposado Orgánico — Lista de Precios · D2C</title>
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/ficha.css?v=20260508a" />
   <style>
-    /* Price-sheet-only additions — reuses ficha.css for everything else */
+    /* Shared price-sheet styles — kept inline so each channel file is self-contained. */
+    .channel-badge{
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--copper-deep);
+      padding: 1mm 2.5mm;
+      margin-bottom: 2mm;
+    }
     .price-block{
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: 6mm 0;
-      margin: 2mm 0;
+      padding: 6mm 0 5mm;
+      margin: 2mm 0 3mm;
       text-align: left;
     }
     .price-label{
@@ -43,25 +54,82 @@
       vertical-align: top;
       margin-right: 2mm;
     }
+    .price-value .suffix{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14pt;
+      color: var(--copper-deep);
+      margin-left: 2mm;
+      vertical-align: top;
+    }
     .price-unit{
       font-family: var(--sans);
       font-size: 8.5pt;
       color: var(--ink-soft);
       margin: 2mm 0 0;
     }
+    .price-breakdown{
+      list-style: none;
+      padding: 0;
+      margin: 4mm 0 0;
+      font-family: var(--sans);
+      font-size: 8pt;
+      color: var(--ink-soft);
+    }
+    .price-breakdown li{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.4mm 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .price-breakdown li.total{
+      border-bottom: none;
+      border-top: 1px solid var(--ink);
+      margin-top: 1mm;
+      padding-top: 2mm;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .price-breakdown .val{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 10.5pt;
+      color: var(--ink);
+    }
+    .shelf-suggested{
+      font-family: var(--sans);
+      font-size: 8pt;
+      letter-spacing: .04em;
+      color: var(--copper-deep);
+      margin: 3mm 0 0;
+      padding-left: 3mm;
+      border-left: 2px solid var(--copper-deep);
+    }
+    .shelf-suggested strong{
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 11pt;
+      color: var(--ink);
+      margin-left: 1mm;
+    }
+    .sheet-meta .doc-type{ color: var(--copper-deep); }
     .price-notes{
+      list-style: none;
+      padding: 0;
+      margin: 0;
       font-family: var(--sans);
       font-size: 7pt;
       letter-spacing: .04em;
-      line-height: 1.5;
+      line-height: 1.55;
       color: var(--ink-soft);
-      margin-top: 4mm;
     }
     .price-notes li{ margin-bottom: 1mm; }
-    .sheet-meta .doc-type{ color: var(--copper-deep); }
     @media (max-width: 640px){
       .price-value{ font-size: 28pt; }
       .price-value .currency{ font-size: 14pt; }
+      .price-value .suffix{ font-size: 11pt; }
     }
   </style>
 </head>
@@ -79,7 +147,7 @@
         <span class="brand-caption">Tequila · Desde 1905</span>
       </div>
       <div class="sheet-meta">
-        <span class="doc-type">Lista de Precios</span>
+        <span class="doc-type">Lista de Precios · D2C</span>
         <span class="doc-title">Reposado Orgánico</span>
         <span class="doc-origin">Los Altos de Jalisco · México</span>
       </div>
@@ -96,12 +164,20 @@
           <h1 class="sheet-h2">Reposado <em>Orgánico</em></h1>
         </div>
 
-        <p class="sheet-lede">Seis meses descansando en roble francés. Disponible únicamente en México — la primera y, por ahora, nuestra única expresión a la venta.</p>
+        <p class="sheet-lede">Portal propio — venta directa al consumidor a través de nuestro sitio. Margen y narrativa de marca quedan completamente en casa.</p>
 
         <div class="price-block">
-          <p class="price-label">Precio público sugerido</p>
-          <p class="price-value"><span class="currency">$</span>701<span class="currency" style="margin-left:2mm;font-size:14pt">MXN</span></p>
+          <span class="channel-badge">Portal propio · D2C</span>
+          <p class="price-label">Precio final al consumidor</p>
+          <p class="price-value"><span class="currency">$</span>701<span class="suffix">MXN</span></p>
           <p class="price-unit">Por botella · 700 ml · IVA incluido</p>
+
+          <ul class="price-breakdown">
+            <li><span>Precio neto</span><span class="val">$395</span></li>
+            <li><span>+ IEPS 53%</span><span class="val">+$209</span></li>
+            <li><span>+ IVA 16%</span><span class="val">+$97</span></li>
+            <li class="total"><span>Total al consumidor</span><span class="val">$701</span></li>
+          </ul>
         </div>
 
         <div>
@@ -120,10 +196,9 @@
         </div>
 
         <div class="sheet-origin">
-          <ul class="price-notes" style="list-style:none;padding:0;margin:0">
+          <ul class="price-notes">
             <li><strong>Disponibilidad —</strong> Distribución actual: solo dentro de México.</li>
             <li><strong>Sujeto a cambios —</strong> Los precios pueden actualizarse sin previo aviso.</li>
-            <li><strong>Pedidos mayoristas —</strong> Contactar a <a href="mailto:cmir@tequilatresese.com">cmir@tequilatresese.com</a>.</li>
           </ul>
         </div>
       </div>
