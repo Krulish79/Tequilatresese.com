@@ -10,139 +10,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/ficha.css?v=20260508a" />
   <style>
-    /* Shared price-sheet styles — kept inline so each channel file is self-contained. */
-    .sheet-meta .doc-channel{
-      display: inline-block;
-      font-family: var(--sans);
-      font-size: 7pt;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: var(--paper);
-      background: var(--copper-deep);
-      padding: 1.2mm 3mm;
-      margin-top: 2.5mm;
-    }
-    @media (max-width: 640px){
-      .sheet-meta .doc-channel{ font-size: 4.5pt; letter-spacing:.22em; padding:.7mm 2mm; margin-top:1.2mm; }
-    }
-    .price-block{
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 6mm 0 5mm;
-      margin: 2mm 0 3mm;
-      text-align: left;
-    }
-    .price-label{
-      font-family: var(--sans);
-      font-size: 7pt;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--copper-deep);
-      margin: 0 0 2mm;
-    }
-    .price-value{
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 500;
-      font-size: 38pt;
-      line-height: 1;
-      color: var(--ink);
-      margin: 0;
-    }
-    .price-value .currency{
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18pt;
-      color: var(--copper-deep);
-      vertical-align: top;
-      margin-right: 2mm;
-    }
-    .price-value .suffix{
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14pt;
-      color: var(--copper-deep);
-      margin-left: 2mm;
-      vertical-align: top;
-    }
-    .price-unit{
-      font-family: var(--sans);
-      font-size: 8.5pt;
-      color: var(--ink-soft);
-      margin: 5mm 0 0;
-    }
-    .price-unit em{
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 10pt;
-      color: var(--ink);
-    }
-    .price-breakdown{
-      list-style: none;
-      padding: 0;
-      margin: 4mm 0 0;
-      font-family: var(--sans);
-      font-size: 8pt;
-      color: var(--ink-soft);
-    }
-    .price-breakdown li{
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 1.4mm 0;
-      border-bottom: 1px dashed var(--line);
-    }
-    .price-breakdown li.total{
-      border-bottom: none;
-      border-top: 1px solid var(--ink);
-      margin-top: 1mm;
-      padding-top: 2mm;
-      font-weight: 500;
-      color: var(--ink);
-    }
-    .price-breakdown .val{
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 10.5pt;
-      color: var(--ink);
-    }
-    .shelf-suggested{
-      font-family: var(--sans);
-      font-size: 8pt;
-      letter-spacing: .04em;
-      color: var(--copper-deep);
-      margin: 3mm 0 0;
-      padding-left: 3mm;
-      border-left: 2px solid var(--copper-deep);
-    }
-    .shelf-suggested strong{
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 500;
-      font-size: 11pt;
-      color: var(--ink);
-      margin-left: 1mm;
-    }
-    .sheet-meta .doc-type{ color: var(--copper-deep); }
-    .price-notes{
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-family: var(--sans);
-      font-size: 7pt;
-      letter-spacing: .04em;
-      line-height: 1.55;
-      color: var(--ink-soft);
-    }
-    .price-notes li{ margin-bottom: 1mm; }
-    @media (max-width: 640px){
-      .price-value{ font-size: 28pt; }
-      .price-value .currency{ font-size: 14pt; }
-      .price-value .suffix{ font-size: 11pt; }
-    }
+    .sheet-meta .doc-channel{display:inline-block;font-family:var(--sans);font-size:7pt;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);background:var(--copper-deep);padding:1.2mm 3mm;margin-top:2.5mm;}
+    @media (max-width:640px){.sheet-meta .doc-channel{font-size:4.5pt;letter-spacing:.22em;padding:.7mm 2mm;margin-top:1.2mm;}}
+    .price-block{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6mm 0 5mm;margin:2mm 0 3mm;text-align:left;}
+    .price-value{font-family:var(--serif);font-style:italic;font-weight:500;font-size:38pt;line-height:1;color:var(--ink);margin:0;}
+    .price-value .currency{font-style:normal;font-weight:400;font-size:18pt;color:var(--copper-deep);vertical-align:top;margin-right:2mm;}
+    .price-value .suffix{font-style:normal;font-weight:400;font-size:14pt;color:var(--copper-deep);margin-left:2mm;vertical-align:top;}
+    .price-unit{font-family:var(--sans);font-size:8.5pt;color:var(--ink-soft);margin:5mm 0 0;}
+    .price-unit em{font-family:var(--serif);font-style:italic;font-size:10pt;color:var(--ink);}
+    .sheet-meta .doc-type{color:var(--copper-deep);}
+    .price-notes{list-style:none;padding:0;margin:0;font-family:var(--sans);font-size:7pt;letter-spacing:.04em;line-height:1.55;color:var(--ink-soft);}
+    .price-notes li{margin-bottom:1mm;}
+    @media (max-width:640px){.price-value{font-size:28pt;}.price-value .currency{font-size:14pt;}.price-value .suffix{font-size:11pt;}}
+
+    /* ─────────── EDITOR PANEL ─────────── */
+    .editor{display:none;max-width:8.5in;margin:16px auto 8px;padding:18px 22px;background:#fff;border:1px solid #ddd;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.06);font-family:'Inter',sans-serif;font-size:13px;color:#222;}
+    body.show-editor .editor{display:block;}
+    .editor h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:22px;margin:0 0 4px;letter-spacing:.02em;}
+    .editor .hint{font-size:12px;color:#666;margin:0 0 14px;}
+    .editor .row{display:grid;grid-template-columns:170px 1fr;gap:8px 14px;align-items:start;padding:8px 0;border-top:1px solid #f0eee9;}
+    .editor .row:first-of-type{border-top:0;}
+    .editor .row > label{font-weight:500;color:#444;padding-top:6px;}
+    .editor input[type="text"],.editor textarea{width:100%;padding:6px 8px;border:1px solid #ccc;border-radius:4px;font:inherit;color:#222;background:#fafafa;}
+    .editor input[type="text"]:focus,.editor textarea:focus{outline:none;border-color:#888;background:#fff;}
+    .editor textarea{min-height:60px;resize:vertical;line-height:1.45;}
+    .editor .row-2cols{display:grid;grid-template-columns:170px 1fr 1fr;gap:8px 14px;padding:8px 0;border-top:1px solid #f0eee9;align-items:start;}
+    .editor .row-2cols > label{padding-top:6px;font-weight:500;color:#444;}
+    .editor .actions{display:flex;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #f0eee9;}
+    .editor button{font:inherit;padding:8px 16px;border:1px solid #1a1a1a;background:#1a1a1a;color:#fff;border-radius:4px;cursor:pointer;letter-spacing:.03em;}
+    .editor button.secondary{background:#fff;color:#1a1a1a;}
+    .editor button:hover{opacity:.85;}
+    @media print{.editor{display:none !important;}}
   </style>
 </head>
 <body>
+
+  <form class="editor" id="editor" autocomplete="off">
+    <h2>Editar — <em>Portal Tequila Tres Ese México</em></h2>
+    <p class="hint">Edita los campos. La hoja se actualiza en tiempo real. Los cambios se guardan en este navegador. Al terminar, haz clic en <strong>Guardar como PDF</strong>.</p>
+
+    <div class="row"><label>Audiencia (insignia)</label><input type="text" data-key="audience" /></div>
+    <div class="row"><label>Descripción / encabezado</label><textarea data-key="lede" rows="2"></textarea></div>
+    <div class="row-2cols"><label>Precio</label><input type="text" data-key="price" placeholder="701" /><input type="text" data-key="currency" placeholder="MXN" /></div>
+    <div class="row"><label>Presentación</label><input type="text" data-key="presentation" /></div>
+    <div class="row"><label>Nota · Precios</label><input type="text" data-key="note_precios" /></div>
+    <div class="row"><label>Nota · Disponibilidad</label><input type="text" data-key="note_disp" /></div>
+    <div class="row"><label>Nota · Sujeto a cambios</label><input type="text" data-key="note_cambios" /></div>
+    <div class="row"><label>Pie · Marca</label><input type="text" data-key="foot_brand" /></div>
+    <div class="row"><label>Pie · Legal</label><input type="text" data-key="foot_legal" /></div>
+    <div class="row"><label>Pie · URL</label><input type="text" data-key="foot_url" /></div>
+
+    <div class="actions">
+      <button type="button" id="btn-print">Guardar como PDF</button>
+      <button type="button" id="btn-reset" class="secondary">Restablecer</button>
+    </div>
+  </form>
 
   <div class="sheet-toolbar">
     <button type="button" onclick="window.print()">Guardar como PDF</button>
@@ -159,7 +81,7 @@
         <span class="doc-type">Lista de Precios</span>
         <span class="doc-title">Reposado Orgánico</span>
         <span class="doc-origin">Los Altos de Jalisco · México</span>
-        <span class="doc-channel">Portal Tequila Tres Ese México</span>
+        <span class="doc-channel" id="out-audience">Portal Tequila Tres Ese México</span>
       </div>
     </header>
 
@@ -174,11 +96,11 @@
           <h1 class="sheet-h2">Reposado <em>Orgánico</em></h1>
         </div>
 
-        <p class="sheet-lede">Portal propio — venta directa al consumidor a través de nuestro sitio. Margen y narrativa de marca quedan completamente en casa.</p>
+        <p class="sheet-lede" id="out-lede">Portal propio — venta directa al consumidor a través de nuestro sitio. Margen y narrativa de marca quedan completamente en casa.</p>
 
         <div class="price-block">
-          <p class="price-value"><span class="currency">$</span>701<span class="suffix">MXN</span></p>
-          <p class="price-unit">Por botella · <em>presentación 700 mL</em></p>
+          <p class="price-value"><span class="currency">$</span><span id="out-price">701</span><span class="suffix" id="out-currency">MXN</span></p>
+          <p class="price-unit">Por botella · <em id="out-presentation">presentación 700 mL</em></p>
         </div>
 
         <div>
@@ -198,20 +120,82 @@
 
         <div class="sheet-origin">
           <ul class="price-notes">
-            <li><strong>Precios —</strong> IEPS e IVA incluidos.</li>
-            <li><strong>Disponibilidad —</strong> Distribución actual: solo dentro de México.</li>
-            <li><strong>Sujeto a cambios —</strong> Los precios pueden actualizarse sin previo aviso.</li>
+            <li><strong>Precios —</strong> <span id="out-note-precios">IEPS e IVA incluidos.</span></li>
+            <li><strong>Disponibilidad —</strong> <span id="out-note-disp">Distribución actual: solo dentro de México.</span></li>
+            <li><strong>Sujeto a cambios —</strong> <span id="out-note-cambios">Los precios pueden actualizarse sin previo aviso.</span></li>
           </ul>
         </div>
       </div>
     </div>
 
     <footer class="sheet-foot">
-      <span class="foot-brand">Tequila Tres Ese · Desde 1905</span>
-      <span>Hecho en México · NOM 1584 · CRT</span>
-      <a class="foot-link" href="https://www.tequilatresese.com"><img class="foot-qr" src="images/Logos/qr-linktree.svg?v=20260507a" alt="" /><span>tequilatresese.com</span></a>
+      <span class="foot-brand" id="out-foot-brand">Tequila Tres Ese · Desde 1905</span>
+      <span id="out-foot-legal">Hecho en México · NOM 1584 · CRT</span>
+      <a class="foot-link" href="https://www.tequilatresese.com"><img class="foot-qr" src="images/Logos/qr-linktree.svg?v=20260507a" alt="" /><span id="out-foot-url">tequilatresese.com</span></a>
     </footer>
   </article>
+
+<script>
+  const STORAGE_KEY = 'tresese_pricelist_d2c_v1';
+  const DEFAULTS = {
+    audience:     'Portal Tequila Tres Ese México',
+    lede:         'Portal propio — venta directa al consumidor a través de nuestro sitio. Margen y narrativa de marca quedan completamente en casa.',
+    price:        '701',
+    currency:     'MXN',
+    presentation: 'presentación 700 mL',
+    note_precios: 'IEPS e IVA incluidos.',
+    note_disp:    'Distribución actual: solo dentro de México.',
+    note_cambios: 'Los precios pueden actualizarse sin previo aviso.',
+    foot_brand:   'Tequila Tres Ese · Desde 1905',
+    foot_legal:   'Hecho en México · NOM 1584 · CRT',
+    foot_url:     'tequilatresese.com',
+  };
+  const OUT = {
+    audience:     'out-audience',
+    lede:         'out-lede',
+    price:        'out-price',
+    currency:     'out-currency',
+    presentation: 'out-presentation',
+    note_precios: 'out-note-precios',
+    note_disp:    'out-note-disp',
+    note_cambios: 'out-note-cambios',
+    foot_brand:   'out-foot-brand',
+    foot_legal:   'out-foot-legal',
+    foot_url:     'out-foot-url',
+  };
+  function loadState(){ try { return { ...DEFAULTS, ...(JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')) }; } catch { return { ...DEFAULTS }; } }
+  function saveState(s){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {} }
+  function renderField(k,v){ const el = document.getElementById(OUT[k]); if (el) el.textContent = v || ''; }
+  function renderAll(s){ Object.keys(OUT).forEach(k => renderField(k, s[k])); }
+  function applyToInputs(s){ document.querySelectorAll('[data-key]').forEach(i => { if (i.dataset.key in s) i.value = s[i.dataset.key]; }); }
+  function shouldShowEditor(){
+    const p = new URLSearchParams(location.search);
+    if (p.get('edit') === '1') return true;
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return true;
+    return false;
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    if (shouldShowEditor()) document.body.classList.add('show-editor');
+    const state = loadState();
+    applyToInputs(state);
+    renderAll(state);
+    document.querySelectorAll('[data-key]').forEach(input => {
+      input.addEventListener('input', () => {
+        state[input.dataset.key] = input.value;
+        renderField(input.dataset.key, input.value);
+        saveState(state);
+      });
+    });
+    document.getElementById('btn-print').addEventListener('click', () => window.print());
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      if (!confirm('¿Restablecer todos los campos a los valores por defecto?')) return;
+      Object.assign(state, DEFAULTS);
+      applyToInputs(state);
+      renderAll(state);
+      saveState(state);
+    });
+  });
+</script>
 
 </body>
 </html>
