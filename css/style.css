@@ -1690,25 +1690,41 @@ a[href="#store"]{
 .product-img{
   position: relative;
   display:flex; align-items:flex-end; justify-content:center;
-  padding: 2rem 1rem .5rem;
+  padding: 2rem 1rem 1.75rem;
   background: var(--bg-soft);
   overflow: hidden;
 }
-/* Anisotropic ground shadow — darker at the top edge, fades downward */
+/* Soft ambient shadow — wider, very subtle, fades outward */
+.product-img::before{
+  content:"";
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  width: 58%;
+  height: 14px;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%,
+              rgba(28,18,8,.22) 0%,
+              rgba(28,18,8,.08) 55%,
+              transparent 85%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Tight contact shadow — narrow, darker, hugs the bottle base */
 .product-img::after{
   content:"";
   position: absolute;
   left: 50%;
-  bottom: 6px;
+  bottom: 1.55rem;
   transform: translateX(-50%);
-  width: 60%;
-  height: 24px;
-  background: radial-gradient(ellipse 50% 50% at 50% 30%,
-              rgba(0,0,0,.85) 0%,
-              rgba(0,0,0,.45) 28%,
-              rgba(0,0,0,.18) 55%,
-              transparent 88%);
-  filter: blur(6px);
+  width: 32%;
+  height: 6px;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%,
+              rgba(28,18,8,.55) 0%,
+              rgba(28,18,8,.18) 60%,
+              transparent 90%);
+  filter: blur(3px);
   pointer-events: none;
   z-index: 0;
 }
@@ -1718,9 +1734,9 @@ a[href="#store"]{
   height: 300px;
   width: auto;
   object-fit: contain;
-  filter:
-    drop-shadow(0 2px 0 rgba(28,18,8,.85))
-    drop-shadow(0 3px 3px rgba(28,18,8,.4));
+  /* Single soft drop-shadow only — no sharp line. The ::before / ::after
+     handle the ground-shadow; this is just light depth on the bottle itself. */
+  filter: drop-shadow(0 4px 8px rgba(28,18,8,.25));
 }
 .product-body{
   padding: 1.75rem 1.5rem 2rem;
@@ -2252,7 +2268,9 @@ body.lightbox-open{ overflow: hidden; }
   /* Claims pinned to the BOTTOM of the hero on mobile so they read as a
      ground-line beneath the bottles in the background image, rather than
      hanging above them at the top. .hero is position:relative so this
-     positions against the hero section itself. */
+     positions against the hero section itself. Lifted from 1.5rem to 5rem
+     so the row sits near the bases of the bottles instead of clinging to
+     the viewport bottom edge. */
   .hero-meta{
     display: flex !important;
     flex-direction: row;
@@ -2262,7 +2280,7 @@ body.lightbox-open{ overflow: hidden; }
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 1.5rem;
+    bottom: 5rem;
     margin: 0;
     padding: 0 1.25rem;
     border: 0;
@@ -2280,13 +2298,14 @@ body.lightbox-open{ overflow: hidden; }
   .hero-meta span{ font-size: .82rem; font-weight: 500; }
   .hero-meta em{ font-size: .5rem; letter-spacing: .22em; }
   /* Hero photo on mobile — cover, focal point pushed all the way to the right
-     so the bottles fill the viewport. Translate-up so the bottles sit higher
-     in the frame (image scales to fill height exactly, so we have to shift it
-     manually — object-position-y has no overflow to crop). */
+     so the bottles fill the viewport. Scale + translate-up to pull the bottles
+     to the top of the frame (image scales to fill height exactly, so we have
+     to shift it manually — object-position-y has no overflow to crop). */
   .hero-bg{
     object-fit: cover;
-    object-position: 92% 60%;       /* eased 2% back to the left */
-    transform: translateY(-8%);
+    object-position: 92% 60%;
+    transform: scale(1.18) translateY(-13%);
+    transform-origin: center top;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
   .hero *{ border-top-width: 0 !important; border-bottom-width: 0 !important; }
@@ -2490,11 +2509,32 @@ body.lightbox-open{ overflow: hidden; }
   .contact-form .row{ grid-template-columns: 1fr; }
   .hero{ padding: 5.6rem 0 3rem; }
   .scroll-link--hero{ display:none; }
-  /* Tighten the dead space between the Origin (certifications) section
-     and the Proceso section on mobile — desktop keeps the airy spacing.
-     .story has 5rem padding by default; we shrink only the bottom side
-     so the cert block above the arrow keeps its breathing room. */
-  .story{ padding-bottom: 1.5rem; }
+  /* ─────────── Mobile spacing pass ───────────
+     All section paddings tightened to match the step-to-step rhythm
+     inside .process (~3rem top + 3rem bottom = 96px between content).
+     Desktop spacing is untouched. */
+
+  /* Section paddings */
+  .story{ padding-top: 3rem; padding-bottom: 1.5rem; }      /* bottom tight for arrow transition */
+  .process{ padding-top: 1.5rem; padding-bottom: 3rem; }
+  .expressions, .cocktails, .gallery, .store{ padding: 3rem 0; }
+  .contact{ padding: 2rem 0; }
+
+  /* All scroll-link arrows on mobile — tight margins across the board.
+     Base rule is clamp(5rem, ..., 8rem) which floors to 5rem (80 px) on
+     mobile; we override down to 2 rem so every section transition gets the
+     same compact rhythm. */
+  .scroll-link{ margin-top: 2rem; margin-bottom: .5rem; }
+  /* Origin → Proceso is even tighter (arrow bridges story bottom and process top) */
   .story > .scroll-link{ margin-top: 2rem; margin-bottom: .5rem; }
-  .process{ padding-top: 1.5rem; }
+
+  /* Within .process — tighten the step-to-step rhythm */
+  .step{ padding: 2rem 0; }
+
+  /* Cert-logos block: trim the dead band between the signature and
+     the logos row (was 2rem margin + 1.75rem padding above the line). */
+  .cert-logos{ margin-top: 1rem; padding-top: 1rem; }
+
+  /* Section heads (eyebrow + h2 + lede) — close the gap to the section content */
+  .section-head{ margin-bottom: 1.5rem !important; }
 }
