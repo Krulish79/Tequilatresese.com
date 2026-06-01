@@ -482,7 +482,8 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   display:flex; flex-direction:column; line-height:1.1; gap: .45rem;
   flex: 0 0 auto;
   min-width: 0;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 .hero-meta span{
   font-family: var(--serif);
