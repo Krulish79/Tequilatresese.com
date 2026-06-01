@@ -2237,7 +2237,13 @@ body.lightbox-open{ overflow: hidden; }
     z-index: 30;
     box-shadow: 0 20px 40px -20px rgba(0,0,0,.2);
   }
-  .primary-nav.is-open a{ color: var(--ink); }
+  /* Force ink color on open-menu links — beats the hero-context
+     'color: var(--paper)' rule which otherwise leaves the items
+     barely visible on the cream sheet. */
+  .site-header .primary-nav.is-open a,
+  .site-header:not(.is-scrolled) .primary-nav.is-open a{
+    color: var(--ink);
+  }
 
   /* Hero on mobile — height locked to a JS-captured pixel value (--hero-h)
      so the image stays the same size when the address bar collapses on
