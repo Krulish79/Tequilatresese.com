@@ -2221,7 +2221,7 @@ body.lightbox-open{ overflow: hidden; }
   }
   .hero-veil{
     background:
-      linear-gradient(180deg, rgba(14,12,9,.55) 0%, rgba(14,12,9,.25) 30%, rgba(14,12,9,.65) 100%);
+      linear-gradient(180deg, rgba(14,12,9,.28) 0%, rgba(14,12,9,.18) 25%, rgba(14,12,9,.55) 100%);
   }
 
   .primary-nav.is-open{
@@ -2311,14 +2311,15 @@ body.lightbox-open{ overflow: hidden; }
   .hero *{ border-top-width: 0 !important; border-bottom-width: 0 !important; }
   /* Hide the Discover arrow at the bottom of the hero on mobile */
   .scroll-link--hero{ display: none !important; }
-  /* Stronger top-edge fade to pure black on mobile */
+  /* Soft top-edge fade on mobile — just enough to seat the logo on dark,
+     not so much that the bottle heads disappear into the band. */
   .hero-edge-fade{
     background:
       linear-gradient(180deg,
         #15100c 0%,
-        #15100c 18%,
-        rgba(21,16,12,.8) 25%,
-        transparent 38%,
+        rgba(21,16,12,.78) 4%,
+        rgba(21,16,12,.35) 9%,
+        transparent 16%,
         transparent 76%,
         rgba(21,16,12,.6) 92%,
         #15100c 100%);
