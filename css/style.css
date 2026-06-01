@@ -2266,11 +2266,9 @@ body.lightbox-open{ overflow: hidden; }
   .hero-title,
   .hero-trio{ display: none !important; }
   /* Claims pinned to the BOTTOM of the hero on mobile so they read as a
-     ground-line beneath the bottles in the background image, rather than
-     hanging above them at the top. .hero is position:relative so this
-     positions against the hero section itself. Lifted from 1.5rem to 5rem
-     so the row sits near the bases of the bottles instead of clinging to
-     the viewport bottom edge. */
+     ground-line beneath the bottles in the background image. Sits low
+     enough that there's clear breathing room between the bottle bases
+     and the row — not touching the bottles. */
   .hero-meta{
     display: flex !important;
     flex-direction: row;
@@ -2280,7 +2278,7 @@ body.lightbox-open{ overflow: hidden; }
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 5rem;
+    bottom: 1.75rem;
     margin: 0;
     padding: 0 1.25rem;
     border: 0;
