@@ -406,6 +406,10 @@ body{
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+  /* When content is shorter than 11in, push the footer to the bottom
+     of the page so leftover space lands as breathing room above it
+     instead of a dead band at the bottom. No-op if the body already fills. */
+  .sheet-foot{ margin-top: auto; }
 }
 
 /* ───── SCREEN — phone view: keep the desktop Letter layout, just scaled down ───── */

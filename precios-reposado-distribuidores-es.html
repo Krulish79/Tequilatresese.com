@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="css/ficha.css?v=20260508a" />
   <style>
     .sheet-meta .doc-channel{display:inline-block;font-family:var(--sans);font-size:7pt;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);background:var(--copper-deep);padding:1.2mm 3mm;margin-top:2.5mm;}
-    @media (max-width:640px){.sheet-meta .doc-channel{font-size:4.5pt;letter-spacing:.22em;padding:.7mm 2mm;margin-top:1.2mm;}}
+    .sheet-meta .doc-period{display:block;font-family:var(--sans);font-size:6.5pt;letter-spacing:.28em;text-transform:uppercase;color:var(--copper-deep);margin-top:2mm;}
+    @media (max-width:640px){.sheet-meta .doc-channel{font-size:4.5pt;letter-spacing:.22em;padding:.7mm 2mm;margin-top:1.2mm;}.sheet-meta .doc-period{font-size:4.5pt;}}
     .price-block{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6mm 0 5mm;margin:2mm 0 3mm;text-align:left;}
     .price-value{font-family:var(--serif);font-style:italic;font-weight:500;font-size:38pt;line-height:1;color:var(--ink);margin:0;}
     .price-value .currency{font-style:normal;font-weight:400;font-size:18pt;color:var(--copper-deep);vertical-align:top;margin-right:2mm;}
@@ -58,10 +59,11 @@
     <p class="hint">Edita los campos. La hoja se actualiza en tiempo real. Los cambios se guardan en este navegador. Al terminar, haz clic en <strong>Guardar como PDF</strong>.</p>
 
     <div class="row"><label>Audiencia (insignia)</label><input type="text" data-key="audience" /></div>
+    <div class="row"><label>Periodo</label><input type="text" data-key="period" placeholder="Junio 2026" /></div>
     <div class="row"><label>Descripción / encabezado</label><textarea data-key="lede" rows="2"></textarea></div>
-    <div class="row-2cols"><label>Precio</label><input type="text" data-key="price" placeholder="495" /><input type="text" data-key="currency" placeholder="MXN" /></div>
+    <div class="row-2cols"><label>Precio</label><input type="text" data-key="price" placeholder="574" /><input type="text" data-key="currency" placeholder="MXN" /></div>
     <div class="row"><label>Presentación</label><input type="text" data-key="presentation" /></div>
-    <div class="row-2cols"><label>Anaquel sugerido</label><input type="text" data-key="anaquel_label" placeholder="Anaquel sugerido al consumidor" /><input type="text" data-key="anaquel_price" placeholder="$854 MXN" /></div>
+    <div class="row-2cols"><label>Anaquel sugerido</label><input type="text" data-key="anaquel_label" placeholder="Anaquel sugerido al consumidor" /><input type="text" data-key="anaquel_price" placeholder="$990 MXN" /></div>
     <div class="row"><label>Nota · Precios</label><input type="text" data-key="note_precios" /></div>
     <div class="row"><label>Nota · Disponibilidad</label><input type="text" data-key="note_disp" /></div>
     <div class="row"><label>Nota · Sujeto a cambios</label><input type="text" data-key="note_cambios" /></div>
@@ -91,6 +93,7 @@
         <span class="doc-title">Reposado Orgánico</span>
         <span class="doc-origin">Los Altos de Jalisco · México</span>
         <span class="doc-channel" id="out-audience">Distribuidores</span>
+        <span class="doc-period" id="out-period">Junio 2026</span>
       </div>
     </header>
 
@@ -108,12 +111,12 @@
         <p class="sheet-lede" id="out-lede">Canal distribuidores — venta a cadenas off-trade. Reposado orgánico, embotellado a mano en Los Altos de Jalisco.</p>
 
         <div class="price-block">
-          <p class="price-value"><span class="currency">$</span><span id="out-price">495</span><span class="suffix" id="out-currency">MXN</span></p>
+          <p class="price-value"><span class="currency">$</span><span id="out-price">574</span><span class="suffix" id="out-currency">MXN</span></p>
           <p class="price-unit">Por botella · <em id="out-presentation">presentación 700 mL</em></p>
 
           <p class="shelf-suggested">
             <span class="lbl" id="out-anaquel-label">Anaquel sugerido al consumidor</span>
-            <strong id="out-anaquel-price">$854 MXN</strong>
+            <strong id="out-anaquel-price">$990 MXN</strong>
           </p>
         </div>
 
@@ -153,12 +156,13 @@
   const STORAGE_KEY = 'tresese_pricelist_distribuidores_v1';
   const DEFAULTS = {
     audience:      'Distribuidores',
+    period:        'Junio 2026',
     lede:          'Canal distribuidores — venta a cadenas off-trade. Reposado orgánico, embotellado a mano en Los Altos de Jalisco.',
-    price:         '495',
+    price:         '574',
     currency:      'MXN',
     presentation:  'presentación 700 mL',
     anaquel_label: 'Anaquel sugerido al consumidor',
-    anaquel_price: '$854 MXN',
+    anaquel_price: '$990 MXN',
     note_precios:  'IEPS e IVA incluidos.',
     note_disp:     'Distribución actual: solo dentro de México.',
     note_cambios:  'Los precios pueden actualizarse sin previo aviso.',
@@ -168,6 +172,7 @@
   };
   const OUT = {
     audience:      'out-audience',
+    period:        'out-period',
     lede:          'out-lede',
     price:         'out-price',
     currency:      'out-currency',

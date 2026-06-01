@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="css/ficha.css?v=20260508a" />
   <style>
     .sheet-meta .doc-channel{display:inline-block;font-family:var(--sans);font-size:7pt;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);background:var(--copper-deep);padding:1.2mm 3mm;margin-top:2.5mm;}
-    @media (max-width:640px){.sheet-meta .doc-channel{font-size:4.5pt;letter-spacing:.22em;padding:.7mm 2mm;margin-top:1.2mm;}}
+    .sheet-meta .doc-period{display:block;font-family:var(--sans);font-size:6.5pt;letter-spacing:.28em;text-transform:uppercase;color:var(--copper-deep);margin-top:2mm;}
+    @media (max-width:640px){.sheet-meta .doc-channel{font-size:4.5pt;letter-spacing:.22em;padding:.7mm 2mm;margin-top:1.2mm;}.sheet-meta .doc-period{font-size:4.5pt;}}
     .price-block{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6mm 0 5mm;margin:2mm 0 3mm;text-align:left;}
     .price-value{font-family:var(--serif);font-style:italic;font-weight:500;font-size:38pt;line-height:1;color:var(--ink);margin:0;}
     .price-value .currency{font-style:normal;font-weight:400;font-size:18pt;color:var(--copper-deep);vertical-align:top;margin-right:2mm;}
@@ -131,10 +132,11 @@
     <p class="hint">Edita los campos. La hoja se actualiza en tiempo real. Los cambios se guardan en este navegador. Al terminar, haz clic en <strong>Guardar como PDF</strong>.</p>
 
     <div class="row"><label for="f-audience">Audiencia (insignia)</label><input type="text" id="f-audience" data-key="audience" /></div>
+    <div class="row"><label for="f-period">Periodo</label><input type="text" id="f-period" data-key="period" placeholder="Junio 2026" /></div>
     <div class="row"><label for="f-lede">Descripción / encabezado</label><textarea id="f-lede" data-key="lede" rows="2"></textarea></div>
     <div class="row-2cols">
       <label>Precio</label>
-      <input type="text" data-key="price" placeholder="567" />
+      <input type="text" data-key="price" placeholder="657" />
       <input type="text" data-key="currency" placeholder="MXN" />
     </div>
     <div class="row"><label for="f-pres">Presentación</label><input type="text" id="f-pres" data-key="presentation" /></div>
@@ -167,6 +169,7 @@
         <span class="doc-title">Reposado Orgánico</span>
         <span class="doc-origin">Los Altos de Jalisco · México</span>
         <span class="doc-channel" id="out-audience">Restaurantes &amp; Bares</span>
+        <span class="doc-period" id="out-period">Junio 2026</span>
       </div>
     </header>
 
@@ -184,7 +187,7 @@
         <p class="sheet-lede" id="out-lede">Canal restaurantes &amp; bares — venta a cuentas on-trade con factura directa. Reposado orgánico, hecho a mano en Los Altos de Jalisco.</p>
 
         <div class="price-block">
-          <p class="price-value"><span class="currency">$</span><span id="out-price">567</span><span class="suffix" id="out-currency">MXN</span></p>
+          <p class="price-value"><span class="currency">$</span><span id="out-price">657</span><span class="suffix" id="out-currency">MXN</span></p>
           <p class="price-unit">Por botella · <em id="out-presentation">presentación 700 mL</em></p>
         </div>
 
@@ -228,8 +231,9 @@
 
   const DEFAULTS = {
     audience:     'Restaurantes & Bares',
+    period:       'Junio 2026',
     lede:         'Canal restaurantes & bares — venta a cuentas on-trade con factura directa. Reposado orgánico, hecho a mano en Los Altos de Jalisco.',
-    price:        '567',
+    price:        '657',
     currency:     'MXN',
     presentation: 'presentación 700 mL',
     note_precios: 'IEPS e IVA incluidos.',
@@ -243,6 +247,7 @@
   // data-key → output element id
   const OUT = {
     audience:     'out-audience',
+    period:       'out-period',
     lede:         'out-lede',
     price:        'out-price',
     currency:     'out-currency',

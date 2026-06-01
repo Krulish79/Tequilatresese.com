@@ -1762,6 +1762,21 @@ a[href="#store"]{
   font-size: 1.4rem;
   color: var(--ink);
 }
+.product-pricelist{
+  display: inline-block;
+  margin-top: .75rem;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, color .2s ease;
+  align-self: flex-start;
+}
+.product-pricelist:hover{
+  border-bottom-color: var(--copper-deep);
+}
 .store-note{
   text-align: center;
   margin-top: 3rem;
@@ -2234,15 +2249,21 @@ body.lightbox-open{ overflow: hidden; }
   .hero-label,
   .hero-title,
   .hero-trio{ display: none !important; }
-  /* Claims now run across the top of the hero — three short columns, equally spaced */
+  /* Claims pinned to the BOTTOM of the hero on mobile so they read as a
+     ground-line beneath the bottles in the background image, rather than
+     hanging above them at the top. .hero is position:relative so this
+     positions against the hero section itself. */
   .hero-meta{
     display: flex !important;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     gap: .5rem;
-    position: static;
-    margin: .75rem 0 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.5rem;
+    margin: 0;
     padding: 0 1.25rem;
     border: 0;
     width: 100%;
@@ -2259,11 +2280,13 @@ body.lightbox-open{ overflow: hidden; }
   .hero-meta span{ font-size: .82rem; font-weight: 500; }
   .hero-meta em{ font-size: .5rem; letter-spacing: .22em; }
   /* Hero photo on mobile — cover, focal point pushed all the way to the right
-     so the bottles fill the viewport. */
+     so the bottles fill the viewport. Translate-up so the bottles sit higher
+     in the frame (image scales to fill height exactly, so we have to shift it
+     manually — object-position-y has no overflow to crop). */
   .hero-bg{
     object-fit: cover;
     object-position: 92% 60%;       /* eased 2% back to the left */
-    transform: none;
+    transform: translateY(-8%);
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
   .hero *{ border-top-width: 0 !important; border-bottom-width: 0 !important; }
@@ -2467,4 +2490,11 @@ body.lightbox-open{ overflow: hidden; }
   .contact-form .row{ grid-template-columns: 1fr; }
   .hero{ padding: 5.6rem 0 3rem; }
   .scroll-link--hero{ display:none; }
+  /* Tighten the dead space between the Origin (certifications) section
+     and the Proceso section on mobile — desktop keeps the airy spacing.
+     .story has 5rem padding by default; we shrink only the bottom side
+     so the cert block above the arrow keeps its breathing room. */
+  .story{ padding-bottom: 1.5rem; }
+  .story > .scroll-link{ margin-top: 2rem; margin-bottom: .5rem; }
+  .process{ padding-top: 1.5rem; }
 }

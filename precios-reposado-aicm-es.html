@@ -59,12 +59,12 @@
     <p class="hint">Edita los campos. La hoja se actualiza en tiempo real. Los cambios se guardan en este navegador. Al terminar, haz clic en <strong>Guardar como PDF</strong>.</p>
 
     <div class="row"><label>Audiencia (insignia)</label><input type="text" data-key="audience" /></div>
-    <div class="row"><label>Periodo</label><input type="text" data-key="period" placeholder="Mayo 2026" /></div>
+    <div class="row"><label>Periodo</label><input type="text" data-key="period" placeholder="Junio 2026" /></div>
     <div class="row"><label>Descripción / encabezado</label><textarea data-key="lede" rows="2"></textarea></div>
 
     <div class="row-2cols"><label>700 mL</label><input type="text" data-key="price_700" placeholder="25" /><input type="text" data-key="currency_700" placeholder="USD" /></div>
     <div class="row-2cols"><label>250 mL</label><input type="text" data-key="price_250" placeholder="15" /><input type="text" data-key="currency_250" placeholder="USD" /></div>
-    <div class="row"><label>Pie · Periodo / nota</label><input type="text" data-key="period_note" placeholder="Periodo · Mayo 2026 · precios en USD" /></div>
+    <div class="row"><label>Pie · Periodo / nota</label><input type="text" data-key="period_note" placeholder="Periodo · Junio 2026 · precios en USD" /></div>
 
     <div class="row"><label>Nota · Precios</label><input type="text" data-key="note_precios" /></div>
     <div class="row"><label>Nota · Disponibilidad</label><input type="text" data-key="note_disp" /></div>
@@ -95,7 +95,7 @@
         <span class="doc-title">Reposado Orgánico</span>
         <span class="doc-origin">Los Altos de Jalisco · México</span>
         <span class="doc-channel" id="out-audience">AICM Terminal</span>
-        <span class="doc-period" id="out-period">Mayo 2026</span>
+        <span class="doc-period" id="out-period">Junio 2026</span>
       </div>
     </header>
 
@@ -123,7 +123,7 @@
               <p class="price-value"><span class="currency">$</span><span id="out-price-250">15</span><span class="suffix" id="out-currency-250">USD</span></p>
             </div>
           </div>
-          <p class="price-unit" id="out-period-note">Periodo · Mayo 2026 · precios en USD</p>
+          <p class="price-unit" id="out-period-note">Periodo · Junio 2026 · precios en USD</p>
         </div>
 
         <div>
@@ -162,13 +162,13 @@
   const STORAGE_KEY = 'tresese_pricelist_aicm_v1';
   const DEFAULTS = {
     audience:      'AICM Terminal',
-    period:        'Mayo 2026',
+    period:        'Junio 2026',
     lede:          'Retail en terminal AICM — Aeropuerto Internacional de la Ciudad de México. Dos presentaciones del Reposado Orgánico, precios en USD.',
     price_700:     '25',
     currency_700:  'USD',
     price_250:     '15',
     currency_250:  'USD',
-    period_note:   'Periodo · Mayo 2026 · precios en USD',
+    period_note:   'Periodo · Junio 2026 · precios en USD',
     note_precios:  'Precios en USD, impuestos no incluidos.',
     note_disp:     'Solo terminal AICM · CDMX.',
     note_cambios:  'Los precios pueden actualizarse sin previo aviso.',
