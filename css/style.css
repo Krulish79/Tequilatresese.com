@@ -2532,9 +2532,19 @@ body.lightbox-open{ overflow: hidden; }
   /* Within .process — tighten the step-to-step rhythm */
   .step{ padding: 2rem 0; }
 
+  /* Story paragraphs on mobile — tighter rhythm between paragraphs
+     and a snug pull of the Familia Tres Ese signature up against the
+     last paragraph, with the cert-logos divider close behind it. */
+  .story-copy p{ margin-bottom: .7rem; }
+  .story-copy > .signature{
+    margin-top: .15rem !important;
+    margin-bottom: 0 !important;
+    line-height: 1.2;
+  }
+
   /* Cert-logos block: trim the dead band between the signature and
      the logos row (was 2rem margin + 1.75rem padding above the line). */
-  .cert-logos{ margin-top: 1rem; padding-top: 1rem; }
+  .cert-logos{ margin-top: .5rem; padding-top: .75rem; }
 
   /* Section heads (eyebrow + h2 + lede) — close the gap to the section content */
   .section-head{ margin-bottom: 1.5rem !important; }
