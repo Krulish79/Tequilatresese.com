@@ -528,4 +528,82 @@
     window.addEventListener('scroll', updateEdges, { passive: true });
     updateEdges();
   }
+
+  // ──────────────────────────────────────────────────────────────
+  // Mobile cocktail recipe modal — each .cocktail in the grid becomes
+  // a tappable tile on phones. Tap opens a bottom-sheet overlay with
+  // the full recipe (image, ingredients, method). Desktop unchanged.
+  // ──────────────────────────────────────────────────────────────
+  const cocktails = document.querySelectorAll('.cocktail-grid .cocktail');
+  if (cocktails.length) {
+    const lang = (document.documentElement.lang || 'es').toLowerCase();
+    const closeLabel = lang.startsWith('zh') ? '关闭'
+                     : lang.startsWith('en') ? 'Close'
+                     : 'Cerrar';
+
+    const modal = document.createElement('div');
+    modal.className = 'cocktail-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML =
+      '<div class="cocktail-modal-sheet" role="document">' +
+      '<button type="button" class="cocktail-modal-close" aria-label="' + closeLabel + '">×</button>' +
+      '<div class="cocktail-modal-content"></div>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    const sheet = modal.querySelector('.cocktail-modal-sheet');
+    const content = modal.querySelector('.cocktail-modal-content');
+    const closeBtn = modal.querySelector('.cocktail-modal-close');
+
+    const isMobile = () => window.matchMedia('(max-width: 540px)').matches;
+
+    function openModal(article) {
+      content.innerHTML = '';
+      const fig = article.querySelector('.cocktail-media');
+      const body = article.querySelector('.cocktail-body');
+      if (fig) content.appendChild(fig.cloneNode(true));
+      if (body) {
+        Array.from(body.children).forEach(child => {
+          content.appendChild(child.cloneNode(true));
+        });
+      }
+      if (sheet) sheet.scrollTop = 0;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('cocktail-modal-open');
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('cocktail-modal-open');
+    }
+
+    cocktails.forEach(c => {
+      c.setAttribute('role', 'button');
+      c.setAttribute('tabindex', '0');
+      c.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        e.preventDefault();
+        openModal(c);
+      });
+      c.addEventListener('keydown', (e) => {
+        if (!isMobile()) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(c);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  }
 })();
