@@ -346,10 +346,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
       #15100c 0%,
       rgba(21,16,12,.7) 18%,
       transparent 35%,
-      transparent 68%,                /* keep bottle area (52-65%) clean */
-      rgba(21,16,12,.55) 76%,         /* fade kicks in past the bottles */
-      rgba(21,16,12,.85) 86%,
-      #15100c 96%),
+      transparent 80%,                /* keep bottle area (52-78%) clean — fade pushed right of all 3 bottles */
+      rgba(21,16,12,.35) 88%,         /* softer fade-in past the bottles (was .55 @ 76%) */
+      rgba(21,16,12,.7) 95%,          /* and lower peak so right bottle stays lit (was .85 @ 86%) */
+      #15100c 100%),
     linear-gradient(180deg,
       #15100c 0%,
       rgba(21,16,12,.95) 12%,       /* heavy alpha straddles the image top edge */
