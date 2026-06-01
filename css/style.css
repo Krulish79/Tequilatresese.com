@@ -2298,11 +2298,13 @@ body.lightbox-open{ overflow: hidden; }
   /* Hero photo on mobile — cover, focal point pushed all the way to the right
      so the bottles fill the viewport. Scale + translate-up to pull the bottles
      to the top of the frame (image scales to fill height exactly, so we have
-     to shift it manually — object-position-y has no overflow to crop). */
+     to shift it manually — object-position-y has no overflow to crop).
+     Scale was 1.18 — reduced by 10% to 1.062 to shrink bottles evenly while
+     keeping everything else (logo, claims) in the same place. */
   .hero-bg{
     object-fit: cover;
     object-position: 92% 60%;
-    transform: scale(1.18) translateY(-13%);
+    transform: scale(1.062) translateY(-13%);
     transform-origin: center top;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
