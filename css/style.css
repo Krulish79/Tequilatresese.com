@@ -2310,7 +2310,7 @@ body.lightbox-open{ overflow: hidden; }
   .hero-bg{
     object-fit: cover;
     object-position: 92% 60%;
-    transform: scale(1.062) translateY(-5%);
+    transform: scale(1.062) translateY(-8%);
     transform-origin: center top;
   }
   /* Kill any borders inside the hero on mobile (the floating horizontal line) */
