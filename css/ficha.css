@@ -346,41 +346,86 @@ body{
   font-style: italic;
 }
 
-/* ───── Footer — sits directly below the body, no auto push ───── */
+/* ───── Footer — italic signature line on top, then a row of three
+   bordered stamp cells (Fecha / Elaborado por / Aprobado por) with
+   the QR code pinned to the right. Pattern mirrors the Machetazo
+   price sheets so the two brands' lists feel like a set. ───── */
 .sheet-foot{
   margin-top: 0;
   padding-top: 4mm;
   border-top: 1px solid var(--line);
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 4mm;
-  font-size: 6.5pt;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted);
+  flex-direction: column;
+  gap: 2.5mm;
   flex-shrink: 0;
+  color: var(--muted);
 }
-.sheet-foot .foot-brand{
+.sheet-foot .foot-sig{
   font-family: var(--serif);
   font-style: italic;
+  font-weight: 400;
   font-size: 9pt;
-  letter-spacing: .04em;
+  letter-spacing: .02em;
   text-transform: none;
   color: var(--ink-soft);
+  text-align: center;
+  margin: 0;
 }
-.sheet-foot a{ color: var(--copper-deep); text-decoration: none; }
-.sheet-foot .foot-link{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1.5mm;
+.sheet-foot .foot-sig em{
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.sheet-foot .foot-row{
+  display: flex;
+  align-items: stretch;
+  gap: 3mm;
+}
+.sheet-foot .stamp-grid{
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2mm;
+}
+.sheet-foot .stamp-cell{
+  border: 0.5px solid var(--line);
+  background: #fff;
+  padding: 1.5mm 3mm;
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 1mm;
+  align-content: center;
+  text-align: center;
+  justify-items: center;
+}
+.sheet-foot .stamp-label{
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 6.5pt;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.1;
+}
+.sheet-foot .stamp-value{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 9pt;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.sheet-foot a.foot-qr-link{
   color: var(--copper-deep);
   text-decoration: none;
+  flex: 0 0 auto;
+  align-self: center;
+  display: block;
 }
 .sheet-foot .foot-qr{
-  width: 18mm;
-  height: 18mm;
+  width: 16mm;
+  height: 16mm;
   display: block;
 }
 
@@ -477,7 +522,11 @@ body{
     font-size: 4pt;
     letter-spacing: .14em;
   }
-  .sheet-foot .foot-brand{ font-size: 5.5pt; }
+  /* Stamps + signature: scale down for narrow phone preview */
+  .sheet-foot .foot-sig{ font-size: 6pt; }
+  .sheet-foot .stamp-label{ font-size: 4.5pt; }
+  .sheet-foot .stamp-value{ font-size: 6pt; }
+  .sheet-foot .foot-qr{ width: 11mm; height: 11mm; }
   .sheet-toolbar{ top: .5rem; right: .5rem; }
   .sheet-toolbar a, .sheet-toolbar button{ padding: .45rem .7rem; font-size: .58rem; }
 }
