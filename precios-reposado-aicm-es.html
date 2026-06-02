@@ -62,8 +62,8 @@
     <div class="row"><label>Periodo</label><input type="text" data-key="period" placeholder="Junio 2026" /></div>
     <div class="row"><label>Descripción / encabezado</label><textarea data-key="lede" rows="2"></textarea></div>
 
-    <div class="row-2cols"><label>700 mL</label><input type="text" data-key="price_700" placeholder="25" /><input type="text" data-key="currency_700" placeholder="USD" /></div>
-    <div class="row-2cols"><label>250 mL</label><input type="text" data-key="price_250" placeholder="15" /><input type="text" data-key="currency_250" placeholder="USD" /></div>
+    <div class="row-2cols"><label>700 mL</label><input type="text" data-key="price_700" placeholder="39" /><input type="text" data-key="currency_700" placeholder="USD" /></div>
+    <div class="row-2cols"><label>350 mL</label><input type="text" data-key="price_350" placeholder="14" /><input type="text" data-key="currency_350" placeholder="USD" /></div>
     <div class="row"><label>Pie · Periodo / nota</label><input type="text" data-key="period_note" placeholder="Periodo · Junio 2026 · precios en USD" /></div>
 
     <div class="row"><label>Nota · Precios</label><input type="text" data-key="note_precios" /></div>
@@ -116,11 +116,11 @@
           <div class="price-row">
             <div class="price-col">
               <p class="size-label">700 mL</p>
-              <p class="price-value"><span class="currency">$</span><span id="out-price-700">25</span><span class="suffix" id="out-currency-700">USD</span></p>
+              <p class="price-value"><span class="currency">$</span><span id="out-price-700">39</span><span class="suffix" id="out-currency-700">USD</span></p>
             </div>
             <div class="price-col">
-              <p class="size-label">250 mL</p>
-              <p class="price-value"><span class="currency">$</span><span id="out-price-250">15</span><span class="suffix" id="out-currency-250">USD</span></p>
+              <p class="size-label">350 mL</p>
+              <p class="price-value"><span class="currency">$</span><span id="out-price-350">14</span><span class="suffix" id="out-currency-350">USD</span></p>
             </div>
           </div>
           <p class="price-unit" id="out-period-note">Periodo · Junio 2026 · precios en USD</p>
@@ -134,7 +134,7 @@
             <li><span>Reposo</span><strong>6 meses · roble francés</strong></li>
             <li><span>Vol Alc</span><strong>43.4%</strong></li>
             <li class="proof-cell"><span>Grados</span><strong>86.8</strong></li>
-            <li><span>Presentaciones</span><strong>700 mL · 250 mL</strong></li>
+            <li><span>Presentaciones</span><strong>700 mL · 350 mL</strong></li>
             <li><span>Color</span><strong>Oro pajizo claro</strong></li>
             <li><span>Aditivos</span><strong>Ninguno</strong></li>
             <li><span>Certificación</span><strong>Orgánico</strong></li>
@@ -159,15 +159,15 @@
   </article>
 
 <script>
-  const STORAGE_KEY = 'tresese_pricelist_aicm_v1';
+  const STORAGE_KEY = 'tresese_pricelist_aicm_v2';
   const DEFAULTS = {
     audience:      'AICM Terminal',
     period:        'Junio 2026',
     lede:          'Retail en terminal AICM — Aeropuerto Internacional de la Ciudad de México. Dos presentaciones del Reposado Orgánico, precios en USD.',
-    price_700:     '25',
+    price_700:     '39',
     currency_700:  'USD',
-    price_250:     '15',
-    currency_250:  'USD',
+    price_350:     '14',
+    currency_350:  'USD',
     period_note:   'Periodo · Junio 2026 · precios en USD',
     note_precios:  'Precios en USD, impuestos no incluidos.',
     note_disp:     'Solo terminal AICM · CDMX.',
@@ -182,8 +182,8 @@
     lede:          'out-lede',
     price_700:     'out-price-700',
     currency_700:  'out-currency-700',
-    price_250:     'out-price-250',
-    currency_250:  'out-currency-250',
+    price_350:     'out-price-350',
+    currency_350:  'out-currency-350',
     period_note:   'out-period-note',
     note_precios:  'out-note-precios',
     note_disp:     'out-note-disp',
