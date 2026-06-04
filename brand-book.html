@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tequila Tres Ese — Manual de Identidad de Marca</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Tokens (mirror style.css) ─── */
+    :root{
+      --paper:        #FBF7EE;
+      --bg:           #F4EEE2;
+      --bg-soft:      #EDE3D0;
+      --bg-deep:      #1C1813;
+      --ink:          #2A2218;
+      --ink-soft:     #584A38;
+      --muted:        #8A7B62;
+      --line:         #D8C9AC;
+      --copper:       #A86A33;
+      --copper-deep:  #8A4E1E;
+      --agave:        #4A5A3B;
+      --agave-deep:   #2F3A24;
+      --gold:         #B08542;
+      --gold-light:   #E8CD8C;
+
+      --serif: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+      --sans:  'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body{
+      margin: 0; padding: 0;
+      background: #aaa;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ─── Page chrome — each .page is a Letter (8.5×11 in) sheet ─── */
+    .page{
+      width: 8.5in;
+      height: 11in;
+      background: var(--paper);
+      margin: .35in auto;
+      position: relative;
+      overflow: hidden;
+      padding: .75in;
+      page-break-after: always;
+      box-shadow: 0 6px 30px rgba(0,0,0,.18);
+    }
+    .page:last-child{ page-break-after: auto; }
+    .page::before{
+      content: "";
+      position: absolute;
+      top: .35in; left: .35in; right: .35in; bottom: .35in;
+      border: .5px solid var(--line);
+      pointer-events: none;
+    }
+    .page-inner{
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .page-num{
+      position: absolute;
+      bottom: .35in;
+      right: .55in;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 9pt;
+      color: var(--muted);
+      z-index: 2;
+    }
+    .page-section{
+      position: absolute;
+      bottom: .35in;
+      left: .55in;
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--muted);
+      z-index: 2;
+    }
+    .page-head{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 6mm;
+      border-bottom: .5px solid var(--line);
+      margin-bottom: 9mm;
+    }
+    .page-head .eyebrow{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+    }
+    .page-head .pg{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 10pt;
+      color: var(--muted);
+    }
+
+    /* ─── Typography ─── */
+    h1, h2, h3, h4{ margin: 0; font-weight: 400; color: var(--ink); }
+    h1.display{
+      font-family: var(--serif);
+      font-size: 64pt;
+      line-height: 1;
+      letter-spacing: -.01em;
+      font-weight: 400;
+    }
+    h1.display em{ font-style: italic; color: var(--copper-deep); }
+    h2.section-title{
+      font-family: var(--serif);
+      font-size: 32pt;
+      line-height: 1.05;
+      letter-spacing: -.005em;
+      font-weight: 400;
+      margin-bottom: 5mm;
+    }
+    h2.section-title em{ font-style: italic; color: var(--copper-deep); }
+    h3.sub{
+      font-family: var(--sans);
+      font-size: 8pt;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+      font-weight: 500;
+      margin: 6mm 0 2mm;
+    }
+    p, li{
+      font-size: 10pt;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0 0 3mm;
+      text-align: left;
+      -webkit-hyphens: none;
+      hyphens: none;
+    }
+    p.lede{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13pt;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 5.8in;
+      margin-bottom: 6mm;
+    }
+    .quote{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 16pt;
+      line-height: 1.35;
+      color: var(--ink);
+      border-left: 1.5px solid var(--copper-deep);
+      padding-left: 5mm;
+      max-width: 5.5in;
+      margin: 5mm 0;
+    }
+    ul, ol{ padding-left: 5mm; margin: 0 0 4mm; }
+    ul li{ margin-bottom: 1.5mm; }
+
+    /* ─── Page 1: Cover ─── */
+    .cover{
+      background: var(--bg-deep);
+      color: var(--paper);
+      padding: 0;
+    }
+    .cover::before{
+      border-color: rgba(255,255,255,.12);
+    }
+    .cover .page-inner{
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1in;
+    }
+    .cover .crest{
+      width: 1.6in;
+      height: auto;
+      margin-bottom: .5in;
+      filter: brightness(0) invert(1);
+    }
+    .cover .brand{
+      font-family: var(--serif);
+      font-size: 56pt;
+      line-height: 1;
+      letter-spacing: .01em;
+      margin-bottom: .1in;
+    }
+    .cover .brand em{ font-style: italic; color: var(--gold-light); }
+    .cover .subtitle{
+      font-family: var(--sans);
+      font-size: 9pt;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: rgba(251,247,238,.7);
+      margin-top: .1in;
+    }
+    .cover .doc-title{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 22pt;
+      color: var(--gold-light);
+      margin-top: .65in;
+    }
+    .cover .doc-meta{
+      font-family: var(--sans);
+      font-size: 8pt;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(251,247,238,.5);
+      margin-top: .2in;
+    }
+    .cover .ornament{
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+      margin: .35in 0;
+    }
+    .cover .footer{
+      position: absolute;
+      bottom: .55in;
+      left: 0; right: 0;
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 10pt;
+      color: rgba(251,247,238,.5);
+    }
+
+    /* ─── TOC ─── */
+    .toc-list{ list-style: none; padding: 0; margin: 0; }
+    .toc-list li{
+      display: flex;
+      align-items: baseline;
+      gap: 4mm;
+      padding: 3mm 0;
+      border-bottom: .5px solid var(--line);
+      font-size: 10pt;
+      color: var(--ink);
+      margin: 0;
+    }
+    .toc-list .num{
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--copper-deep);
+      width: 8mm;
+    }
+    .toc-list .title{
+      flex: 1;
+      font-family: var(--serif);
+      font-size: 14pt;
+      color: var(--ink);
+    }
+    .toc-list .title em{ font-style: italic; color: var(--copper-deep); }
+    .toc-list .pageref{
+      font-family: var(--sans);
+      font-size: 8pt;
+      letter-spacing: .2em;
+      color: var(--muted);
+    }
+
+    /* ─── Color swatches ─── */
+    .swatch-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm 6mm;
+      margin-top: 4mm;
+    }
+    .swatch{
+      display: flex;
+      gap: 4mm;
+      align-items: stretch;
+    }
+    .swatch .chip{
+      width: 28mm;
+      height: 32mm;
+      flex-shrink: 0;
+      border: .5px solid rgba(0,0,0,.06);
+    }
+    .swatch .meta{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .swatch .meta .name{
+      font-family: var(--serif);
+      font-size: 13pt;
+      color: var(--ink);
+      margin-bottom: 1mm;
+    }
+    .swatch .meta .name em{ font-style: italic; color: var(--copper-deep); }
+    .swatch .meta .role{
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5mm;
+    }
+    .swatch .meta .codes{
+      font-family: var(--sans);
+      font-size: 7.5pt;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    /* ─── Type specimen ─── */
+    .type-specimen{
+      border-top: .5px solid var(--line);
+      padding: 5mm 0;
+      display: grid;
+      grid-template-columns: 35mm 1fr;
+      gap: 6mm;
+      align-items: baseline;
+    }
+    .type-specimen .label{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .type-specimen .label small{
+      display: block;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 7pt;
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-top: 1mm;
+    }
+    .type-specimen .sample{ color: var(--ink); }
+    .ts-display{ font-family: var(--serif); font-size: 42pt; line-height: 1; }
+    .ts-display em{ font-style: italic; color: var(--copper-deep); }
+    .ts-h1{ font-family: var(--serif); font-size: 24pt; line-height: 1.1; }
+    .ts-h2{ font-family: var(--serif); font-style: italic; font-size: 18pt; line-height: 1.15; color: var(--copper-deep); }
+    .ts-eyebrow{ font-family: var(--sans); font-size: 9pt; letter-spacing: .28em; text-transform: uppercase; color: var(--copper-deep); font-weight: 500; }
+    .ts-body{ font-family: var(--sans); font-size: 10pt; line-height: 1.55; color: var(--ink-soft); }
+    .ts-caption{ font-family: var(--sans); font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+    /* ─── Two-column layout used on several pages ─── */
+    .twocol{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+    }
+    .twocol > div p:last-child{ margin-bottom: 0; }
+    .twocol-3to2{
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 10mm;
+      align-items: start;
+    }
+
+    /* ─── Do / Don't cards ─── */
+    .do-dont{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin: 5mm 0;
+    }
+    .do-dont .card{
+      border: .5px solid var(--line);
+      padding: 5mm;
+      background: #fff;
+    }
+    .do-dont .card .tag{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      margin-bottom: 3mm;
+    }
+    .do-dont .card.do .tag{ color: var(--agave); }
+    .do-dont .card.dont .tag{ color: #B8362A; }
+    .do-dont .card .example{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 11pt;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    /* ─── Logo display ─── */
+    .logo-display{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+      margin-top: 4mm;
+    }
+    .logo-card{
+      border: .5px solid var(--line);
+      padding: 14mm 8mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60mm;
+      position: relative;
+    }
+    .logo-card.dark{ background: var(--bg-deep); }
+    .logo-card.light{ background: var(--paper); }
+    .logo-card img{ max-width: 50mm; max-height: 36mm; height: auto; width: auto; }
+    .logo-card .caption{
+      position: absolute;
+      bottom: 3mm;
+      left: 4mm;
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .logo-card.dark .caption{ color: rgba(251,247,238,.5); }
+
+    /* ─── Misuse grid ─── */
+    .misuse{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4mm;
+      margin-top: 4mm;
+    }
+    .misuse .item{
+      border: .5px solid var(--line);
+      padding: 6mm 4mm 8mm;
+      text-align: center;
+      position: relative;
+      background: #fff;
+    }
+    .misuse .item .demo{
+      height: 28mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4mm;
+      font-family: var(--serif);
+      font-size: 18pt;
+    }
+    .misuse .item .demo em{ font-style: italic; color: var(--copper-deep); }
+    .misuse .item .x{
+      position: absolute;
+      top: 3mm; right: 3mm;
+      width: 6mm; height: 6mm;
+      border-radius: 50%;
+      background: #B8362A;
+      color: #fff;
+      font-size: 9pt;
+      line-height: 6mm;
+      text-align: center;
+    }
+    .misuse .item .label{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Photo direction grid (placeholders) ─── */
+    .photo-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin-top: 5mm;
+    }
+    .photo-grid img{
+      width: 100%;
+      height: 68mm;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-grid figcaption{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2mm;
+      text-align: center;
+    }
+    .photo-grid figure{ margin: 0; }
+
+    /* ─── Claim chips ─── */
+    .claim-chips{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3mm;
+      margin: 4mm 0 6mm;
+    }
+    .claim-chips .chip-text{
+      border: .5px solid var(--copper-deep);
+      color: var(--copper-deep);
+      padding: 2mm 5mm;
+      font-family: var(--sans);
+      font-size: 8pt;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Versus block (we are / we are not) ─── */
+    .vs{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+      margin-top: 4mm;
+    }
+    .vs .col{
+      padding: 5mm 6mm;
+      border-top: 1.5px solid var(--copper-deep);
+    }
+    .vs .col.not{ border-top-color: var(--muted); opacity: .85; }
+    .vs .col h4{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+      margin-bottom: 3mm;
+      font-weight: 500;
+    }
+    .vs .col.not h4{ color: var(--muted); }
+    .vs .col ul{ padding: 0; list-style: none; }
+    .vs .col li{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12pt;
+      color: var(--ink);
+      margin-bottom: 2mm;
+    }
+    .vs .col.not li{ color: var(--ink-soft); }
+
+    /* ─── Applications mockups ─── */
+    .apps{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin-top: 4mm;
+    }
+    .apps figure{
+      margin: 0;
+      border: .5px solid var(--line);
+      padding: 4mm;
+      background: #fff;
+    }
+    .apps figure img{
+      width: 100%;
+      height: 75mm;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin-bottom: 3mm;
+    }
+    .apps figure figcaption{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Print ─── */
+    @page{ size: letter portrait; margin: 0; }
+    @media print{
+      html, body{ background: #fff; }
+      .page{
+        width: 8.5in;
+        height: 11in;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .page:last-child{ page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 1 — COVER
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page cover">
+  <div class="page-inner">
+    <img class="crest" src="images/Logos/TresEse_Logo_Blanco.png" alt="" />
+    <div class="ornament"></div>
+    <div class="brand">Tequila <em>Tres Ese</em></div>
+    <div class="subtitle">Los Altos de Jalisco · Desde 1905</div>
+    <div class="doc-title">Manual de Identidad de Marca</div>
+    <div class="doc-meta">Edición Junio 2026 · v1.0</div>
+  </div>
+  <div class="footer">Hecho a mano para ti.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 2 — ÍNDICE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">Índice</span>
+      <span class="pg">02</span>
+    </div>
+    <h2 class="section-title">Lo que <em>contiene</em> este manual.</h2>
+    <p class="lede" style="margin-top: 4mm;">Una guía viva. Reúne las decisiones que hacen que Tres Ese se vea, se lea y se sienta como Tres Ese — en cada empaque, sitio, ficha, anuncio o correo.</p>
+
+    <ol class="toc-list" style="margin-top: 6mm;">
+      <li><span class="num">01</span><span class="title">La <em>Marca</em></span><span class="pageref">P. 03</span></li>
+      <li><span class="num">02</span><span class="title">Posicionamiento</span><span class="pageref">P. 04</span></li>
+      <li><span class="num">03</span><span class="title">Personalidad &amp; <em>Voz</em></span><span class="pageref">P. 05</span></li>
+      <li><span class="num">04</span><span class="title">Logo &amp; Marca Gráfica</span><span class="pageref">P. 06</span></li>
+      <li><span class="num">05</span><span class="title">Usos <em>Incorrectos</em> del Logo</span><span class="pageref">P. 07</span></li>
+      <li><span class="num">06</span><span class="title">Paleta de Colores</span><span class="pageref">P. 08</span></li>
+      <li><span class="num">07</span><span class="title">Tipografía</span><span class="pageref">P. 09</span></li>
+      <li><span class="num">08</span><span class="title">Estilo <em>Fotográfico</em></span><span class="pageref">P. 10</span></li>
+      <li><span class="num">09</span><span class="title">Mensajes Clave &amp; Reclamos</span><span class="pageref">P. 11</span></li>
+      <li><span class="num">10</span><span class="title">Aplicaciones</span><span class="pageref">P. 12</span></li>
+    </ol>
+  </div>
+  <span class="page-section">Manual de Identidad · Tres Ese</span>
+  <span class="page-num">02</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 3 — LA MARCA
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">01 · La Marca</span>
+      <span class="pg">03</span>
+    </div>
+    <h2 class="section-title">Cinco generaciones, un <em>solo modo</em> de hacer tequila.</h2>
+
+    <div class="twocol-3to2">
+      <div>
+        <p class="lede">Tres Ese nace en 1905 en la tierra roja de Los Altos de Jalisco, a 2,030 metros sobre el nivel del mar. Es donde el agave azul crece más lento, más dulce, y más concentrado.</p>
+
+        <p>Somos una destilería familiar. Cocemos lentamente en hornos de mampostería; fermentamos en madera, sin levaduras añadidas; destilamos en cobre dos veces. Nada se añade después. Nada se acelera.</p>
+
+        <p>Cada lote es pequeño porque cada lote depende del cielo de ese año — la lluvia, el sol, el viento que cruza la sierra. No producimos en escala industrial. Hacemos tequila orgánico certificado, de origen único, en cantidades que podemos firmar con nuestro nombre.</p>
+
+        <h3 class="sub">Origen</h3>
+        <p>Los Altos de Jalisco · 2,030 m · Tierra roja · Sierra alta · Microclima de día cálido y noche fría — las condiciones que hacen que el agave azul exprese su carácter más puro.</p>
+
+        <h3 class="sub">Historia</h3>
+        <p>Familia Tres Ese · Desde 1905 · Cinco generaciones de productores · Tradición artesanal preservada sin compromiso, ahora certificada orgánica y vendida con código abierto de prácticas.</p>
+      </div>
+      <div>
+        <img src="images/TresEse_Botella_Reposado.png" alt="" style="width: 100%; height: auto; margin-top: 8mm;" />
+        <p style="font-family: var(--serif); font-style: italic; font-size: 10pt; text-align: center; color: var(--copper-deep); margin-top: 3mm;">Reposado Orgánico · 6 meses en roble francés</p>
+      </div>
+    </div>
+  </div>
+  <span class="page-section">01 · La Marca</span>
+  <span class="page-num">03</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 4 — POSICIONAMIENTO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">02 · Posicionamiento</span>
+      <span class="pg">04</span>
+    </div>
+    <h2 class="section-title">Tequila <em>honesto</em> — sin atajos.</h2>
+
+    <p class="lede">Para el consumidor que ya leyó la etiqueta de su mezcal y de su vino natural — y ahora busca el mismo nivel de transparencia en su tequila.</p>
+
+    <h3 class="sub">Declaración de Posicionamiento</h3>
+    <div class="quote">Tequila Tres Ese es el tequila orgánico de origen único de Los Altos de Jalisco para personas que valoran la procedencia por encima del marketing — destilado a mano en lotes pequeños desde 1905, con cero aditivos y la firma de una familia detrás de cada botella.</div>
+
+    <h3 class="sub">Audiencia</h3>
+    <div class="twocol">
+      <div>
+        <p><strong style="color: var(--ink); font-weight: 500;">Consumidor primario.</strong> 30–55 años, urbano, ingreso medio-alto, ya conocedor del agave. Compra tequila por carácter, no por nombre. Lee fichas técnicas. Pide la receta. Investiga origen.</p>
+      </div>
+      <div>
+        <p><strong style="color: var(--ink); font-weight: 500;">Canales clave.</strong> Restaurantes y bares con curaduría (cocina contemporánea mexicana, hospitalidad de autor), distribuidores premium, portal propio de e-commerce, retail en aeropuertos (AICM).</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Diferenciadores</h3>
+    <ul style="padding-left: 0; list-style: none;">
+      <li style="border-left: 1.5px solid var(--copper-deep); padding-left: 5mm; margin-bottom: 4mm;"><strong style="color: var(--ink); font-weight: 500; font-family: var(--serif); font-size: 11pt;">Cultivo Orgánico Certificado.</strong> USDA, UE, JAS y Bioagricert — el agave crece sin herbicidas ni fertilizantes sintéticos.</li>
+      <li style="border-left: 1.5px solid var(--copper-deep); padding-left: 5mm; margin-bottom: 4mm;"><strong style="color: var(--ink); font-weight: 500; font-family: var(--serif); font-size: 11pt;">Cero Aditivos.</strong> Lo que entra al alambique es lo que sale a la botella — sin azúcar, sin glicerina, sin saborizantes, sin colorantes.</li>
+      <li style="border-left: 1.5px solid var(--copper-deep); padding-left: 5mm; margin-bottom: 4mm;"><strong style="color: var(--ink); font-weight: 500; font-family: var(--serif); font-size: 11pt;">Lotes Pequeños.</strong> Cantidades firmadas — cada lote pasa por las manos de la familia, no por una línea automatizada.</li>
+      <li style="border-left: 1.5px solid var(--copper-deep); padding-left: 5mm;"><strong style="color: var(--ink); font-weight: 500; font-family: var(--serif); font-size: 11pt;">Origen Trazable.</strong> Una sola finca, una sola sierra, una sola familia — sin mezclas de procedencias.</li>
+    </ul>
+  </div>
+  <span class="page-section">02 · Posicionamiento</span>
+  <span class="page-num">04</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 5 — PERSONALIDAD & VOZ
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">03 · Personalidad &amp; Voz</span>
+      <span class="pg">05</span>
+    </div>
+    <h2 class="section-title">Si Tres Ese <em>hablara</em>...</h2>
+
+    <p class="lede">La voz de Tres Ese es paciente, precisa y nunca alza la voz. Habla del agave y del clima, no de la marca. Confía en que el lector pone atención.</p>
+
+    <h3 class="sub">Personalidad de Marca</h3>
+    <div class="vs">
+      <div class="col">
+        <h4>Somos</h4>
+        <ul>
+          <li>Reservados</li>
+          <li>Editoriales</li>
+          <li>Pacientes</li>
+          <li>Honestos</li>
+          <li>Cálidos como el sol de la sierra</li>
+          <li>Detallistas con el oficio</li>
+        </ul>
+      </div>
+      <div class="col not">
+        <h4>No Somos</h4>
+        <ul>
+          <li>Ruidosos</li>
+          <li>De fiesta</li>
+          <li>Apresurados</li>
+          <li>Vendedores</li>
+          <li>Fríos o clínicos</li>
+          <li>Pretenciosos</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Voz &amp; Tono — En Pocas Palabras</h3>
+    <p>Lenguaje sencillo. Frases cortas que descansen en una imagen concreta. El narrador habla en plural — "cocemos", "fermentamos", "embotellamos" — porque es una familia, no un solo autor. Italizamos <em>Tres Ese</em> cuando el nombre aparece en flujo de texto. El español es la lengua primaria; el inglés y el mandarín son traducciones, no rewrites.</p>
+
+    <h3 class="sub">Hazlo &amp; No lo Hagas</h3>
+    <div class="do-dont">
+      <div class="card do">
+        <div class="tag">✓ Hazlo</div>
+        <div class="example">"Seis meses descansando en roble francés. La voz brillante del blanco se suaviza en algo más cálido."</div>
+      </div>
+      <div class="card dont">
+        <div class="tag">✕ No lo Hagas</div>
+        <div class="example">"¡Tres Ese Reposado es el tequila #1 más premiado de la región!"</div>
+      </div>
+    </div>
+  </div>
+  <span class="page-section">03 · Personalidad &amp; Voz</span>
+  <span class="page-num">05</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 6 — LOGO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">04 · Logo &amp; Marca Gráfica</span>
+      <span class="pg">06</span>
+    </div>
+    <h2 class="section-title">La marca <em>firmada</em> — clara, calmada, reconocible.</h2>
+
+    <p class="lede">El logo principal es una construcción tipográfica: "TRES / ESE" en serif clásica, con la línea "TEQUILA · ORGÁNICO" debajo en sans-serif espaciada.</p>
+
+    <div class="logo-display">
+      <div class="logo-card light">
+        <img src="images/Logos/TresEse_Logo 2.png" alt="" />
+        <div class="caption">Versión Primaria · Fondos Claros</div>
+      </div>
+      <div class="logo-card dark">
+        <img src="images/Logos/TresEse_Logo_Blanco.png" alt="" />
+        <div class="caption">Versión Inversa · Fondos Oscuros</div>
+      </div>
+    </div>
+
+    <div class="twocol" style="margin-top: 6mm;">
+      <div>
+        <h3 class="sub">Espacio de Reserva</h3>
+        <p>Reservar un mínimo del alto de la letra "T" en TRES alrededor de todo el logo. Nada más cerca — ni texto, ni imagen, ni borde.</p>
+      </div>
+      <div>
+        <h3 class="sub">Tamaño Mínimo</h3>
+        <p>Digital: 96 px de ancho. Impreso: 18 mm de ancho. Por debajo, el "TEQUILA · ORGÁNICO" deja de ser legible y el logo pierde su firma.</p>
+      </div>
+    </div>
+
+    <div class="twocol">
+      <div>
+        <h3 class="sub">Color</h3>
+        <p>En tinta negra (#2A2218) sobre fondos claros, o en papel cremoso (#FBF7EE) sobre fondos oscuros. No usar en cobre, agave, ni gris.</p>
+      </div>
+      <div>
+        <h3 class="sub">Posición Estándar</h3>
+        <p>Esquina superior izquierda en documentos editoriales y empaque. Centrado en aplicaciones cuadradas o de presentación.</p>
+      </div>
+    </div>
+  </div>
+  <span class="page-section">04 · Logo &amp; Marca Gráfica</span>
+  <span class="page-num">06</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 7 — USOS INCORRECTOS
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">05 · Usos Incorrectos del Logo</span>
+      <span class="pg">07</span>
+    </div>
+    <h2 class="section-title">Lo que <em>nunca</em> hacemos con el logo.</h2>
+
+    <p class="lede">El logo es la firma de una familia. Distorsionarlo, recolorearlo o rodearlo de ruido lo convierte en una imitación. Las reglas son pocas; respetarlas no es opcional.</p>
+
+    <div class="misuse">
+      <div class="item">
+        <div class="x">✕</div>
+        <div class="demo" style="transform: scaleX(1.6);">Tres <em>Ese</em></div>
+        <div class="label">No estirar</div>
+      </div>
+      <div class="item">
+        <div class="x">✕</div>
+        <div class="demo" style="color: #B8362A;">Tres <em>Ese</em></div>
+        <div class="label">No recolorear</div>
+      </div>
+      <div class="item">
+        <div class="x">✕</div>
+        <div class="demo" style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,.5));">Tres <em>Ese</em></div>
+        <div class="label">No agregar sombras</div>
+      </div>
+      <div class="item">
+        <div class="x">✕</div>
+        <div class="demo" style="background: linear-gradient(45deg, var(--gold), var(--copper-deep)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Tres <em>Ese</em></div>
+        <div class="label">No usar gradientes</div>
+      </div>
+      <div class="item">
+        <div class="x">✕</div>
+        <div class="demo" style="transform: rotate(-12deg);">Tres <em>Ese</em></div>
+        <div class="label">No rotar</div>
+      </div>
+      <div class="item">
+        <div class="x">✕</div>
+        <div class="demo" style="font-family: var(--sans); font-weight: 700; font-style: normal;">TRES ESE</div>
+        <div class="label">No re-tipografíar</div>
+      </div>
+    </div>
+
+    <h3 class="sub" style="margin-top: 8mm;">Regla General</h3>
+    <p>Si tienes que preguntarte si una aplicación es correcta, probablemente no lo es. El logo se usa <em>tal cual</em>, en sus dos versiones autorizadas, sin alteraciones.</p>
+  </div>
+  <span class="page-section">05 · Usos Incorrectos</span>
+  <span class="page-num">07</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 8 — PALETA DE COLORES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">06 · Paleta de Colores</span>
+      <span class="pg">08</span>
+    </div>
+    <h2 class="section-title">Marfil cálido, cobre <em>envejecido</em>, sombra de tinta.</h2>
+
+    <p class="lede">Una paleta restringida — la tierra roja de Jalisco, el papel de archivo, el cobre del alambique. Nunca brillante, nunca neon.</p>
+
+    <h3 class="sub">Colores Primarios</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="chip" style="background: #FBF7EE;"></div>
+        <div class="meta">
+          <div class="name">Papel <em>Crema</em></div>
+          <div class="role">Base · Fondo principal</div>
+          <div class="codes">HEX  #FBF7EE<br/>RGB  251, 247, 238<br/>CMYK  0, 2, 5, 2</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #2A2218;"></div>
+        <div class="meta">
+          <div class="name">Tinta <em>Profunda</em></div>
+          <div class="role">Texto · Logo en claro</div>
+          <div class="codes">HEX  #2A2218<br/>RGB  42, 34, 24<br/>CMYK  0, 19, 43, 84</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #8A4E1E;"></div>
+        <div class="meta">
+          <div class="name">Cobre <em>Envejecido</em></div>
+          <div class="role">Acentos · Eyebrow · Italic</div>
+          <div class="codes">HEX  #8A4E1E<br/>RGB  138, 78, 30<br/>CMYK  0, 43, 78, 46</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #1C1813;"></div>
+        <div class="meta">
+          <div class="name">Sombra <em>de Cava</em></div>
+          <div class="role">Fondos oscuros · Hero</div>
+          <div class="codes">HEX  #1C1813<br/>RGB  28, 24, 19<br/>CMYK  0, 14, 32, 89</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Colores Secundarios</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="chip" style="background: #B08542;"></div>
+        <div class="meta">
+          <div class="name">Oro <em>Mate</em></div>
+          <div class="role">Reservado · No retórico</div>
+          <div class="codes">HEX  #B08542 · CMYK 0,24,62,31</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #4A5A3B;"></div>
+        <div class="meta">
+          <div class="name">Agave</div>
+          <div class="role">Reservado · No retórico</div>
+          <div class="codes">HEX  #4A5A3B · CMYK 19,2,35,65</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #D8C9AC;"></div>
+        <div class="meta">
+          <div class="name">Arena</div>
+          <div class="role">Líneas · Bordes sutiles</div>
+          <div class="codes">HEX  #D8C9AC · CMYK 0,7,21,15</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #584A38;"></div>
+        <div class="meta">
+          <div class="name">Tinta <em>Suave</em></div>
+          <div class="role">Texto secundario · Lede</div>
+          <div class="codes">HEX  #584A38 · CMYK 0,17,38,65</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="page-section">06 · Paleta de Colores</span>
+  <span class="page-num">08</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 9 — TIPOGRAFÍA
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">07 · Tipografía</span>
+      <span class="pg">09</span>
+    </div>
+    <h2 class="section-title">Dos voces — un <em>solo</em> ritmo.</h2>
+
+    <p class="lede">Cormorant Garamond habla en serio; Inter aclara, lista, organiza. Las dos juntas le dan a Tres Ese su voz editorial.</p>
+
+    <div class="type-specimen">
+      <div class="label">Display<small>Cormorant Garamond · 64–96 pt</small></div>
+      <div class="sample"><div class="ts-display">Tres <em>Ese</em></div></div>
+    </div>
+    <div class="type-specimen">
+      <div class="label">Encabezado H1<small>Cormorant Garamond · 24–32 pt</small></div>
+      <div class="sample"><div class="ts-h1">Reposado Orgánico</div></div>
+    </div>
+    <div class="type-specimen">
+      <div class="label">Italic Acento<small>Cormorant Italic · variable</small></div>
+      <div class="sample"><div class="ts-h2">Desde 1905</div></div>
+    </div>
+    <div class="type-specimen">
+      <div class="label">Eyebrow<small>Inter Medium · 7–9 pt · letterspacing .28em</small></div>
+      <div class="sample"><div class="ts-eyebrow">Tequila Tres Ese</div></div>
+    </div>
+    <div class="type-specimen">
+      <div class="label">Cuerpo de Texto<small>Inter Light · 10 pt · line-height 1.55</small></div>
+      <div class="sample"><div class="ts-body">Cocemos lentamente en hornos de mampostería; fermentamos en madera, sin levaduras añadidas; destilamos en cobre dos veces. Nada se añade después. Nada se acelera.</div></div>
+    </div>
+    <div class="type-specimen">
+      <div class="label">Caption<small>Inter · 7 pt · letterspacing .14em · uppercase</small></div>
+      <div class="sample"><div class="ts-caption">Botella de 700 ml · 86.8 proof</div></div>
+    </div>
+
+    <h3 class="sub">Reglas Rápidas</h3>
+    <ul>
+      <li><strong style="color: var(--ink); font-weight: 500;">Sólo dos familias.</strong> Cormorant Garamond para títulos y notas serif; Inter para todo lo demás.</li>
+      <li><strong style="color: var(--ink); font-weight: 500;">Italics con propósito.</strong> Itálica = el nombre <em>Tres Ese</em>, citas, o un acento en cobre. Nunca para énfasis casual.</li>
+      <li><strong style="color: var(--ink); font-weight: 500;">Justificar el cuerpo.</strong> Párrafos en alineación justificada con inter-word spacing. Eyebrows y captions siempre alineadas a la izquierda.</li>
+      <li><strong style="color: var(--ink); font-weight: 500;">Mandarín: Noto Serif SC + Noto Sans SC.</strong> Conservar el mismo ritmo y jerarquía.</li>
+    </ul>
+  </div>
+  <span class="page-section">07 · Tipografía</span>
+  <span class="page-num">09</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 10 — ESTILO FOTOGRÁFICO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">08 · Estilo Fotográfico</span>
+      <span class="pg">10</span>
+    </div>
+    <h2 class="section-title">Luz de cava, manos al <em>oficio</em>, tierra roja.</h2>
+
+    <p class="lede">La imagen de Tres Ese se siente como entrar a una bodega al atardecer — sombra, calor, polvo dorado en el aire. No producción en blanco; producción en penumbra.</p>
+
+    <div class="photo-grid">
+      <figure>
+        <img src="images/hero-cellar.jpg" alt="" />
+        <figcaption>Bodega · Luz de mampostería</figcaption>
+      </figure>
+      <figure>
+        <img src="images/TresEse_Botella_Reposado.png" alt="" style="object-fit: contain; background: var(--bg-deep); padding: 6mm;" />
+        <figcaption>Producto · Aislado sobre sombra</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Direcciones Visuales</h3>
+    <div class="twocol">
+      <div>
+        <p><strong style="color: var(--ink); font-weight: 500;">Luz natural cálida.</strong> Hora dorada, ventana lateral, sombras largas. Nunca flash directo, nunca luz fluorescente.</p>
+        <p><strong style="color: var(--ink); font-weight: 500;">Manos antes que rostros.</strong> Fotografiar el trabajo — las manos cortando la piña, vertiendo, etiquetando. Rostros solo cuando son retratos editoriales de la familia.</p>
+      </div>
+      <div>
+        <p><strong style="color: var(--ink); font-weight: 500;">Texturas terrosas.</strong> Adobe, madera vieja, cobre, agave verde-azul, tierra roja. La paleta del lugar.</p>
+        <p><strong style="color: var(--ink); font-weight: 500;">Espacio negativo.</strong> Composiciones tranquilas. El producto no llena el cuadro — respira.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Lo que Evitamos</h3>
+    <p>Fondos blancos clínicos · Stock photography · Sonrisas exageradas · "Lifestyle" de fiesta · Cocteles con popotes de colores · Fotografía aérea de fiestas de marca · Filtros saturados o HDR.</p>
+  </div>
+  <span class="page-section">08 · Estilo Fotográfico</span>
+  <span class="page-num">10</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 11 — MENSAJES CLAVE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">09 · Mensajes Clave</span>
+      <span class="pg">11</span>
+    </div>
+    <h2 class="section-title">Las palabras que <em>siempre</em> decimos.</h2>
+
+    <p class="lede">Una lista corta de frases verificadas — repetibles, traducibles, defendibles. Cualquier copy nuevo debería ecoar al menos una de éstas.</p>
+
+    <h3 class="sub">Línea de Firma</h3>
+    <div class="quote">Tequila Tres Ese · Los Altos de Jalisco · Hecho en México · 100% Agave Azul · Cultivo Orgánico · Cero Aditivos · Lotes Pequeños</div>
+
+    <h3 class="sub">Tagline de Marca</h3>
+    <p style="font-family: var(--serif); font-style: italic; font-size: 18pt; color: var(--ink); margin-bottom: 5mm;">Hecho a mano para ti.</p>
+
+    <h3 class="sub">Reclamos Verificables</h3>
+    <div class="claim-chips">
+      <div class="chip-text">100% Agave Azul</div>
+      <div class="chip-text">Cultivo Orgánico</div>
+      <div class="chip-text">Cero Aditivos</div>
+      <div class="chip-text">Lotes Pequeños</div>
+      <div class="chip-text">Desde 1905</div>
+      <div class="chip-text">2,030 m</div>
+      <div class="chip-text">Roble Francés</div>
+      <div class="chip-text">Alambique de Cobre</div>
+    </div>
+
+    <h3 class="sub">Origen en una Línea</h3>
+    <p style="font-family: var(--serif); font-style: italic; font-size: 13pt; color: var(--ink); margin-bottom: 6mm;">"Cinco generaciones, una sola tierra: la sierra alta de Jalisco a 2,030 metros, donde el agave azul crece más lento, más dulce y más concentrado."</p>
+
+    <h3 class="sub">Por Expresión</h3>
+    <div class="twocol">
+      <div>
+        <p><strong style="color: var(--ink); font-weight: 500; font-family: var(--serif); font-size: 11pt;">Blanco Orgánico.</strong> "La voz más pura del agave de la sierra — embotellado en el momento en que sale del alambique de cobre."</p>
+      </div>
+      <div>
+        <p><strong style="color: var(--ink); font-weight: 500; font-family: var(--serif); font-size: 11pt;">Reposado Orgánico.</strong> "Seis meses descansando en roble francés. La voz brillante del blanco se suaviza en algo más cálido."</p>
+      </div>
+    </div>
+  </div>
+  <span class="page-section">09 · Mensajes Clave</span>
+  <span class="page-num">11</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 12 — APLICACIONES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">10 · Aplicaciones</span>
+      <span class="pg">12</span>
+    </div>
+    <h2 class="section-title">El sistema en <em>uso</em>.</h2>
+
+    <p class="lede">Los principios funcionan porque se aplican consistentemente — desde la ficha técnica de una sola página hasta el sitio web multilingüe.</p>
+
+    <div class="apps">
+      <figure>
+        <img src="images/hero-cellar.jpg" alt="" />
+        <figcaption>Sitio Web · tequilatresese.com</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Logos/TresEse_Logo 2.png" alt="" style="object-fit: contain; padding: 12mm; background: var(--bg);" />
+        <figcaption>Logo · Marca Primaria</figcaption>
+      </figure>
+      <figure>
+        <img src="images/TresEse_Botella_Reposado.png" alt="" style="object-fit: contain; padding: 6mm; background: var(--bg-soft);" />
+        <figcaption>Producto · Reposado Orgánico</figcaption>
+      </figure>
+      <figure>
+        <img src="images/TresEse_Botella_Blanco.png" alt="" style="object-fit: contain; padding: 6mm; background: var(--bg-soft);" />
+        <figcaption>Producto · Blanco Orgánico</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Sistema de Documentos</h3>
+    <ul>
+      <li><strong style="color: var(--ink); font-weight: 500;">Fichas Técnicas (ficha-*).</strong> Hoja Carta (8.5×11), retrato, una página · ficha.css compartido.</li>
+      <li><strong style="color: var(--ink); font-weight: 500;">Listas de Precios (precios-*).</strong> Cuatro canales: Restaurantes, Distribuidores, Portal Propio, AICM Terminal · firma de fecha/elaborado/aprobado al pie · QR al sitio.</li>
+      <li><strong style="color: var(--ink); font-weight: 500;">Sitio Web (index.html / en.html / zh.html).</strong> Español como idioma raíz; inglés y mandarín como traducciones.</li>
+    </ul>
+
+    <p style="font-family: var(--serif); font-style: italic; font-size: 11pt; color: var(--ink-soft); text-align: center; margin-top: 8mm; border-top: .5px solid var(--line); padding-top: 5mm;">
+      Este manual es un documento vivo. Las reglas existen para que la marca se reconozca a sí misma en cien aplicaciones — no para limitar el oficio.
+    </p>
+  </div>
+  <span class="page-section">10 · Aplicaciones</span>
+  <span class="page-num">12</span>
+</section>
+
+</body>
+</html>
