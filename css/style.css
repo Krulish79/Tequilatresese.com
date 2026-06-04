@@ -1675,6 +1675,35 @@ a[href="#store"]{
   border: 1px solid var(--line);
   display:flex; flex-direction:column;
   transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
+  position: relative;
+}
+/* Status pill in top-right corner — "Disponible / Available / 现货" on
+   Reposado, etc. Sits above the bottle image, tiny but legible. */
+.product-badge{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .7rem;
+  font-family: var(--sans);
+  font-size: .58rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--agave);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.product-badge::before{
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 0 2px rgba(232, 205, 140, .25);
 }
 .product:hover{
   transform: translateY(-4px);
