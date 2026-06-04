@@ -1825,6 +1825,20 @@ a[href="#store"]{
   background: var(--copper-deep);
   border-color: var(--copper-deep);
 }
+/* Disabled state — used by "Próximamente / Coming soon / 即将推出"
+   buttons on product cards for expressions that aren't for sale yet. */
+.btn[disabled],
+.btn:disabled{
+  opacity: .42;
+  pointer-events: none;
+  cursor: not-allowed;
+  letter-spacing: .18em;
+}
+.btn-outline[disabled],
+.btn-outline:disabled{
+  border-color: var(--muted);
+  color: var(--muted);
+}
 
 /* ─────────── CONTACT ─────────── */
 .contact{

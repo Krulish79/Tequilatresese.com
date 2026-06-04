@@ -166,15 +166,10 @@
     }
   });
 
-  // Store buttons (stub)
-  document.querySelectorAll('[data-buy]').forEach(b => {
-    b.addEventListener('click', () => {
-      const original = b.textContent;
-      b.textContent = 'Added ✓';
-      b.disabled = true;
-      setTimeout(() => { b.textContent = original; b.disabled = false; }, 1600);
-    });
-  });
+  // Reposado "Añadir al carrito" buttons are real <a> tags now —
+  // they link to the Shopify storefront product page. Blanco/Extra
+  // Añejo buttons are <button disabled>Próximamente</button> until
+  // those expressions go on sale. Nothing to wire up here.
 
   // Year in footer
   const y = document.getElementById('year');
