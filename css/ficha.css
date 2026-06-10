@@ -66,7 +66,7 @@ body{
   height: auto;
   background: var(--paper);
   color: var(--ink);
-  padding: 14mm 14mm 11mm;
+  padding: 14mm 14mm 16mm;
   box-shadow: 0 40px 80px -20px rgba(0,0,0,.5);
   display: flex;
   flex-direction: column;
@@ -427,6 +427,29 @@ body{
   width: 16mm;
   height: 16mm;
   display: block;
+}
+
+/* ───── Ficha-specific footer — sig line on top, then QR + URL pinned right.
+   QR and URL are vertically centered with each other (URL sits to the
+   LEFT of the QR, both aligned to the QR midline). Used by ficha-*.html
+   files; price sheets use the .foot-row + .stamp-grid pattern above. ───── */
+.sheet-foot > a.foot-qr-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 3mm;
+  align-self: flex-end;
+}
+.sheet-foot .foot-url{
+  font-family: var(--sans);
+  font-size: 7pt;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  white-space: nowrap;
+}
+.sheet-foot > a.foot-qr-link .foot-qr{
+  width: 14mm;
+  height: 14mm;
 }
 
 /* ───── PRINT — US Letter 8.5 × 11 ───── */
