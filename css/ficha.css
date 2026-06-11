@@ -429,27 +429,51 @@ body{
   display: block;
 }
 
-/* ───── Ficha-specific footer — sig line on top, then QR + URL pinned right.
-   QR and URL are vertically centered with each other (URL sits to the
-   LEFT of the QR, both aligned to the QR midline). Used by ficha-*.html
-   files; price sheets use the .foot-row + .stamp-grid pattern above. ───── */
-.sheet-foot > a.foot-qr-link{
+/* ───── Ficha footer — Machetazo-style: simple italic brand line on the
+   left, QR + 'Escanea · URL' caption on the right. Used by ficha-*.html
+   files; price sheets use the .foot-sig + .foot-row + .stamp-grid
+   pattern above. ───── */
+.sheet-foot.sheet-foot--ficha{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6mm;
+}
+.sheet-foot--ficha .foot-brand{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 9pt;
+  letter-spacing: .02em;
+  color: var(--ink-soft);
+  text-align: left;
+}
+.sheet-foot--ficha a.foot-qr-link{
   display: inline-flex;
   align-items: center;
   gap: 3mm;
-  align-self: flex-end;
+  align-self: center;
 }
-.sheet-foot .foot-url{
-  font-family: var(--sans);
-  font-size: 7pt;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--copper-deep);
-  white-space: nowrap;
-}
-.sheet-foot > a.foot-qr-link .foot-qr{
+.sheet-foot--ficha .foot-qr{
   width: 14mm;
   height: 14mm;
+  border: 0.5px solid var(--line);
+  padding: 1mm;
+  background: #fff;
+}
+.sheet-foot--ficha .foot-url{
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.sheet-foot--ficha .foot-url em{
+  font-style: normal;
+  display: block;
+  color: var(--ink-soft);
 }
 
 /* ───── PRINT — US Letter 8.5 × 11 ───── */
