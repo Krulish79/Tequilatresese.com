@@ -2841,15 +2841,10 @@ body {
 .cert-logos {
   border-color: rgba(232, 205, 140, 0.18);
 }
-.cert-logos li img {
-  filter: brightness(0) invert(1);
-  opacity: 0.65;
-  transition: opacity 0.3s ease;
+/* Cert logos keep their ORIGINAL colors — no filter inversion */
+.cert-logos li .cert-name {
+  color: var(--gold-light);
 }
-.cert-logos li:hover img {
-  opacity: 1;
-}
-.cert-logos li .cert-mark::before,
 .cert-logos li.is-missing .cert-mark::before {
   color: rgba(251, 247, 238, 0.7);
 }
