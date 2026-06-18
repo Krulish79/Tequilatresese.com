@@ -3240,6 +3240,51 @@ body {
   color: var(--gold-light);
 }
 
+/* FIX 3: Justified text was opening huge word-gaps on shorter lines
+   (esp. the contact lede 'Saluda. Leemos cada mensaje nosotros mismos —').
+   Switch dark-section paragraphs to left-align so word spacing reads
+   naturally. Overrides the global p { text-align: justify !important }. */
+.story-copy p,
+.step-copy p,
+.cocktails .section-head p,
+.cocktails .cocktail-tagline,
+.cocktails .cocktail-method,
+.gallery .section-head p,
+.contact-copy p,
+.contact-copy .lede,
+.contact .section-intro {
+  text-align: left !important;
+}
+
+/* FIX 4: Scroll-link arrows (CONTACTO with the down arrow etc.) were
+   inheriting copper-deep — too dark to read on the cocoa/deep-brown
+   backgrounds. Force them cream across all dark sections. */
+.story .scroll-link,
+.story .scroll-link span,
+.process .scroll-link,
+.process .scroll-link span,
+.film .scroll-link,
+.film .scroll-link span,
+.cocktails .scroll-link,
+.cocktails .scroll-link span,
+.gallery .scroll-link,
+.gallery .scroll-link span,
+.contact .scroll-link,
+.contact .scroll-link span,
+.contact .scroll-link svg {
+  color: rgba(251, 247, 238, 0.75);
+  stroke: rgba(251, 247, 238, 0.75);
+}
+.story .scroll-link:hover,
+.process .scroll-link:hover,
+.film .scroll-link:hover,
+.cocktails .scroll-link:hover,
+.gallery .scroll-link:hover,
+.contact .scroll-link:hover {
+  color: var(--gold-light);
+  stroke: var(--gold-light);
+}
+
 /* While we're here — make sure the body copy itself reads light cream
    in those sections (in case any other rule is winning over my earlier
    override). Belt + suspenders. */
