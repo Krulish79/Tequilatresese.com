@@ -1075,10 +1075,562 @@
   </footer>
 </div>
 
+<!-- ═══════════════════════ MOCKUP 4 — REMIX ═══════════════════════
+     Per brand-owner request: color-coded structure (from 03) +
+     editorial boldness (from 02) + dark drama moments (from 01).
+     ════════════════════════════════════════════════════════════ -->
+<section class="lab-divider">
+  <p class="tag">Dirección 04 · Remix</p>
+  <h2>Color-Coded Editorial con Drama Oscuro</h2>
+  <p>Cream base + per-bottle accent colors (Blanco·mineral, Reposado·amber, Extra Añejo·mahogany), wrapped in Playfair display boldness, punctuated by two dark cellar bands for visual rhythm. Asymmetric magazine layouts, drop caps, italic colored emphasis. The most "designed" of the four — feels like a launch issue of a niche tequila magazine.</p>
+</section>
+
+<style>
+  .m4 {
+    background: #FBF7EE;
+    color: #1C1813;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    --c-blanco: #5A6B7E;
+    --c-reposado: #B07A2E;
+    --c-anejo: #5E2A1F;
+    --ink-deep: #1C1813;
+    --gold: #E8CD8C;
+  }
+  .m4 a { color: inherit; text-decoration: none; }
+
+  .m4-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--ink-deep);
+  }
+  .m4-nav .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -.015em;
+  }
+  .m4-nav .brand em {
+    font-style: italic; font-weight: 400; color: var(--c-reposado);
+  }
+  .m4-nav .links {
+    display: flex; gap: 2rem; align-items: center;
+    font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .m4-nav .palette-strip { display: flex; gap: 4px; margin-left: 1rem; }
+  .m4-nav .palette-strip span { width: 12px; height: 12px; border-radius: 50%; }
+  .m4-nav .palette-strip .p1 { background: var(--c-blanco); }
+  .m4-nav .palette-strip .p2 { background: var(--c-reposado); }
+  .m4-nav .palette-strip .p3 { background: var(--c-anejo); }
+
+  /* HERO — asymmetric magazine cover */
+  .m4-hero {
+    padding: 6rem 3rem 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .m4-hero .left .issue {
+    display: inline-block;
+    padding: .4rem 1rem;
+    border: 1px solid var(--ink-deep);
+    font-size: .62rem; letter-spacing: .32em; text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+  }
+  .m4-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 9vw, 9rem);
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -.035em;
+    margin: 0 0 1.5rem;
+  }
+  .m4-hero h1 em {
+    font-style: italic; font-weight: 400; color: var(--c-reposado);
+    display: block;
+  }
+  .m4-hero .lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    max-width: 30rem;
+    color: rgba(28,24,19,.78);
+    margin: 0 0 2.5rem;
+  }
+  .m4-hero .ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .m4-hero .cta {
+    padding: 1.1rem 2.5rem;
+    font-size: .7rem;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid var(--ink-deep);
+    transition: all .3s ease;
+  }
+  .m4-hero .cta--primary { background: var(--ink-deep); color: #FBF7EE; }
+  .m4-hero .cta--primary:hover { background: var(--c-reposado); border-color: var(--c-reposado); }
+  .m4-hero .cta--secondary { background: transparent; color: var(--ink-deep); }
+  .m4-hero .cta--secondary:hover { background: var(--ink-deep); color: #FBF7EE; }
+  .m4-hero .right {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: url('images/hero-cellar.jpg') center/cover;
+    overflow: hidden;
+  }
+  .m4-hero .right::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg,
+        rgba(90,107,126,.18) 0%,
+        rgba(176,122,46,.12) 50%,
+        rgba(94,42,31,.22) 100%);
+    mix-blend-mode: multiply;
+  }
+  .m4-hero .right .caption {
+    position: absolute;
+    bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+    color: #FBF7EE;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    z-index: 1;
+  }
+  .m4-hero .right .caption::before {
+    content: "—";
+    color: var(--gold);
+    margin-right: .5rem;
+  }
+  .m4-hero .right .number-stamp {
+    position: absolute;
+    top: -1.2rem; left: -1.2rem;
+    background: #FBF7EE;
+    border: 1px solid var(--ink-deep);
+    padding: .8rem 1.4rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    z-index: 2;
+  }
+
+  /* DARK PULL-QUOTE BAND #1 */
+  .m4-band {
+    background: var(--ink-deep);
+    color: #FBF7EE;
+    padding: 6rem 3rem;
+    text-align: center;
+  }
+  .m4-band .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    line-height: 1.25;
+    max-width: 52rem;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+  .m4-band .pull-quote .a1 { color: var(--c-blanco); font-style: italic; font-weight: 400; }
+  .m4-band .pull-quote .a2 { color: var(--gold); font-style: italic; font-weight: 400; }
+  .m4-band .pull-quote .a3 { color: var(--c-anejo); font-style: italic; font-weight: 400; }
+  .m4-band .attribution {
+    font-size: .65rem;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: rgba(251,247,238,.45);
+    margin-top: 3rem;
+    font-weight: 500;
+  }
+  .m4-band .stripe {
+    display: flex; justify-content: center; gap: 6px;
+    margin-top: 2rem;
+  }
+  .m4-band .stripe span {
+    width: 50px; height: 2px; display: inline-block;
+  }
+  .m4-band .stripe .s1 { background: var(--c-blanco); }
+  .m4-band .stripe .s2 { background: var(--c-reposado); }
+  .m4-band .stripe .s3 { background: var(--c-anejo); }
+
+  /* EDITORIAL STORY with drop cap */
+  .m4-story {
+    padding: 7rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .m4-story .label-col { position: sticky; top: 3rem; }
+  .m4-story .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 .8rem;
+    letter-spacing: -.04em;
+  }
+  .m4-story .section-label {
+    font-size: .62rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--c-reposado);
+  }
+  .m4-story .section-rule {
+    width: 40px; height: 2px;
+    background: var(--c-reposado);
+    margin: 1.2rem 0;
+  }
+  .m4-story .section-meta {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(28,24,19,.55);
+    line-height: 1.4;
+    max-width: 12rem;
+  }
+  .m4-story .body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 0 0 2rem;
+    letter-spacing: -.015em;
+  }
+  .m4-story .body h2 em { font-style: italic; color: var(--c-reposado); }
+  .m4-story .body p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(28,24,19,.78);
+    margin: 0 0 1.5rem;
+  }
+  .m4-story .body p em { font-style: italic; color: var(--c-anejo); }
+  .m4-story .body p:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    float: left;
+    line-height: .85;
+    margin: .1rem .7rem 0 0;
+    color: var(--c-reposado);
+  }
+
+  /* COLOR-CODED BOTTLES (with editorial numbering) */
+  .m4-bottles {
+    padding: 0 3rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .m4-bottles .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 4rem 0 3rem;
+    border-bottom: 2px solid var(--ink-deep);
+    margin-bottom: 5rem;
+  }
+  .m4-bottles .section-head .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+  .m4-bottles .section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
+    font-style: italic;
+  }
+  .m4-bottles .section-head h2 em {
+    font-style: italic; font-weight: 900; color: var(--c-reposado);
+  }
+  .m4-bottles .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .m4-bottles .card {
+    text-align: center;
+    padding: 0 1.5rem 2rem;
+    border-top: 3px solid;
+    transition: transform .4s ease;
+    position: relative;
+  }
+  .m4-bottles .card:hover { transform: translateY(-8px); }
+  .m4-bottles .card--blanco { border-color: var(--c-blanco); }
+  .m4-bottles .card--reposado { border-color: var(--c-reposado); }
+  .m4-bottles .card--anejo { border-color: var(--c-anejo); }
+  .m4-bottles .card .num-tag {
+    display: inline-block;
+    padding: .5rem 1.2rem;
+    margin: -1.2rem auto 1.5rem;
+    background: #FBF7EE;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: .9rem;
+  }
+  .m4-bottles .card--blanco .num-tag { color: var(--c-blanco); border: 1px solid var(--c-blanco); }
+  .m4-bottles .card--reposado .num-tag { color: var(--c-reposado); border: 1px solid var(--c-reposado); }
+  .m4-bottles .card--anejo .num-tag { color: var(--c-anejo); border: 1px solid var(--c-anejo); }
+  .m4-bottles .card img {
+    height: 340px; width: auto;
+    filter: drop-shadow(0 22px 32px rgba(28,24,19,.18));
+    margin-bottom: 2rem;
+  }
+  .m4-bottles .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 0 .6rem;
+  }
+  .m4-bottles .card h3 em { font-style: italic; }
+  .m4-bottles .card--blanco h3 em { color: var(--c-blanco); }
+  .m4-bottles .card--reposado h3 em { color: var(--c-reposado); }
+  .m4-bottles .card--anejo h3 em { color: var(--c-anejo); }
+  .m4-bottles .card .tasting {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(28,24,19,.55);
+    margin: 0 0 1.5rem;
+  }
+  .m4-bottles .card .specs {
+    font-size: .65rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(28,24,19,.4);
+  }
+
+  /* DARK PROCESS BAND #2 */
+  .m4-process {
+    background: var(--ink-deep);
+    color: #FBF7EE;
+    padding: 7rem 3rem;
+  }
+  .m4-process .head {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 4rem;
+  }
+  .m4-process .head .number {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .m4-process .head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .m4-process .head h2 em { font-style: italic; color: var(--gold); }
+  .m4-process .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .m4-process .step { position: relative; }
+  .m4-process .step .num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+  .m4-process .step h4 {
+    font-size: .7rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #FBF7EE;
+    font-weight: 500;
+    margin: 0 0 .8rem;
+  }
+  .m4-process .step p {
+    font-size: .9rem;
+    line-height: 1.6;
+    color: rgba(251,247,238,.65);
+    margin: 0;
+  }
+
+  /* FOOTER */
+  .m4-footer {
+    background: #FBF7EE;
+    color: var(--ink-deep);
+    padding: 4rem 3rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--ink-deep);
+  }
+  .m4-footer .wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    letter-spacing: -.02em;
+    margin-bottom: 1rem;
+  }
+  .m4-footer .wordmark em { font-style: italic; font-weight: 400; color: var(--c-reposado); }
+  .m4-footer .claims {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(28,24,19,.6);
+    margin-bottom: 1.5rem;
+  }
+  .m4-footer .stripe {
+    display: flex; justify-content: center; gap: 8px;
+  }
+  .m4-footer .stripe span {
+    width: 80px; height: 3px; display: inline-block;
+  }
+  .m4-footer .stripe .s1 { background: var(--c-blanco); }
+  .m4-footer .stripe .s2 { background: var(--c-reposado); }
+  .m4-footer .stripe .s3 { background: var(--c-anejo); }
+
+  @media (max-width: 800px) {
+    .m4-nav { padding: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .m4-nav .links { font-size: .6rem; gap: 1.2rem; }
+    .m4-hero, .m4-story { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+    .m4-band, .m4-process { padding: 4rem 1.5rem; }
+    .m4-bottles { padding: 0 1.5rem 3rem; }
+    .m4-bottles .grid { grid-template-columns: 1fr; gap: 3rem; }
+    .m4-bottles .section-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .m4-process .steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+</style>
+
+<div class="m4">
+  <nav class="m4-nav">
+    <div class="brand">Tres<em>Ese</em></div>
+    <div class="links">
+      <span>Origen</span><span>Proceso</span><span>Botellas</span><span>Tienda</span>
+      <span class="palette-strip"><span class="p1"></span><span class="p2"></span><span class="p3"></span></span>
+    </div>
+  </nav>
+
+  <section class="m4-hero">
+    <div class="left">
+      <span class="issue">Volumen 1 · Junio 2026</span>
+      <h1>Tres<em>Ese</em></h1>
+      <p class="lede">El agave azul crece más lento aquí — a 2,030 metros, en tierra roja, bajo el sol blanco de Los Altos de Jalisco. Lo dejamos crecer. No nos apuramos.</p>
+      <div class="ctas">
+        <a href="#" class="cta cta--primary">Comprar ahora</a>
+        <a href="#" class="cta cta--secondary">Conoce la familia</a>
+      </div>
+    </div>
+    <div class="right">
+      <div class="number-stamp">Nº 02 · Reposado</div>
+      <p class="caption">El reposado, seis meses descansando en roble francés.</p>
+    </div>
+  </section>
+
+  <section class="m4-band">
+    <p class="pull-quote">«Un solo agave. <span class="a1">Tres</span> <span class="a2">expresiones</span>. <span class="a3">Un</span> tiempo distinto.»</p>
+    <p class="attribution">— Familia Tres Ese · Desde 1905</p>
+    <div class="stripe"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+  </section>
+
+  <section class="m4-story">
+    <div class="label-col">
+      <p class="section-number">01</p>
+      <p class="section-label">El Origen</p>
+      <div class="section-rule"></div>
+      <p class="section-meta">Los Altos de Jalisco · 2,030 m · Cinco generaciones</p>
+    </div>
+    <div class="body">
+      <h2>Cinco generaciones, <em>una sola tierra</em>.</h2>
+      <p>Desde 1905, la familia Tres Ese cultiva agave azul en la tierra roja de Los Altos de Jalisco. Sin atajos. Sin aditivos. Sin prisa. Cada lote depende del cielo de ese año — la lluvia, el sol, el viento que cruza la sierra.</p>
+      <p>Cocemos lentamente en hornos de mampostería. Fermentamos en madera, sin levaduras añadidas. Destilamos en cobre dos veces. <em>Nada se añade después.</em> Lo que entra al alambique es exactamente lo que sale a la botella.</p>
+    </div>
+  </section>
+
+  <section class="m4-bottles">
+    <div class="section-head">
+      <p class="number">02</p>
+      <h2>Las <em>botellas</em></h2>
+    </div>
+    <div class="grid">
+      <article class="card card--blanco">
+        <span class="num-tag">Nº 01</span>
+        <img src="images/TresEse_Botella_Blanco.png" alt="Blanco" />
+        <h3>Blanco <em>Orgánico</em></h3>
+        <p class="tasting">Mineral · cítrico · piedra mojada</p>
+        <p class="specs">700 ml · 40.4% · 80.8 Proof</p>
+      </article>
+      <article class="card card--reposado">
+        <span class="num-tag">Nº 02</span>
+        <img src="images/TresEse_Botella_Reposado.png" alt="Reposado" />
+        <h3>Reposado <em>Orgánico</em></h3>
+        <p class="tasting">Roble francés · cedro · especia cálida</p>
+        <p class="specs">700 ml · 43.4% · 86.8 Proof</p>
+      </article>
+      <article class="card card--anejo">
+        <span class="num-tag">Nº 03</span>
+        <img src="images/TresEse_Botella_ExtraAñejo.png" alt="Extra Añejo" />
+        <h3>Extra <em>Añejo</em></h3>
+        <p class="tasting">Cacao · cuero curtido · roble añejo</p>
+        <p class="specs">700 ml · 44.4% · 88.8 Proof</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="m4-process">
+    <div class="head">
+      <p class="number">— 03 —</p>
+      <h2>Cinco pasos, <em>en silencio</em>.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p class="num">01</p>
+        <h4>Cultivo</h4>
+        <p>Agave azul orgánico, 7 años, tierra roja a 2,030 m.</p>
+      </div>
+      <div class="step">
+        <p class="num">02</p>
+        <h4>Cocción</h4>
+        <p>Hornos de mampostería, 72 horas a fuego lento.</p>
+      </div>
+      <div class="step">
+        <p class="num">03</p>
+        <h4>Fermentación</h4>
+        <p>Tinas de madera, levaduras silvestres, sin prisa.</p>
+      </div>
+      <div class="step">
+        <p class="num">04</p>
+        <h4>Destilación</h4>
+        <p>Doble destilación en alambique de cobre.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="m4-footer">
+    <div class="wordmark">Tres<em>Ese</em></div>
+    <p class="claims">Los Altos de Jalisco · 100% Agave Azul · Cultivo Orgánico · Cero Aditivos · Lotes Pequeños</p>
+    <div class="stripe"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+  </footer>
+</div>
+
 <!-- ─────────────────────────── OUTRO ─────────────────────────── -->
 <section class="lab-header">
   <h1>¿Cuál te gusta?</h1>
-  <p>Reply with "01", "02", or "03" and I'll roll that direction out across your live site. Or tell me "I like the dark hero from #1 but the bottle layout from #3" — we can also remix.</p>
+  <p>Reply with "01", "02", "03", or "04" and I'll roll that direction out across your live site. Or remix — tell me which elements you want from which mockup.</p>
 </section>
 
 </body>
