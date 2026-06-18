@@ -3197,20 +3197,46 @@ body {
   margin-top: 1rem;
 }
 
-/* FIX 2: 'p em' globally is copper-deep — too dark to read on the dark
-   sections. Override for every dark-bg section so the foreign-language
-   italic terms (tequilana, jimadores, piñas) glow gold-light against
-   the cocoa/deep-brown background instead. */
+/* FIX 2: 'p em' AND the global 'em { copper-deep }' rule both bled
+   through on dark sections. Sweep ALL em descendants of every dark
+   section to gold-light — paragraph emphases (tequilana, jimadores),
+   heading emphases (Cosechado a mano), signatures, anywhere. */
+.story em,
 .story p em,
+.story h2 em,
+.story h3 em,
+.story-copy em,
 .story-copy p em,
+.story-copy h3 em,
+.process em,
 .process p em,
+.process h2 em,
+.process h3 em,
+.step-copy em,
 .step-copy p em,
-.film p em,
+.step-copy h3 em,
+.film em,
+.ribbon em,
+.cocktails em,
 .cocktails p em,
+.cocktails h3 em,
+.cocktail-tag em,
+.gallery em,
 .gallery p em,
+.contact em,
 .contact p em,
+.contact-copy em,
 .contact-copy p em,
-.site-footer p em {
+.site-footer em {
+  color: var(--gold-light);
+}
+/* Keep .italic class behavior on dark sections too */
+.story .italic,
+.process .italic,
+.cocktails .italic,
+.gallery .italic,
+.contact .italic,
+.site-footer .italic {
   color: var(--gold-light);
 }
 
