@@ -1627,10 +1627,1001 @@
   </footer>
 </div>
 
+<!-- ═══════════════════════ MOCKUP 5 — REFINED COLOR-CODED ═══════════════════════
+     Per brand-owner feedback: 03 is the favorite. Keep original Cormorant
+     Garamond typography (no Playfair bold). Pull the palette a touch darker
+     for more mood. One strategic dark band for drama.
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="lab-divider">
+  <p class="tag">Dirección 05 · Refinada</p>
+  <h2>Color-Coded, Cormorant, un toque más oscuro</h2>
+  <p>The favorite (03) refined. Cormorant Garamond throughout — the original brand typography, no Playfair Display bold. Warmer, slightly darker cream so the page feels less "bright" and more "candle-lit". Each bottle still has its own accent color (mineral · amber · mahogany), with a soft tinted background so the cards each feel a little different. One strategic dark band on the process section gives the page real visual rhythm.</p>
+</section>
+
+<style>
+  .m5 {
+    background: #EDE3D0;
+    color: #1C1813;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    --c-blanco: #5A6B7E;
+    --c-reposado: #B07A2E;
+    --c-anejo: #5E2A1F;
+    --paper: #F4EEE2;
+    --bg-soft: #EDE3D0;
+    --bg-deeper: #E2D4B8;
+    --ink: #2A2218;
+    --ink-deep: #1C1813;
+    --gold: #E8CD8C;
+  }
+  .m5 a { color: inherit; text-decoration: none; }
+
+  .m5-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 2rem 3rem;
+    background: var(--paper);
+    border-bottom: 1px solid rgba(28,24,19,.1);
+  }
+  .m5-nav .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: .04em;
+    font-weight: 500;
+  }
+  .m5-nav .brand em { font-style: italic; color: var(--c-reposado); }
+  .m5-nav .links {
+    display: flex; gap: 2rem; align-items: center;
+    font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+  }
+  .m5-nav .palette-strip { display: flex; gap: 4px; margin-left: 1rem; }
+  .m5-nav .palette-strip span { width: 12px; height: 12px; border-radius: 50%; }
+  .m5-nav .palette-strip .p1 { background: var(--c-blanco); }
+  .m5-nav .palette-strip .p2 { background: var(--c-reposado); }
+  .m5-nav .palette-strip .p3 { background: var(--c-anejo); }
+
+  /* HERO — warm darker cream, full bleed, Cormorant headlines */
+  .m5-hero {
+    position: relative;
+    padding: 6rem 3rem 5rem;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 40%, rgba(176,122,46,.10) 0%, transparent 70%),
+      linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-deeper) 100%);
+    overflow: hidden;
+  }
+  .m5-hero .text {
+    text-align: center;
+    max-width: 50rem;
+    margin: 0 auto 3rem;
+  }
+  .m5-hero .eyebrow {
+    font-size: .7rem;
+    letter-spacing: .36em;
+    text-transform: uppercase;
+    color: var(--c-reposado);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .m5-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    margin: 0 0 1rem;
+    color: var(--ink-deep);
+  }
+  .m5-hero h1 em { font-style: italic; font-weight: 400; }
+  .m5-hero h1 .c1 { color: var(--c-blanco); font-style: italic; }
+  .m5-hero h1 .c2 { color: var(--c-reposado); font-style: italic; }
+  .m5-hero h1 .c3 { color: var(--c-anejo); font-style: italic; }
+  .m5-hero .lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: rgba(28,24,19,.75);
+    max-width: 32rem;
+    margin: 1.5rem auto 0;
+  }
+  .m5-hero .trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .m5-hero .trio .col {
+    text-align: center;
+    padding: 2.5rem 1.5rem 2rem;
+    border-top: 3px solid;
+    background: var(--paper);
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .m5-hero .trio .col:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px -20px rgba(28,24,19,.18);
+  }
+  .m5-hero .trio .col-1 { border-color: var(--c-blanco); }
+  .m5-hero .trio .col-2 { border-color: var(--c-reposado); }
+  .m5-hero .trio .col-3 { border-color: var(--c-anejo); }
+  .m5-hero .trio img {
+    height: 280px; width: auto;
+    filter: drop-shadow(0 18px 26px rgba(28,24,19,.22));
+    margin-bottom: 1.5rem;
+  }
+  .m5-hero .trio .tag {
+    font-size: .65rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: .5rem;
+  }
+  .m5-hero .trio .col-1 .tag { color: var(--c-blanco); }
+  .m5-hero .trio .col-2 .tag { color: var(--c-reposado); }
+  .m5-hero .trio .col-3 .tag { color: var(--c-anejo); }
+  .m5-hero .trio h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: 0;
+    color: var(--ink-deep);
+  }
+  .m5-hero .trio h3 em { font-style: italic; }
+
+  /* STORY — paper cream, classic editorial */
+  .m5-story {
+    background: var(--paper);
+    padding: 6rem 3rem;
+  }
+  .m5-story .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .m5-story .media {
+    aspect-ratio: 4/5;
+    background: url('images/hero-cellar.jpg') center/cover;
+    position: relative;
+  }
+  .m5-story .media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg,
+        rgba(90,107,126,.18) 0%,
+        rgba(176,122,46,.1) 50%,
+        rgba(94,42,31,.22) 100%);
+    mix-blend-mode: multiply;
+  }
+  .m5-story .label {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--c-reposado);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .m5-story h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+  }
+  .m5-story h2 em { font-style: italic; color: var(--c-reposado); }
+  .m5-story p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(28,24,19,.75);
+    margin: 0 0 1.2rem;
+  }
+  .m5-story p em { font-style: italic; color: var(--c-anejo); }
+
+  /* BOTTLES — color-coded cards with very subtle tinted backgrounds */
+  .m5-bottles {
+    background: var(--bg-soft);
+    padding: 6rem 3rem;
+  }
+  .m5-bottles .head {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 4rem;
+  }
+  .m5-bottles .head .eyebrow {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--c-reposado);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .m5-bottles .head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    margin: 0;
+    color: var(--ink-deep);
+  }
+  .m5-bottles .head h2 em { font-style: italic; color: var(--c-reposado); }
+  .m5-bottles .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .m5-bottles .card {
+    padding: 3rem 2rem 2.5rem;
+    border-top: 3px solid;
+    text-align: center;
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .m5-bottles .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px -20px rgba(28,24,19,.18);
+  }
+  .m5-bottles .card-1 {
+    background: linear-gradient(180deg, rgba(90,107,126,.06) 0%, var(--paper) 100%);
+    border-color: var(--c-blanco);
+  }
+  .m5-bottles .card-2 {
+    background: linear-gradient(180deg, rgba(176,122,46,.08) 0%, var(--paper) 100%);
+    border-color: var(--c-reposado);
+  }
+  .m5-bottles .card-3 {
+    background: linear-gradient(180deg, rgba(94,42,31,.08) 0%, var(--paper) 100%);
+    border-color: var(--c-anejo);
+  }
+  .m5-bottles .card img {
+    height: 320px; width: auto;
+    filter: drop-shadow(0 22px 32px rgba(28,24,19,.2));
+    margin-bottom: 2rem;
+  }
+  .m5-bottles .card .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: .8rem;
+  }
+  .m5-bottles .card-1 .num { color: var(--c-blanco); }
+  .m5-bottles .card-2 .num { color: var(--c-reposado); }
+  .m5-bottles .card-3 .num { color: var(--c-anejo); }
+  .m5-bottles .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 .8rem;
+    color: var(--ink-deep);
+  }
+  .m5-bottles .card h3 em { font-style: italic; }
+  .m5-bottles .card-1 h3 em { color: var(--c-blanco); }
+  .m5-bottles .card-2 h3 em { color: var(--c-reposado); }
+  .m5-bottles .card-3 h3 em { color: var(--c-anejo); }
+  .m5-bottles .card .tasting {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(28,24,19,.6);
+    margin: 0 0 1.5rem;
+  }
+  .m5-bottles .card .specs {
+    font-size: .65rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(28,24,19,.5);
+  }
+
+  /* PROCESS — the dark moment, Cormorant on dark cellar */
+  .m5-process {
+    background: var(--ink-deep);
+    color: var(--paper);
+    padding: 7rem 3rem;
+  }
+  .m5-process .head {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 5rem;
+  }
+  .m5-process .head .eyebrow {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .m5-process .head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .m5-process .head h2 em { font-style: italic; color: var(--gold); }
+  .m5-process .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .m5-process .step {
+    text-align: center;
+  }
+  .m5-process .step .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+  .m5-process .step h4 {
+    font-size: .7rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 500;
+    margin: 0 0 .8rem;
+  }
+  .m5-process .step p {
+    font-size: .9rem;
+    line-height: 1.6;
+    color: rgba(244,238,226,.65);
+    margin: 0;
+  }
+
+  /* FOOTER — dark with brand stripe */
+  .m5-footer {
+    background: var(--ink-deep);
+    color: var(--paper);
+    padding: 4rem 3rem;
+    text-align: center;
+    border-top: 1px solid rgba(232,205,140,.15);
+  }
+  .m5-footer .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .m5-footer .wordmark em { font-style: italic; color: var(--gold); }
+  .m5-footer .claims {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: rgba(244,238,226,.6);
+    margin-bottom: 1.5rem;
+  }
+  .m5-footer .stripe {
+    display: flex; justify-content: center; gap: 8px;
+  }
+  .m5-footer .stripe span {
+    width: 80px; height: 3px; display: inline-block;
+  }
+  .m5-footer .stripe .s1 { background: var(--c-blanco); }
+  .m5-footer .stripe .s2 { background: var(--c-reposado); }
+  .m5-footer .stripe .s3 { background: var(--c-anejo); }
+
+  @media (max-width: 800px) {
+    .m5-nav { padding: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .m5-nav .links { font-size: .6rem; gap: 1.2rem; }
+    .m5-hero, .m5-story, .m5-bottles, .m5-process { padding: 4rem 1.5rem; }
+    .m5-story .inner, .m5-hero .trio, .m5-bottles .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .m5-process .steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+</style>
+
+<div class="m5">
+  <nav class="m5-nav">
+    <div class="brand">Tres <em>Ese</em></div>
+    <div class="links">
+      <span>Origen</span><span>Proceso</span><span>Botellas</span><span>Tienda</span>
+      <span class="palette-strip"><span class="p1"></span><span class="p2"></span><span class="p3"></span></span>
+    </div>
+  </nav>
+
+  <section class="m5-hero">
+    <div class="text">
+      <p class="eyebrow">Tequila Orgánico · Tres Expresiones</p>
+      <h1>
+        <em><span class="c1">Blanco</span></em> ·
+        <em><span class="c2">Reposado</span></em> ·
+        <em><span class="c3">Extra Añejo</span></em>
+      </h1>
+      <p class="lede">Un solo agave. Una sola tierra. Tres momentos en el tiempo.</p>
+    </div>
+
+    <div class="trio">
+      <div class="col col-1">
+        <img src="images/TresEse_Botella_Blanco.png" alt="Blanco" />
+        <p class="tag">Mineral · Cítrico</p>
+        <h3>Blanco <em>Orgánico</em></h3>
+      </div>
+      <div class="col col-2">
+        <img src="images/TresEse_Botella_Reposado.png" alt="Reposado" />
+        <p class="tag">Roble · Cedro · Especia</p>
+        <h3>Reposado <em>Orgánico</em></h3>
+      </div>
+      <div class="col col-3">
+        <img src="images/TresEse_Botella_ExtraAñejo.png" alt="Extra Añejo" />
+        <p class="tag">Cacao · Cuero · Roble Añejo</p>
+        <h3>Extra <em>Añejo</em></h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="m5-story">
+    <div class="inner">
+      <div>
+        <p class="label">Nuestra Historia</p>
+        <h2>Cinco generaciones, <em>una sola tierra</em>.</h2>
+        <p>Desde 1905, la familia Tres Ese cultiva agave azul en la tierra roja de Los Altos de Jalisco, a 2,030 metros. Sin atajos. Sin aditivos. Solo agave, fuego, madera, cobre y tiempo.</p>
+        <p>Cada lote es pequeño porque cada lote depende del cielo de ese año — <em>la lluvia, el sol, el viento que cruza la sierra</em>.</p>
+      </div>
+      <div class="media"></div>
+    </div>
+  </section>
+
+  <section class="m5-bottles">
+    <div class="head">
+      <p class="eyebrow">Las Botellas</p>
+      <h2>Tres expresiones, <em>un solo agave</em>.</h2>
+    </div>
+    <div class="grid">
+      <article class="card card-1">
+        <img src="images/TresEse_Botella_Blanco.png" alt="Blanco" />
+        <p class="num">— Nº 01 —</p>
+        <h3>Blanco <em>Orgánico</em></h3>
+        <p class="tasting">Mineral · cítrico · piedra mojada</p>
+        <p class="specs">700 ml · 40.4% · 80.8 Proof</p>
+      </article>
+      <article class="card card-2">
+        <img src="images/TresEse_Botella_Reposado.png" alt="Reposado" />
+        <p class="num">— Nº 02 —</p>
+        <h3>Reposado <em>Orgánico</em></h3>
+        <p class="tasting">Roble francés · cedro · especia cálida</p>
+        <p class="specs">700 ml · 43.4% · 86.8 Proof</p>
+      </article>
+      <article class="card card-3">
+        <img src="images/TresEse_Botella_ExtraAñejo.png" alt="Extra Añejo" />
+        <p class="num">— Nº 03 —</p>
+        <h3>Extra <em>Añejo</em></h3>
+        <p class="tasting">Cacao · cuero curtido · roble añejo</p>
+        <p class="specs">700 ml · 44.4% · 88.8 Proof</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="m5-process">
+    <div class="head">
+      <p class="eyebrow">El Proceso</p>
+      <h2>Cinco pasos, <em>en silencio</em>.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p class="num">01</p>
+        <h4>Cultivo</h4>
+        <p>Agave azul orgánico, 7 años, tierra roja a 2,030 m.</p>
+      </div>
+      <div class="step">
+        <p class="num">02</p>
+        <h4>Cocción</h4>
+        <p>Hornos de mampostería, 72 horas a fuego lento.</p>
+      </div>
+      <div class="step">
+        <p class="num">03</p>
+        <h4>Fermentación</h4>
+        <p>Tinas de madera, levaduras silvestres, sin prisa.</p>
+      </div>
+      <div class="step">
+        <p class="num">04</p>
+        <h4>Destilación</h4>
+        <p>Doble destilación en alambique de cobre.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="m5-footer">
+    <div class="wordmark">Tequila Tres <em>Ese</em></div>
+    <p class="claims">Los Altos de Jalisco · 100% Agave Azul · Cultivo Orgánico · Cero Aditivos · Lotes Pequeños</p>
+    <div class="stripe"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════ MOCKUP 6 — LIVE HERO + DEEPER BEIGE ═══════════════════════
+     Per brand-owner: existing live hero stays untouched. Body sections
+     step one tone deeper (so the page reads less bright). Cormorant
+     Garamond at weight 700 for major headlines. Dark process band kept.
+     ════════════════════════════════════════════════════════════════════════ -->
+<section class="lab-divider">
+  <p class="tag">Dirección 06 · Final Refinada</p>
+  <h2>Hero original + beige profundo + dark moment</h2>
+  <p>Tu hero actual no se toca. El resto del cuerpo baja un tono — menos luz brillante, más cuerpo. Cards de botellas sobre beige profundo (un escalón más bajo que el cream actual), Cormorant Garamond 700 para los encabezados, sección de proceso oscura para el drama.</p>
+</section>
+
+<style>
+  .m6 {
+    background: #E2D4B8;
+    color: #1C1813;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    --c-blanco: #5A6B7E;
+    --c-reposado: #B07A2E;
+    --c-anejo: #5E2A1F;
+    --cream-light: #EDE3D0;
+    --cream-mid:   #E2D4B8;
+    --cream-deep:  #D8C9AC;
+    --ink: #2A2218;
+    --ink-deep: #1C1813;
+    --gold: #E8CD8C;
+  }
+  .m6 a { color: inherit; text-decoration: none; }
+
+  .m6-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 3rem;
+    background: var(--ink-deep);
+    color: #FBF7EE;
+    border-bottom: 1px solid rgba(232,205,140,.15);
+  }
+  .m6-nav .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: .04em;
+    color: #FBF7EE;
+  }
+  .m6-nav .brand em { font-style: italic; font-weight: 500; color: var(--gold); }
+  .m6-nav .links {
+    display: flex; gap: 2rem; align-items: center;
+    font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(251,247,238,.78);
+  }
+  .m6-nav .palette-strip { display: flex; gap: 4px; margin-left: 1rem; }
+  .m6-nav .palette-strip span { width: 12px; height: 12px; border-radius: 50%; }
+  .m6-nav .palette-strip .p1 { background: var(--c-blanco); }
+  .m6-nav .palette-strip .p2 { background: var(--c-reposado); }
+  .m6-nav .palette-strip .p3 { background: var(--c-anejo); }
+
+  /* HERO — match current live site: dark cellar bg, cellar photo, Tequila eyebrow,
+     "Tres Ese / Orgánico" display, place line, lede, 4-stat row. Unchanged. */
+  .m6-hero {
+    position: relative;
+    min-height: 88vh;
+    padding: 6rem 3rem 4rem;
+    background:
+      linear-gradient(180deg, rgba(14,12,9,.55) 0%, rgba(14,12,9,.25) 30%, rgba(14,12,9,.85) 100%),
+      url('images/hero-cellar.jpg') center 30%/cover;
+    color: #FBF7EE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .m6-hero .inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .m6-hero .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    letter-spacing: .04em;
+  }
+  .m6-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: .92;
+    margin: 0 0 1.5rem;
+    color: #FBF7EE;
+    letter-spacing: -.005em;
+  }
+  .m6-hero h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(251,247,238,.72);
+  }
+  .m6-hero .place {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(251,247,238,.7);
+    margin-bottom: 2rem;
+  }
+  .m6-hero .lede {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(251,247,238,.78);
+    max-width: 32rem;
+    margin-bottom: 4rem;
+  }
+  .m6-hero .meta {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(251,247,238,.15);
+  }
+  .m6-hero .meta div { text-align: left; }
+  .m6-hero .meta span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #FBF7EE;
+    display: block;
+  }
+  .m6-hero .meta em {
+    font-style: normal;
+    font-size: .65rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(251,247,238,.55);
+    display: block;
+    margin-top: .35rem;
+  }
+
+  /* STORY — darker cream, less bright */
+  .m6-story {
+    background: var(--cream-light);
+    padding: 6rem 3rem;
+  }
+  .m6-story .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .m6-story .media {
+    aspect-ratio: 4/5;
+    background: url('images/hero-cellar.jpg') center/cover;
+    position: relative;
+  }
+  .m6-story .media::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg,
+        rgba(90,107,126,.18) 0%,
+        rgba(176,122,46,.1) 50%,
+        rgba(94,42,31,.22) 100%);
+    mix-blend-mode: multiply;
+  }
+  .m6-story .label {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--c-reposado);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .m6-story h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+  }
+  .m6-story h2 em {
+    font-style: italic; font-weight: 500; color: var(--c-reposado);
+  }
+  .m6-story p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(28,24,19,.75);
+    margin: 0 0 1.2rem;
+  }
+  .m6-story p em { font-style: italic; color: var(--c-anejo); }
+
+  /* BOTTLES — light beige (one tone deeper), color-coded cards */
+  .m6-bottles {
+    background: var(--cream-mid);
+    padding: 6rem 3rem;
+  }
+  .m6-bottles .head {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 4rem;
+  }
+  .m6-bottles .head .eyebrow {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--c-reposado);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .m6-bottles .head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    margin: 0;
+    color: var(--ink-deep);
+  }
+  .m6-bottles .head h2 em { font-style: italic; font-weight: 500; color: var(--c-reposado); }
+  .m6-bottles .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .m6-bottles .card {
+    padding: 3rem 2rem 2.5rem;
+    border-top: 3px solid;
+    text-align: center;
+    transition: transform .4s ease, box-shadow .4s ease;
+    background: var(--cream-light);
+  }
+  .m6-bottles .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px -20px rgba(28,24,19,.22);
+  }
+  .m6-bottles .card-1 { border-color: var(--c-blanco); }
+  .m6-bottles .card-2 { border-color: var(--c-reposado); }
+  .m6-bottles .card-3 { border-color: var(--c-anejo); }
+  .m6-bottles .card img {
+    height: 320px; width: auto;
+    filter: drop-shadow(0 22px 32px rgba(28,24,19,.25));
+    margin-bottom: 2rem;
+  }
+  .m6-bottles .card .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: .8rem;
+  }
+  .m6-bottles .card-1 .num { color: var(--c-blanco); }
+  .m6-bottles .card-2 .num { color: var(--c-reposado); }
+  .m6-bottles .card-3 .num { color: var(--c-anejo); }
+  .m6-bottles .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1.05;
+    margin: 0 0 .8rem;
+    color: var(--ink-deep);
+  }
+  .m6-bottles .card h3 em { font-style: italic; font-weight: 500; }
+  .m6-bottles .card-1 h3 em { color: var(--c-blanco); }
+  .m6-bottles .card-2 h3 em { color: var(--c-reposado); }
+  .m6-bottles .card-3 h3 em { color: var(--c-anejo); }
+  .m6-bottles .card .tasting {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(28,24,19,.6);
+    margin: 0 0 1.5rem;
+  }
+  .m6-bottles .card .specs {
+    font-size: .65rem;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(28,24,19,.5);
+  }
+
+  /* PROCESS — the dark band */
+  .m6-process {
+    background: var(--ink-deep);
+    color: #FBF7EE;
+    padding: 7rem 3rem;
+  }
+  .m6-process .head {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 5rem;
+  }
+  .m6-process .head .eyebrow {
+    font-size: .65rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .m6-process .head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .m6-process .head h2 em { font-style: italic; font-weight: 500; color: var(--gold); }
+  .m6-process .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .m6-process .step { text-align: center; }
+  .m6-process .step .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 2.8rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+  .m6-process .step h4 {
+    font-size: .7rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #FBF7EE;
+    font-weight: 500;
+    margin: 0 0 .8rem;
+  }
+  .m6-process .step p {
+    font-size: .9rem;
+    line-height: 1.6;
+    color: rgba(244,238,226,.65);
+    margin: 0;
+  }
+
+  /* FOOTER */
+  .m6-footer {
+    background: var(--ink-deep);
+    color: #FBF7EE;
+    padding: 4rem 3rem;
+    text-align: center;
+    border-top: 1px solid rgba(232,205,140,.15);
+  }
+  .m6-footer .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .m6-footer .wordmark em { font-style: italic; font-weight: 500; color: var(--gold); }
+  .m6-footer .claims {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: rgba(244,238,226,.6);
+    margin-bottom: 1.5rem;
+  }
+  .m6-footer .stripe {
+    display: flex; justify-content: center; gap: 8px;
+  }
+  .m6-footer .stripe span {
+    width: 80px; height: 3px; display: inline-block;
+  }
+  .m6-footer .stripe .s1 { background: var(--c-blanco); }
+  .m6-footer .stripe .s2 { background: var(--c-reposado); }
+  .m6-footer .stripe .s3 { background: var(--c-anejo); }
+
+  @media (max-width: 800px) {
+    .m6-nav { padding: 1.25rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .m6-nav .links { font-size: .6rem; gap: 1.2rem; }
+    .m6-hero { padding: 5rem 1.5rem 3rem; }
+    .m6-hero .meta { gap: 2rem; }
+    .m6-story, .m6-bottles, .m6-process { padding: 4rem 1.5rem; }
+    .m6-story .inner, .m6-bottles .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .m6-process .steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+</style>
+
+<div class="m6">
+  <nav class="m6-nav">
+    <div class="brand">Tres <em>Ese</em></div>
+    <div class="links">
+      <span>Origen</span><span>Proceso</span><span>Botellas</span><span>Tienda</span>
+      <span class="palette-strip"><span class="p1"></span><span class="p2"></span><span class="p3"></span></span>
+    </div>
+  </nav>
+
+  <section class="m6-hero">
+    <div class="inner">
+      <p class="eyebrow">Tequila Orgánico</p>
+      <h1>Tres Ese <em>Orgánico</em></h1>
+      <p class="place">Desde 1905 · Los Altos de Jalisco</p>
+      <p class="lede">100% agave azul, cultivado orgánicamente en la tierra roja de Los Altos de Jalisco. Nada añadido. Nada oculto. Solo agave, fuego, madera, cobre y tiempo.</p>
+      <div class="meta">
+        <div><span>100%</span><em>Agave azul</em></div>
+        <div><span>Orgánico</span><em>Cultivo</em></div>
+        <div><span>2,030 m</span><em>Altitud</em></div>
+        <div><span>Cero</span><em>Aditivos</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="m6-story">
+    <div class="inner">
+      <div>
+        <p class="label">Nuestra Historia</p>
+        <h2>Cinco generaciones, <em>una sola tierra</em>.</h2>
+        <p>Desde 1905, la familia Tres Ese cultiva agave azul en la tierra roja de Los Altos de Jalisco, a 2,030 metros. Sin atajos. Sin aditivos. Solo agave, fuego, madera, cobre y tiempo.</p>
+        <p>Cada lote es pequeño porque cada lote depende del cielo de ese año — <em>la lluvia, el sol, el viento que cruza la sierra</em>.</p>
+      </div>
+      <div class="media"></div>
+    </div>
+  </section>
+
+  <section class="m6-bottles">
+    <div class="head">
+      <p class="eyebrow">Las Botellas</p>
+      <h2>Tres expresiones, <em>un solo agave</em>.</h2>
+    </div>
+    <div class="grid">
+      <article class="card card-1">
+        <img src="images/TresEse_Botella_Blanco.png" alt="Blanco" />
+        <p class="num">— Nº 01 —</p>
+        <h3>Blanco <em>Orgánico</em></h3>
+        <p class="tasting">Mineral · cítrico · piedra mojada</p>
+        <p class="specs">700 ml · 40.4% · 80.8 Proof</p>
+      </article>
+      <article class="card card-2">
+        <img src="images/TresEse_Botella_Reposado.png" alt="Reposado" />
+        <p class="num">— Nº 02 —</p>
+        <h3>Reposado <em>Orgánico</em></h3>
+        <p class="tasting">Roble francés · cedro · especia cálida</p>
+        <p class="specs">700 ml · 43.4% · 86.8 Proof</p>
+      </article>
+      <article class="card card-3">
+        <img src="images/TresEse_Botella_ExtraAñejo.png" alt="Extra Añejo" />
+        <p class="num">— Nº 03 —</p>
+        <h3>Extra <em>Añejo</em></h3>
+        <p class="tasting">Cacao · cuero curtido · roble añejo</p>
+        <p class="specs">700 ml · 44.4% · 88.8 Proof</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="m6-process">
+    <div class="head">
+      <p class="eyebrow">El Proceso</p>
+      <h2>Cinco pasos, <em>en silencio</em>.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <p class="num">01</p>
+        <h4>Cultivo</h4>
+        <p>Agave azul orgánico, 7 años, tierra roja a 2,030 m.</p>
+      </div>
+      <div class="step">
+        <p class="num">02</p>
+        <h4>Cocción</h4>
+        <p>Hornos de mampostería, 72 horas a fuego lento.</p>
+      </div>
+      <div class="step">
+        <p class="num">03</p>
+        <h4>Fermentación</h4>
+        <p>Tinas de madera, levaduras silvestres, sin prisa.</p>
+      </div>
+      <div class="step">
+        <p class="num">04</p>
+        <h4>Destilación</h4>
+        <p>Doble destilación en alambique de cobre.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="m6-footer">
+    <div class="wordmark">Tequila Tres <em>Ese</em></div>
+    <p class="claims">Los Altos de Jalisco · 100% Agave Azul · Cultivo Orgánico · Cero Aditivos · Lotes Pequeños</p>
+    <div class="stripe"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+  </footer>
+</div>
+
 <!-- ─────────────────────────── OUTRO ─────────────────────────── -->
 <section class="lab-header">
   <h1>¿Cuál te gusta?</h1>
-  <p>Reply with "01", "02", "03", or "04" and I'll roll that direction out across your live site. Or remix — tell me which elements you want from which mockup.</p>
+  <p>Reply with "01", "02", "03", "04", "05", or "06" and I'll roll that direction out across your live site. Or remix — tell me which elements you want from which mockup.</p>
 </section>
 
 </body>
