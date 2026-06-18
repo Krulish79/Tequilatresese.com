@@ -3184,3 +3184,43 @@ body {
 .display em, .display-sm em {
   font-weight: 400;
 }
+
+/* ════ Brown noir — readability fixes ════ */
+
+/* FIX 1: Expression-tag eyebrow ('02 · REPOSADO ORGÁNICO') was sitting
+   right on the colored top border. Push it down so there's breathing
+   room between the border line and the first piece of copy. */
+.expressions .expression-copy {
+  padding-top: 1.5rem;
+}
+.expressions .expression-tag {
+  margin-top: 1rem;
+}
+
+/* FIX 2: 'p em' globally is copper-deep — too dark to read on the dark
+   sections. Override for every dark-bg section so the foreign-language
+   italic terms (tequilana, jimadores, piñas) glow gold-light against
+   the cocoa/deep-brown background instead. */
+.story p em,
+.story-copy p em,
+.process p em,
+.step-copy p em,
+.film p em,
+.cocktails p em,
+.gallery p em,
+.contact p em,
+.contact-copy p em,
+.site-footer p em {
+  color: var(--gold-light);
+}
+
+/* While we're here — make sure the body copy itself reads light cream
+   in those sections (in case any other rule is winning over my earlier
+   override). Belt + suspenders. */
+.story-copy p,
+.step-copy p,
+.cocktails p:not(.cocktail-tag):not(.cocktail-name),
+.gallery p,
+.contact-copy p {
+  color: rgba(251, 247, 238, 0.82);
+}
