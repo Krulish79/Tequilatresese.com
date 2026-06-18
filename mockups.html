@@ -2875,36 +2875,34 @@
   }
   .m7-bottles .card {
     text-align: center;
-    padding: 3rem 2rem 2.5rem;
+    padding: 0 2rem 2.5rem;
+    border-top: 3px solid;
     transition: transform .4s ease;
     position: relative;
   }
   .m7-bottles .card:hover { transform: translateY(-8px); }
-  .m7-bottles .card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
+  .m7-bottles .card-1 { border-color: var(--c-blanco); }
+  .m7-bottles .card-2 { border-color: var(--c-reposado); }
+  .m7-bottles .card-3 { border-color: var(--c-anejo); }
+  .m7-bottles .num-tag {
+    display: inline-block;
+    padding: .55rem 1.4rem;
+    margin: -1.3rem auto 2.5rem;
+    background: var(--beige-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    border: 1px solid;
+    letter-spacing: .01em;
   }
-  .m7-bottles .card-1::before { background: var(--c-blanco); }
-  .m7-bottles .card-2::before { background: var(--c-reposado); }
-  .m7-bottles .card-3::before { background: var(--c-anejo); }
+  .m7-bottles .card-1 .num-tag { color: var(--c-blanco); border-color: var(--c-blanco); }
+  .m7-bottles .card-2 .num-tag { color: var(--c-reposado); border-color: var(--c-reposado); }
+  .m7-bottles .card-3 .num-tag { color: var(--c-anejo); border-color: var(--c-anejo); }
   .m7-bottles .card img {
     height: 360px; width: auto;
     filter: drop-shadow(0 30px 50px rgba(28,24,19,.4));
     margin-bottom: 2rem;
   }
-  .m7-bottles .card .num {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    margin-bottom: .8rem;
-  }
-  .m7-bottles .card-1 .num { color: var(--c-blanco); }
-  .m7-bottles .card-2 .num { color: var(--c-reposado); }
-  .m7-bottles .card-3 .num { color: var(--c-anejo); }
   .m7-bottles .card h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
@@ -3078,22 +3076,22 @@
     </div>
     <div class="grid">
       <article class="card card-1">
+        <span class="num-tag">Nº 01</span>
         <img src="images/TresEse_Botella_Blanco.png" alt="Blanco" />
-        <p class="num">— Nº 01 —</p>
         <h3>Blanco <em>Orgánico</em></h3>
         <p class="tasting">Mineral · cítrico · piedra mojada</p>
         <p class="specs">700 ml · 40.4% · 80.8 Proof</p>
       </article>
       <article class="card card-2">
+        <span class="num-tag">Nº 02</span>
         <img src="images/TresEse_Botella_Reposado.png" alt="Reposado" />
-        <p class="num">— Nº 02 —</p>
         <h3>Reposado <em>Orgánico</em></h3>
         <p class="tasting">Roble francés · cedro · especia cálida</p>
         <p class="specs">700 ml · 43.4% · 86.8 Proof</p>
       </article>
       <article class="card card-3">
+        <span class="num-tag">Nº 03</span>
         <img src="images/TresEse_Botella_ExtraAñejo.png" alt="Extra Añejo" />
-        <p class="num">— Nº 03 —</p>
         <h3>Extra <em>Añejo</em></h3>
         <p class="tasting">Cacao · cuero curtido · roble añejo</p>
         <p class="specs">700 ml · 44.4% · 88.8 Proof</p>
