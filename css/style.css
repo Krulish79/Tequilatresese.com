@@ -1,10 +1,23 @@
 *, *::before, *::after { -webkit-hyphens: none !important; hyphens: none !important; }
 /* ──────────────────────────────────────────────────────────
    TEQUILA TRES ESE — stylesheet
-   Palette: warm ivory · sandstone · aged copper · agave green
+   Palette: dark brown noir · beige spotlight · cellar gold accent
+   90% two-tone brown body, the expressions/bottles section as the
+   single bright moment with a warm beige radial gradient.
    ────────────────────────────────────────────────────────── */
 
 :root{
+  /* Brown noir base — the 90% */
+  --brown-deep:    #1C1813;   /* darkest, primary for hero/process/contact/footer */
+  --brown-cocoa:   #3D2E1F;   /* second tone, warmer cocoa — for story/ribbon transitions */
+  --brown-warm:    #2A2218;   /* in-between (replaces --ink for text use on light) */
+
+  /* Beige spotlight — the 10% */
+  --beige-light:   #EDE3D0;   /* lightest beige (center of gradient) */
+  --beige-mid:     #D8C9AC;   /* mid beige (edge of gradient, lines) */
+  --beige-deep:    #C9B791;   /* deepest beige (gradient outer) */
+
+  /* Legacy cream tokens preserved so existing rules keep working */
   --bg:            #F4EEE2;
   --bg-soft:       #EDE3D0;
   --bg-deep:       #1C1813;
@@ -2775,3 +2788,399 @@ body.lightbox-open{ overflow: hidden; }
 }
 /* Body scroll lock while the modal is open */
 body.cocktail-modal-open{ overflow: hidden; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DIRECTION 07 — BROWN NOIR THEME OVERRIDE
+   90% two-tone dark brown body. The expressions section is the one bright
+   moment with a beige radial gradient. Hero, slideshows, contact form,
+   Shopify links, age gate, mobile breakpoints all preserved untouched —
+   this block only overrides COLORS and section BACKGROUNDS.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+body {
+  background: var(--brown-deep);
+  color: var(--paper);
+}
+
+/* STORY — warm cocoa (second dark tone) */
+.story {
+  background: var(--brown-cocoa);
+  color: var(--paper);
+}
+.story::before {
+  border-color: rgba(232, 205, 140, 0.18);
+}
+.story .eyebrow {
+  color: var(--gold-light);
+}
+.story .eyebrow::before {
+  background: var(--gold-light);
+}
+.story h2,
+.story .display-sm {
+  color: var(--paper);
+}
+.story h2 em,
+.story .display-sm em {
+  color: var(--gold-light);
+}
+.story-copy p,
+.story-copy .lede {
+  color: rgba(251, 247, 238, 0.78);
+}
+.story-copy p strong {
+  color: var(--paper);
+}
+.story-copy .signature {
+  color: var(--gold-light);
+}
+.story .scroll-link,
+.story .scroll-link span {
+  color: rgba(251, 247, 238, 0.65);
+}
+.cert-logos {
+  border-color: rgba(232, 205, 140, 0.18);
+}
+.cert-logos li img {
+  filter: brightness(0) invert(1);
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+.cert-logos li:hover img {
+  opacity: 1;
+}
+.cert-logos li .cert-mark::before,
+.cert-logos li.is-missing .cert-mark::before {
+  color: rgba(251, 247, 238, 0.7);
+}
+
+/* PROCESS — deepest dark, italic gold numerals */
+.process {
+  background: var(--brown-deep);
+  color: var(--paper);
+}
+.process .section-head .eyebrow,
+.process .eyebrow {
+  color: var(--gold-light);
+}
+.process .section-head .eyebrow::before {
+  background: var(--gold-light);
+}
+.process h2,
+.process .display-sm,
+.process .section-head h2,
+.process .section-head .display-sm {
+  color: var(--paper);
+}
+.process h2 em,
+.process .display-sm em {
+  color: var(--gold-light);
+}
+.process .section-intro {
+  color: rgba(251, 247, 238, 0.72);
+}
+.step-copy h3 {
+  color: var(--paper);
+}
+.step-copy p,
+.step-copy .lede {
+  color: rgba(251, 247, 238, 0.78);
+}
+.step-num,
+.step .step-num {
+  color: var(--gold-light);
+}
+.process .scroll-link,
+.process .scroll-link span {
+  color: rgba(251, 247, 238, 0.65);
+}
+
+/* FILM — deep brown, keep its inherent dark cinema feel */
+.film {
+  background: var(--brown-deep);
+  color: var(--paper);
+}
+.film .eyebrow {
+  color: var(--gold-light);
+}
+.film h2,
+.film .display-sm {
+  color: var(--paper);
+}
+.film h2 em,
+.film .display-sm em {
+  color: var(--gold-light);
+}
+
+/* RIBBON — cocoa, bridges to the beige expressions section */
+.ribbon {
+  background: var(--brown-cocoa);
+  color: var(--paper);
+}
+.ribbon-grid > div span {
+  color: var(--paper);
+}
+.ribbon-grid > div em {
+  color: rgba(251, 247, 238, 0.6);
+}
+
+/* ════ EXPRESSIONS — THE bright moment, beige radial spotlight ════ */
+.expressions {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,
+      var(--beige-light) 0%,
+      var(--beige-mid) 70%,
+      var(--beige-deep) 100%);
+  color: var(--brown-deep);
+  position: relative;
+}
+/* Soft fade-in from cocoa at top */
+.expressions::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(180deg, var(--brown-cocoa) 0%, transparent 100%);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+/* Soft fade-out to cocoa at bottom */
+.expressions::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(0deg, var(--brown-cocoa) 0%, transparent 100%);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+.expressions > .container { position: relative; z-index: 2; }
+.expressions .eyebrow {
+  color: var(--copper-deep);
+}
+.expressions .eyebrow::before {
+  background: var(--copper-deep);
+}
+.expressions h2,
+.expressions .display-sm {
+  color: var(--brown-deep);
+}
+.expressions h2 em,
+.expressions .display-sm em {
+  color: var(--copper-deep);
+}
+.expressions .section-intro {
+  color: rgba(28, 24, 19, 0.75);
+}
+
+/* Expression cards — stamp-tag style (color-coded top borders + floating Nº tags) */
+.expression {
+  border-top: 3px solid var(--copper-deep);
+  background: transparent;
+  position: relative;
+  padding-top: 0;
+}
+.expression[data-spirit="blanco"] { border-top-color: #5A6B7E; }
+.expression[data-spirit="reposado"] { border-top-color: #B07A2E; }
+.expression[data-spirit="extra-anejo"] { border-top-color: #5E2A1F; }
+
+/* The new floating Nº stamp tag — positioned absolutely so it overlaps
+   the .expression's top border like a wax seal punched through the line */
+.expression {
+  position: relative;
+}
+.expression .num-tag {
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  background: var(--beige-light);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  border: 1px solid var(--copper-deep);
+  color: var(--copper-deep);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.expression[data-spirit="blanco"] .num-tag {
+  color: #5A6B7E;
+  border-color: #5A6B7E;
+}
+.expression[data-spirit="reposado"] .num-tag {
+  color: #B07A2E;
+  border-color: #B07A2E;
+}
+.expression[data-spirit="extra-anejo"] .num-tag {
+  color: #5E2A1F;
+  border-color: #5E2A1F;
+}
+
+/* COCKTAILS — cocoa, food photography pops on warm dark */
+.cocktails {
+  background: var(--brown-cocoa);
+  color: var(--paper);
+}
+.cocktails::before {
+  /* Adjust any decorative pseudo to gold-light tint */
+  background: rgba(232, 205, 140, 0.04);
+}
+.cocktails .eyebrow {
+  color: var(--gold-light);
+}
+.cocktails .eyebrow::before {
+  background: var(--gold-light);
+}
+.cocktails h2,
+.cocktails .display-sm {
+  color: var(--paper);
+}
+.cocktails h2 em,
+.cocktails .display-sm em {
+  color: var(--gold-light);
+}
+.cocktails .section-intro,
+.cocktails .section-head p {
+  color: rgba(251, 247, 238, 0.72);
+}
+.cocktail {
+  background: rgba(251, 247, 238, 0.04);
+  border: 1px solid rgba(232, 205, 140, 0.12);
+}
+.cocktail-body {
+  color: var(--paper);
+}
+.cocktail-tag {
+  color: var(--gold-light);
+}
+.cocktail[data-expression="blanco"] .cocktail-tag { color: #8AA3BE; }
+.cocktail[data-expression="reposado"] .cocktail-tag { color: var(--gold-light); }
+.cocktail[data-expression="anejo"] .cocktail-tag { color: #C97A56; }
+.cocktail-name {
+  color: var(--paper);
+}
+.cocktail-name em {
+  color: var(--gold-light);
+}
+.cocktail-tagline {
+  color: rgba(251, 247, 238, 0.65);
+}
+.cocktail-ingredients,
+.cocktail-method {
+  color: rgba(251, 247, 238, 0.78);
+}
+.cocktail-ingredients .amount {
+  color: var(--gold-light);
+}
+
+/* GALLERY — deepest dark */
+.gallery {
+  background: var(--brown-deep);
+  color: var(--paper);
+}
+.gallery .eyebrow {
+  color: var(--gold-light);
+}
+.gallery .eyebrow::before {
+  background: var(--gold-light);
+}
+.gallery h2,
+.gallery .display-sm {
+  color: var(--paper);
+}
+.gallery h2 em,
+.gallery .display-sm em {
+  color: var(--gold-light);
+}
+.gallery .section-intro {
+  color: rgba(251, 247, 238, 0.72);
+}
+
+/* CONTACT — cocoa with cream form */
+.contact {
+  background: var(--brown-cocoa);
+  color: var(--paper);
+}
+.contact .eyebrow {
+  color: var(--gold-light);
+}
+.contact .eyebrow::before {
+  background: var(--gold-light);
+}
+.contact h2,
+.contact .display-sm {
+  color: var(--paper);
+}
+.contact h2 em,
+.contact .display-sm em {
+  color: var(--gold-light);
+}
+.contact-copy p,
+.contact-copy .lede {
+  color: rgba(251, 247, 238, 0.78);
+}
+.contact-form label span {
+  color: var(--gold-light);
+}
+.contact-form input,
+.contact-form textarea {
+  background: rgba(251, 247, 238, 0.06);
+  border-color: rgba(232, 205, 140, 0.25);
+  color: var(--paper);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(251, 247, 238, 0.4);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--gold-light);
+  background: rgba(251, 247, 238, 0.09);
+  outline: none;
+}
+.contact .scroll-link,
+.contact .scroll-link span {
+  color: rgba(251, 247, 238, 0.65);
+}
+
+/* SITE FOOTER — cocoa */
+.site-footer {
+  background: var(--brown-cocoa);
+  border-top: 1px solid rgba(232, 205, 140, 0.15);
+}
+.footer-bottom {
+  border-top-color: rgba(232, 205, 140, 0.15);
+}
+
+/* Header — when scrolled past hero, give it cocoa background instead of paper */
+.site-header.is-scrolled {
+  background: var(--brown-cocoa);
+}
+.site-header.is-scrolled,
+.site-header.is-scrolled .primary-nav a {
+  color: var(--paper);
+}
+.site-header.is-scrolled .lang-btn {
+  color: rgba(251, 247, 238, 0.7);
+}
+.site-header.is-scrolled .lang-btn.is-active {
+  color: var(--gold-light);
+}
+.site-header.is-scrolled .menu-toggle span {
+  background: var(--paper);
+}
+.site-header.is-scrolled .brand-logo--dark { opacity: 0; }
+.site-header.is-scrolled .brand-logo--light { opacity: 1; }
+
+/* Major display headings — slightly heavier per brand-owner ('700 better') */
+.display, .display-sm {
+  font-weight: 500;
+}
+.display em, .display-sm em {
+  font-weight: 400;
+}
