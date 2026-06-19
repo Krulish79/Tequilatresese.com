@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tres Ese · Reposado Orgánico — Price List · USA</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/ficha.css?v=20260508a" />
+  <style>
+    /* Brand URL at the top — visible reference for US distributors */
+    .brand-block .brand-url{display:block;margin-top:2mm;font-family:var(--sans);font-size:6.5pt;letter-spacing:.22em;text-transform:uppercase;color:var(--copper-deep);text-decoration:none;}
+    .sheet-meta .doc-channel{display:inline-block;font-family:var(--sans);font-size:7pt;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);background:var(--copper-deep);padding:1.2mm 3mm;margin-top:2.5mm;}
+    .sheet-meta .doc-period{display:block;font-family:var(--sans);font-size:6.5pt;letter-spacing:.28em;text-transform:uppercase;color:var(--copper-deep);margin-top:2mm;}
+    @media (max-width:640px){.sheet-meta .doc-channel{font-size:4.5pt;letter-spacing:.22em;padding:.7mm 2mm;margin-top:1.2mm;}.sheet-meta .doc-period{font-size:4.5pt;}}
+    .sheet-meta .doc-type{color:var(--copper-deep);}
+    .price-block{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:5mm 0 5mm;margin:2mm 0 3mm;text-align:left;}
+    .price-value{font-family:var(--serif);font-style:italic;font-weight:500;font-size:30pt;line-height:1;color:var(--ink);margin:0;}
+    .price-value .currency{font-style:normal;font-weight:400;font-size:14pt;color:var(--copper-deep);vertical-align:top;margin-right:1.5mm;}
+    .price-value .suffix{font-style:normal;font-weight:400;font-size:12pt;color:var(--copper-deep);margin-left:1.5mm;vertical-align:top;}
+    .price-unit{font-family:var(--sans);font-size:8pt;color:var(--ink-soft);margin:3mm 0 0;}
+    .price-unit em{font-family:var(--serif);font-style:italic;font-size:9.5pt;color:var(--ink);}
+    .price-case{display:flex;align-items:baseline;gap:3mm;margin:4mm 0 0;padding:3mm 0 0;border-top:.5px solid var(--line);}
+    .price-case .case-label{font-family:var(--sans);font-size:6.5pt;letter-spacing:.28em;text-transform:uppercase;color:var(--copper-deep);margin:0;}
+    .price-case .case-value{font-family:var(--serif);font-style:italic;font-weight:500;font-size:16pt;line-height:1;color:var(--ink);margin:0;}
+    .price-case .case-value .currency{font-style:normal;font-weight:400;font-size:9pt;color:var(--copper-deep);vertical-align:top;margin-right:1mm;}
+    .price-case .case-value .suffix{font-style:normal;font-weight:400;font-size:8pt;color:var(--copper-deep);margin-left:1mm;vertical-align:top;}
+    .price-case .case-meta{font-family:var(--sans);font-size:7pt;color:var(--ink-soft);margin:0 0 0 auto;}
+    .price-notes{list-style:none;padding:0;margin:0;font-family:var(--sans);font-size:7pt;letter-spacing:.04em;line-height:1.55;color:var(--ink-soft);}
+    .price-notes li{margin-bottom:1mm;}
+    @media (max-width:640px){.price-value{font-size:22pt;}.price-value .currency{font-size:11pt;}.price-value .suffix{font-size:10pt;}.price-case .case-value{font-size:13pt;}}
+
+    /* Neutralize the dark proof-cell on price sheets only. */
+    .sheet-specs li.proof-cell{ background: var(--bg); border-color: var(--line); }
+    .sheet-specs .proof-cell span{ color: var(--muted); font-weight: normal; }
+    .sheet-specs .proof-cell strong{ color: var(--ink); font-family: var(--serif); font-style: normal; font-weight: 400; font-size: 10pt; letter-spacing: normal; }
+
+    /* ─────────── EDITOR PANEL ─────────── */
+    .editor{display:none;max-width:8.5in;margin:16px auto 8px;padding:18px 22px;background:#fff;border:1px solid #ddd;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.06);font-family:'Inter',sans-serif;font-size:13px;color:#222;}
+    body.show-editor .editor{display:block;}
+    .editor h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:22px;margin:0 0 4px;letter-spacing:.02em;}
+    .editor .hint{font-size:12px;color:#666;margin:0 0 14px;}
+    .editor .row{display:grid;grid-template-columns:170px 1fr;gap:8px 14px;align-items:start;padding:8px 0;border-top:1px solid #f0eee9;}
+    .editor .row:first-of-type{border-top:0;}
+    .editor .row > label{font-weight:500;color:#444;padding-top:6px;}
+    .editor input[type="text"],.editor textarea{width:100%;padding:6px 8px;border:1px solid #ccc;border-radius:4px;font:inherit;color:#222;background:#fafafa;}
+    .editor input[type="text"]:focus,.editor textarea:focus{outline:none;border-color:#888;background:#fff;}
+    .editor textarea{min-height:60px;resize:vertical;line-height:1.45;}
+    .editor .row-2cols{display:grid;grid-template-columns:170px 1fr 1fr;gap:8px 14px;padding:8px 0;border-top:1px solid #f0eee9;align-items:start;}
+    .editor .row-2cols > label{padding-top:6px;font-weight:500;color:#444;}
+    .editor .actions{display:flex;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #f0eee9;}
+    .editor button{font:inherit;padding:8px 16px;border:1px solid #1a1a1a;background:#1a1a1a;color:#fff;border-radius:4px;cursor:pointer;letter-spacing:.03em;}
+    .editor button.secondary{background:#fff;color:#1a1a1a;}
+    .editor button:hover{opacity:.85;}
+    @media print{.editor{display:none !important;}}
+  </style>
+</head>
+<body>
+
+  <form class="editor" id="editor" autocomplete="off">
+    <h2>Edit — <em>USA Distribution · Reposado</em></h2>
+    <p class="hint">Edit the fields. The sheet updates live. Values save in this browser. When ready, click <strong>Save as PDF</strong>.</p>
+
+    <div class="row"><label>Channel badge</label><input type="text" data-key="audience" /></div>
+    <div class="row"><label>Period</label><input type="text" data-key="period" placeholder="June 2026" /></div>
+    <div class="row"><label>Lede / intro</label><textarea data-key="lede" rows="2"></textarea></div>
+
+    <div class="row-2cols"><label>Per bottle</label><input type="text" data-key="price" placeholder="39" /><input type="text" data-key="currency" placeholder="USD" /></div>
+    <div class="row"><label>Per bottle unit</label><input type="text" data-key="presentation" placeholder="700 mL presentation" /></div>
+    <div class="row-2cols"><label>Case of 6</label><input type="text" data-key="case_price" placeholder="234" /><input type="text" data-key="case_currency" placeholder="USD" /></div>
+    <div class="row"><label>Case meta</label><input type="text" data-key="case_meta" placeholder="6 × 700 mL · per case" /></div>
+
+    <div class="row"><label>Note · Prices</label><input type="text" data-key="note_precios" /></div>
+    <div class="row"><label>Note · Availability</label><input type="text" data-key="note_disp" /></div>
+    <div class="row"><label>Note · Subject to change</label><input type="text" data-key="note_cambios" /></div>
+    <div class="row"><label>Footer · Signature</label><input type="text" data-key="foot_sig" /></div>
+    <div class="row"><label>Footer · Date</label><input type="text" data-key="fecha" placeholder="June 1, 2026" /></div>
+    <div class="row"><label>Footer · Prepared by</label><input type="text" data-key="elaborado" placeholder="Christopher Mir" /></div>
+    <div class="row"><label>Footer · Approved by</label><input type="text" data-key="aprobado" placeholder="R. Zambrano" /></div>
+
+    <div class="actions">
+      <button type="button" id="btn-print">Save as PDF</button>
+      <button type="button" id="btn-reset" class="secondary">Reset</button>
+    </div>
+  </form>
+
+  <div class="sheet-toolbar">
+    <button type="button" onclick="window.print()">Save as PDF</button>
+    <a href="en.html">← Back to site</a>
+  </div>
+
+  <article class="sheet">
+    <header class="sheet-head">
+      <div class="brand-block">
+        <img class="brand-logo" src="images/Logos/logo-primary-black.png?v=20260604r" alt="Tres Ese" />
+        <span class="brand-caption">Tequila · Since 1905</span>
+        <a class="brand-url" href="https://www.tequilatresese.com">tequilatresese.com</a>
+      </div>
+      <div class="sheet-meta">
+        <span class="doc-type">Price List</span>
+        <span class="doc-title">Reposado <em>Orgánico</em></span>
+        <span class="doc-origin">Los Altos de Jalisco · Mexico</span>
+        <span class="doc-channel" id="out-audience">USA Distribution</span>
+        <span class="doc-period" id="out-period">June 2026</span>
+      </div>
+    </header>
+
+    <div class="sheet-body">
+      <div class="sheet-bottle">
+        <img src="images/TresEse_Botella_Reposado.png?v=20260504bottles" alt="Tres Ese Reposado Orgánico bottle" />
+      </div>
+
+      <div class="sheet-content">
+        <div>
+          <p class="sheet-tag">Tequila Tres Ese</p>
+          <h1 class="sheet-h2">Reposado <em>Orgánico</em></h1>
+        </div>
+
+        <p class="sheet-lede" id="out-lede">Wholesale pricing for distributors in the United States. Tres Ese Reposado Orgánico — rested 6 months in French oak, hand-bottled in Los Altos de Jalisco.</p>
+
+        <div class="price-block">
+          <p class="price-value"><span class="currency">$</span><span id="out-price">39</span><span class="suffix" id="out-currency">USD</span></p>
+          <p class="price-unit">Per bottle · <em id="out-presentation">700 mL presentation</em></p>
+          <div class="price-case">
+            <p class="case-label">Case of 6</p>
+            <p class="case-value"><span class="currency">$</span><span id="out-case-price">234</span><span class="suffix" id="out-case-currency">USD</span></p>
+            <p class="case-meta" id="out-case-meta">6 × 700 mL · per case</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="sheet-section-title">Specifications</p>
+          <ul class="sheet-specs">
+            <li><span>Category</span><strong>Tequila Reposado</strong></li>
+            <li><span>Agave</span><strong>100% Blue</strong></li>
+            <li><span>Rest</span><strong>6 months · French oak</strong></li>
+            <li><span>ABV</span><strong>43.4%</strong></li>
+            <li class="proof-cell"><span>Proof</span><strong>86.8</strong></li>
+            <li><span>Volume</span><strong>700 mL</strong></li>
+            <li><span>Color</span><strong>Light straw gold</strong></li>
+            <li><span>Additives</span><strong>None</strong></li>
+            <li><span>Certification</span><strong>Organic</strong></li>
+          </ul>
+        </div>
+
+        <div class="sheet-origin">
+          <ul class="price-notes">
+            <li><strong>Prices —</strong> <span id="out-note-precios">Prices in USD, FOB Mexico. Taxes, duties, and inland freight not included.</span></li>
+            <li><strong>Availability —</strong> <span id="out-note-disp">United States, continental distribution only.</span></li>
+            <li><strong>Subject to change —</strong> <span id="out-note-cambios">Prices may be updated without prior notice.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="sheet-foot">
+      <div class="foot-sig" id="out-foot-sig">Tequila Tres Ese · Los Altos de Jalisco · Made in Mexico · 100% Blue Agave · Organic Cultivation · Zero Additives · Small Batches</div>
+      <div class="foot-row">
+        <div class="stamp-grid">
+          <div class="stamp-cell">
+            <span class="stamp-label">Date</span>
+            <span class="stamp-value" id="out-fecha"></span>
+          </div>
+          <div class="stamp-cell">
+            <span class="stamp-label">Prepared by</span>
+            <span class="stamp-value" id="out-elaborado"></span>
+          </div>
+          <div class="stamp-cell">
+            <span class="stamp-label">Approved by</span>
+            <span class="stamp-value" id="out-aprobado"></span>
+          </div>
+        </div>
+        <a class="foot-qr-link" href="https://www.tequilatresese.com" target="_blank" rel="noopener"><img class="foot-qr" src="images/Logos/qr-linktree.svg?v=20260507a" alt="" /></a>
+      </div>
+    </footer>
+  </article>
+
+<script>
+  const STORAGE_KEY = 'tresese_pricelist_usa_reposado_v1';
+  const DEFAULTS = {
+    audience:        'USA Distribution',
+    period:          'June 2026',
+    lede:            'Wholesale pricing for distributors in the United States. Tres Ese Reposado Orgánico — rested 6 months in French oak, hand-bottled in Los Altos de Jalisco.',
+    price:           '39',
+    currency:        'USD',
+    presentation:    '700 mL presentation',
+    case_price:      '234',
+    case_currency:   'USD',
+    case_meta:       '6 × 700 mL · per case',
+    note_precios:    'Prices in USD, FOB Mexico. Taxes, duties, and inland freight not included.',
+    note_disp:       'United States, continental distribution only.',
+    note_cambios:    'Prices may be updated without prior notice.',
+    foot_sig:        'Tequila Tres Ese · Los Altos de Jalisco · Made in Mexico · 100% Blue Agave · Organic Cultivation · Zero Additives · Small Batches',
+    fecha:           'June 1, 2026',
+    elaborado:       'Christopher Mir',
+    aprobado:        'R. Zambrano',
+  };
+  const OUT = {
+    audience:        'out-audience',
+    period:          'out-period',
+    lede:            'out-lede',
+    price:           'out-price',
+    currency:        'out-currency',
+    presentation:    'out-presentation',
+    case_price:      'out-case-price',
+    case_currency:   'out-case-currency',
+    case_meta:       'out-case-meta',
+    note_precios:    'out-note-precios',
+    note_disp:       'out-note-disp',
+    note_cambios:    'out-note-cambios',
+    foot_sig:        'out-foot-sig',
+    fecha:           'out-fecha',
+    elaborado:       'out-elaborado',
+    aprobado:        'out-aprobado',
+  };
+  function loadState(){ try { return { ...DEFAULTS, ...(JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')) }; } catch { return { ...DEFAULTS }; } }
+  function saveState(s){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {} }
+  function renderField(k,v){ const el = document.getElementById(OUT[k]); if (el) el.textContent = v || ''; }
+  function renderAll(s){ Object.keys(OUT).forEach(k => renderField(k, s[k])); }
+  function applyToInputs(s){ document.querySelectorAll('[data-key]').forEach(i => { if (i.dataset.key in s) i.value = s[i.dataset.key]; }); }
+  function shouldShowEditor(){
+    const p = new URLSearchParams(location.search);
+    if (p.has('edit')) return p.get('edit') !== '0';
+    return true;
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    if (shouldShowEditor()) document.body.classList.add('show-editor');
+    let state = loadState();
+    applyToInputs(state);
+    renderAll(state);
+    document.querySelectorAll('[data-key]').forEach(input => {
+      input.addEventListener('input', () => {
+        state[input.dataset.key] = input.value;
+        renderField(input.dataset.key, input.value);
+        saveState(state);
+      });
+    });
+    const btnPrint = document.getElementById('btn-print');
+    if (btnPrint) btnPrint.addEventListener('click', () => window.print());
+    const btnReset = document.getElementById('btn-reset');
+    if (btnReset) btnReset.addEventListener('click', () => {
+      if (!confirm('Reset all fields to defaults?')) return;
+      state = { ...DEFAULTS };
+      saveState(state);
+      applyToInputs(state);
+      renderAll(state);
+    });
+  });
+</script>
+
+</body>
+</html>
