@@ -73,6 +73,7 @@
     <div class="row"><label>Case meta</label><input type="text" data-key="case_meta" placeholder="6 × 700 mL · per case" /></div>
 
     <div class="row"><label>Note · Prices</label><input type="text" data-key="note_precios" /></div>
+    <div class="row"><label>Note · Shipping</label><input type="text" data-key="note_shipping" /></div>
     <div class="row"><label>Note · Availability</label><input type="text" data-key="note_disp" /></div>
     <div class="row"><label>Footer · Signature</label><input type="text" data-key="foot_sig" /></div>
     <div class="row"><label>Footer · Date</label><input type="text" data-key="fecha" placeholder="June 19, 2026" /></div>
@@ -146,7 +147,8 @@
 
         <div class="sheet-origin">
           <ul class="price-notes">
-            <li><strong>Prices —</strong> <span id="out-note-precios">Prices in USD, FOB Mexico. Taxes, duties, and inland freight not included.</span></li>
+            <li><strong>Prices —</strong> <span id="out-note-precios">Prices in USD. Taxes, duties, and inland freight not included.</span></li>
+            <li><strong>Shipping —</strong> <span id="out-note-shipping">EXW Jalisco, México.</span></li>
             <li><strong>Availability —</strong> <span id="out-note-disp">United States, continental distribution only.</span></li>
           </ul>
         </div>
@@ -187,7 +189,8 @@
     case_price:      '95.40',
     case_currency:   'USD',
     case_meta:       '6 × 700 mL · per case',
-    note_precios:    'Prices in USD, FOB Mexico. Taxes, duties, and inland freight not included.',
+    note_precios:    'Prices in USD. Taxes, duties, and inland freight not included.',
+    note_shipping:   'EXW Jalisco, México.',
     note_disp:       'United States, continental distribution only.',
     foot_sig:        'Tequila Tres Ese · Los Altos de Jalisco · Made in Mexico · 100% Blue Agave · Organic Cultivation · Zero Additives · Small Batches',
     fecha:           'June 19, 2026',
@@ -205,6 +208,7 @@
     case_currency:   'out-case-currency',
     case_meta:       'out-case-meta',
     note_precios:    'out-note-precios',
+    note_shipping:   'out-note-shipping',
     note_disp:       'out-note-disp',
     foot_sig:        'out-foot-sig',
     fecha:           'out-fecha',
