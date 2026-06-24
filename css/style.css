@@ -1586,7 +1586,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .cocktail-ingredients .amount{
   font-family: var(--serif);
   font-style: italic;
-  font-size: .95rem;
+  font-size: 1.05rem;
   color: var(--copper-deep);
   text-align: right;
 }
@@ -2778,6 +2778,7 @@ body.lightbox-open{ overflow: hidden; }
 .cocktail-modal-content .cocktail-ingredients .amount{
   font-family: var(--serif);
   font-style: italic;
+  font-size: 1.05rem;
   color: var(--copper-deep);
 }
 .cocktail-modal-content .cocktail-method{
