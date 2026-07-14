@@ -284,11 +284,49 @@
     if (slides.length === 1 && slides[0].tagName === 'VIDEO') {
       const v = slides[0];
       v.loop = true;
-      v.preload = 'auto';
+      // preload 'metadata' (not 'auto') — the source clips run 14–50 MB each;
+      // 'auto' downloads the whole file before playing which stalls mobile
+      // connections indefinitely and starves autoplay of the buffer it needs.
+      // 'metadata' pulls just the first frame + duration (~50 KB), so the
+      // poster shows immediately and playback starts when data streams in.
+      v.preload = 'metadata';
       v.classList.add('is-active');
       controls.forEach(c => { if (c.matches('[data-dir], .story-dots')) c.style.display = 'none'; });
-      const playOne = () => v.play().catch(() => {});
-      playOne();
+
+      // Robust play with retry — .play() rejects silently on iOS/Android when
+      // the video hasn't buffered enough or the tab hasn't been interacted
+      // with yet. Retry on canplay (buffer ready) AND loadeddata (first frame
+      // decoded) so at least one succeeds even if the first attempt races.
+      const playOne = () => {
+        const p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      };
+      v.addEventListener('canplay', playOne, { once: false });
+      v.addEventListener('loadeddata', playOne, { once: false });
+
+      // Only trigger playback once the container is actually near the viewport.
+      // This satisfies mobile autoplay policies (video needs to be "close to
+      // visible") AND avoids preloading 5 heavy videos simultaneously on
+      // first page load. Fallback to immediate play if IntersectionObserver
+      // isn't available (very old browsers).
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              // Escalate preload once we're about to play — pulls in real data.
+              if (v.preload !== 'auto') v.preload = 'auto';
+              playOne();
+            } else {
+              // Off-screen: pause to save mobile battery + bandwidth.
+              try { v.pause(); } catch (_) {}
+            }
+          });
+        }, { rootMargin: '200px 0px', threshold: 0.01 });
+        io.observe(container);
+      } else {
+        playOne();
+      }
+
       container.addEventListener('mouseenter', () => v.pause());
       container.addEventListener('mouseleave', playOne);
       document.addEventListener('visibilitychange', () => {

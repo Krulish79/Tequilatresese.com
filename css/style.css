@@ -3291,3 +3291,30 @@ body {
 .contact-copy p {
   color: rgba(251, 247, 238, 0.82);
 }
+
+/* ── Mobile hero: single Reposado bottle instead of squished 3-across.
+   On phones the 3-bottle trio compresses each bottle to ~120px wide, so
+   the label text becomes unreadable. Show only the flagship Reposado
+   (center) on ≤640px viewports at a size where the labels stay crisp;
+   hide Blanco (left) and Extra Añejo (right). Desktop trio untouched. */
+@media (max-width: 640px) {
+  .hero-bottle--left,
+  .hero-bottle--right {
+    display: none !important;
+  }
+  .hero-trio {
+    justify-content: center !important;
+  }
+  .hero-bottle--center {
+    flex: 0 1 auto !important;
+    width: auto !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  .hero-bottle--center img {
+    max-height: clamp(340px, 52vh, 480px) !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+}
