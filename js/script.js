@@ -293,16 +293,61 @@
       v.classList.add('is-active');
       controls.forEach(c => { if (c.matches('[data-dir], .story-dots')) c.style.display = 'none'; });
 
+      // Tap-to-play fallback overlay. iOS in Low Power Mode blocks video
+      // autoplay at the OS level regardless of muted/playsinline/etc. — this
+      // is the ONLY way to guarantee a working experience there. The overlay
+      // sits on top of the video with a play icon; if autoplay never succeeds
+      // (video stays paused ~1.5s after container becomes visible), we reveal
+      // it. A tap counts as a user gesture, which unblocks .play() in every
+      // browser including Low Power Mode Safari.
+      const tap = document.createElement('button');
+      tap.type = 'button';
+      tap.className = 'slideshow-tap-play';
+      tap.setAttribute('aria-label', 'Reproducir video');
+      tap.innerHTML = '<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 8 L16 12 L10 16 Z" fill="currentColor"/></svg>';
+      tap.style.display = 'none';
+      container.appendChild(tap);
+      const showTap = () => { tap.style.display = ''; };
+      const hideTap = () => { tap.style.display = 'none'; };
+      tap.addEventListener('click', (e) => {
+        e.stopPropagation();
+        v.play().then(hideTap).catch(showTap);
+      });
+      // Auto-hide the overlay whenever the video is actually playing —
+      // catches the case where autoplay eventually succeeds after retry.
+      v.addEventListener('playing', hideTap);
+      v.addEventListener('pause', () => {
+        // Only re-show if we're on-screen (don't flash overlay when scrolling
+        // out of view triggers our own pause).
+        const rect = container.getBoundingClientRect();
+        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (inView && document.visibilityState === 'visible') showTap();
+      });
+
       // Robust play with retry — .play() rejects silently on iOS/Android when
       // the video hasn't buffered enough or the tab hasn't been interacted
       // with yet. Retry on canplay (buffer ready) AND loadeddata (first frame
       // decoded) so at least one succeeds even if the first attempt races.
+      // If it ends up failing anyway (Low Power Mode), the tap overlay shows.
       const playOne = () => {
         const p = v.play();
-        if (p && typeof p.catch === 'function') p.catch(() => {});
+        if (p && typeof p.then === 'function') {
+          p.then(hideTap).catch(() => {
+            // Autoplay refused — surface the tap button so user can start it.
+            showTap();
+          });
+        }
       };
       v.addEventListener('canplay', playOne, { once: false });
       v.addEventListener('loadeddata', playOne, { once: false });
+
+      // Force-render the first frame even when autoplay is blocked. Seeking
+      // to 0.001s after metadata loads causes the browser to decode and
+      // paint frame 0, so the container shows the poster-like still instead
+      // of an empty gradient behind the tap-play button.
+      v.addEventListener('loadedmetadata', () => {
+        try { v.currentTime = 0.001; } catch (_) {}
+      }, { once: true });
 
       // Only trigger playback once the container is actually near the viewport.
       // This satisfies mobile autoplay policies (video needs to be "close to
@@ -316,9 +361,16 @@
               // Escalate preload once we're about to play — pulls in real data.
               if (v.preload !== 'auto') v.preload = 'auto';
               playOne();
+              // Safety net: if autoplay silently fails and no 'playing' event
+              // fires within 1.5s of becoming visible, reveal the tap button.
+              setTimeout(() => {
+                if (v.paused) showTap();
+              }, 1500);
             } else {
-              // Off-screen: pause to save mobile battery + bandwidth.
+              // Off-screen: pause to save mobile battery + bandwidth, and
+              // hide the tap button so it doesn't linger.
               try { v.pause(); } catch (_) {}
+              hideTap();
             }
           });
         }, { rootMargin: '200px 0px', threshold: 0.01 });

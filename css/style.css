@@ -3292,6 +3292,53 @@ body {
   color: rgba(251, 247, 238, 0.82);
 }
 
+/* ── Slideshow tap-to-play fallback overlay.
+   iOS in Low Power Mode blocks video autoplay at the OS level regardless of
+   muted/playsinline/etc. — same for Data Saver on Android. When our JS
+   detects autoplay failed (or the video sits paused >1.5s after coming into
+   view), it reveals this button. A tap counts as a user gesture and unblocks
+   .play() in every browser including LPM Safari. Auto-hides once video plays. */
+.slideshow-tap-play{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 24, 19, 0.35);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: rgba(251, 247, 238, 0.95);
+  cursor: pointer;
+  z-index: 5;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.slideshow-tap-play::before{
+  content: "";
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(28, 24, 19, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.slideshow-tap-play svg{
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+}
+.slideshow-tap-play:hover,
+.slideshow-tap-play:focus-visible{
+  background: rgba(28, 24, 19, 0.5);
+  outline: none;
+}
+.slideshow-tap-play:active{
+  transform: scale(0.97);
+}
+
 /* ── Mobile hero: single Reposado bottle instead of squished 3-across.
    On phones the 3-bottle trio compresses each bottle to ~120px wide, so
    the label text becomes unreadable. Show only the flagship Reposado
