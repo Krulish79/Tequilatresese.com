@@ -1908,6 +1908,40 @@ a[href="#store"]{
 }
 .contact-copy address a{ color: var(--copper-deep); border-bottom: 1px solid var(--line); }
 
+/* Contact phone — sits below the address as a distinct "call us" callout.
+   Small letterspaced eyebrow label + prominent italic-serif phone number
+   that also acts as a tel: link (tap-to-call on mobile). */
+.contact-copy .contact-phone{
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 1.5rem 0 0;
+  max-width: none;
+}
+.contact-copy .contact-phone-label{
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.contact-copy .contact-phone a{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 0;
+  letter-spacing: 0.01em;
+}
+.contact-copy .contact-phone a:hover,
+.contact-copy .contact-phone a:focus-visible{
+  color: var(--gold-light);
+  outline: none;
+}
+
 .contact-form{
   display:flex; flex-direction:column; gap: 1.25rem;
 }
