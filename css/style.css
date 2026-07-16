@@ -3326,12 +3326,15 @@ body {
   color: rgba(251, 247, 238, 0.82);
 }
 
-/* Address block on the noir contact section — same light-cream tone as
-   body copy above it so 'Tequila Tres Ese / Los Altos de Jalisco, México'
-   is fully legible on the dark brown-cocoa background. Any <a> inside
-   the address gets gold-light so its border-bottom stays readable too. */
+/* Address block on the noir contact section — full-brightness paper cream
+   so 'Tequila Tres Ese / Los Altos de Jalisco, México' reads at the same
+   weight as the phone number just below it, not dim-under-the-noise like
+   body paragraph copy. Any <a> inside the address gets gold-light with a
+   soft matching underline. */
 .contact-copy address {
-  color: rgba(251, 247, 238, 0.82);
+  color: var(--paper);
+  font-weight: 400;
+  opacity: 0.96;
 }
 .contact-copy address a {
   color: var(--gold-light);
