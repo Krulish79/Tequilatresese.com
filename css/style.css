@@ -3326,6 +3326,18 @@ body {
   color: rgba(251, 247, 238, 0.82);
 }
 
+/* Address block on the noir contact section — same light-cream tone as
+   body copy above it so 'Tequila Tres Ese / Los Altos de Jalisco, México'
+   is fully legible on the dark brown-cocoa background. Any <a> inside
+   the address gets gold-light so its border-bottom stays readable too. */
+.contact-copy address {
+  color: rgba(251, 247, 238, 0.82);
+}
+.contact-copy address a {
+  color: var(--gold-light);
+  border-bottom-color: rgba(232, 205, 140, 0.32);
+}
+
 /* ── Slideshow tap-to-play fallback overlay.
    iOS in Low Power Mode blocks video autoplay at the OS level regardless of
    muted/playsinline/etc. — same for Data Saver on Android. When our JS
