@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tequila Tres Ese — La Historia</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --paper:        #FBF7EE;
+      --bg:           #F4EEE2;
+      --bg-soft:      #EDE3D0;
+      --bg-mid:       #D8C9AC;
+      --bg-deep:      #1C1813;
+      --brown-deep:   #1C1813;
+      --brown-cocoa:  #3D2E1F;
+      --ink:          #2A2218;
+      --ink-soft:     #584A38;
+      --muted:        #8A7B62;
+      --line:         #C9B791;
+      --copper:       #A86A33;
+      --copper-deep:  #8A4E1E;
+      --agave:        #4A5A3B;
+      --gold:         #B08542;
+      --gold-light:   #E8CD8C;
+
+      --serif: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+      --sans:  'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ margin: 0; padding: 0; }
+    body{
+      font-family: var(--sans);
+      color: var(--ink);
+      background: #333;   /* dark border around pages in screen view */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+
+    /* Each .page is a US-Letter portrait sheet, 8.5in x 11in. */
+    .page{
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto 12mm;
+      overflow: hidden;
+      background: var(--paper);
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-child{ page-break-after: auto; break-after: auto; }
+
+    @media print{
+      body{ background: none; font-size: 10pt; }
+      .page{ margin: 0; box-shadow: none; }
+      @page{ size: Letter portrait; margin: 0; }
+    }
+
+    /* ─────────── TYPOGRAPHY ─────────── */
+    .display{
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 42pt;
+      line-height: 1.02;
+      letter-spacing: -0.005em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .display .em{ font-style: italic; font-weight: 500; color: var(--copper-deep); }
+    .display-md{
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 30pt;
+      line-height: 1.06;
+      letter-spacing: -0.005em;
+      margin: 0;
+    }
+    .display-md .em{ font-style: italic; color: var(--copper-deep); }
+    .display-sm{
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22pt;
+      line-height: 1.1;
+      margin: 0;
+    }
+    .display-sm .em{ font-style: italic; color: var(--copper-deep); }
+
+    .eyebrow{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+      margin: 0 0 8mm;
+      font-weight: 500;
+    }
+    .eyebrow.on-dark{ color: var(--gold-light); }
+    .eyebrow.with-line{
+      display: inline-flex;
+      align-items: center;
+      gap: 3mm;
+    }
+    .eyebrow.with-line::before{
+      content: "";
+      width: 12mm;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.6;
+    }
+
+    p.body{
+      font-family: var(--sans);
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin: 0 0 4mm;
+    }
+    p.body em{
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink);
+      font-size: 11.5pt;
+    }
+    p.body strong{ color: var(--ink); font-weight: 500; }
+
+    .lede{
+      font-family: var(--serif);
+      font-size: 14pt;
+      line-height: 1.4;
+      color: var(--ink);
+      font-weight: 400;
+      margin: 0 0 6mm;
+    }
+    .lede em{ font-style: italic; color: var(--copper-deep); }
+
+    .signature{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12pt;
+      color: var(--copper-deep);
+      margin: 8mm 0 0;
+    }
+
+    /* ─────────── LAYOUT ATOMS ─────────── */
+    .inner{
+      position: absolute;
+      inset: 20mm 18mm;
+    }
+    .full{ position: absolute; inset: 0; }
+    .center-block{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .header-strip{
+      position: absolute;
+      top: 12mm;
+      left: 18mm;
+      right: 18mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+      padding-bottom: 4mm;
+      border-bottom: 1px solid var(--line);
+    }
+    .header-strip .brand{ display: flex; align-items: center; gap: 2.5mm; }
+    .header-strip .brand img{ height: 7mm; width: auto; }
+    .header-strip .brand-name{ font-family: var(--serif); font-size: 10pt; font-style: italic; letter-spacing: 0.02em; text-transform: none; color: var(--ink); }
+    .header-strip .page-mark{ letter-spacing: 0.34em; font-size: 6.5pt; color: var(--muted); }
+
+    .footer-strip{
+      position: absolute;
+      bottom: 10mm;
+      left: 18mm;
+      right: 18mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 3mm;
+      border-top: 1px solid var(--line);
+    }
+
+    /* Dark-page variants for the noir sections */
+    .page.dark{ background: var(--brown-deep); color: var(--paper); }
+    .page.cocoa{ background: var(--brown-cocoa); color: var(--paper); }
+    .page.dark .display,
+    .page.cocoa .display,
+    .page.dark .display-md,
+    .page.cocoa .display-md,
+    .page.dark .display-sm,
+    .page.cocoa .display-sm{ color: var(--paper); }
+    .page.dark p.body,
+    .page.cocoa p.body{ color: rgba(251, 247, 238, 0.82); }
+    .page.dark p.body em,
+    .page.cocoa p.body em{ color: var(--gold-light); }
+    .page.dark p.body strong,
+    .page.cocoa p.body strong{ color: var(--paper); }
+    .page.dark .lede,
+    .page.cocoa .lede{ color: var(--paper); }
+    .page.dark .lede em,
+    .page.cocoa .lede em{ color: var(--gold-light); }
+    .page.dark .display .em,
+    .page.cocoa .display .em,
+    .page.dark .display-md .em,
+    .page.cocoa .display-md .em,
+    .page.dark .display-sm .em,
+    .page.cocoa .display-sm .em{ color: var(--gold-light); }
+    .page.dark .eyebrow,
+    .page.cocoa .eyebrow{ color: var(--gold-light); }
+    .page.dark .header-strip,
+    .page.cocoa .header-strip{ color: var(--gold-light); border-bottom-color: rgba(232, 205, 140, 0.24); }
+    .page.dark .header-strip .brand-name,
+    .page.cocoa .header-strip .brand-name{ color: var(--paper); }
+    .page.dark .header-strip .page-mark,
+    .page.cocoa .header-strip .page-mark{ color: rgba(232, 205, 140, 0.7); }
+    .page.dark .footer-strip,
+    .page.cocoa .footer-strip{ color: rgba(232, 205, 140, 0.7); border-top-color: rgba(232, 205, 140, 0.24); }
+    .page.dark .signature,
+    .page.cocoa .signature{ color: var(--gold-light); }
+
+    /* ─────────── COVER PAGE ─────────── */
+    .cover{
+      background: #0F0C08;
+      color: var(--paper);
+      overflow: hidden;
+    }
+    .cover-bg{
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(232, 205, 140, 0.14) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(15, 12, 8, 0.55) 0%, rgba(15, 12, 8, 0.9) 100%),
+        url('images/hero-cellar.jpg') center/cover no-repeat;
+      opacity: 0.9;
+    }
+    .cover-inner{
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 22mm 22mm;
+    }
+    .cover-brand{
+      display: flex;
+      align-items: center;
+      gap: 5mm;
+    }
+    .cover-brand img{ height: 18mm; width: auto; filter: brightness(0) invert(1); opacity: 0.95; }
+    .cover-brand .r{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .cover-title{
+      margin-top: auto;
+      margin-bottom: 8mm;
+    }
+    .cover-title .kicker{
+      font-family: var(--sans);
+      font-size: 7.5pt;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin: 0 0 5mm;
+    }
+    .cover-title h1{
+      font-family: var(--serif);
+      font-size: 90pt;
+      font-weight: 500;
+      line-height: 0.96;
+      margin: 0;
+      color: var(--paper);
+      letter-spacing: -0.01em;
+    }
+    .cover-title h1 em{
+      font-style: italic;
+      color: var(--gold-light);
+      display: block;
+    }
+    .cover-place{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14pt;
+      color: rgba(232, 205, 140, 0.85);
+      margin: 6mm 0 0;
+    }
+    .cover-foot{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 12mm;
+      padding-top: 5mm;
+      border-top: 1px solid rgba(232, 205, 140, 0.28);
+    }
+    .cover-foot .label{
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(232, 205, 140, 0.65);
+    }
+    .cover-foot .val{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 10pt;
+      color: var(--gold-light);
+    }
+
+    /* ─────────── MANIFESTO PAGE ─────────── */
+    .manifesto .display{
+      font-size: 56pt;
+      line-height: 1;
+      max-width: 6in;
+    }
+    .manifesto .kicker-large{
+      font-family: var(--sans);
+      font-size: 7.5pt;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin: 0 0 12mm;
+    }
+    .manifesto .support{
+      font-family: var(--serif);
+      font-size: 14pt;
+      line-height: 1.5;
+      color: rgba(251, 247, 238, 0.9);
+      max-width: 5.5in;
+      margin: 12mm 0 0;
+    }
+    .manifesto .support em{ font-style: italic; color: var(--gold-light); }
+
+    /* ─────────── COLUMNS / GRID ─────────── */
+    .cols-2{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10mm;
+    }
+    .cols-3{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8mm;
+    }
+
+    /* ─────────── STAT CARDS ─────────── */
+    .stat-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6mm 8mm;
+      margin-top: 8mm;
+    }
+    .stat{
+      padding: 6mm 0;
+      border-top: 1px solid var(--line);
+    }
+    .page.dark .stat,
+    .page.cocoa .stat{ border-top-color: rgba(232, 205, 140, 0.24); }
+    .stat .n{
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 30pt;
+      line-height: 1;
+      color: var(--copper-deep);
+      display: block;
+      margin: 0 0 2mm;
+    }
+    .page.dark .stat .n,
+    .page.cocoa .stat .n{ color: var(--gold-light); }
+    .stat .label{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .page.dark .stat .label,
+    .page.cocoa .stat .label{ color: rgba(232, 205, 140, 0.8); }
+    .stat p{
+      font-family: var(--sans);
+      font-size: 8.5pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin: 3mm 0 0;
+      max-width: 65mm;
+    }
+    .page.dark .stat p,
+    .page.cocoa .stat p{ color: rgba(251, 247, 238, 0.72); }
+
+    /* ─────────── CERT LOGOS ─────────── */
+    .certs{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6mm;
+      margin-top: 10mm;
+    }
+    .cert{
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 6mm 4mm 5mm;
+      text-align: center;
+    }
+    .cert-mark{
+      height: 28mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 4mm;
+    }
+    .cert-mark img{ max-height: 100%; max-width: 100%; object-fit: contain; }
+    .cert h4{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+      margin: 0 0 2mm;
+      font-weight: 500;
+    }
+    .cert p{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 9pt;
+      color: var(--ink);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* ─────────── PROCESS STEPS ─────────── */
+    .steps{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6mm;
+      margin-top: 8mm;
+    }
+    .step-row{
+      display: grid;
+      grid-template-columns: 22mm 1fr;
+      gap: 6mm;
+      padding: 6mm 0;
+      border-top: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .page.dark .step-row,
+    .page.cocoa .step-row{ border-top-color: rgba(232, 205, 140, 0.22); }
+    .step-num{
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 22pt;
+      line-height: 1;
+      color: var(--copper-deep);
+    }
+    .page.dark .step-num,
+    .page.cocoa .step-num{ color: var(--gold-light); }
+    .step-body h4{
+      font-family: var(--serif);
+      font-size: 15pt;
+      line-height: 1.15;
+      color: var(--ink);
+      margin: 0 0 3mm;
+      font-weight: 500;
+    }
+    .page.dark .step-body h4,
+    .page.cocoa .step-body h4{ color: var(--paper); }
+    .step-body h4 em{ font-style: italic; color: var(--copper-deep); }
+    .page.dark .step-body h4 em,
+    .page.cocoa .step-body h4 em{ color: var(--gold-light); }
+    .step-body p{
+      font-family: var(--sans);
+      font-size: 9pt;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+    .page.dark .step-body p,
+    .page.cocoa .step-body p{ color: rgba(251, 247, 238, 0.78); }
+
+    /* ─────────── EXPRESSION CARDS ─────────── */
+    .expressions{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6mm;
+      margin-top: 8mm;
+    }
+    .expression{
+      text-align: center;
+    }
+    .expression .bottle-frame{
+      height: 78mm;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(200, 175, 130, 0.06), rgba(200, 175, 130, 0.14));
+      border-radius: 3px;
+      padding: 4mm 0 0;
+    }
+    .expression img{ height: 100%; width: auto; object-fit: contain; }
+    .expression .tag{
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+      margin: 5mm 0 1mm;
+    }
+    .expression h4{
+      font-family: var(--serif);
+      font-size: 16pt;
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 0 0 2mm;
+      font-weight: 500;
+    }
+    .expression h4 em{ font-style: italic; color: var(--copper-deep); }
+    .expression .abv{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 10pt;
+      color: var(--copper-deep);
+      margin: 0 0 3mm;
+    }
+    .expression p{
+      font-family: var(--sans);
+      font-size: 8.5pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin: 3mm 4mm 0;
+    }
+
+    /* ─────────── CLOSING / FAMILY PAGE ─────────── */
+    .family-page{
+      background: var(--brown-cocoa);
+      color: var(--paper);
+    }
+    .family-page .display{
+      font-size: 44pt;
+      line-height: 1.02;
+      color: var(--paper);
+    }
+    .family-page .display em{ font-style: italic; color: var(--gold-light); }
+    .family-page .quote{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 16pt;
+      line-height: 1.5;
+      color: rgba(232, 205, 140, 0.95);
+      max-width: 5.6in;
+      margin: 10mm 0;
+    }
+    .family-page .signature{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14pt;
+      color: var(--gold-light);
+      margin-top: 8mm;
+    }
+
+    /* ─────────── BACK COVER / CONTACT ─────────── */
+    .back{
+      background: #0F0C08;
+      color: var(--paper);
+    }
+    .back-inner{
+      position: absolute;
+      inset: 24mm 24mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .back-brand img{ height: 20mm; filter: brightness(0) invert(1); opacity: 0.95; }
+    .back-title{
+      font-family: var(--serif);
+      font-size: 42pt;
+      line-height: 1;
+      color: var(--paper);
+      margin: 12mm 0 8mm;
+    }
+    .back-title em{ font-style: italic; color: var(--gold-light); }
+    .back-lede{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14pt;
+      color: rgba(232, 205, 140, 0.9);
+      max-width: 5in;
+      margin: 0 0 auto;
+    }
+    .back-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+      padding-top: 10mm;
+      margin-top: auto;
+      border-top: 1px solid rgba(232, 205, 140, 0.28);
+    }
+    .back-block .label{
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(232, 205, 140, 0.65);
+      display: block;
+      margin: 0 0 3mm;
+    }
+    .back-block .val{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13pt;
+      line-height: 1.3;
+      color: var(--paper);
+    }
+    .back-block .val strong{ font-weight: 500; color: var(--gold-light); font-style: normal; }
+    .back-foot{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6mm;
+      font-family: var(--sans);
+      font-size: 6pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(232, 205, 140, 0.5);
+    }
+
+    /* ─────────── OPENER PAGE (chapter divider) ─────────── */
+    .opener{
+      background: var(--brown-deep);
+      color: var(--paper);
+    }
+    .opener-inner{
+      position: absolute;
+      inset: 30mm 24mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .opener .chapter-num{
+      font-family: var(--sans);
+      font-size: 7pt;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin: 0 0 8mm;
+    }
+    .opener .chapter-title{
+      font-family: var(--serif);
+      font-size: 68pt;
+      font-weight: 500;
+      line-height: 0.95;
+      color: var(--paper);
+      margin: 0 0 8mm;
+      letter-spacing: -0.01em;
+    }
+    .opener .chapter-title em{ font-style: italic; color: var(--gold-light); }
+    .opener .chapter-sub{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15pt;
+      line-height: 1.35;
+      color: rgba(232, 205, 140, 0.85);
+      max-width: 5.5in;
+    }
+
+    /* Small helper to color a subtle gold rule */
+    .rule{
+      display: block;
+      width: 24mm;
+      height: 1px;
+      background: var(--copper-deep);
+      margin: 6mm 0 8mm;
+      opacity: 0.6;
+    }
+    .page.dark .rule,
+    .page.cocoa .rule{ background: var(--gold-light); opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ PAGE 1 · COVER ═══════════ -->
+  <article class="page cover">
+    <div class="cover-bg"></div>
+    <div class="cover-inner">
+      <header class="cover-brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" />
+        <span class="r">Tequila · Orgánico</span>
+      </header>
+
+      <div class="cover-title">
+        <p class="kicker">Desde 1905 · Los Altos de Jalisco</p>
+        <h1>Tres Ese <em>Orgánico</em></h1>
+        <p class="cover-place">La historia detrás de la botella.</p>
+      </div>
+
+      <div class="cover-foot">
+        <div>
+          <div class="label">Cinco generaciones</div>
+          <div class="val">Una sola creencia</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="label">Fecha</div>
+          <div class="val">Julio 2026</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 2 · MANIFESTO ═══════════ -->
+  <article class="page dark manifesto">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" style="filter: brightness(0) invert(1); opacity: 0.9;" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">02 · Manifiesto</span>
+    </div>
+
+    <div class="inner center-block">
+      <p class="kicker-large">Nuestra promesa</p>
+      <h2 class="display">
+        Certificado <span class="em">orgánico.</span><br/>
+        Cero <span class="em">aditivos.</span><br/>
+        Siempre.
+      </h2>
+      <p class="support">
+        Cinco generaciones de la <em>familia Tres Ese</em> han trabajado la tierra roja de Los Altos de Jalisco sin herbicidas, sin fertilizantes sintéticos, sin atajos. Nada se añade en la botella. Sin azúcar. Sin glicerina. Sin saborizantes. Sin colorantes. Solo lo que la planta, la tierra y el sol de la sierra silenciosamente quisieron.
+      </p>
+    </div>
+
+    <div class="footer-strip">
+      <span>Tequila Tres Ese</span>
+      <span>Manifiesto de Marca</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 3 · CHAPTER OPENER — LA HISTORIA ═══════════ -->
+  <article class="page opener">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" style="filter: brightness(0) invert(1); opacity: 0.9;" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">Capítulo I · La Historia</span>
+    </div>
+    <div class="opener-inner">
+      <span class="chapter-num">Capítulo I</span>
+      <h1 class="chapter-title">Nuestra <em>Historia</em>.</h1>
+      <p class="chapter-sub">
+        Un siglo trabajando la misma tierra. Cinco generaciones eligiendo el camino largo.
+      </p>
+    </div>
+    <div class="footer-strip">
+      <span>Desde 1905</span>
+      <span>Los Altos de Jalisco</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 4 · LA HISTORIA (Content) ═══════════ -->
+  <article class="page">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-black.png?v=20260604r" alt="Tres Ese" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">04 · La Historia</span>
+    </div>
+
+    <div class="inner">
+      <p class="eyebrow with-line">Nuestra Historia</p>
+      <h2 class="display-md">Un siglo de <span class="em">tradición</span>, siempre orgánico.</h2>
+      <span class="rule"></span>
+
+      <div class="cols-2" style="margin-top: 4mm;">
+        <div>
+          <p class="body">
+            En 1905, la familia <strong>Tres Ese</strong> plantó su primer campo de agave azul en <em>Los Altos de Jalisco</em> — a 2,030 metros sobre el nivel del mar, en tierra roja rica en hierro. Sin saber que un siglo después seguirían haciendo tequila con la misma paciencia, en el mismo suelo, con las mismas manos.
+          </p>
+          <p class="body">
+            Cinco generaciones han pasado por la <em>hacienda</em>. La sierra ha cambiado poco. La receta, nada. Cultivo orgánico. Corte manual. Cocción lenta en hornos de mampostería. Fermentación con levaduras silvestres nativas. Destilación en alambiques de cobre. Reposo en roble francés.
+          </p>
+        </div>
+
+        <div>
+          <p class="body">
+            El agave se cosecha cuando está <em>listo</em> — nunca antes. Nuestros <em>jimadores</em> cortan a mano, corazón por corazón, como hicieron sus padres y abuelos. Es más lento. Es más costoso. Y es la única forma que conocemos.
+          </p>
+          <p class="body">
+            El resultado no es un tequila producido a escala. Es un lote pequeño, numerado a mano, con la firma silenciosa de la familia detrás. Un tequila que sabe a la planta que lo hizo — sin azúcares añadidos, sin colorantes, sin nada más que la tierra, el fuego y el tiempo.
+          </p>
+          <p class="signature">— Familia Tres Ese</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-strip">
+      <span>Tequila Tres Ese · Desde 1905</span>
+      <span>Página 04</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 5 · LA DIFERENCIA ═══════════ -->
+  <article class="page cocoa">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" style="filter: brightness(0) invert(1); opacity: 0.9;" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">05 · La Diferencia</span>
+    </div>
+
+    <div class="inner">
+      <p class="eyebrow with-line">La Diferencia</p>
+      <h2 class="display-md">Por qué somos <span class="em">distintos</span>.</h2>
+      <span class="rule"></span>
+
+      <p class="lede">
+        La mayoría del tequila en el mundo — incluyendo etiquetas <em>premium</em> — se produce con agave cultivado con químicos, y se termina en botella con azúcares, glicerina, colorantes y saborizantes permitidos por norma. Legalmente, sigue siendo tequila. Nosotros elegimos otra cosa.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <span class="n">100%</span>
+          <span class="label">Agave Azul</span>
+          <p>Un solo ingrediente en el campo: <em>Agave tequilana</em>. Sin mezclas, sin diluyentes.</p>
+        </div>
+        <div class="stat">
+          <span class="n">Cero</span>
+          <span class="label">Aditivos</span>
+          <p>Sin azúcares, sin glicerina, sin saborizantes, sin colorantes en la botella.</p>
+        </div>
+        <div class="stat">
+          <span class="n">Orgánico</span>
+          <span class="label">De campo a botella</span>
+          <p>Sin herbicidas, sin fertilizantes sintéticos, sin pesticidas en el cultivo.</p>
+        </div>
+        <div class="stat">
+          <span class="n">Lotes Pequeños</span>
+          <span class="label">Hecho a mano</span>
+          <p>Cada botella numerada. Producción limitada, sin escala industrial.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-strip">
+      <span>Cero aditivos · Siempre</span>
+      <span>Página 05</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 6 · CERTIFICACIONES ═══════════ -->
+  <article class="page">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-black.png?v=20260604r" alt="Tres Ese" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">06 · Certificaciones</span>
+    </div>
+
+    <div class="inner">
+      <p class="eyebrow with-line">Certificaciones Orgánicas</p>
+      <h2 class="display-md"><span class="em">Auditados</span> por quienes más exigen.</h2>
+      <span class="rule"></span>
+
+      <p class="body" style="max-width: 6in;">
+        Nuestro cultivo y proceso se auditan cada año por cuatro de las autoridades orgánicas más rigurosas del mundo. No es marketing — es un compromiso verificado en el campo, en la destilería y en la botella.
+      </p>
+
+      <div class="certs">
+        <div class="cert">
+          <div class="cert-mark"><img src="images/Organic Logos/usda.png?v=20260429k" alt="USDA Organic" /></div>
+          <h4>USDA Orgánico</h4>
+          <p>Estados Unidos</p>
+        </div>
+        <div class="cert">
+          <div class="cert-mark"><img src="images/Organic Logos/eu.png?v=20260429k" alt="UE Organic" /></div>
+          <h4>UE Orgánico</h4>
+          <p>Unión Europea</p>
+        </div>
+        <div class="cert">
+          <div class="cert-mark"><img src="images/Organic Logos/jas.png?v=20260429k" alt="JAS Organic" /></div>
+          <h4>JAS Estándar</h4>
+          <p>Japón</p>
+        </div>
+        <div class="cert">
+          <div class="cert-mark"><img src="images/Organic Logos/bioagricert.png?v=20260429k" alt="Bioagricert" /></div>
+          <h4>Bioagricert</h4>
+          <p>Certificación Orgánica</p>
+        </div>
+      </div>
+
+      <p class="body" style="max-width: 6in; margin-top: 10mm;">
+        Cuatro sellos, un mismo estándar: <em>cero químicos sintéticos</em> en cualquier etapa del cultivo y producción. Cada botella lleva estas certificaciones porque cada botella las cumple — no como una excepción, sino como la única forma en que trabajamos.
+      </p>
+    </div>
+
+    <div class="footer-strip">
+      <span>USDA · UE · JAS · Bioagricert</span>
+      <span>Página 06</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 7 · CHAPTER OPENER — EL PROCESO ═══════════ -->
+  <article class="page opener">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" style="filter: brightness(0) invert(1); opacity: 0.9;" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">Capítulo II · El Proceso</span>
+    </div>
+    <div class="opener-inner">
+      <span class="chapter-num">Capítulo II</span>
+      <h1 class="chapter-title">El <em>Proceso</em>.</h1>
+      <p class="chapter-sub">
+        De la tierra roja de la sierra a la botella numerada a mano. Cinco pasos, todos lentos, todos deliberados.
+      </p>
+    </div>
+    <div class="footer-strip">
+      <span>Cultivo · Cocción · Fermentación · Destilación · Reposo</span>
+      <span>Página 07</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 8 · EL PROCESO — 5 PASOS ═══════════ -->
+  <article class="page">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-black.png?v=20260604r" alt="Tres Ese" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">08 · El Proceso</span>
+    </div>
+
+    <div class="inner">
+      <p class="eyebrow with-line">Cinco Pasos</p>
+      <h2 class="display-md">De la <span class="em">tierra</span> a la botella.</h2>
+      <span class="rule"></span>
+
+      <div class="steps">
+        <div class="step-row">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h4>Cultivo — <em>Cosechado a mano</em>.</h4>
+            <p>
+              Nuestros campos descansan en Los Altos de Jalisco, a 2,030 metros de altitud, en tierra roja rica en hierro. Cultivo orgánico certificado — sin herbicidas, sin fertilizantes sintéticos, sin pesticidas. Solo composta natural y sol de la sierra. Cada agave madura entre seis y ocho años. Los <em>jimadores</em> cortan a mano, corazón por corazón, cuando la planta está lista — nunca antes.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h4>Cocción Lenta — <em>Sin aditivos</em>.</h4>
+            <p>
+              Las <em>piñas</em> reposan en hornos tradicionales de mampostería. Un calor bajo y constante despierta los azúcares naturales del agave durante días, no horas. Nada se añade. Nada se apresura. La dulzura que pruebas es la planta misma, sin prisa.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h4>Fermentación Natural — <em>Levaduras silvestres</em>.</h4>
+            <p>
+              Fermentamos en tinas abiertas de madera con agua extraída de un pozo natural de 400 metros — filtrada por siglos de roca volcánica — y solo las levaduras silvestres nativas que viven en las tinas de la hacienda. Es más lento. Es menos predecible. Es exactamente como el tequila siempre debió hacerse.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <h4>Destilación — <em>Alambiques de cobre</em>.</h4>
+            <p>
+              Doble destilación en alambiques de cobre, tal como se ha hecho durante generaciones. El cobre pule los sabores. La segunda pasada refina el corazón. El resultado es un destilado limpio, sin necesidad de mascarar nada.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-num">05</div>
+          <div class="step-body">
+            <h4>Reposo y Embotellado — <em>Numerado a mano</em>.</h4>
+            <p>
+              El Blanco se embotella directo del alambique. El Reposado descansa seis meses en roble francés. El Extra Añejo, más de tres años. Cada botella se llena, se tapa y se etiqueta a mano. Cada lote pequeño se termina antes de comenzar el siguiente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-strip">
+      <span>De la tierra a la botella</span>
+      <span>Página 08</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 9 · LAS EXPRESIONES ═══════════ -->
+  <article class="page">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-black.png?v=20260604r" alt="Tres Ese" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">09 · Las Expresiones</span>
+    </div>
+
+    <div class="inner">
+      <p class="eyebrow with-line">Tres Expresiones</p>
+      <h2 class="display-md">Un agave, <span class="em">tres momentos</span> en el tiempo.</h2>
+      <span class="rule"></span>
+
+      <div class="expressions">
+        <div class="expression">
+          <div class="bottle-frame">
+            <img src="images/TresEse_Botella_Blanco.png?v=20260504bottles" alt="Blanco Orgánico" />
+          </div>
+          <p class="tag">01 · Sin reposo</p>
+          <h4>Blanco <em>Orgánico</em></h4>
+          <p class="abv">40.4% Vol · 80.8 Proof</p>
+          <p>Cristalino. Directo del alambique. Agave azul cocido lentamente, expresado sin madera de por medio. Nariz herbal, notas de citrus y minerales de sierra.</p>
+        </div>
+
+        <div class="expression">
+          <div class="bottle-frame">
+            <img src="images/TresEse_Botella_Reposado.png?v=20260504bottles" alt="Reposado Orgánico" />
+          </div>
+          <p class="tag">02 · 6 meses</p>
+          <h4>Reposado <em>Orgánico</em></h4>
+          <p class="abv">43.4% Vol · 86.8 Proof</p>
+          <p>Oro pajizo claro. Seis meses en roble francés. Nariz de agave horneado, cáscara de naranja y humo de roble; boca cálida con cedro, naranja confitada y especia suave.</p>
+        </div>
+
+        <div class="expression">
+          <div class="bottle-frame">
+            <img src="images/TresEse_Botella_ExtraAñejo.png?v=20260504bottles" alt="Extra Añejo" />
+          </div>
+          <p class="tag">03 · 3+ años</p>
+          <h4>Extra <em>Añejo</em></h4>
+          <p class="abv">44.4% Vol · 88.8 Proof</p>
+          <p>Ámbar oscuro. Más de tres años en roble. Complejo, sedoso, con notas de vainilla, cacao, cuero y agave añejo. Concebido para sorber lento.</p>
+        </div>
+      </div>
+
+      <p class="body" style="max-width: 6in; margin-top: 12mm; text-align: center; margin-left: auto; margin-right: auto;">
+        Tres botellas, un mismo campo. La única diferencia es el tiempo — y qué está dispuesto a hacer la madera con el agave cuando lo dejamos descansar.
+      </p>
+    </div>
+
+    <div class="footer-strip">
+      <span>Blanco · Reposado · Extra Añejo</span>
+      <span>Página 09</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 10 · POR LOS NÚMEROS ═══════════ -->
+  <article class="page cocoa">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" style="filter: brightness(0) invert(1); opacity: 0.9;" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">10 · Por los Números</span>
+    </div>
+
+    <div class="inner">
+      <p class="eyebrow with-line">Por los Números</p>
+      <h2 class="display-md">La marca, en <span class="em">datos</span>.</h2>
+      <span class="rule"></span>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <span class="n">1905</span>
+          <span class="label">Fundación</span>
+          <p>La familia planta su primer campo de agave en Los Altos de Jalisco.</p>
+        </div>
+        <div class="stat">
+          <span class="n">5</span>
+          <span class="label">Generaciones</span>
+          <p>Un siglo y cuatro relevos familiares, sin cambiar el método.</p>
+        </div>
+        <div class="stat">
+          <span class="n">2,030 m</span>
+          <span class="label">Altitud</span>
+          <p>Tierra roja de sierra, noches frescas, maduración lenta del agave.</p>
+        </div>
+        <div class="stat">
+          <span class="n">6–8 años</span>
+          <span class="label">Cultivo</span>
+          <p>Cada agave se cosecha únicamente al llegar a plena madurez.</p>
+        </div>
+        <div class="stat">
+          <span class="n">100%</span>
+          <span class="label">Agave Azul</span>
+          <p><em>Agave tequilana</em>. Sin mezclas, sin diluyentes, sin atajos.</p>
+        </div>
+        <div class="stat">
+          <span class="n">4</span>
+          <span class="label">Certificaciones</span>
+          <p>USDA, UE, JAS y Bioagricert — auditadas cada año.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-strip">
+      <span>Los Altos de Jalisco · México</span>
+      <span>Página 10</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 11 · FAMILIA (Closing) ═══════════ -->
+  <article class="page family-page">
+    <div class="header-strip">
+      <span class="brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" style="filter: brightness(0) invert(1); opacity: 0.9;" />
+        <span class="brand-name">Tres Ese</span>
+      </span>
+      <span class="page-mark">11 · Familia</span>
+    </div>
+
+    <div class="inner center-block">
+      <p class="eyebrow">— Familia Tres Ese</p>
+      <h2 class="display">Hecho por manos que <span class="em">firman</span>.</h2>
+      <p class="quote">
+        No hacemos el tequila más rápido, ni el más barato, ni el más grande. Hacemos el tequila que sabe a la planta que le dio origen — y firmamos cada botella porque nos tomamos el tiempo de conocerla.
+      </p>
+      <p class="signature">— Familia Tres Ese, 2026</p>
+    </div>
+
+    <div class="footer-strip">
+      <span>Lotes pequeños · Numerado a mano</span>
+      <span>Página 11</span>
+    </div>
+  </article>
+
+  <!-- ═══════════ PAGE 12 · BACK COVER / CONTACTO ═══════════ -->
+  <article class="page back">
+    <div class="back-inner">
+      <div class="back-brand">
+        <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" />
+      </div>
+
+      <h2 class="back-title">Tequila <em>Tres Ese</em></h2>
+      <p class="back-lede">
+        Cinco generaciones. Cero aditivos. Un compromiso — desde la tierra roja de Los Altos hasta cada botella firmada a mano.
+      </p>
+
+      <div class="back-grid">
+        <div class="back-block">
+          <span class="label">Origen</span>
+          <div class="val">
+            <strong>Los Altos de Jalisco</strong><br/>
+            México
+          </div>
+        </div>
+        <div class="back-block">
+          <span class="label">Web</span>
+          <div class="val">tequilatresese.com</div>
+        </div>
+        <div class="back-block">
+          <span class="label">Pedidos y consultas</span>
+          <div class="val"><strong>+52 55 5292 8284</strong></div>
+        </div>
+        <div class="back-block">
+          <span class="label">Certificaciones</span>
+          <div class="val">USDA · UE · JAS · Bioagricert</div>
+        </div>
+      </div>
+
+      <div class="back-foot">
+        <span>© 2026 Tequila Tres Ese</span>
+        <span>Hecho en México</span>
+      </div>
+    </div>
+  </article>
+
+</body>
+</html>
