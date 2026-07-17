@@ -14,20 +14,20 @@
 
   <!-- Eyebrow + title -->
   <g id="eyebrow">
-    <line x1="120" y1="245" x2="180" y2="245" stroke="#E8CD8C" stroke-width="1.5"/>
-    <text x="200" y="252" font-family="Inter, sans-serif" font-size="14" letter-spacing="5.5" fill="#E8CD8C" font-weight="500">LA DIFERENCIA</text>
+    <line x1="120" y1="240" x2="180" y2="240" stroke="#E8CD8C" stroke-width="1.5"/>
+    <text x="200" y="247" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#E8CD8C" font-weight="500">LA DIFERENCIA</text>
   </g>
-  <text x="120" y="380" font-family="Cormorant Garamond, Georgia, serif" font-size="88" font-weight="500" fill="#FBF7EE">Por qué somos <tspan font-style="italic" fill="#E8CD8C">distintos</tspan>.</text>
-  <line x1="120" y1="435" x2="270" y2="435" stroke="#E8CD8C" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#FBF7EE">Por qué somos <tspan font-style="italic" fill="#E8CD8C">distintos</tspan>.</text>
+  <line x1="120" y1="378" x2="240" y2="378" stroke="#E8CD8C" stroke-width="1" stroke-opacity="0.6"/>
 
   <!-- Lede -->
-  <text x="120" y="530" font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#FBF7EE" fill-opacity="0.9">
+  <text x="120" y="450" font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#FBF7EE" fill-opacity="0.9">
     <tspan x="120" dy="0">La mayoría del tequila en el mundo — incluyendo etiquetas <tspan font-style="italic" fill="#E8CD8C">premium</tspan> — se produce con agave cultivado con químicos,</tspan>
     <tspan x="120" dy="34">y se termina en botella con azúcares, glicerina, colorantes y saborizantes permitidos por norma. Nosotros elegimos otra cosa.</tspan>
   </text>
 
   <!-- 4 stat cards horizontal -->
-  <g id="stat-01" transform="translate(120, 660)">
+  <g id="stat-01" transform="translate(120, 620)">
     <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">100%</text>
     <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">AGAVE AZUL</text>
@@ -38,7 +38,7 @@
     </text>
   </g>
 
-  <g id="stat-02" transform="translate(540, 660)">
+  <g id="stat-02" transform="translate(540, 620)">
     <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">Cero</text>
     <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">ADITIVOS</text>
@@ -49,7 +49,7 @@
     </text>
   </g>
 
-  <g id="stat-03" transform="translate(960, 660)">
+  <g id="stat-03" transform="translate(960, 620)">
     <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">Orgánico</text>
     <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">DE CAMPO A BOTELLA</text>
@@ -60,7 +60,7 @@
     </text>
   </g>
 
-  <g id="stat-04" transform="translate(1380, 660)">
+  <g id="stat-04" transform="translate(1380, 620)">
     <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">Lotes</text>
     <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">PEQUEÑOS · HECHO A MANO</text>

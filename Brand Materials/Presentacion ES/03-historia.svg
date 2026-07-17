@@ -19,41 +19,41 @@
   </g>
 
   <!-- Big title -->
-  <text x="120" y="380" font-family="Cormorant Garamond, Georgia, serif" font-size="86" font-weight="500" fill="#2A2218">Un siglo de <tspan font-style="italic" fill="#8A4E1E">tradición</tspan>,</text>
-  <text x="120" y="470" font-family="Cormorant Garamond, Georgia, serif" font-size="86" font-weight="500" fill="#2A2218">siempre orgánico.</text>
+  <text x="120" y="360" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#2A2218">Un siglo de <tspan font-style="italic" fill="#8A4E1E">tradición</tspan>,</text>
+  <text x="120" y="440" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#2A2218">siempre orgánico.</text>
 
   <!-- Copper rule -->
-  <line x1="120" y1="530" x2="270" y2="530" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
+  <line x1="120" y1="480" x2="240" y2="480" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
 
-  <!-- Two-column body -->
+  <!-- Two-column body — tightened positioning, aligned tops -->
   <g id="col-left" font-family="Inter, sans-serif" font-size="18" fill="#584A38">
-    <text x="120" y="620">
+    <text x="120" y="560">
       <tspan x="120" dy="0">En <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-weight="500" fill="#2A2218">1905</tspan>, la familia <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-weight="500" fill="#2A2218">Tres Ese</tspan> plantó su primer campo</tspan>
-      <tspan x="120" dy="30">de agave azul en <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">Los Altos de Jalisco</tspan> — a 2,030 metros</tspan>
-      <tspan x="120" dy="30">sobre el nivel del mar, en tierra roja rica en hierro. Sin</tspan>
-      <tspan x="120" dy="30">saber que un siglo después seguirían haciendo tequila</tspan>
-      <tspan x="120" dy="30">con la misma paciencia, en el mismo suelo, con las</tspan>
-      <tspan x="120" dy="30">mismas manos.</tspan>
+      <tspan x="120" dy="32">de agave azul en <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">Los Altos de Jalisco</tspan> — a 2,030 metros</tspan>
+      <tspan x="120" dy="32">sobre el nivel del mar, en tierra roja rica en hierro. Sin</tspan>
+      <tspan x="120" dy="32">saber que un siglo después seguirían haciendo tequila</tspan>
+      <tspan x="120" dy="32">con la misma paciencia, en el mismo suelo, con las</tspan>
+      <tspan x="120" dy="32">mismas manos.</tspan>
     </text>
-    <text x="120" y="850">
+    <text x="120" y="800">
       <tspan x="120" dy="0">Cinco generaciones han pasado por la <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">hacienda</tspan>. La</tspan>
-      <tspan x="120" dy="30">sierra ha cambiado poco. La receta, nada.</tspan>
+      <tspan x="120" dy="32">sierra ha cambiado poco. La receta, nada.</tspan>
     </text>
   </g>
 
   <g id="col-right" font-family="Inter, sans-serif" font-size="18" fill="#584A38">
-    <text x="1020" y="620">
+    <text x="1020" y="560">
       <tspan x="1020" dy="0">El agave se cosecha cuando está <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">listo</tspan> — nunca antes.</tspan>
-      <tspan x="1020" dy="30">Nuestros <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">jimadores</tspan> cortan a mano, corazón por corazón,</tspan>
-      <tspan x="1020" dy="30">como hicieron sus padres y abuelos. Es más lento.</tspan>
-      <tspan x="1020" dy="30">Es más costoso. Y es la única forma que conocemos.</tspan>
+      <tspan x="1020" dy="32">Nuestros <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">jimadores</tspan> cortan a mano, corazón por corazón,</tspan>
+      <tspan x="1020" dy="32">como hicieron sus padres y abuelos. Es más lento.</tspan>
+      <tspan x="1020" dy="32">Es más costoso. Y es la única forma que conocemos.</tspan>
     </text>
-    <text x="1020" y="800">
+    <text x="1020" y="740">
       <tspan x="1020" dy="0">El resultado no es un tequila producido a escala. Es</tspan>
-      <tspan x="1020" dy="30">un lote pequeño, numerado a mano, con la firma</tspan>
-      <tspan x="1020" dy="30">silenciosa de la familia detrás.</tspan>
+      <tspan x="1020" dy="32">un lote pequeño, numerado a mano, con la firma</tspan>
+      <tspan x="1020" dy="32">silenciosa de la familia detrás.</tspan>
     </text>
-    <text x="1020" y="960" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-style="italic" fill="#8A4E1E">— Familia Tres Ese</text>
+    <text x="1020" y="900" font-family="Cormorant Garamond, Georgia, serif" font-size="26" font-style="italic" fill="#8A4E1E">— Familia Tres Ese</text>
   </g>
 
   <!-- Footer -->

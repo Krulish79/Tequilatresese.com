@@ -20,18 +20,21 @@
   <line x1="120" y1="160" x2="1800" y2="160" stroke="#E8CD8C" stroke-opacity="0.2" stroke-width="1"/>
 
   <!-- Eyebrow -->
-  <text x="120" y="380" font-family="Inter, sans-serif" font-size="16" letter-spacing="6" fill="#E8CD8C" font-weight="500">NUESTRA PROMESA</text>
+  <text x="120" y="330" font-family="Inter, sans-serif" font-size="14" letter-spacing="6" fill="#E8CD8C" font-weight="500">NUESTRA PROMESA</text>
 
   <!-- Big manifesto title -->
-  <text x="120" y="530" font-family="Cormorant Garamond, Georgia, serif" font-size="120" font-weight="500" fill="#FBF7EE">Certificado <tspan font-style="italic" fill="#E8CD8C">orgánico.</tspan></text>
-  <text x="120" y="670" font-family="Cormorant Garamond, Georgia, serif" font-size="120" font-weight="500" fill="#FBF7EE">Cero <tspan font-style="italic" fill="#E8CD8C">aditivos.</tspan> Siempre.</text>
+  <text x="120" y="470" font-family="Cormorant Garamond, Georgia, serif" font-size="108" font-weight="500" fill="#FBF7EE">Certificado <tspan font-style="italic" fill="#E8CD8C">orgánico.</tspan></text>
+  <text x="120" y="600" font-family="Cormorant Garamond, Georgia, serif" font-size="108" font-weight="500" fill="#FBF7EE">Cero <tspan font-style="italic" fill="#E8CD8C">aditivos.</tspan> Siempre.</text>
+
+  <!-- Copper rule -->
+  <line x1="120" y1="650" x2="240" y2="650" stroke="#E8CD8C" stroke-opacity="0.6" stroke-width="1"/>
 
   <!-- Support paragraph -->
-  <text x="120" y="800" font-family="Cormorant Garamond, Georgia, serif" font-size="26" fill="#FBF7EE" fill-opacity="0.88">
+  <text x="120" y="730" font-family="Cormorant Garamond, Georgia, serif" font-size="24" fill="#FBF7EE" fill-opacity="0.88">
     <tspan x="120" dy="0">Cinco generaciones de la <tspan font-style="italic" fill="#E8CD8C">familia Tres Ese</tspan> han trabajado la tierra roja de Los Altos de Jalisco</tspan>
-    <tspan x="120" dy="42">sin herbicidas, sin fertilizantes sintéticos, sin atajos. Nada se añade en la botella.</tspan>
-    <tspan x="120" dy="42">Sin azúcar. Sin glicerina. Sin saborizantes. Sin colorantes. Solo lo que la planta,</tspan>
-    <tspan x="120" dy="42">la tierra y el sol de la sierra silenciosamente quisieron.</tspan>
+    <tspan x="120" dy="38">sin herbicidas, sin fertilizantes sintéticos, sin atajos. Nada se añade en la botella.</tspan>
+    <tspan x="120" dy="38">Sin azúcar. Sin glicerina. Sin saborizantes. Sin colorantes. Solo lo que la planta,</tspan>
+    <tspan x="120" dy="38">la tierra y el sol de la sierra silenciosamente quisieron.</tspan>
   </text>
 
   <!-- Footer strip -->

@@ -14,14 +14,14 @@
 
   <!-- Eyebrow + title -->
   <g id="eyebrow">
-    <line x1="120" y1="245" x2="180" y2="245" stroke="#8A4E1E" stroke-width="1.5"/>
-    <text x="200" y="252" font-family="Inter, sans-serif" font-size="14" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">CINCO PASOS</text>
+    <line x1="120" y1="240" x2="180" y2="240" stroke="#8A4E1E" stroke-width="1.5"/>
+    <text x="200" y="247" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">CINCO PASOS</text>
   </g>
-  <text x="120" y="380" font-family="Cormorant Garamond, Georgia, serif" font-size="86" font-weight="500" fill="#2A2218">De la <tspan font-style="italic" fill="#8A4E1E">tierra</tspan> a la botella.</text>
-  <line x1="120" y1="435" x2="270" y2="435" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#2A2218">De la <tspan font-style="italic" fill="#8A4E1E">tierra</tspan> a la botella.</text>
+  <line x1="120" y1="378" x2="240" y2="378" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
 
   <!-- 5 process step columns -->
-  <g id="step-01" transform="translate(120, 540)">
+  <g id="step-01" transform="translate(120, 460)">
     <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">01</text>
     <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
     <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Cultivo</text>
@@ -36,7 +36,7 @@
     </text>
   </g>
 
-  <g id="step-02" transform="translate(460, 540)">
+  <g id="step-02" transform="translate(460, 460)">
     <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">02</text>
     <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
     <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Cocción Lenta</text>
@@ -51,7 +51,7 @@
     </text>
   </g>
 
-  <g id="step-03" transform="translate(800, 540)">
+  <g id="step-03" transform="translate(800, 460)">
     <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">03</text>
     <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
     <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Fermentación</text>
@@ -66,7 +66,7 @@
     </text>
   </g>
 
-  <g id="step-04" transform="translate(1140, 540)">
+  <g id="step-04" transform="translate(1140, 460)">
     <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">04</text>
     <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
     <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Destilación</text>
@@ -81,7 +81,7 @@
     </text>
   </g>
 
-  <g id="step-05" transform="translate(1480, 540)">
+  <g id="step-05" transform="translate(1480, 460)">
     <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">05</text>
     <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
     <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Reposo y Botella</text>

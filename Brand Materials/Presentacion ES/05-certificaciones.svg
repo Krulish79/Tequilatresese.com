@@ -14,41 +14,41 @@
 
   <!-- Eyebrow + title -->
   <g id="eyebrow">
-    <line x1="120" y1="245" x2="180" y2="245" stroke="#8A4E1E" stroke-width="1.5"/>
-    <text x="200" y="252" font-family="Inter, sans-serif" font-size="14" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">CERTIFICACIONES ORGÁNICAS</text>
+    <line x1="120" y1="240" x2="180" y2="240" stroke="#8A4E1E" stroke-width="1.5"/>
+    <text x="200" y="247" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">CERTIFICACIONES ORGÁNICAS</text>
   </g>
-  <text x="120" y="380" font-family="Cormorant Garamond, Georgia, serif" font-size="86" font-weight="500" fill="#2A2218"><tspan font-style="italic" fill="#8A4E1E">Auditados</tspan> por quienes más exigen.</text>
-  <line x1="120" y1="435" x2="270" y2="435" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#2A2218"><tspan font-style="italic" fill="#8A4E1E">Auditados</tspan> por quienes más exigen.</text>
+  <line x1="120" y1="378" x2="240" y2="378" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
 
   <!-- Body copy -->
-  <text x="120" y="530" font-family="Inter, sans-serif" font-size="18" fill="#584A38">
+  <text x="120" y="450" font-family="Inter, sans-serif" font-size="17" fill="#584A38">
     <tspan x="120" dy="0">Nuestro cultivo y proceso se auditan cada año por cuatro de las autoridades orgánicas más rigurosas del mundo.</tspan>
-    <tspan x="120" dy="30">No es marketing — es un compromiso verificado en el campo, en la destilería y en la botella.</tspan>
+    <tspan x="120" dy="28">No es marketing — es un compromiso verificado en el campo, en la destilería y en la botella.</tspan>
   </text>
 
   <!-- 4 cert cards horizontal -->
-  <g id="cert-usda" transform="translate(120, 640)">
+  <g id="cert-usda" transform="translate(120, 570)">
     <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
     <image xlink:href="../../images/Organic Logos/usda.png" x="140" y="30" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
     <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">USDA ORGÁNICO</text>
     <text x="200" y="235" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#2A2218">Estados Unidos</text>
   </g>
 
-  <g id="cert-eu" transform="translate(540, 640)">
+  <g id="cert-eu" transform="translate(540, 570)">
     <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
     <image xlink:href="../../images/Organic Logos/eu.png" x="130" y="35" width="140" height="110" preserveAspectRatio="xMidYMid meet"/>
     <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">UE ORGÁNICO</text>
     <text x="200" y="235" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#2A2218">Unión Europea</text>
   </g>
 
-  <g id="cert-jas" transform="translate(960, 640)">
+  <g id="cert-jas" transform="translate(960, 570)">
     <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
     <image xlink:href="../../images/Organic Logos/jas.png" x="115" y="35" width="170" height="110" preserveAspectRatio="xMidYMid meet"/>
     <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">JAS ESTÁNDAR</text>
     <text x="200" y="235" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#2A2218">Japón</text>
   </g>
 
-  <g id="cert-bio" transform="translate(1380, 640)">
+  <g id="cert-bio" transform="translate(1380, 570)">
     <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
     <image xlink:href="../../images/Organic Logos/bioagricert.png" x="70" y="60" width="260" height="70" preserveAspectRatio="xMidYMid meet"/>
     <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">BIOAGRICERT</text>
