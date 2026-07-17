@@ -238,7 +238,7 @@
     .page.dark .signature,
     .page.cocoa .signature{ color: var(--gold-light); }
 
-    /* ─────────── COVER PAGE ─────────── */
+    /* ─────────── COVER PAGE — bottles prominent ─────────── */
     .cover{
       background: #0F0C08;
       color: var(--paper);
@@ -248,25 +248,36 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at 50% 40%, rgba(232, 205, 140, 0.14) 0%, transparent 55%),
-        linear-gradient(180deg, rgba(15, 12, 8, 0.55) 0%, rgba(15, 12, 8, 0.9) 100%),
-        url('images/hero-cellar.jpg') center/cover no-repeat;
-      opacity: 0.9;
+        radial-gradient(ellipse at 50% 55%, rgba(232, 205, 140, 0.22) 0%, rgba(15, 12, 8, 0) 65%),
+        linear-gradient(180deg, #0F0C08 0%, #1C1813 45%, #3D2E1F 100%);
+    }
+    /* Subtle warm glow behind the bottle trio */
+    .cover-glow{
+      position: absolute;
+      left: 50%;
+      top: 62%;
+      transform: translate(-50%, -50%);
+      width: 130mm;
+      height: 90mm;
+      background: radial-gradient(ellipse at center, rgba(232, 205, 140, 0.35) 0%, rgba(232, 205, 140, 0) 65%);
+      filter: blur(12px);
+      z-index: 1;
     }
     .cover-inner{
       position: relative;
-      z-index: 2;
+      z-index: 3;
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding: 22mm 22mm;
+      padding: 18mm 22mm 18mm;
     }
     .cover-brand{
       display: flex;
       align-items: center;
       gap: 5mm;
+      z-index: 3;
     }
-    .cover-brand img{ height: 18mm; width: auto; filter: brightness(0) invert(1); opacity: 0.95; }
+    .cover-brand img{ height: 16mm; width: auto; filter: brightness(0) invert(1); opacity: 0.95; }
     .cover-brand .r{
       font-family: var(--sans);
       font-size: 7pt;
@@ -274,9 +285,32 @@
       text-transform: uppercase;
       color: var(--gold-light);
     }
+    /* Bottle trio — all three clean product PNGs, centered, prominent */
+    .cover-bottles{
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 4mm;
+      width: 140mm;
+      height: 105mm;
+      z-index: 2;
+    }
+    .cover-bottles img{
+      height: 100%;
+      width: auto;
+      max-width: 33%;
+      object-fit: contain;
+      filter: drop-shadow(0 8mm 12mm rgba(0,0,0,0.5));
+    }
     .cover-title{
       margin-top: auto;
-      margin-bottom: 8mm;
+      margin-bottom: 4mm;
+      z-index: 3;
+      position: relative;
     }
     .cover-title .kicker{
       font-family: var(--sans);
@@ -288,9 +322,9 @@
     }
     .cover-title h1{
       font-family: var(--serif);
-      font-size: 90pt;
+      font-size: 60pt;
       font-weight: 500;
-      line-height: 0.96;
+      line-height: 0.95;
       margin: 0;
       color: var(--paper);
       letter-spacing: -0.01em;
@@ -298,22 +332,23 @@
     .cover-title h1 em{
       font-style: italic;
       color: var(--gold-light);
-      display: block;
     }
     .cover-place{
       font-family: var(--serif);
       font-style: italic;
-      font-size: 14pt;
+      font-size: 13pt;
       color: rgba(232, 205, 140, 0.85);
-      margin: 6mm 0 0;
+      margin: 5mm 0 0;
     }
     .cover-foot{
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-top: 12mm;
+      margin-top: 10mm;
       padding-top: 5mm;
       border-top: 1px solid rgba(232, 205, 140, 0.28);
+      z-index: 3;
+      position: relative;
     }
     .cover-foot .label{
       font-family: var(--sans);
@@ -701,6 +736,12 @@
   <!-- ═══════════ PAGE 1 · COVER ═══════════ -->
   <article class="page cover">
     <div class="cover-bg"></div>
+    <div class="cover-glow"></div>
+    <div class="cover-bottles">
+      <img src="images/TresEse_Botella_Blanco.png?v=20260504bottles" alt="Blanco Orgánico" />
+      <img src="images/TresEse_Botella_Reposado.png?v=20260504bottles" alt="Reposado Orgánico" />
+      <img src="images/TresEse_Botella_ExtraAñejo.png?v=20260504bottles" alt="Extra Añejo" />
+    </div>
     <div class="cover-inner">
       <header class="cover-brand">
         <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" />
@@ -709,18 +750,18 @@
 
       <div class="cover-title">
         <p class="kicker">Desde 1905 · Los Altos de Jalisco</p>
-        <h1>Tres Ese <em>Orgánico</em></h1>
-        <p class="cover-place">La historia detrás de la botella.</p>
+        <h1>La <em>Historia</em>.</h1>
+        <p class="cover-place">Cinco generaciones. Cero aditivos. Una sola creencia.</p>
       </div>
 
       <div class="cover-foot">
         <div>
-          <div class="label">Cinco generaciones</div>
-          <div class="val">Una sola creencia</div>
+          <div class="label">Publicación</div>
+          <div class="val">Manual de Marca · 2026</div>
         </div>
         <div style="text-align:right;">
-          <div class="label">Fecha</div>
-          <div class="val">Julio 2026</div>
+          <div class="label">Origen</div>
+          <div class="val">Los Altos de Jalisco</div>
         </div>
       </div>
     </div>
