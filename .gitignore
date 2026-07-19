@@ -19,3 +19,7 @@ build/
 videos/bottling-02.orig.mp4
 .tools/
 images/slides/cultivation/_orig/
+
+# PPTX with embedded videos exceeds GitHub 100 MB file limit — kept locally only.
+# The PPTX is regenerable from the SVGs + videos using the build script.
+Brand Materials/Presentacion ES · PPTX/*.pptx

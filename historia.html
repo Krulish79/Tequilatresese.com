@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tres Ese — La Historia</title>
+  <meta name="description" content="La historia de Tequila Tres Ese. Cinco generaciones. Cero aditivos. Los Altos de Jalisco desde 1905." />
+  <link rel="alternate" hreflang="es" href="historia.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --paper:        #FBF7EE;
+      --bg:           #F4EEE2;
+      --bg-soft:      #EDE3D0;
+      --brown-deep:   #1C1813;
+      --brown-cocoa:  #3D2E1F;
+      --ink:          #2A2218;
+      --ink-soft:     #584A38;
+      --muted:        #8A7B62;
+      --line:         #C9B791;
+      --copper-deep:  #8A4E1E;
+      --gold-light:   #E8CD8C;
+      --serif: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+      --sans:  'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ margin:0; padding:0; background:var(--brown-deep); }
+    body{
+      font-family: var(--sans);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    /* ─── SECTION SHELL ─── */
+    section{
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: clamp(3rem, 8vh, 6rem) clamp(1.5rem, 5vw, 4rem);
+    }
+    section.dark{ background: var(--brown-deep); color: var(--paper); }
+    section.cocoa{ background: var(--brown-cocoa); color: var(--paper); }
+    section.paper{ background: var(--paper); color: var(--ink); }
+    section.soft{ background: var(--bg); color: var(--ink); }
+
+    .container{ width: 100%; max-width: 1400px; margin: 0 auto; }
+
+    /* ─── TYPOGRAPHY ─── */
+    .eyebrow{
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--copper-deep);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0 0 1.5rem;
+      font-weight: 500;
+    }
+    .eyebrow::before{
+      content: "";
+      width: 2rem; height: 1px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+    section.dark .eyebrow,
+    section.cocoa .eyebrow{ color: var(--gold-light); }
+
+    .display{
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5.5vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.008em;
+      margin: 0 0 1.5rem;
+    }
+    .display em{ font-style: italic; color: var(--copper-deep); }
+    section.dark .display em,
+    section.cocoa .display em{ color: var(--gold-light); }
+    section.dark .display,
+    section.cocoa .display{ color: var(--paper); }
+
+    .display-sm{
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      margin: 0 0 1rem;
+    }
+    .display-sm em{ font-style: italic; color: var(--copper-deep); }
+    section.dark .display-sm em,
+    section.cocoa .display-sm em{ color: var(--gold-light); }
+
+    p.lede{
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+      line-height: 1.5;
+      max-width: 42rem;
+      margin: 0 0 1.5rem;
+    }
+    p.lede em{ font-style: italic; color: var(--copper-deep); }
+    section.dark p.lede em,
+    section.cocoa p.lede em{ color: var(--gold-light); }
+
+    p.body{
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      max-width: 32rem;
+      margin: 0 0 1rem;
+    }
+    section.dark p.body,
+    section.cocoa p.body{ color: rgba(251, 247, 238, 0.82); }
+    p.body em{
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink);
+      font-size: 1.15rem;
+    }
+    section.dark p.body em,
+    section.cocoa p.body em{ color: var(--gold-light); }
+    p.body strong{ color: var(--ink); font-weight: 500; }
+    section.dark p.body strong,
+    section.cocoa p.body strong{ color: var(--paper); }
+
+    /* ─── SITE HEADER ─── */
+    .site-header{
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(28,24,19,0.85) 0%, rgba(28,24,19,0) 100%);
+      transition: background 0.3s ease;
+    }
+    .site-header .brand{
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none;
+    }
+    .site-header .brand img{ height: 40px; filter: brightness(0) invert(1); }
+    .site-header .brand .r{
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .site-header .site-link{
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+    .site-header .site-link:hover{ opacity: 0.75; }
+
+    /* ─── HERO (Section 01) ─── */
+    .hero{
+      background: linear-gradient(180deg, #0F0C08 0%, #1C1813 50%, #3D2E1F 100%);
+      min-height: 100vh;
+      padding-top: 6rem;
+    }
+    .hero-glow{
+      position: absolute;
+      left: 50%; top: 55%;
+      transform: translate(-50%, -50%);
+      width: 55vw; height: 60vh;
+      background: radial-gradient(ellipse at center, rgba(232,205,140,0.28) 0%, rgba(232,205,140,0) 65%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+    .hero-bottles{
+      position: absolute;
+      left: 50%; top: 48%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: flex-end;
+      gap: clamp(0.5rem, 2vw, 2rem);
+      width: min(80vw, 70rem);
+      height: min(60vh, 32rem);
+      pointer-events: none;
+    }
+    .hero-bottles img{
+      flex: 1;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.55));
+    }
+    .hero-content{
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-self: flex-end;
+      padding-bottom: 3rem;
+    }
+    .hero .kicker{
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+    .hero h1{
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 500;
+      line-height: 0.95;
+      margin: 0 0 1rem;
+      color: var(--paper);
+    }
+    .hero h1 em{ font-style: italic; color: var(--gold-light); }
+    .hero .subtitle{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+      color: var(--gold-light);
+      opacity: 0.9;
+    }
+    .hero-foot{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(232,205,140,0.24);
+      color: var(--gold-light);
+    }
+    .hero-foot .stamp{ font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.65; margin-bottom: 0.35rem; }
+    .hero-foot .val{ font-family: var(--serif); font-style: italic; font-size: 1rem; }
+    .hero-foot .right{ text-align: right; }
+
+    /* ─── MANIFESTO ─── */
+    .manifesto .display{ font-size: clamp(2.8rem, 7vw, 6.5rem); max-width: 60rem; }
+
+    /* ─── HISTORIA (with video) ─── */
+    .with-video{
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .with-video--reverse{ grid-template-columns: 1fr 1.1fr; }
+    .with-video--reverse .video-frame{ order: 1; }
+    .with-video--reverse .video-body{ order: 2; }
+    @media (max-width: 900px){
+      .with-video, .with-video--reverse{ grid-template-columns: 1fr; }
+      .with-video--reverse .video-frame{ order: initial; }
+      .with-video--reverse .video-body{ order: initial; }
+    }
+
+    .video-frame{
+      position: relative;
+      aspect-ratio: 4/5;
+      background: var(--brown-cocoa);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px -25px rgba(0,0,0,0.5);
+    }
+    .video-frame video{
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-frame::after{
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.3) 100%);
+      pointer-events: none;
+    }
+    .video-caption{
+      position: absolute;
+      left: 1rem; bottom: 1rem;
+      z-index: 2;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0.85;
+    }
+
+    /* ─── DIFERENCIA (4 stats) ─── */
+    .stats-grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(1.5rem, 3vw, 3rem);
+      margin-top: 3rem;
+    }
+    @media (max-width: 900px){ .stats-grid{ grid-template-columns: repeat(2, 1fr); } }
+    .stat{
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(232,205,140,0.28);
+    }
+    section.paper .stat, section.soft .stat{ border-top-color: var(--line); }
+    .stat .n{
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1;
+      color: var(--gold-light);
+      margin: 0 0 0.5rem;
+      display: block;
+    }
+    section.paper .stat .n, section.soft .stat .n{ color: var(--copper-deep); }
+    .stat .label{
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    section.paper .stat .label, section.soft .stat .label{ color: var(--ink-soft); opacity: 1; }
+    .stat p{ font-family: var(--sans); font-size: 0.9rem; line-height: 1.55; color: rgba(251,247,238,0.72); margin: 0; }
+    section.paper .stat p, section.soft .stat p{ color: var(--ink-soft); }
+
+    /* ─── CERTIFICACIONES ─── */
+    .certs{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 900px){ .certs{ grid-template-columns: repeat(2, 1fr); } }
+    .cert{
+      background: #FFF;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .cert-mark{ height: 90px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .cert-mark img{ max-height: 100%; max-width: 100%; object-fit: contain; }
+    .cert h4{ font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper-deep); margin: 0 0 0.35rem; font-weight: 500; }
+    .cert p{ font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--ink); line-height: 1.35; margin: 0; }
+
+    /* ─── PROCESO (5 step cards with videos) ─── */
+    .steps-grid{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 1100px){ .steps-grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px){ .steps-grid{ grid-template-columns: 1fr; } }
+    .step{ position: relative; }
+    .step-video{
+      aspect-ratio: 3/4;
+      background: var(--brown-cocoa);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .step-video video, .step-video img{
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .step-video::after{
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.35) 100%);
+      pointer-events: none;
+    }
+    .step .num{
+      font-family: var(--serif); font-style: italic; font-weight: 500;
+      font-size: 3rem; color: var(--copper-deep);
+      line-height: 1; margin: 0 0 0.5rem;
+    }
+    .step h3{ font-family: var(--serif); font-weight: 500; font-size: 1.3rem; margin: 0 0 0.25rem; color: var(--ink); }
+    .step .sub{ font-family: var(--serif); font-style: italic; color: var(--copper-deep); font-size: 0.95rem; margin: 0 0 0.5rem; }
+    .step p{ font-family: var(--sans); font-size: 0.88rem; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+
+    /* ─── EXPRESIONES ─── */
+    .expr-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 900px){ .expr-grid{ grid-template-columns: 1fr; } }
+    .expr{
+      background: var(--bg-soft);
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .expr img{ height: 26rem; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 1.5rem; display:block; margin-left:auto; margin-right:auto; }
+    .expr .tag{ font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper-deep); margin: 0 0 0.35rem; }
+    .expr h3{ font-family: var(--serif); font-size: 1.8rem; font-weight: 500; margin: 0 0 0.35rem; color: var(--ink); }
+    .expr h3 em{ font-style: italic; color: var(--copper-deep); }
+    .expr .abv{ font-family: var(--serif); font-style: italic; color: var(--copper-deep); font-size: 1rem; margin: 0 0 1rem; }
+    .expr .notes{ font-family: var(--sans); font-size: 0.9rem; line-height: 1.55; color: var(--ink-soft); }
+
+    /* ─── CONTACTO ─── */
+    .contact-grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(232,205,140,0.28);
+    }
+    @media (max-width: 800px){ .contact-grid{ grid-template-columns: repeat(2, 1fr); } }
+    .contact-block .label{ font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); opacity: 0.7; display: block; margin-bottom: 0.75rem; }
+    .contact-block .val{ font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--paper); }
+    .contact-block .val strong{ font-weight: 500; color: var(--gold-light); font-style: normal; }
+
+    /* Divider line inside dark sections */
+    .rule{ display: block; width: 6rem; height: 1px; background: var(--copper-deep); opacity: 0.6; margin: 1rem 0 2rem; }
+    section.dark .rule, section.cocoa .rule{ background: var(--gold-light); }
+
+    /* Anchor links */
+    .anchor{ position: absolute; top: -80px; }
+
+    /* Reveal on scroll — simple fade-up */
+    .reveal{ opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity:1; transform:none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed site header -->
+  <header class="site-header">
+    <a href="#top" class="brand">
+      <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" />
+      <span class="r">Tequila · Orgánico</span>
+    </a>
+    <a href="https://www.tequilatresese.com" class="site-link">Ir al sitio →</a>
+  </header>
+
+  <!-- ═══════════ 01 · PORTADA ═══════════ -->
+  <section class="hero" id="top">
+    <div class="hero-glow"></div>
+    <div class="hero-bottles">
+      <img src="images/TresEse_Botella_Blanco.png?v=20260504bottles" alt="Blanco Orgánico" />
+      <img src="images/TresEse_Botella_Reposado.png?v=20260504bottles" alt="Reposado Orgánico" />
+      <img src="images/TresEse_Botella_ExtraAñejo.png?v=20260504bottles" alt="Extra Añejo" />
+    </div>
+    <div class="hero-content">
+      <p class="kicker">Desde 1905 · Los Altos de Jalisco</p>
+      <h1>La <em>Historia</em>.</h1>
+      <p class="subtitle">Cinco generaciones. Cero aditivos. Una sola creencia.</p>
+      <div class="hero-foot">
+        <div>
+          <div class="stamp">Publicación</div>
+          <div class="val">Manual de Marca · 2026</div>
+        </div>
+        <div class="right">
+          <div class="stamp">Origen</div>
+          <div class="val">Los Altos de Jalisco</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 02 · MANIFIESTO ═══════════ -->
+  <section class="dark manifesto">
+    <div class="anchor" id="manifiesto"></div>
+    <div class="container">
+      <p class="eyebrow reveal">Nuestra Promesa</p>
+      <h2 class="display reveal">Certificado <em>orgánico.</em><br/>Cero <em>aditivos.</em> Siempre.</h2>
+      <span class="rule"></span>
+      <p class="lede reveal">
+        Cinco generaciones de la <em>familia Tres Ese</em> han trabajado la tierra roja de Los Altos de Jalisco
+        sin herbicidas, sin fertilizantes sintéticos, sin atajos. Nada se añade en la botella.
+        Sin azúcar. Sin glicerina. Sin saborizantes. Sin colorantes. Solo lo que la planta,
+        la tierra y el sol de la sierra silenciosamente quisieron.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 03 · NUESTRA HISTORIA + VIDEO ═══════════ -->
+  <section class="paper">
+    <div class="anchor" id="historia"></div>
+    <div class="container">
+      <div class="with-video">
+        <div class="video-body reveal">
+          <p class="eyebrow">Nuestra Historia</p>
+          <h2 class="display">Un siglo de <em>tradición</em>, siempre orgánico.</h2>
+          <span class="rule"></span>
+          <p class="body">
+            En <strong>1905</strong>, la familia <strong>Tres Ese</strong> plantó su primer campo de agave azul en
+            <em>Los Altos de Jalisco</em> — a 2,030 metros sobre el nivel del mar, en tierra roja rica en hierro.
+          </p>
+          <p class="body">
+            Cinco generaciones han pasado por la <em>hacienda</em>. La sierra ha cambiado poco. La receta, nada.
+            El agave se cosecha cuando está <em>listo</em> — nunca antes. Nuestros <em>jimadores</em> cortan a mano,
+            corazón por corazón, como hicieron sus padres y abuelos.
+          </p>
+          <p class="body" style="font-family:var(--serif); font-style:italic; color:var(--copper-deep); font-size:1.15rem; margin-top:1.5rem;">
+            — Familia Tres Ese
+          </p>
+        </div>
+        <div class="video-frame reveal">
+          <video autoplay muted loop playsinline preload="metadata"
+                 poster="images/hero-cellar.jpg">
+            <source src="images/story-slideshow/story-stitched.mp4?v=20260521a" type="video/mp4" />
+          </video>
+          <span class="video-caption">01 · La Historia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 04 · LA DIFERENCIA ═══════════ -->
+  <section class="cocoa">
+    <div class="anchor" id="diferencia"></div>
+    <div class="container">
+      <p class="eyebrow reveal">La Diferencia</p>
+      <h2 class="display reveal">Por qué somos <em>distintos</em>.</h2>
+      <span class="rule"></span>
+      <p class="lede reveal">
+        La mayoría del tequila en el mundo — incluyendo etiquetas <em>premium</em> — se produce con agave cultivado
+        con químicos, y se termina en botella con azúcares, glicerina, colorantes y saborizantes. Nosotros
+        elegimos otra cosa.
+      </p>
+      <div class="stats-grid">
+        <div class="stat reveal">
+          <span class="n">100%</span>
+          <span class="label">Agave Azul</span>
+          <p>Un solo ingrediente: <em>Agave tequilana</em>. Sin mezclas, sin diluyentes.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">Cero</span>
+          <span class="label">Aditivos</span>
+          <p>Sin azúcares, sin glicerina, sin saborizantes, sin colorantes en la botella.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">Orgánico</span>
+          <span class="label">De Campo a Botella</span>
+          <p>Sin herbicidas, sin fertilizantes sintéticos, sin pesticidas en el cultivo.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">Lotes</span>
+          <span class="label">Pequeños · Hecho a Mano</span>
+          <p>Cada botella numerada. Producción limitada, sin escala industrial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 05 · CERTIFICACIONES ═══════════ -->
+  <section class="paper">
+    <div class="anchor" id="certificaciones"></div>
+    <div class="container">
+      <p class="eyebrow reveal">Certificaciones Orgánicas</p>
+      <h2 class="display reveal"><em>Auditados</em> por quienes más exigen.</h2>
+      <span class="rule"></span>
+      <p class="body reveal" style="max-width:52rem;">
+        Nuestro cultivo y proceso se auditan cada año por cuatro de las autoridades orgánicas más rigurosas del
+        mundo. No es marketing — es un compromiso verificado en el campo, en la destilería y en la botella.
+      </p>
+      <div class="certs">
+        <div class="cert reveal">
+          <div class="cert-mark"><img src="images/Organic Logos/usda.png?v=20260429k" alt="USDA Organic" /></div>
+          <h4>USDA Orgánico</h4>
+          <p>Estados Unidos</p>
+        </div>
+        <div class="cert reveal">
+          <div class="cert-mark"><img src="images/Organic Logos/eu.png?v=20260429k" alt="EU Organic" /></div>
+          <h4>UE Orgánico</h4>
+          <p>Unión Europea</p>
+        </div>
+        <div class="cert reveal">
+          <div class="cert-mark"><img src="images/Organic Logos/jas.png?v=20260429k" alt="JAS Organic" /></div>
+          <h4>JAS Estándar</h4>
+          <p>Japón</p>
+        </div>
+        <div class="cert reveal">
+          <div class="cert-mark"><img src="images/Organic Logos/bioagricert.png?v=20260429k" alt="Bioagricert" /></div>
+          <h4>Bioagricert</h4>
+          <p>Certificación Orgánica</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 06 · EL PROCESO (5 videos autoplaying) ═══════════ -->
+  <section class="soft">
+    <div class="anchor" id="proceso"></div>
+    <div class="container">
+      <p class="eyebrow reveal">Cinco Pasos</p>
+      <h2 class="display reveal">De la <em>tierra</em> a la botella.</h2>
+      <span class="rule"></span>
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-video">
+            <video autoplay muted loop playsinline preload="metadata" poster="images/hero-cellar.jpg">
+              <source src="images/slides/cultivation/cultivation-stitched.mp4?v=20260516d" type="video/mp4" />
+            </video>
+          </div>
+          <div class="num">01</div>
+          <h3>Cultivo</h3>
+          <p class="sub">Cosechado a mano.</p>
+          <p>Campos a 2,030 m de altitud en Los Altos de Jalisco. Cultivo orgánico certificado.
+             Los <em>jimadores</em> cortan a mano.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-video">
+            <video autoplay muted loop playsinline preload="metadata" poster="images/hero-cellar.jpg">
+              <source src="images/slides/roasting/roasting-stitched.mp4?v=20260521c" type="video/mp4" />
+            </video>
+          </div>
+          <div class="num">02</div>
+          <h3>Cocción Lenta</h3>
+          <p class="sub">Sin aditivos.</p>
+          <p>Las <em>piñas</em> reposan en hornos tradicionales de mampostería. Calor bajo, azúcares naturales.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-video">
+            <video autoplay muted loop playsinline preload="metadata" poster="images/hero-cellar.jpg">
+              <source src="images/slides/fermentation/fermentation-stitched.mp4?v=20260523a" type="video/mp4" />
+            </video>
+          </div>
+          <div class="num">03</div>
+          <h3>Fermentación</h3>
+          <p class="sub">Levaduras silvestres.</p>
+          <p>Tinas abiertas de madera. Agua de pozo natural de 400 m. Solo levaduras nativas de la hacienda.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-video">
+            <img src="images/slides/distillation/01.jpg?v=20260519e" alt="Destilación" />
+          </div>
+          <div class="num">04</div>
+          <h3>Destilación</h3>
+          <p class="sub">Alambiques de cobre.</p>
+          <p>Doble destilación en alambiques de cobre. El cobre pule los sabores. Un destilado limpio.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-video">
+            <video autoplay muted loop playsinline preload="metadata" poster="images/hero-cellar.jpg">
+              <source src="images/slides/bottling/bottling-stitched.mp4?v=20260519c" type="video/mp4" />
+            </video>
+          </div>
+          <div class="num">05</div>
+          <h3>Reposo y Botella</h3>
+          <p class="sub">Numerado a mano.</p>
+          <p>Blanco directo del alambique. Reposado 6 meses en roble. Extra Añejo 3+ años. Numerado a mano.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 07 · LAS EXPRESIONES ═══════════ -->
+  <section class="paper">
+    <div class="anchor" id="expresiones"></div>
+    <div class="container">
+      <p class="eyebrow reveal">Tres Expresiones</p>
+      <h2 class="display reveal">Un agave, <em>tres momentos</em> en el tiempo.</h2>
+      <span class="rule"></span>
+      <div class="expr-grid">
+        <div class="expr reveal">
+          <img src="images/TresEse_Botella_Blanco.png?v=20260504bottles" alt="Blanco Orgánico" />
+          <p class="tag">01 · Sin Reposo</p>
+          <h3>Blanco <em>Orgánico</em></h3>
+          <p class="abv">40.4% Vol · 80.8 Proof</p>
+          <p class="notes">Cristalino. Directo del alambique. Nariz herbal, notas de citrus y minerales de sierra.</p>
+        </div>
+        <div class="expr reveal">
+          <img src="images/TresEse_Botella_Reposado.png?v=20260504bottles" alt="Reposado Orgánico" />
+          <p class="tag">02 · 6 Meses</p>
+          <h3>Reposado <em>Orgánico</em></h3>
+          <p class="abv">43.4% Vol · 86.8 Proof</p>
+          <p class="notes">Oro pajizo. Seis meses en roble francés. Agave horneado, naranja confitada, cedro, especia suave.</p>
+        </div>
+        <div class="expr reveal">
+          <img src="images/TresEse_Botella_ExtraAñejo.png?v=20260504bottles" alt="Extra Añejo" />
+          <p class="tag">03 · 3+ Años</p>
+          <h3>Extra <em>Añejo</em></h3>
+          <p class="abv">44.4% Vol · 88.8 Proof</p>
+          <p class="notes">Ámbar oscuro. Más de tres años en roble. Complejo, sedoso: vainilla, cacao, cuero y agave añejo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 08 · POR LOS NÚMEROS ═══════════ -->
+  <section class="cocoa">
+    <div class="anchor" id="numeros"></div>
+    <div class="container">
+      <p class="eyebrow reveal">Por los Números</p>
+      <h2 class="display reveal">La marca, en <em>datos</em>.</h2>
+      <span class="rule"></span>
+      <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="stat reveal">
+          <span class="n">1905</span>
+          <span class="label">Fundación</span>
+          <p>La familia planta su primer campo de agave en Los Altos.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">5</span>
+          <span class="label">Generaciones</span>
+          <p>Un siglo y cuatro relevos familiares, sin cambiar el método.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">2,030 m</span>
+          <span class="label">Altitud</span>
+          <p>Tierra roja de sierra, noches frescas, maduración lenta.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">6–8 años</span>
+          <span class="label">Cultivo</span>
+          <p>Cada agave se cosecha al llegar a plena madurez.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">100%</span>
+          <span class="label">Agave Azul</span>
+          <p><em>Agave tequilana</em>. Sin mezclas, sin atajos.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="n">4</span>
+          <span class="label">Certificaciones</span>
+          <p>USDA, UE, JAS y Bioagricert — auditadas cada año.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 09 · CONTACTO ═══════════ -->
+  <section class="dark" style="text-align: center;">
+    <div class="anchor" id="contacto"></div>
+    <div class="container">
+      <img src="images/Logos/logo-primary-white.png?v=20260604r" alt="Tres Ese" style="height: 90px; margin: 0 auto 2rem; display:block; filter: brightness(0) invert(1); opacity:0.95;" />
+      <h2 class="display" style="text-align: center;">Tequila <em>Tres Ese</em></h2>
+      <p class="lede reveal" style="margin: 0 auto; text-align: center;">
+        Cinco generaciones. Cero aditivos. Un compromiso — desde la tierra roja de Los Altos hasta cada botella firmada a mano.
+      </p>
+      <div class="contact-grid">
+        <div class="contact-block reveal">
+          <span class="label">Origen</span>
+          <div class="val"><strong>Los Altos de Jalisco</strong><br/>México</div>
+        </div>
+        <div class="contact-block reveal">
+          <span class="label">Web</span>
+          <div class="val"><strong>tequilatresese.com</strong></div>
+        </div>
+        <div class="contact-block reveal">
+          <span class="label">Pedidos y Consultas</span>
+          <div class="val"><strong>+52 55 5292 8284</strong></div>
+        </div>
+        <div class="contact-block reveal">
+          <span class="label">Certificaciones</span>
+          <div class="val">USDA · UE · JAS · Bioagricert</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Play videos only when they scroll into view (mobile-friendly, saves bandwidth)
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) {
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.1 });
+  document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
+</script>
+
+</body>
+</html>
