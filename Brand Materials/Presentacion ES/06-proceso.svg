@@ -2,7 +2,9 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      viewBox="0 0 1920 1080" width="1920" height="1080">
-  <!-- ═══════════ SLIDE 06 · EL PROCESO ═══════════ -->
+  <!-- ═══════════ SLIDE 06 · EL PROCESO ═══════════
+       Mirrors the site's Proceso section — 5 step cards each with a real
+       video-still photo at top and copy below. Cream/ivory background. -->
 
   <rect width="1920" height="1080" fill="#FBF7EE"/>
 
@@ -17,82 +19,102 @@
     <line x1="120" y1="240" x2="180" y2="240" stroke="#8A4E1E" stroke-width="1.5"/>
     <text x="200" y="247" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">CINCO PASOS</text>
   </g>
-  <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#2A2218">De la <tspan font-style="italic" fill="#8A4E1E">tierra</tspan> a la botella.</text>
+  <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-weight="500" fill="#2A2218">De la <tspan font-style="italic" fill="#8A4E1E">tierra</tspan> a la botella.</text>
   <line x1="120" y1="378" x2="240" y2="378" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
 
-  <!-- 5 process step columns -->
-  <g id="step-01" transform="translate(120, 460)">
-    <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">01</text>
-    <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
-    <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Cultivo</text>
-    <text x="0" y="100" font-family="Cormorant Garamond, Georgia, serif" font-size="18" font-style="italic" fill="#8A4E1E">Cosechado a mano.</text>
-    <text x="0" y="150" font-family="Inter, sans-serif" font-size="14" fill="#584A38">
-      <tspan x="0" dy="0">Campos a 2,030 m de altitud en</tspan>
-      <tspan x="0" dy="22">Los Altos de Jalisco, tierra roja</tspan>
-      <tspan x="0" dy="22">rica en hierro. Cultivo orgánico</tspan>
-      <tspan x="0" dy="22">certificado. Cada agave madura</tspan>
-      <tspan x="0" dy="22">6–8 años. Los <tspan font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="16">jimadores</tspan> cortan</tspan>
-      <tspan x="0" dy="22">a mano, corazón por corazón.</tspan>
+  <!-- Clip paths for image containers (portrait 3:4 crops) -->
+  <defs>
+    <clipPath id="stepImg1"><rect x="120" y="430" width="325" height="380" rx="4"/></clipPath>
+    <clipPath id="stepImg2"><rect x="465" y="430" width="325" height="380" rx="4"/></clipPath>
+    <clipPath id="stepImg3"><rect x="810" y="430" width="325" height="380" rx="4"/></clipPath>
+    <clipPath id="stepImg4"><rect x="1155" y="430" width="325" height="380" rx="4"/></clipPath>
+    <clipPath id="stepImg5"><rect x="1500" y="430" width="325" height="380" rx="4"/></clipPath>
+  </defs>
+
+  <!-- ─── 5 STEP CARDS with real photos ─── -->
+
+  <!-- STEP 01 · Cultivo -->
+  <g id="step-01">
+    <rect x="120" y="430" width="325" height="380" fill="#2A2218" rx="4"/>
+    <image xlink:href="stills/cultivo-b.jpg" x="55" y="430" width="480" height="380" preserveAspectRatio="xMidYMid slice" clip-path="url(#stepImg1)"/>
+    <text x="140" y="470" font-family="Cormorant Garamond, Georgia, serif" font-size="46" font-style="italic" font-weight="500" fill="#FBF7EE">01</text>
+    <line x1="140" y1="486" x2="180" y2="486" stroke="#E8CD8C" stroke-width="1.5"/>
+    <text x="140" y="500" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" font-weight="500">CULTIVO</text>
+
+    <text x="120" y="855" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-weight="500" fill="#2A2218">Cultivo</text>
+    <text x="120" y="885" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#8A4E1E">Cosechado a mano.</text>
+    <text x="120" y="930" font-family="Inter, sans-serif" font-size="13" fill="#584A38">
+      <tspan x="120" dy="0">Campos a 2,030 m de altitud. Cultivo</tspan>
+      <tspan x="120" dy="20">orgánico certificado. Los <tspan font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="14">jimadores</tspan></tspan>
+      <tspan x="120" dy="20">cortan a mano, corazón por corazón.</tspan>
     </text>
   </g>
 
-  <g id="step-02" transform="translate(460, 460)">
-    <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">02</text>
-    <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
-    <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Cocción Lenta</text>
-    <text x="0" y="100" font-family="Cormorant Garamond, Georgia, serif" font-size="18" font-style="italic" fill="#8A4E1E">Sin aditivos.</text>
-    <text x="0" y="150" font-family="Inter, sans-serif" font-size="14" fill="#584A38">
-      <tspan x="0" dy="0">Las <tspan font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="16">piñas</tspan> reposan en hornos</tspan>
-      <tspan x="0" dy="22">tradicionales de mampostería.</tspan>
-      <tspan x="0" dy="22">Un calor bajo y constante</tspan>
-      <tspan x="0" dy="22">despierta los azúcares naturales</tspan>
-      <tspan x="0" dy="22">del agave durante días, no horas.</tspan>
-      <tspan x="0" dy="22">Nada se añade. Nada se apresura.</tspan>
+  <!-- STEP 02 · Cocción Lenta -->
+  <g id="step-02">
+    <rect x="465" y="430" width="325" height="380" fill="#2A2218" rx="4"/>
+    <image xlink:href="stills/coccion-c.jpg" x="400" y="430" width="480" height="380" preserveAspectRatio="xMidYMid slice" clip-path="url(#stepImg2)"/>
+    <text x="485" y="470" font-family="Cormorant Garamond, Georgia, serif" font-size="46" font-style="italic" font-weight="500" fill="#FBF7EE">02</text>
+    <line x1="485" y1="486" x2="525" y2="486" stroke="#E8CD8C" stroke-width="1.5"/>
+    <text x="485" y="500" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" font-weight="500">COCCIÓN</text>
+
+    <text x="465" y="855" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-weight="500" fill="#2A2218">Cocción Lenta</text>
+    <text x="465" y="885" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#8A4E1E">Sin aditivos.</text>
+    <text x="465" y="930" font-family="Inter, sans-serif" font-size="13" fill="#584A38">
+      <tspan x="465" dy="0">Las <tspan font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="14">piñas</tspan> reposan en hornos</tspan>
+      <tspan x="465" dy="20">tradicionales de mampostería.</tspan>
+      <tspan x="465" dy="20">Calor bajo, azúcares naturales.</tspan>
     </text>
   </g>
 
-  <g id="step-03" transform="translate(800, 460)">
-    <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">03</text>
-    <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
-    <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Fermentación</text>
-    <text x="0" y="100" font-family="Cormorant Garamond, Georgia, serif" font-size="18" font-style="italic" fill="#8A4E1E">Levaduras silvestres.</text>
-    <text x="0" y="150" font-family="Inter, sans-serif" font-size="14" fill="#584A38">
-      <tspan x="0" dy="0">Tinas abiertas de madera. Agua</tspan>
-      <tspan x="0" dy="22">de pozo natural de 400 m</tspan>
-      <tspan x="0" dy="22">— filtrada por siglos de roca</tspan>
-      <tspan x="0" dy="22">volcánica — y solo levaduras</tspan>
-      <tspan x="0" dy="22">nativas de la hacienda. Es más</tspan>
-      <tspan x="0" dy="22">lento. Es menos predecible.</tspan>
+  <!-- STEP 03 · Fermentación -->
+  <g id="step-03">
+    <rect x="810" y="430" width="325" height="380" fill="#2A2218" rx="4"/>
+    <image xlink:href="stills/fermentacion-c.jpg" x="745" y="430" width="480" height="380" preserveAspectRatio="xMidYMid slice" clip-path="url(#stepImg3)"/>
+    <text x="830" y="470" font-family="Cormorant Garamond, Georgia, serif" font-size="46" font-style="italic" font-weight="500" fill="#FBF7EE">03</text>
+    <line x1="830" y1="486" x2="870" y2="486" stroke="#E8CD8C" stroke-width="1.5"/>
+    <text x="830" y="500" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" font-weight="500">FERMENTACIÓN</text>
+
+    <text x="810" y="855" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-weight="500" fill="#2A2218">Fermentación</text>
+    <text x="810" y="885" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#8A4E1E">Levaduras silvestres.</text>
+    <text x="810" y="930" font-family="Inter, sans-serif" font-size="13" fill="#584A38">
+      <tspan x="810" dy="0">Tinas abiertas de madera. Agua</tspan>
+      <tspan x="810" dy="20">de pozo natural de 400 m. Solo</tspan>
+      <tspan x="810" dy="20">levaduras nativas de la hacienda.</tspan>
     </text>
   </g>
 
-  <g id="step-04" transform="translate(1140, 460)">
-    <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">04</text>
-    <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
-    <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Destilación</text>
-    <text x="0" y="100" font-family="Cormorant Garamond, Georgia, serif" font-size="18" font-style="italic" fill="#8A4E1E">Alambiques de cobre.</text>
-    <text x="0" y="150" font-family="Inter, sans-serif" font-size="14" fill="#584A38">
-      <tspan x="0" dy="0">Doble destilación en alambiques</tspan>
-      <tspan x="0" dy="22">de cobre, tal como se ha hecho</tspan>
-      <tspan x="0" dy="22">durante generaciones. El cobre</tspan>
-      <tspan x="0" dy="22">pule los sabores. La segunda</tspan>
-      <tspan x="0" dy="22">pasada refina el corazón.</tspan>
-      <tspan x="0" dy="22">Un destilado limpio.</tspan>
+  <!-- STEP 04 · Destilación -->
+  <g id="step-04">
+    <rect x="1155" y="430" width="325" height="380" fill="#2A2218" rx="4"/>
+    <image xlink:href="../../images/slides/distillation/01.jpg" x="1090" y="430" width="480" height="380" preserveAspectRatio="xMidYMid slice" clip-path="url(#stepImg4)"/>
+    <text x="1175" y="470" font-family="Cormorant Garamond, Georgia, serif" font-size="46" font-style="italic" font-weight="500" fill="#FBF7EE">04</text>
+    <line x1="1175" y1="486" x2="1215" y2="486" stroke="#E8CD8C" stroke-width="1.5"/>
+    <text x="1175" y="500" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" font-weight="500">DESTILACIÓN</text>
+
+    <text x="1155" y="855" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-weight="500" fill="#2A2218">Destilación</text>
+    <text x="1155" y="885" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#8A4E1E">Alambiques de cobre.</text>
+    <text x="1155" y="930" font-family="Inter, sans-serif" font-size="13" fill="#584A38">
+      <tspan x="1155" dy="0">Doble destilación en alambiques</tspan>
+      <tspan x="1155" dy="20">de cobre. El cobre pule los sabores.</tspan>
+      <tspan x="1155" dy="20">Un destilado limpio.</tspan>
     </text>
   </g>
 
-  <g id="step-05" transform="translate(1480, 460)">
-    <text x="0" y="0" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#8A4E1E">05</text>
-    <line x1="0" y1="20" x2="320" y2="20" stroke="#C9B791" stroke-width="1"/>
-    <text x="0" y="70" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" fill="#2A2218">Reposo y Botella</text>
-    <text x="0" y="100" font-family="Cormorant Garamond, Georgia, serif" font-size="18" font-style="italic" fill="#8A4E1E">Numerado a mano.</text>
-    <text x="0" y="150" font-family="Inter, sans-serif" font-size="14" fill="#584A38">
-      <tspan x="0" dy="0">Blanco directo del alambique.</tspan>
-      <tspan x="0" dy="22">Reposado seis meses en roble</tspan>
-      <tspan x="0" dy="22">francés. Extra Añejo más de tres</tspan>
-      <tspan x="0" dy="22">años. Cada botella se llena,</tspan>
-      <tspan x="0" dy="22">tapa y etiqueta a mano. Lotes</tspan>
-      <tspan x="0" dy="22">pequeños, uno a la vez.</tspan>
+  <!-- STEP 05 · Reposo y Botella -->
+  <g id="step-05">
+    <rect x="1500" y="430" width="325" height="380" fill="#2A2218" rx="4"/>
+    <image xlink:href="stills/embotellado-b.jpg" x="1435" y="430" width="480" height="380" preserveAspectRatio="xMidYMid slice" clip-path="url(#stepImg5)"/>
+    <text x="1520" y="470" font-family="Cormorant Garamond, Georgia, serif" font-size="46" font-style="italic" font-weight="500" fill="#FBF7EE">05</text>
+    <line x1="1520" y1="486" x2="1560" y2="486" stroke="#E8CD8C" stroke-width="1.5"/>
+    <text x="1520" y="500" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" font-weight="500">EMBOTELLADO</text>
+
+    <text x="1500" y="855" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-weight="500" fill="#2A2218">Reposo y Botella</text>
+    <text x="1500" y="885" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#8A4E1E">Numerado a mano.</text>
+    <text x="1500" y="930" font-family="Inter, sans-serif" font-size="13" fill="#584A38">
+      <tspan x="1500" dy="0">Blanco directo del alambique.</tspan>
+      <tspan x="1500" dy="20">Reposado 6 meses en roble.</tspan>
+      <tspan x="1500" dy="20">Extra Añejo 3+ años. A mano.</tspan>
     </text>
   </g>
 

@@ -2,15 +2,29 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      viewBox="0 0 1920 1080" width="1920" height="1080">
-  <!-- ═══════════ SLIDE 04 · LA DIFERENCIA ═══════════ -->
+  <!-- ═══════════ SLIDE 04 · LA DIFERENCIA ═══════════
+       Full-bleed atmospheric photograph (bottles on stone wall) with a
+       strong dark scrim so the 4 stat cards read cleanly on top. -->
 
-  <rect width="1920" height="1080" fill="#3D2E1F"/>
+  <defs>
+    <linearGradient id="darkScrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F0C08" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#1C1813" stop-opacity="0.78"/>
+      <stop offset="100%" stop-color="#0F0C08" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background image + heavy dark scrim -->
+  <image xlink:href="../../images/gallery/bottle-09.jpg"
+         x="0" y="0" width="1920" height="1080"
+         preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1920" height="1080" fill="url(#darkScrim)"/>
 
   <!-- Header -->
   <image xlink:href="../../images/Logos/logo-primary-white.png" x="120" y="88" width="90" height="60" preserveAspectRatio="xMinYMid meet"/>
   <text x="220" y="128" font-family="Cormorant Garamond, Georgia, serif" font-size="18" font-style="italic" fill="#FBF7EE">Tres Ese</text>
   <text x="1800" y="128" text-anchor="end" font-family="Inter, sans-serif" font-size="12" letter-spacing="4.5" fill="#E8CD8C">04 · LA DIFERENCIA</text>
-  <line x1="120" y1="160" x2="1800" y2="160" stroke="#E8CD8C" stroke-opacity="0.24" stroke-width="1"/>
+  <line x1="120" y1="160" x2="1800" y2="160" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
 
   <!-- Eyebrow + title -->
   <g id="eyebrow">
@@ -18,20 +32,20 @@
     <text x="200" y="247" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#E8CD8C" font-weight="500">LA DIFERENCIA</text>
   </g>
   <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#FBF7EE">Por qué somos <tspan font-style="italic" fill="#E8CD8C">distintos</tspan>.</text>
-  <line x1="120" y1="378" x2="240" y2="378" stroke="#E8CD8C" stroke-width="1" stroke-opacity="0.6"/>
+  <line x1="120" y1="378" x2="240" y2="378" stroke="#E8CD8C" stroke-width="1" stroke-opacity="0.7"/>
 
   <!-- Lede -->
-  <text x="120" y="450" font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#FBF7EE" fill-opacity="0.9">
+  <text x="120" y="450" font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#FBF7EE" fill-opacity="0.92">
     <tspan x="120" dy="0">La mayoría del tequila en el mundo — incluyendo etiquetas <tspan font-style="italic" fill="#E8CD8C">premium</tspan> — se produce con agave cultivado con químicos,</tspan>
     <tspan x="120" dy="34">y se termina en botella con azúcares, glicerina, colorantes y saborizantes permitidos por norma. Nosotros elegimos otra cosa.</tspan>
   </text>
 
   <!-- 4 stat cards horizontal -->
   <g id="stat-01" transform="translate(120, 620)">
-    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
+    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">100%</text>
-    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">AGAVE AZUL</text>
-    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.75">
+    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.9">AGAVE AZUL</text>
+    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.82">
       <tspan x="0" dy="0">Un solo ingrediente:</tspan>
       <tspan x="0" dy="24"><tspan font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="17">Agave tequilana.</tspan></tspan>
       <tspan x="0" dy="24">Sin mezclas, sin diluyentes.</tspan>
@@ -39,10 +53,10 @@
   </g>
 
   <g id="stat-02" transform="translate(540, 620)">
-    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
+    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">Cero</text>
-    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">ADITIVOS</text>
-    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.75">
+    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.9">ADITIVOS</text>
+    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.82">
       <tspan x="0" dy="0">Sin azúcares, sin glicerina,</tspan>
       <tspan x="0" dy="24">sin saborizantes, sin</tspan>
       <tspan x="0" dy="24">colorantes en la botella.</tspan>
@@ -50,10 +64,10 @@
   </g>
 
   <g id="stat-03" transform="translate(960, 620)">
-    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
+    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">Orgánico</text>
-    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">DE CAMPO A BOTELLA</text>
-    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.75">
+    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.9">DE CAMPO A BOTELLA</text>
+    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.82">
       <tspan x="0" dy="0">Sin herbicidas,</tspan>
       <tspan x="0" dy="24">sin fertilizantes sintéticos,</tspan>
       <tspan x="0" dy="24">sin pesticidas en el cultivo.</tspan>
@@ -61,10 +75,10 @@
   </g>
 
   <g id="stat-04" transform="translate(1380, 620)">
-    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
+    <line x1="0" y1="0" x2="380" y2="0" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
     <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-style="italic" font-weight="500" fill="#E8CD8C">Lotes</text>
-    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.85">PEQUEÑOS · HECHO A MANO</text>
-    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.75">
+    <text x="0" y="140" font-family="Inter, sans-serif" font-size="13" letter-spacing="4.5" fill="#E8CD8C" fill-opacity="0.9">PEQUEÑOS · HECHO A MANO</text>
+    <text x="0" y="180" font-family="Inter, sans-serif" font-size="15" fill="#FBF7EE" fill-opacity="0.82">
       <tspan x="0" dy="0">Cada botella numerada.</tspan>
       <tspan x="0" dy="24">Producción limitada,</tspan>
       <tspan x="0" dy="24">sin escala industrial.</tspan>
@@ -72,7 +86,7 @@
   </g>
 
   <!-- Footer -->
-  <line x1="120" y1="1010" x2="1800" y2="1010" stroke="#E8CD8C" stroke-opacity="0.24" stroke-width="1"/>
-  <text x="120" y="1050" font-family="Inter, sans-serif" font-size="11" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.7">CERO ADITIVOS · SIEMPRE</text>
-  <text x="1800" y="1050" text-anchor="end" font-family="Inter, sans-serif" font-size="11" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.7">PÁGINA 04</text>
+  <line x1="120" y1="1010" x2="1800" y2="1010" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
+  <text x="120" y="1050" font-family="Inter, sans-serif" font-size="11" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.75">CERO ADITIVOS · SIEMPRE</text>
+  <text x="1800" y="1050" text-anchor="end" font-family="Inter, sans-serif" font-size="11" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.75">PÁGINA 04</text>
 </svg>

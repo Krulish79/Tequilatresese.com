@@ -2,24 +2,25 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      viewBox="0 0 1920 1080" width="1920" height="1080">
-  <!-- ═══════════ SLIDE 09 · CONTACTO / CIERRE ═══════════ -->
+  <!-- ═══════════ SLIDE 09 · CONTACTO / CIERRE ═══════════
+       Full-bleed moody photograph (Reposado bottle + copa on wooden barrel)
+       with dark scrim, centered brand + contact grid. -->
 
   <defs>
-    <linearGradient id="bgClose" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#0F0C08"/>
-      <stop offset="55%" stop-color="#1C1813"/>
-      <stop offset="100%" stop-color="#2A2015"/>
+    <linearGradient id="closeScrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F0C08" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#0F0C08" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0F0C08" stop-opacity="0.92"/>
     </linearGradient>
-    <radialGradient id="glowClose" cx="50%" cy="55%" r="35%">
-      <stop offset="0%"  stop-color="#E8CD8C" stop-opacity="0.14"/>
-      <stop offset="70%" stop-color="#1C1813" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
-  <rect width="1920" height="1080" fill="url(#bgClose)"/>
-  <rect width="1920" height="1080" fill="url(#glowClose)"/>
+  <!-- Full-bleed atmospheric photograph + scrim -->
+  <image xlink:href="../../images/Tequila Reposado Bottle Photography.jpg"
+         x="0" y="0" width="1920" height="1080"
+         preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1920" height="1080" fill="url(#closeScrim)"/>
 
-  <!-- Big brand logo, centered horizontally, upper portion -->
+  <!-- Big brand logo, centered -->
   <image xlink:href="../../images/Logos/logo-primary-white.png"
          x="810" y="130" width="300" height="200"
          preserveAspectRatio="xMidYMid meet"/>
@@ -32,34 +33,34 @@
   <!-- Sub-lede -->
   <text x="960" y="530" text-anchor="middle"
         font-family="Cormorant Garamond, Georgia, serif"
-        font-size="26" font-style="italic" fill="#E8CD8C" fill-opacity="0.9">
+        font-size="26" font-style="italic" fill="#E8CD8C" fill-opacity="0.92">
     <tspan x="960" dy="0">Cinco generaciones. Cero aditivos. Un compromiso —</tspan>
     <tspan x="960" dy="38">desde la tierra roja de Los Altos hasta cada botella firmada a mano.</tspan>
   </text>
 
   <!-- Divider -->
-  <line x1="360" y1="680" x2="1560" y2="680" stroke="#E8CD8C" stroke-opacity="0.28" stroke-width="1"/>
+  <line x1="360" y1="680" x2="1560" y2="680" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
 
   <!-- 4 contact blocks in a row -->
   <g id="c-origen" transform="translate(360, 730)">
-    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.65">ORIGEN</text>
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.72">ORIGEN</text>
     <text x="0" y="50" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-weight="500" fill="#FBF7EE">Los Altos de Jalisco</text>
-    <text x="0" y="80" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#FBF7EE" fill-opacity="0.85">México</text>
+    <text x="0" y="80" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#FBF7EE" fill-opacity="0.9">México</text>
   </g>
 
   <g id="c-web" transform="translate(660, 730)">
-    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.65">WEB</text>
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.72">WEB</text>
     <text x="0" y="50" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#E8CD8C">tequilatresese.com</text>
   </g>
 
   <g id="c-tel" transform="translate(960, 730)">
-    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.65">PEDIDOS Y CONSULTAS</text>
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.72">PEDIDOS Y CONSULTAS</text>
     <text x="0" y="50" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-style="italic" font-weight="500" fill="#E8CD8C">+52 55 5292 8284</text>
   </g>
 
   <g id="c-cert" transform="translate(1300, 730)">
-    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.65">CERTIFICACIONES</text>
-    <text x="0" y="50" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#FBF7EE" fill-opacity="0.9">USDA · UE · JAS · Bioagricert</text>
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" fill-opacity="0.72">CERTIFICACIONES</text>
+    <text x="0" y="50" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#FBF7EE" fill-opacity="0.92">USDA · UE · JAS · Bioagricert</text>
   </g>
 
   <!-- Big QR to the full site (centered above the footer) -->
@@ -72,7 +73,7 @@
   </g>
 
   <!-- Footer -->
-  <line x1="120" y1="990" x2="1800" y2="990" stroke="#E8CD8C" stroke-opacity="0.24" stroke-width="1"/>
-  <text x="120" y="1030" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.55">© 2026 TEQUILA TRES ESE</text>
-  <text x="1800" y="1030" text-anchor="end" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.55">HECHO EN MÉXICO</text>
+  <line x1="120" y1="990" x2="1800" y2="990" stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
+  <text x="120" y="1030" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.6">© 2026 TEQUILA TRES ESE</text>
+  <text x="1800" y="1030" text-anchor="end" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#E8CD8C" fill-opacity="0.6">HECHO EN MÉXICO</text>
 </svg>

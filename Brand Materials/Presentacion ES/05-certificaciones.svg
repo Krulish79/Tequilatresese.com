@@ -2,9 +2,26 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      viewBox="0 0 1920 1080" width="1920" height="1080">
-  <!-- ═══════════ SLIDE 05 · CERTIFICACIONES ═══════════ -->
+  <!-- ═══════════ SLIDE 05 · CERTIFICACIONES ═══════════
+       Cream ivory background with a large atmospheric portrait image on the
+       right, and the 4 cert cards stacked cleanly on the left. -->
+
+  <defs>
+    <clipPath id="sideMediaClip"><rect x="1200" y="200" width="600" height="790" rx="6"/></clipPath>
+  </defs>
 
   <rect width="1920" height="1080" fill="#FBF7EE"/>
+
+  <!-- ─── LARGE ATMOSPHERIC PHOTO on the right ─── -->
+  <rect x="1200" y="200" width="600" height="790" fill="#2A2218" rx="6"/>
+  <image xlink:href="../../images/gallery/bottle-15.jpg"
+         x="1100" y="200" width="800" height="790"
+         preserveAspectRatio="xMidYMid slice"
+         clip-path="url(#sideMediaClip)"/>
+  <!-- Caption ribbon -->
+  <rect x="1200" y="920" width="600" height="70" fill="#0F0C08" fill-opacity="0.6"/>
+  <text x="1230" y="960" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" font-weight="500">02 · CERTIFICADO ORGÁNICO</text>
+  <text x="1230" y="982" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-style="italic" fill="#FBF7EE">De campo a botella. Auditado cada año.</text>
 
   <!-- Header -->
   <image xlink:href="../../images/Logos/logo-primary-black.png" x="120" y="88" width="90" height="60" preserveAspectRatio="xMinYMid meet"/>
@@ -17,47 +34,46 @@
     <line x1="120" y1="240" x2="180" y2="240" stroke="#8A4E1E" stroke-width="1.5"/>
     <text x="200" y="247" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">CERTIFICACIONES ORGÁNICAS</text>
   </g>
-  <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="82" font-weight="500" fill="#2A2218"><tspan font-style="italic" fill="#8A4E1E">Auditados</tspan> por quienes más exigen.</text>
-  <line x1="120" y1="378" x2="240" y2="378" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="120" y="335" font-family="Cormorant Garamond, Georgia, serif" font-size="66" font-weight="500" fill="#2A2218"><tspan font-style="italic" fill="#8A4E1E">Auditados</tspan></text>
+  <text x="120" y="410" font-family="Cormorant Garamond, Georgia, serif" font-size="66" font-weight="500" fill="#2A2218">por quienes más</text>
+  <text x="120" y="485" font-family="Cormorant Garamond, Georgia, serif" font-size="66" font-weight="500" fill="#2A2218">exigen.</text>
+  <line x1="120" y1="525" x2="240" y2="525" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
 
   <!-- Body copy -->
-  <text x="120" y="450" font-family="Inter, sans-serif" font-size="17" fill="#584A38">
-    <tspan x="120" dy="0">Nuestro cultivo y proceso se auditan cada año por cuatro de las autoridades orgánicas más rigurosas del mundo.</tspan>
-    <tspan x="120" dy="28">No es marketing — es un compromiso verificado en el campo, en la destilería y en la botella.</tspan>
+  <text x="120" y="590" font-family="Inter, sans-serif" font-size="16" fill="#584A38">
+    <tspan x="120" dy="0">Nuestro cultivo y proceso se auditan cada año por cuatro de</tspan>
+    <tspan x="120" dy="24">las autoridades orgánicas más rigurosas del mundo.</tspan>
   </text>
 
-  <!-- 4 cert cards horizontal -->
-  <g id="cert-usda" transform="translate(120, 570)">
-    <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
-    <image xlink:href="../../images/Organic Logos/usda.png" x="140" y="30" width="120" height="120" preserveAspectRatio="xMidYMid meet"/>
-    <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">USDA ORGÁNICO</text>
-    <text x="200" y="235" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#2A2218">Estados Unidos</text>
+  <!-- 4 cert cards — 2×2 grid on the left -->
+  <g id="cert-usda" transform="translate(120, 680)">
+    <rect x="0" y="0" width="230" height="140" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
+    <image xlink:href="../../images/Organic Logos/usda.png" x="60" y="15" width="110" height="80" preserveAspectRatio="xMidYMid meet"/>
+    <text x="115" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#8A4E1E" font-weight="500">USDA ORGÁNICO</text>
+  </g>
+  <g id="cert-eu" transform="translate(370, 680)">
+    <rect x="0" y="0" width="230" height="140" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
+    <image xlink:href="../../images/Organic Logos/eu.png" x="55" y="20" width="120" height="70" preserveAspectRatio="xMidYMid meet"/>
+    <text x="115" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#8A4E1E" font-weight="500">UE ORGÁNICO</text>
+  </g>
+  <g id="cert-jas" transform="translate(120, 840)">
+    <rect x="0" y="0" width="230" height="140" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
+    <image xlink:href="../../images/Organic Logos/jas.png" x="50" y="15" width="130" height="80" preserveAspectRatio="xMidYMid meet"/>
+    <text x="115" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#8A4E1E" font-weight="500">JAS ESTÁNDAR</text>
+  </g>
+  <g id="cert-bio" transform="translate(370, 840)">
+    <rect x="0" y="0" width="230" height="140" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
+    <image xlink:href="../../images/Organic Logos/bioagricert.png" x="25" y="45" width="180" height="50" preserveAspectRatio="xMidYMid meet"/>
+    <text x="115" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#8A4E1E" font-weight="500">BIOAGRICERT</text>
   </g>
 
-  <g id="cert-eu" transform="translate(540, 570)">
-    <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
-    <image xlink:href="../../images/Organic Logos/eu.png" x="130" y="35" width="140" height="110" preserveAspectRatio="xMidYMid meet"/>
-    <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">UE ORGÁNICO</text>
-    <text x="200" y="235" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#2A2218">Unión Europea</text>
-  </g>
-
-  <g id="cert-jas" transform="translate(960, 570)">
-    <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
-    <image xlink:href="../../images/Organic Logos/jas.png" x="115" y="35" width="170" height="110" preserveAspectRatio="xMidYMid meet"/>
-    <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">JAS ESTÁNDAR</text>
-    <text x="200" y="235" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#2A2218">Japón</text>
-  </g>
-
-  <g id="cert-bio" transform="translate(1380, 570)">
-    <rect x="0" y="0" width="400" height="280" fill="#FFFFFF" stroke="#C9B791" stroke-width="1" rx="4"/>
-    <image xlink:href="../../images/Organic Logos/bioagricert.png" x="70" y="60" width="260" height="70" preserveAspectRatio="xMidYMid meet"/>
-    <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#8A4E1E" font-weight="500">BIOAGRICERT</text>
-    <text x="200" y="235" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="17" font-style="italic" fill="#2A2218">Certificación Orgánica</text>
-  </g>
-
-  <!-- Kicker below cards -->
-  <text x="960" y="990" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#584A38">
-    Cuatro sellos, un mismo estándar: <tspan fill="#8A4E1E">cero químicos sintéticos</tspan> en cualquier etapa del cultivo y producción.
+  <!-- Kicker/quote -->
+  <text x="700" y="710" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-style="italic" fill="#8A4E1E">Cuatro sellos,</text>
+  <text x="700" y="745" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-style="italic" fill="#8A4E1E">un mismo estándar.</text>
+  <text x="700" y="800" font-family="Inter, sans-serif" font-size="15" fill="#584A38">
+    <tspan x="700" dy="0">Cero químicos sintéticos en cualquier etapa</tspan>
+    <tspan x="700" dy="24">del cultivo y producción — verificado cada</tspan>
+    <tspan x="700" dy="24">año por auditoría externa.</tspan>
   </text>
 
   <!-- Footer -->
