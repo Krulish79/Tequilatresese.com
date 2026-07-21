@@ -3,69 +3,81 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
      viewBox="0 0 1920 1080" width="1920" height="1080">
   <!-- ═══════════ SLIDE 03 · NUESTRA HISTORIA ═══════════
-       Mirrors the site's Nuestra Historia section — left column large
-       portrait photo (agave field), right column eyebrow + big italic
-       title + body copy + signature. Ivory cream background. -->
+       Literal port of index.html <section class="story"> — split media/copy
+       layout with the story photo on the LEFT and the site's exact copy
+       block on the RIGHT (eyebrow → title → 2 paragraphs → signature →
+       4 cert logos row). -->
+
+  <defs>
+    <clipPath id="storyClip"><rect x="90" y="90" width="820" height="900" rx="4"/></clipPath>
+  </defs>
 
   <rect width="1920" height="1080" fill="#FBF7EE"/>
 
-  <!-- Header -->
-  <image xlink:href="../../images/Logos/logo-primary-black.png" x="120" y="88" width="90" height="60" preserveAspectRatio="xMinYMid meet"/>
-  <text x="220" y="128" font-family="Cormorant Garamond, Georgia, serif" font-size="18" font-style="italic" fill="#2A2218">Tres Ese</text>
-  <text x="1800" y="128" text-anchor="end" font-family="Inter, sans-serif" font-size="12" letter-spacing="4.5" fill="#8A4E1E">03 · LA HISTORIA</text>
-  <line x1="120" y1="160" x2="1800" y2="160" stroke="#C9B791" stroke-width="1"/>
-
-  <!-- ─── LEFT: LARGE PORTRAIT PHOTO (agave field close-up) ─── -->
-  <g id="media">
-    <rect x="120" y="220" width="720" height="770" fill="#2A2218" rx="4"/>
-    <clipPath id="mediaClip">
-      <rect x="120" y="220" width="720" height="770" rx="4"/>
-    </clipPath>
+  <!-- ─── LEFT · story-media (portrait 4:5) ─── -->
+  <g id="story-media">
+    <rect x="90" y="90" width="820" height="900" fill="#2A2218" rx="4"/>
     <image xlink:href="stills/story-c.jpg"
-           x="0" y="220" width="960" height="770"
+           x="0" y="90" width="1000" height="900"
            preserveAspectRatio="xMidYMid slice"
-           clip-path="url(#mediaClip)"/>
-    <!-- Caption ribbon at bottom of the image -->
-    <rect x="120" y="920" width="720" height="70" fill="#0F0C08" fill-opacity="0.55"/>
-    <text x="150" y="960" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" font-weight="500">01 · NUESTRA HISTORIA</text>
-    <text x="150" y="982" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-style="italic" fill="#FBF7EE">Campos de Los Altos de Jalisco.</text>
+           clip-path="url(#storyClip)"/>
+    <!-- Caption ribbon at bottom -->
+    <rect x="90" y="920" width="820" height="70" fill="#0F0C08" fill-opacity="0.55"/>
+    <text x="120" y="960" font-family="Inter, sans-serif" font-size="12" letter-spacing="4" fill="#E8CD8C" font-weight="500">01 · NUESTRA HISTORIA</text>
+    <text x="120" y="982" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-style="italic" fill="#FBF7EE">Los Altos de Jalisco · Desde 1905.</text>
   </g>
 
-  <!-- ─── RIGHT: TEXT COLUMN ─── -->
-  <g id="text-col" transform="translate(910, 245)">
-    <!-- Eyebrow -->
-    <line x1="0" y1="8" x2="60" y2="8" stroke="#8A4E1E" stroke-width="1.5"/>
-    <text x="80" y="14" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">NUESTRA HISTORIA</text>
+  <!-- ─── RIGHT · story-copy ─── -->
+  <g id="story-copy" transform="translate(985, 130)">
 
-    <!-- Big italic title -->
-    <text x="0" y="120" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-weight="500" fill="#2A2218">Un siglo de <tspan font-style="italic" fill="#8A4E1E">tradición</tspan>,</text>
-    <text x="0" y="195" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-weight="500" fill="#2A2218">siempre orgánico.</text>
+    <!-- eyebrow -->
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="13" letter-spacing="5.5" fill="#8A4E1E" font-weight="500">NUESTRA HISTORIA</text>
 
-    <!-- Copper rule -->
-    <line x1="0" y1="235" x2="120" y2="235" stroke="#8A4E1E" stroke-width="1" stroke-opacity="0.6"/>
+    <!-- display-sm title (matches site's copy exactly) -->
+    <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="52" font-weight="500" fill="#2A2218">Certificado orgánico.</text>
+    <text x="0" y="145" font-family="Cormorant Garamond, Georgia, serif" font-size="52" font-weight="500" fill="#2A2218"><tspan font-style="italic" fill="#8A4E1E">Cero aditivos.</tspan> Siempre.</text>
 
-    <!-- Body copy -->
-    <text x="0" y="305" font-family="Inter, sans-serif" font-size="18" fill="#584A38">
-      <tspan x="0" dy="0">En <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-weight="500" fill="#2A2218">1905</tspan>, la familia <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-weight="500" fill="#2A2218">Tres Ese</tspan> plantó su primer</tspan>
-      <tspan x="0" dy="32">campo de agave azul en <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">Los Altos de Jalisco</tspan> — a</tspan>
-      <tspan x="0" dy="32">2,030 metros sobre el nivel del mar, en tierra roja rica</tspan>
-      <tspan x="0" dy="32">en hierro.</tspan>
+    <!-- Body copy — first paragraph -->
+    <text x="0" y="230" font-family="Inter, sans-serif" font-size="16" fill="#584A38">
+      <tspan x="0" dy="0">Durante cinco generaciones la familia <tspan font-weight="500" fill="#2A2218">Tres Ese</tspan> ha trabajado la tierra roja</tspan>
+      <tspan x="0" dy="26">de Los Altos de Jalisco — sin herbicidas, sin fertilizantes sintéticos,</tspan>
+      <tspan x="0" dy="26">sin atajos. Cada agave se cultiva de forma orgánica y se selecciona</tspan>
+      <tspan x="0" dy="26">a mano en plena madurez, y luego se transforma lentamente en</tspan>
+      <tspan x="0" dy="26">tequila por fuego, madera, cobre y tiempo.</tspan>
     </text>
 
-    <text x="0" y="490" font-family="Inter, sans-serif" font-size="18" fill="#584A38">
-      <tspan x="0" dy="0">El agave se cosecha cuando está <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">listo</tspan> — nunca antes.</tspan>
-      <tspan x="0" dy="32">Nuestros <tspan font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#2A2218">jimadores</tspan> cortan a mano, corazón por</tspan>
-      <tspan x="0" dy="32">corazón, como hicieron sus padres y abuelos. Es</tspan>
-      <tspan x="0" dy="32">más lento. Es más costoso. Y es la única forma</tspan>
-      <tspan x="0" dy="32">que conocemos.</tspan>
+    <!-- Body copy — second paragraph -->
+    <text x="0" y="415" font-family="Inter, sans-serif" font-size="16" fill="#584A38">
+      <tspan x="0" dy="0">Nada se añade en la botella. Sin azúcar. Sin glicerina. Sin</tspan>
+      <tspan x="0" dy="26">saborizantes. Sin colorantes. Solo lo que la planta, la tierra y el</tspan>
+      <tspan x="0" dy="26">sol de la sierra silenciosamente quisieron.</tspan>
     </text>
 
-    <!-- Signature -->
-    <text x="0" y="720" font-family="Cormorant Garamond, Georgia, serif" font-size="26" font-style="italic" fill="#8A4E1E">— Familia Tres Ese</text>
+    <!-- signature -->
+    <text x="0" y="560" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-style="italic" fill="#8A4E1E">— Familia Tres Ese</text>
+
+    <!-- Divider before cert-logos -->
+    <line x1="0" y1="620" x2="820" y2="620" stroke="#C9B791" stroke-width="1"/>
+
+    <!-- Cert logos row (matches site's .cert-logos, 4 items in a row with name below icon) -->
+    <text x="0" y="655" font-family="Inter, sans-serif" font-size="10" letter-spacing="4" fill="#8A4E1E" font-weight="500">CERTIFICACIONES ORGÁNICAS</text>
+
+    <g transform="translate(0, 680)">
+      <!-- USDA -->
+      <image xlink:href="../../images/Organic Logos/usda.png" x="40" y="0" width="65" height="65" preserveAspectRatio="xMidYMid meet"/>
+      <text x="72" y="95" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#584A38">USDA Orgánico</text>
+
+      <!-- UE -->
+      <image xlink:href="../../images/Organic Logos/eu.png" x="220" y="10" width="90" height="60" preserveAspectRatio="xMidYMid meet"/>
+      <text x="265" y="95" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#584A38">UE Orgánico</text>
+
+      <!-- JAS -->
+      <image xlink:href="../../images/Organic Logos/jas.png" x="405" y="10" width="105" height="60" preserveAspectRatio="xMidYMid meet"/>
+      <text x="457" y="95" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#584A38">JAS Estándar Orgánico</text>
+
+      <!-- Bioagricert -->
+      <image xlink:href="../../images/Organic Logos/bioagricert.png" x="595" y="25" width="180" height="35" preserveAspectRatio="xMidYMid meet"/>
+      <text x="685" y="95" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#584A38">Certificación Orgánica</text>
+    </g>
   </g>
-
-  <!-- Footer -->
-  <line x1="120" y1="1010" x2="1800" y2="1010" stroke="#C9B791" stroke-width="1"/>
-  <text x="120" y="1050" font-family="Inter, sans-serif" font-size="11" letter-spacing="3.5" fill="#8A7B62">TEQUILA TRES ESE · DESDE 1905</text>
-  <text x="1800" y="1050" text-anchor="end" font-family="Inter, sans-serif" font-size="11" letter-spacing="3.5" fill="#8A7B62">PÁGINA 03</text>
 </svg>
