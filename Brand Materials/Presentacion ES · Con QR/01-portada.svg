@@ -4,76 +4,118 @@
      viewBox="0 0 1920 1080"
      width="1920" height="1080">
 
-  <!-- ═══════════ SLIDE 01 · PORTADA (image-forward hero) ═══════════ -->
-  <!-- Full-bleed authentic photograph of the 3 bottles at golden hour on
-       hacienda wooden table with sierra in the distance — mirrors the site's
-       cinematic hero mood. Overlaid text uses noir gradient scrims for
-       legibility without losing the image. -->
+  <!-- ═══════════ SLIDE 01 · PORTADA ═══════════
+       Literal port of the tequilatresese.com HERO section.
+       Structure mirrors index.html's <section class="hero">:
+         - Full-bleed hero-cellar backdrop (already contains the trio)
+         - Left column .hero-copy: eyebrow → Tres Ese Orgánico → place → lede → stats
+         - Right side kept clear so the bottles in the cellar image read
+  -->
 
   <defs>
-    <!-- Gradient scrims to hold text overlays without dulling the image -->
-    <linearGradient id="topScrim" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0F0C08" stop-opacity="0.72"/>
-      <stop offset="60%" stop-color="#0F0C08" stop-opacity="0"/>
+    <!-- Left-to-right scrim so text stays legible on the darker cellar bg
+         but doesn't wash out the bottles on the right. -->
+    <linearGradient id="leftScrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#0F0C08" stop-opacity="0.90"/>
+      <stop offset="35%" stop-color="#0F0C08" stop-opacity="0.65"/>
+      <stop offset="60%" stop-color="#0F0C08" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0F0C08" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="bottomScrim" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#0F0C08" stop-opacity="0.85"/>
-      <stop offset="55%" stop-color="#0F0C08" stop-opacity="0"/>
+    <!-- Subtle bottom fade to seat the stats row -->
+    <linearGradient id="bottomFade" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%"  stop-color="#0F0C08" stop-opacity="0.55"/>
+      <stop offset="20%" stop-color="#0F0C08" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
-  <!-- ─── FULL-BLEED PHOTOGRAPH ─── -->
+  <!-- ─── FULL-BLEED CELLAR BACKDROP ─── -->
   <image xlink:href="../../images/hero-cellar.jpg"
          x="0" y="0" width="1920" height="1080"
          preserveAspectRatio="xMidYMid slice"/>
 
-  <!-- Scrims -->
-  <rect width="1920" height="1080" fill="url(#topScrim)"/>
-  <rect width="1920" height="1080" fill="url(#bottomScrim)"/>
+  <!-- Left-side scrim for text legibility -->
+  <rect width="1920" height="1080" fill="url(#leftScrim)"/>
+  <rect width="1920" height="1080" fill="url(#bottomFade)"/>
 
-  <!-- ─── HEADER (top-left) — brand mark + category ─── -->
-  <g id="header">
-    <image xlink:href="../../images/Logos/logo-primary-white.png"
-           x="120" y="88" width="150" height="100"
-           preserveAspectRatio="xMinYMid meet"/>
-    <text x="290" y="146"
-          font-family="Inter, Helvetica, sans-serif"
-          font-size="14" letter-spacing="4.5"
-          fill="#E8CD8C" font-weight="500">TEQUILA · ORGÁNICO</text>
-  </g>
+  <!-- ─── LEFT COLUMN · .hero-copy ─── -->
 
-  <!-- ─── TITLE BLOCK (bottom-left over dark scrim) ─── -->
-  <g id="title">
-    <text x="120" y="875"
-          font-family="Inter, Helvetica, sans-serif"
-          font-size="15" letter-spacing="5"
-          fill="#E8CD8C" font-weight="500">DESDE 1905 · LOS ALTOS DE JALISCO</text>
-    <text x="120" y="988"
+  <!-- Small-caps eyebrow "TEQUILA" -->
+  <text x="120" y="200"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="18" letter-spacing="9"
+        fill="#E8CD8C" font-weight="500">TEQUILA</text>
+
+  <!-- Big display: "Tres Ese" + italic "Orgánico" (2 lines) -->
+  <text x="120" y="380"
+        font-family="Cormorant Garamond, Georgia, serif"
+        font-size="180" font-weight="500"
+        fill="#FBF7EE" letter-spacing="-0.01em">Tres Ese</text>
+  <text x="120" y="500"
+        font-family="Cormorant Garamond, Georgia, serif"
+        font-size="120" font-weight="400" font-style="italic"
+        fill="#E8CD8C" letter-spacing="-0.005em">Orgánico</text>
+
+  <!-- Place stamp -->
+  <text x="120" y="580"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="15" letter-spacing="6"
+        fill="#E8CD8C" fill-opacity="0.9" font-weight="500">DESDE 1905 · LOS ALTOS DE JALISCO</text>
+
+  <!-- Lede paragraph -->
+  <text x="120" y="675"
+        font-family="Cormorant Garamond, Georgia, serif"
+        font-size="26" font-style="italic"
+        fill="#FBF7EE" fill-opacity="0.9">
+    <tspan x="120" dy="0">100% agave azul, cultivado orgánicamente en la tierra</tspan>
+    <tspan x="120" dy="40">roja de Los Altos de Jalisco. Nada añadido. Nada</tspan>
+    <tspan x="120" dy="40">oculto. Solo agave, fuego, madera, cobre y tiempo.</tspan>
+  </text>
+
+  <!-- Divider line -->
+  <line x1="120" y1="855" x2="960" y2="855"
+        stroke="#E8CD8C" stroke-opacity="0.35" stroke-width="1"/>
+
+  <!-- Stats row · 4 items (100% agave azul · Orgánico cultivo · 2,030 metros altitud · Cero aditivos) -->
+  <g id="stats" transform="translate(120, 920)">
+    <!-- Item 1 -->
+    <text x="0" y="0"
           font-family="Cormorant Garamond, Georgia, serif"
-          font-size="112" font-weight="500"
-          fill="#FBF7EE">La <tspan font-style="italic" fill="#E8CD8C">Historia</tspan>.</text>
-    <text x="120" y="1030"
-          font-family="Cormorant Garamond, Georgia, serif"
-          font-size="22" font-style="italic"
-          fill="#E8CD8C" fill-opacity="0.9">Cinco generaciones. Cero aditivos. Una sola creencia.</text>
-  </g>
+          font-size="30" font-style="italic" font-weight="500"
+          fill="#FBF7EE">100%</text>
+    <text x="0" y="42"
+          font-family="Inter, sans-serif"
+          font-size="10" letter-spacing="3.5"
+          fill="#E8CD8C" fill-opacity="0.82" font-weight="500">AGAVE AZUL</text>
 
-  <!-- ─── PUBLICATION STAMP (bottom-right) ─── -->
-  <g id="foot-right">
-    <text x="1800" y="988"
-          text-anchor="end"
-          font-family="Inter, Helvetica, sans-serif"
-          font-size="11" letter-spacing="3.5"
-          fill="#E8CD8C" fill-opacity="0.7">PUBLICACIÓN</text>
-    <text x="1800" y="1030"
-          text-anchor="end"
+    <!-- Item 2 -->
+    <text x="220" y="0"
           font-family="Cormorant Garamond, Georgia, serif"
-          font-size="20" font-style="italic"
-          fill="#E8CD8C">Manual de Marca · 2026</text>
-  </g>
+          font-size="30" font-style="italic" font-weight="500"
+          fill="#FBF7EE">Orgánico</text>
+    <text x="220" y="42"
+          font-family="Inter, sans-serif"
+          font-size="10" letter-spacing="3.5"
+          fill="#E8CD8C" fill-opacity="0.82" font-weight="500">CULTIVO</text>
 
-  <!-- Divider line at the bottom -->
-  <line x1="120" y1="1055" x2="1800" y2="1055"
-        stroke="#E8CD8C" stroke-opacity="0.32" stroke-width="1"/>
+    <!-- Item 3 -->
+    <text x="440" y="0"
+          font-family="Cormorant Garamond, Georgia, serif"
+          font-size="30" font-style="italic" font-weight="500"
+          fill="#FBF7EE">2,030 metros</text>
+    <text x="440" y="42"
+          font-family="Inter, sans-serif"
+          font-size="10" letter-spacing="3.5"
+          fill="#E8CD8C" fill-opacity="0.82" font-weight="500">ALTITUD</text>
+
+    <!-- Item 4 -->
+    <text x="740" y="0"
+          font-family="Cormorant Garamond, Georgia, serif"
+          font-size="30" font-style="italic" font-weight="500"
+          fill="#FBF7EE">Cero</text>
+    <text x="740" y="42"
+          font-family="Inter, sans-serif"
+          font-size="10" letter-spacing="3.5"
+          fill="#E8CD8C" fill-opacity="0.82" font-weight="500">ADITIVOS</text>
+  </g>
 
 </svg>
