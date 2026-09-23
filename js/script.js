@@ -1,18 +1,18 @@
 (() => {
-  // Hero video — on mobile, swap it out for a plain <img> using the same
-  // poster. Mobile browsers don't autoplay reliably and the user can't even
-  // tap to play (video is aria-hidden and behind overlays). Replacing the
-  // element entirely also avoids the video downloading on phones.
+  // Hero video — try to autoplay on mobile. Modern iOS Safari + Chrome
+  // mobile allow `muted + playsinline + autoplay`, so let the video run.
+  // If .play() rejects (rare — iOS Low Power Mode, some data-saver modes),
+  // the <video>'s poster attribute stays visible as an automatic fallback,
+  // so the user always sees the cellar scene, static or moving.
   const heroVid = document.querySelector('video.hero-bg');
-  if (heroVid && window.matchMedia('(max-width: 960px)').matches) {
-    const poster = heroVid.getAttribute('poster') || 'images/hero-cellar.jpg';
-    const img = document.createElement('img');
-    img.className = heroVid.className;          // keep .hero-bg styling
-    img.src = poster;
-    img.alt = '';
-    img.setAttribute('aria-hidden', 'true');
-    img.decoding = 'async';
-    heroVid.replaceWith(img);
+  if (heroVid) {
+    // Nudge playback on load in case the browser paused it before DOMContentLoaded.
+    const tryPlay = () => { heroVid.play().catch(() => { /* poster fallback */ }); };
+    if (heroVid.readyState >= 2) tryPlay();
+    else heroVid.addEventListener('loadeddata', tryPlay, { once: true });
+    // Also re-attempt on first user gesture (covers strict autoplay policies).
+    const kick = () => { tryPlay(); ['touchstart','click'].forEach(e => document.removeEventListener(e, kick)); };
+    ['touchstart','click'].forEach(e => document.addEventListener(e, kick, { once: true, passive: true }));
   }
 
   // Lock the hero to the viewport height captured at page load on mobile.

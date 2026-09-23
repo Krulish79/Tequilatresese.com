@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Tres Ese · Orgánico — Production Capacity &amp; Pricing · Mexico City</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:            #F4EEE2;
+      --bg-soft:       #EDE3D0;
+      --paper:         #FBF7EE;
+      --ink:           #2A2218;
+      --ink-soft:      #584A38;
+      --muted:         #8A7B62;
+      --line:          #D8C9AC;
+      --copper-deep:   #8A4E1E;
+      --gold:          #B08542;
+      --gold-light:    #E8CD8C;
+      --agave-deep:    #2F3A24;
+
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; }
+
+    html,body{ background:var(--bg); }
+    body{
+      font-family:var(--sans);
+      color:var(--ink);
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+      display:flex; justify-content:center;
+    }
+
+    .sheet{
+      position:relative;
+      width:8.5in; height:11in;
+      background:var(--paper);
+      padding:14mm 14mm 13mm;
+      display:flex; flex-direction:column;
+      overflow:hidden;
+    }
+    .sheet::before{
+      content:"";
+      position:absolute; top:7mm; left:7mm; right:7mm; bottom:5mm;
+      border:1px solid var(--line);
+      pointer-events:none;
+    }
+    .sheet > *{ position:relative; z-index:1; }
+
+    /* ── header ── */
+    .sheet-head{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      padding-bottom:4.5mm;
+      border-bottom:1px solid var(--line);
+    }
+    .brand-block{
+      display:flex; flex-direction:column; align-items:flex-start; gap:2mm;
+      line-height:1;
+    }
+    .brand-block .brand-logo{ height:19mm; width:auto; display:block; }
+    .brand-caption{
+      font-size:6.5pt; letter-spacing:.32em; text-transform:uppercase;
+      color:var(--muted); display:block;
+    }
+    .sheet-meta{ text-align:right; line-height:1.3; }
+    .doc-type{
+      font-size:6.5pt; letter-spacing:.32em; text-transform:uppercase;
+      color:var(--gold); display:block;
+    }
+    .doc-title{
+      font-family:var(--serif); font-style:italic; font-size:13pt;
+      color:var(--ink); display:block; margin-top:1.5mm;
+    }
+    .doc-origin{
+      font-size:7pt; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--muted); margin-top:2mm; display:block;
+    }
+
+    /* ── intro ── */
+    .intro{ padding:5mm 0 5.5mm; }
+    .sheet-tag{
+      font-size:7pt; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--copper-deep); margin:0 0 2mm;
+    }
+    .sheet-h2{
+      font-family:var(--serif); font-weight:400; font-size:19pt; line-height:1;
+      color:var(--ink); margin:0 0 2.5mm;
+    }
+    .sheet-h2 em{ font-style:italic; font-weight:300; }
+    .sheet-lede{
+      font-family:var(--sans); font-size:8.5pt; color:var(--ink-soft);
+      line-height:1.5; margin:0; max-width:150mm;
+      text-align:justify; text-justify:inter-word; hyphens:auto;
+    }
+
+    /* ── section titles ── */
+    .sheet-section-title{
+      font-size:7pt; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin:0 0 2.5mm; padding-bottom:1.5mm;
+      border-bottom:1px solid var(--line);
+    }
+    section{ margin-bottom:6mm; }
+
+    /* ── spec cells (capacity, craft) ── */
+    .sheet-specs{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2.5mm;
+      margin:0; padding:0; list-style:none;
+    }
+    .sheet-specs.cols-4{ grid-template-columns:repeat(4,1fr); }
+    .sheet-specs li{
+      display:flex; flex-direction:column; gap:.8mm;
+      padding:2.6mm 2.5mm;
+      border:1px solid var(--line);
+      background:var(--bg);
+    }
+    .sheet-specs li span{
+      font-size:6pt; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--muted); line-height:1.45;
+    }
+    .sheet-specs li strong{
+      font-family:var(--serif); font-weight:400; font-size:12pt;
+      color:var(--ink); line-height:1.1;
+    }
+
+    /* ── pricing rows ── */
+    .price-row{
+      display:grid; grid-template-columns:1fr 46mm 40mm; gap:2.5mm;
+      margin-bottom:2.5mm; align-items:stretch;
+    }
+    .price-name{
+      display:flex; flex-direction:column; justify-content:center; gap:1mm;
+      padding:3mm 3.5mm;
+      border:1px solid var(--line); background:var(--bg);
+    }
+    .price-name strong{
+      font-family:var(--serif); font-weight:500; font-size:14pt; line-height:1;
+      color:var(--ink);
+    }
+    .price-name strong em{ font-style:italic; font-weight:300; color:var(--copper-deep); }
+    .price-name span{
+      font-size:6pt; letter-spacing:.22em; text-transform:uppercase; color:var(--muted);
+    }
+    .price-pallet{
+      display:flex; flex-direction:column; justify-content:center; gap:1mm;
+      padding:3mm 3.5mm; text-align:right;
+      background:var(--ink); border:1px solid var(--ink);
+    }
+    .price-pallet strong{
+      font-family:var(--serif); font-style:italic; font-weight:500; font-size:14pt;
+      letter-spacing:.02em; line-height:1; color:var(--gold-light);
+    }
+    .price-pallet span{
+      font-size:6pt; letter-spacing:.22em; text-transform:uppercase; color:var(--paper); opacity:.85;
+    }
+    .price-bottle{
+      display:flex; flex-direction:column; justify-content:center; gap:1mm;
+      padding:3mm 3.5mm; text-align:right;
+      border:1px solid var(--line); background:var(--paper);
+    }
+    .price-bottle strong{
+      font-family:var(--serif); font-weight:400; font-size:12pt; line-height:1;
+      color:var(--ink);
+    }
+    .price-bottle span{
+      font-size:6pt; letter-spacing:.22em; text-transform:uppercase; color:var(--muted);
+    }
+    .price-note{
+      margin-top:1mm;
+      font-size:6.5pt; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--copper-deep); text-align:center;
+    }
+
+    /* ── notes ── */
+    .notes-list{ list-style:none; margin:0; padding:0; }
+    .notes-list li{
+      position:relative;
+      padding:1.4mm 0 1.4mm 5mm;
+      font-size:7.4pt; line-height:1.5; color:var(--ink-soft);
+      border-bottom:1px dotted var(--line);
+    }
+    .notes-list li:last-child{ border-bottom:none; }
+    .notes-list li::before{
+      content:"·";
+      position:absolute; left:1mm; top:1.1mm;
+      color:var(--gold); font-size:10pt;
+    }
+
+    /* ── footer ── */
+    .sheet-foot{
+      margin-top:auto;
+      padding-top:4mm;
+      border-top:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:baseline; gap:6mm;
+      color:var(--muted);
+    }
+    .foot-brand{
+      font-family:var(--serif); font-style:italic; font-weight:400; font-size:8.5pt;
+      letter-spacing:.02em; color:var(--ink-soft); text-align:left;
+    }
+    .foot-url{
+      font-family:var(--sans); font-size:6.5pt; letter-spacing:.22em;
+      text-transform:uppercase; color:var(--muted); line-height:1.4; white-space:nowrap;
+    }
+
+    @page{ size:letter; margin:0; }
+    @media print{
+      body{ display:block; }
+      .sheet{ width:8.5in; height:11in; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+
+    <header class="sheet-head">
+      <div class="brand-block">
+        <img class="brand-logo" src="data:image/png;base64,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" alt="Tres Ese" />
+        <span class="brand-caption">Tequila · Since 1905</span>
+      </div>
+      <div class="sheet-meta">
+        <span class="doc-type">Price List</span>
+        <span class="doc-title">Capacity &amp; Pricing</span>
+        <span class="doc-origin">Jalisco Production Facility · July 2026</span>
+      </div>
+    </header>
+
+    <div class="intro">
+      <p class="sheet-tag">700 mL · Delivered to Central de Abastos · Mexico City</p>
+      <h2 class="sheet-h2">Tres Ese <em>Orgánico</em></h2>
+      <p class="sheet-lede">Current production capacity and wholesale pricing for Tequila Tres Ese Orgánico — 100% blue agave, organic cultivation, zero additives — produced in Los Altos de Jalisco and delivered to Central de Abastos, Mexico City.</p>
+    </div>
+
+    <section>
+      <h3 class="sheet-section-title">Production Capacity</h3>
+      <ul class="sheet-specs">
+        <li><span>Production per quarter</span><strong>8,000 L · 55% ABV</strong></li>
+        <li><span>Monthly bottling capacity</span><strong>5,040 bottles · 700 mL</strong></li>
+        <li><span>Pallets per month</span><strong>7 · 720 bottles each</strong></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="sheet-section-title">Wholesale Pricing</h3>
+
+      <div class="price-row">
+        <div class="price-name">
+          <strong>Blanco <em>Orgánico</em></strong>
+          <span>40.4% Alc. Vol. · 700 mL</span>
+        </div>
+        <div class="price-pallet">
+          <strong>MXN 356,400</strong>
+          <span>Per pallet · delivered</span>
+        </div>
+        <div class="price-bottle">
+          <strong>MXN 495.00</strong>
+          <span>Per bottle · equivalent</span>
+        </div>
+      </div>
+
+      <div class="price-row">
+        <div class="price-name">
+          <strong>Reposado <em>Orgánico</em></strong>
+          <span>43.3% Alc. Vol. · 700 mL</span>
+        </div>
+        <div class="price-pallet">
+          <strong>MXN 375,000</strong>
+          <span>Per pallet · delivered</span>
+        </div>
+        <div class="price-bottle">
+          <strong>MXN 520.83</strong>
+          <span>Per bottle · equivalent</span>
+        </div>
+      </div>
+
+      <p class="price-note">Prices include delivery to Central de Abastos · Mexico City</p>
+    </section>
+
+    <section>
+      <h3 class="sheet-section-title">Notes</h3>
+      <ul class="notes-list">
+        <li>All products are supplied in 700 mL bottles.</li>
+        <li>Logistics are based on 720 bottles per pallet.</li>
+        <li>Delivery to Central de Abastos (Mexico City).</li>
+        <li>Production capacities represent current output under normal operating conditions and can be expanded with production planning.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="sheet-section-title">Origin &amp; Craft</h3>
+      <ul class="sheet-specs cols-4">
+        <li><span>Altitude</span><strong>2,030 m</strong></li>
+        <li><span>Natural deep well</span><strong>400 m</strong></li>
+        <li><span>Slow roasting</span><strong>Brick ovens</strong></li>
+        <li><span>Artisanal distillation</span><strong>Copper stills</strong></li>
+      </ul>
+    </section>
+
+    <footer class="sheet-foot">
+      <span class="foot-brand">Tequila Tres Ese · Los Altos de Jalisco · Made in Mexico · 100% Blue Agave · Organic Cultivation · Zero Additives · Small Batches</span>
+      <span class="foot-url">tequilatresese.com</span>
+    </footer>
+
+  </main>
+</body>
+</html>

@@ -154,7 +154,7 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   font-size: clamp(1.15rem, 1.5vw, 1.4rem);
   line-height: 1.5;
   color: var(--ink-soft);
-  max-width: 44ch;
+  max-width: none;                  /* was 44ch — now matches the width of the stats row */
   font-style: italic;
 }
 
@@ -269,26 +269,32 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
 .site-header:not(.is-scrolled) .primary-nav a{ color: var(--paper); }
 .site-header:not(.is-scrolled) .lang-btn{ color: var(--paper); }
 
+/* Nav restyled Banhez-inspired: serif, wider letter-spacing, quieter weight.
+   Elegant + fluid feel — the underline still slides in on hover from left.
+   Sized so all 6 labels fit on one line without wrapping. */
 .primary-nav{
-  display:flex; gap: clamp(1rem, 2.5vw, 2rem);
-  font-size: .82rem;
-  letter-spacing: .14em;
+  display:flex; gap: clamp(1rem, 2.4vw, 2rem);
+  font-family: var(--serif);
+  font-size: .88rem;
+  font-weight: 500;
+  letter-spacing: .22em;
   text-transform: uppercase;
 }
 .primary-nav a{
   position: relative;
   padding: .25rem 0;
+  white-space: nowrap;
   transition: opacity .3s var(--ease);
 }
 .primary-nav a::after{
   content:"";
   position: absolute;
-  left: 0; bottom: 0;
+  left: 0; bottom: -2px;
   width: 0; height: 1px;
-  background: var(--copper);
+  background: var(--gold);
   transition: width .35s var(--ease);
 }
-.primary-nav a:hover{ opacity: .85; }
+.primary-nav a:hover{ opacity: .9; }
 .primary-nav a:hover::after{ width: 100%; }
 
 .header-tools{ display:flex; align-items:center; gap: 1rem; }
@@ -339,41 +345,42 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   width: 100%;
   max-width: 1372px;
   height: auto;
-  max-height: 100%;
-  left: 30%;
-  top: 60%;
-  transform: translate(-30%, -60%);
+  max-height: 85%;                  /* video sits in the bottom 85% */
+  left: 35%;                         /* pulled back another 2% from 37% */
+  top: 100%;                         /* anchored to bottom of hero */
+  transform: translate(-30%, -100%); /* pull up by full self height */
   object-fit: contain;
   filter: brightness(1.05) saturate(1) contrast(1.05);
   z-index: -3;
+  /* Feathered edges — bottom preserved (88%, was good), sides at 8%,
+     top reduced to 0.3% so the nav sits cleanly over the video. Third
+     radial mask rounds the four corners so they don't look sharp. */
+  -webkit-mask-image:
+    linear-gradient(180deg, transparent 0%, transparent 3%, black 10%, black 65%, transparent 100%),           /* bottom fade expanded a little */
+    linear-gradient(90deg,  transparent 0%, transparent 6%, black 18%, black 82%, transparent 94%, transparent 100%),  /* sides expanded */
+    radial-gradient(ellipse 125% 125% at center, black 55%, rgba(0,0,0,.85) 75%, transparent 100%);
+          mask-image:
+    linear-gradient(180deg, transparent 0%, transparent 3%, black 10%, black 65%, transparent 100%),
+    linear-gradient(90deg,  transparent 0%, transparent 6%, black 18%, black 82%, transparent 94%, transparent 100%),
+    radial-gradient(ellipse 125% 125% at center, black 55%, rgba(0,0,0,.85) 75%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
 }
 .hero{ background-color: #15100c; }
 /* Edge-fade overlay — same dark gradients on all four sides as before, plus a
    strong top fade so the video's top edge buries into pure black. */
-.hero-edge-fade{
-  position: absolute; inset: 0;
-  background:
-    /* Dark blob in the bottom-right covers the Veo watermark on the video */
-    radial-gradient(ellipse 24% 18% at 88% 92%, #15100c 0%, #15100c 30%, transparent 100%),
-    linear-gradient(90deg,
-      #15100c 0%,
-      rgba(21,16,12,.7) 18%,
-      transparent 35%,
-      transparent 80%,                /* keep bottle area (52-78%) clean — fade pushed right of all 3 bottles */
-      rgba(21,16,12,.35) 88%,         /* softer fade-in past the bottles (was .55 @ 76%) */
-      rgba(21,16,12,.7) 95%,          /* and lower peak so right bottle stays lit (was .85 @ 86%) */
-      #15100c 100%),
-    linear-gradient(180deg,
-      #15100c 0%,
-      rgba(21,16,12,.95) 12%,       /* heavy alpha straddles the image top edge */
-      rgba(21,16,12,.7) 18%,         /* fades through it smoothly */
-      rgba(21,16,12,.35) 23%,
-      transparent 30%,                /* clean image from here down */
-      transparent 76%,
-      rgba(21,16,12,.6) 90%,
-      #15100c 100%);
+/* Edge fade now done directly on the video via mask-image (above) —
+   this old overlay approach didn't reach the video's actual edges. */
+.hero-edge-fade{ display: none !important; }
+
+/* Subtle darkening on the LEFT so the hero copy stays readable.
+   Additive — mask side fade is preserved on top of this. */
+.hero-veil{
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(90deg, rgba(21,16,12,.78) 0%, rgba(21,16,12,.45) 22%, rgba(21,16,12,.18) 38%, transparent 55%) !important;
   pointer-events: none;
-  z-index: -2;
 }
 .hero-veil{
   position:absolute; inset:0;
@@ -486,9 +493,9 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   flex-wrap: nowrap;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1.8rem;
+  margin-top: 0.3rem;               /* raised another ~3% */
   border-top: 1px solid rgba(251,247,238,.18);
-  padding-top: 1.6rem;
+  padding-top: 1rem;
   width: 100%;
 }
 .hero-meta > div{
@@ -498,6 +505,10 @@ button{ font: inherit; cursor: pointer; border: 0; background: none; color: inhe
   align-items: center;
   text-align: center;
 }
+/* First item aligns to the left edge, last aligns to the right edge so
+   "100%" and "Cero" land flush with the divider line's endpoints */
+.hero-meta > div:first-child{ align-items: flex-start; text-align: left; }
+.hero-meta > div:last-child{ align-items: flex-end; text-align: right; }
 .hero-meta span{
   font-family: var(--serif);
   font-size: clamp(1.5rem, 2.4vw, 2.1rem);
@@ -2339,22 +2350,60 @@ body.lightbox-open{ overflow: hidden; }
     height: var(--hero-h, 100svh);
     max-height: var(--hero-h, 100svh);
   }
-  /* Background image also locked so cover-scaling doesn't recalculate */
+  /* Background video/poster on mobile — cover-scale for full-viewport
+     atmosphere, anchored to the LEFT side of the source composition (the
+     empty cellar with light streaming through) so we're not fighting the
+     baked-in bottles. The standalone Reposado bottle PNG (below) overlays
+     centered on top for a clean hero. */
   .hero-bg{
+    width: 100% !important;
+    max-width: none !important;
     height: var(--hero-h, 100svh) !important;
     max-height: var(--hero-h, 100svh);
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    object-fit: cover !important;
+    object-position: 15% 50% !important;
   }
   .hero-inner{
     display: block;
     padding: 0;
     text-align: left;
   }
-  /* Big title, lede, place line, in-hero label, and standalone bottle PNGs all hidden on mobile */
+  /* Big title, lede, place line, in-hero label hidden on mobile — but the
+     hero-trio is NOT hidden; instead we show only its center bottle (Reposado)
+     as a clean single-bottle overlay on top of the cellar background. */
   .hero-place,
   .hero .lede,
   .hero-label,
-  .hero-title,
-  .hero-trio{ display: none !important; }
+  .hero-title{ display: none !important; }
+  .hero-trio{
+    display: flex !important;
+    visibility: visible !important;   /* desktop base rule hides it — override here */
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 5rem !important;          /* clear the pinned .hero-meta stats row */
+    justify-content: center !important;
+    align-items: flex-end !important; /* bottle rests on the bottom edge */
+    min-height: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+  .hero-trio > *{ pointer-events: auto; }
+  /* Bigger, single-bottle mobile hero — Reposado (flagship) only */
+  .hero-bottle--center img{
+    height: auto !important;
+    max-height: clamp(420px, 62vh, 560px) !important;
+    width: auto !important;
+    max-width: 88vw !important;
+  }
+  .hero-bottle--center figcaption{ display: none !important; }
+  .hero-bottle--center::after{ display: none !important; }
   /* Claims pinned to the BOTTOM of the hero on mobile so they read as a
      ground-line beneath the bottles in the background image. Sits low
      enough that there's clear breathing room between the bottle bases
@@ -3391,9 +3440,10 @@ body {
 /* ── Mobile hero: single Reposado bottle instead of squished 3-across.
    On phones the 3-bottle trio compresses each bottle to ~120px wide, so
    the label text becomes unreadable. Show only the flagship Reposado
-   (center) on ≤640px viewports at a size where the labels stay crisp;
-   hide Blanco (left) and Extra Añejo (right). Desktop trio untouched. */
-@media (max-width: 640px) {
+   (center) on ≤820px viewports (covers all phones + landscape phones +
+   small tablets — 640px missed larger modern phones in portrait, which
+   showed 2 half-visible bottles). Desktop trio untouched above 820px. */
+@media (max-width: 820px) {
   .hero-bottle--left,
   .hero-bottle--right {
     display: none !important;

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- ═══════════ SLIDE 08 · LAS EXPRESIONES · Nº 01 BLANCO ORGÁNICO ═══════════
+       Literal port of <article class="expression" id="blanco"> — media LEFT,
+       copy RIGHT with num-tag, tag, title, body, tasting notes, spec pills. -->
+
+  <defs>
+    <radialGradient id="beigeSpot" cx="50%" cy="55%" r="60%">
+      <stop offset="0%" stop-color="#EDE3D0"/>
+      <stop offset="70%" stop-color="#E0D2B0"/>
+      <stop offset="100%" stop-color="#C9B791"/>
+    </radialGradient>
+    <filter id="bottleShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="0" dy="18" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#FBF7EE"/>
+
+  <!-- ─── LEFT · expression-media ─── -->
+  <g id="expression-media">
+    <rect x="90" y="90" width="840" height="900" fill="url(#beigeSpot)" rx="6"/>
+    <rect x="120" y="120" width="90" height="36" fill="#0F0C08" fill-opacity="0.72" rx="2"/>
+    <text x="165" y="146" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="3.5" fill="#E8CD8C" font-weight="500">Nº 01</text>
+    <image xlink:href="../../images/TresEse_Botella_Blanco.png"
+           x="215" y="180" width="590" height="720"
+           preserveAspectRatio="xMidYMax meet"
+           filter="url(#bottleShadow)"/>
+  </g>
+
+  <!-- ─── RIGHT · expression-copy ─── -->
+  <g id="expression-copy" transform="translate(1010, 175)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="12" letter-spacing="5" fill="#8A4E1E" font-weight="500">TEQUILA ORGÁNICO</text>
+
+    <text x="0" y="90" font-family="Cormorant Garamond, Georgia, serif" font-size="72" font-weight="500" fill="#2A2218">Blanco <tspan font-style="italic" fill="#8A4E1E">Orgánico</tspan></text>
+
+    <line x1="0" y1="130" x2="120" y2="130" stroke="#8A4E1E" stroke-opacity="0.6" stroke-width="1"/>
+
+    <text x="0" y="200" font-family="Inter, sans-serif" font-size="15" fill="#584A38">
+      <tspan x="0" dy="0">La voz más pura del agave de la sierra — embotellado en el momento</tspan>
+      <tspan x="0" dy="26">en que sale del alambique de cobre. Cristalino, mineral, inconfundiblemente</tspan>
+      <tspan x="0" dy="26">vivo. Esto es <tspan font-weight="500" fill="#2A2218">Tres Ese</tspan> en su forma más honesta: nada oculto por</tspan>
+      <tspan x="0" dy="26">la barrica, nada suavizado por el tiempo.</tspan>
+    </text>
+
+    <text x="0" y="360" font-family="Inter, sans-serif" font-size="10" letter-spacing="3.5" fill="#8A4E1E" font-weight="500">NOTAS DE CATA</text>
+    <line x1="0" y1="380" x2="820" y2="380" stroke="#C9B791" stroke-width="0.5"/>
+
+    <text x="0" y="415" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-style="italic" fill="#8A4E1E">NARIZ</text>
+    <text x="130" y="415" font-family="Inter, sans-serif" font-size="14" fill="#584A38">Agave fresco recién cortado con ralladura de lima y pimienta blanca.</text>
+
+    <text x="0" y="445" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-style="italic" fill="#8A4E1E">BOCA</text>
+    <text x="130" y="445" font-family="Inter, sans-serif" font-size="14" fill="#584A38">Crujiente y brillante, con cáscara de cítrico y hierba verde.</text>
+
+    <text x="0" y="475" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-style="italic" fill="#8A4E1E">FINAL</text>
+    <text x="130" y="475" font-family="Inter, sans-serif" font-size="14" fill="#584A38">Seco y limpio, con un calor suave que persiste sin agresividad.</text>
+
+    <g id="spec-pills" transform="translate(0, 530)">
+      <rect x="0" y="0" width="140" height="52" fill="#FBF7EE" stroke="#8A4E1E" stroke-opacity="0.32" rx="3"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" letter-spacing="1.8" fill="#8A4E1E" font-weight="500">REPOSO</text>
+      <text x="70" y="41" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="500" fill="#2A2218">Sin reposo</text>
+
+      <rect x="150" y="0" width="110" height="52" fill="#FBF7EE" stroke="#8A4E1E" stroke-opacity="0.32" rx="3"/>
+      <text x="205" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" letter-spacing="1.8" fill="#8A4E1E" font-weight="500">VOL ALC</text>
+      <text x="205" y="41" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="500" fill="#2A2218">40.4%</text>
+
+      <rect x="270" y="0" width="110" height="52" fill="#2A2218" rx="3"/>
+      <text x="325" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" letter-spacing="1.8" fill="#E8CD8C" font-weight="500">GRADOS</text>
+      <text x="325" y="41" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="500" fill="#FBF7EE">80.8</text>
+
+      <rect x="390" y="0" width="110" height="52" fill="#FBF7EE" stroke="#8A4E1E" stroke-opacity="0.32" rx="3"/>
+      <text x="445" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" letter-spacing="1.8" fill="#8A4E1E" font-weight="500">COLOR</text>
+      <text x="445" y="41" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="500" fill="#2A2218">Cristal</text>
+
+      <rect x="510" y="0" width="230" height="52" fill="#FBF7EE" stroke="#8A4E1E" stroke-opacity="0.32" rx="3"/>
+      <text x="625" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" letter-spacing="1.8" fill="#8A4E1E" font-weight="500">SERVIR</text>
+      <text x="625" y="41" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="13" font-weight="500" fill="#2A2218">Solo · con hielo · coctel</text>
+    </g>
+  </g>
+
+  <!-- Expression-nav strip at bottom-right -->
+  <line x1="1010" y1="900" x2="1830" y2="900" stroke="#C9B791" stroke-width="1"/>
+  <g id="exp-nav" transform="translate(1010, 935)">
+    <g transform="translate(0,0)">
+      <text x="0" y="30" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A4E1E">Nº 01</text>
+      <text x="0" y="64" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A4E1E" font-weight="500">BLANCO ORGÁNICO</text>
+    </g>
+    <g transform="translate(280,0)">
+      <text x="0" y="30" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">Nº 02</text>
+      <text x="0" y="64" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">REPOSADO ORGÁNICO</text>
+    </g>
+    <g transform="translate(560,0)">
+      <text x="0" y="30" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">Nº 03</text>
+      <text x="0" y="64" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">EXTRA AÑEJO</text>
+    </g>
+  </g>
+</svg>

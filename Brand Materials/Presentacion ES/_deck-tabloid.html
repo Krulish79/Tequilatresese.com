@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Tres Ese — Presentación (ES) — Tabloide</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #FBF7EE; }
+  /* Tabloid landscape: 17in × 11in @ 96dpi = 1632 × 1056 CSS pixels */
+  .page {
+    width: 17in;
+    height: 11in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FBF7EE;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  /* Slide is 1920x1080 (16:9). On a 17x11 sheet (17÷11 = 1.545), a 16:9
+     slide scaled to full width overshoots height by ~30%, so we scale by
+     sheet height instead. That yields 16.29" wide × 9.16" tall, leaving
+     ~0.36" of cream margin top/bottom and ~0.35" left/right. */
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    transform-origin: center center;
+    /* Scale factor: 11in / 1080px, where 1in = 96px → (11*96)/1080 = 0.978 */
+    transform: scale(0.978);
+  }
+  .slide object { width: 100%; height: 100%; display: block; }
+  @page { size: 17in 11in; margin: 0; }
+  @media print {
+    html, body { background: #FFF; }
+    .page { margin: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="01-portada.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="02-historia.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="03-cultivo.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="04-coccion.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="05-fermentacion.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="06-destilacion.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="07-embotellado.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="08-blanco.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="09-reposado.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="10-extra-anejo.svg"></object></div></div>
+  <div class="page"><div class="slide"><object type="image/svg+xml" data="11-contacto.svg"></object></div></div>
+</body>
+</html>

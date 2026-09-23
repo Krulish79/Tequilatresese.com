@@ -37,32 +37,37 @@
   <rect width="1920" height="1080" fill="url(#leftScrim)"/>
   <rect width="1920" height="1080" fill="url(#bottomFade)"/>
 
+  <!-- ─── OFFICIAL LOGO · TOP LEFT ─── -->
+  <image xlink:href="../../images/Logos/logo-primary-white.png"
+         x="120" y="80" width="240" height="96"
+         preserveAspectRatio="xMinYMid meet"/>
+
   <!-- ─── LEFT COLUMN · .hero-copy ─── -->
 
   <!-- Small-caps eyebrow "TEQUILA" -->
-  <text x="120" y="200"
+  <text x="120" y="260"
         font-family="Inter, Helvetica, sans-serif"
         font-size="18" letter-spacing="9"
         fill="#E8CD8C" font-weight="500">TEQUILA</text>
 
   <!-- Big display: "Tres Ese" + italic "Orgánico" (2 lines) -->
-  <text x="120" y="380"
+  <text x="120" y="420"
         font-family="Cormorant Garamond, Georgia, serif"
-        font-size="180" font-weight="500"
+        font-size="170" font-weight="500"
         fill="#FBF7EE" letter-spacing="-0.01em">Tres Ese</text>
-  <text x="120" y="500"
+  <text x="120" y="535"
         font-family="Cormorant Garamond, Georgia, serif"
-        font-size="120" font-weight="400" font-style="italic"
+        font-size="115" font-weight="400" font-style="italic"
         fill="#E8CD8C" letter-spacing="-0.005em">Orgánico</text>
 
   <!-- Place stamp -->
-  <text x="120" y="580"
+  <text x="120" y="605"
         font-family="Inter, Helvetica, sans-serif"
         font-size="15" letter-spacing="6"
         fill="#E8CD8C" fill-opacity="0.9" font-weight="500">DESDE 1905 · LOS ALTOS DE JALISCO</text>
 
-  <!-- Lede paragraph -->
-  <text x="120" y="675"
+  <!-- Lede paragraph (justified) -->
+  <text x="120" y="695"
         font-family="Cormorant Garamond, Georgia, serif"
         font-size="26" font-style="italic"
         fill="#FBF7EE" fill-opacity="0.9">
@@ -71,50 +76,50 @@
     <tspan x="120" dy="40">oculto. Solo agave, fuego, madera, cobre y tiempo.</tspan>
   </text>
 
-  <!-- Divider line -->
-  <line x1="120" y1="855" x2="960" y2="855"
+  <!-- Divider line (shortened so it doesn't crowd the bottles on the right) -->
+  <line x1="120" y1="855" x2="860" y2="855"
         stroke="#E8CD8C" stroke-opacity="0.35" stroke-width="1"/>
 
-  <!-- Stats row · 4 items (100% agave azul · Orgánico cultivo · 2,030 metros altitud · Cero aditivos) -->
+  <!-- Stats row · 4 items, evenly spaced 220 apart, +10% type size -->
   <g id="stats" transform="translate(120, 920)">
     <!-- Item 1 -->
     <text x="0" y="0"
           font-family="Cormorant Garamond, Georgia, serif"
-          font-size="30" font-style="italic" font-weight="500"
+          font-size="33" font-style="italic" font-weight="500"
           fill="#FBF7EE">100%</text>
-    <text x="0" y="42"
+    <text x="0" y="46"
           font-family="Inter, sans-serif"
-          font-size="10" letter-spacing="3.5"
+          font-size="11" letter-spacing="3.5"
           fill="#E8CD8C" fill-opacity="0.82" font-weight="500">AGAVE AZUL</text>
 
     <!-- Item 2 -->
     <text x="220" y="0"
           font-family="Cormorant Garamond, Georgia, serif"
-          font-size="30" font-style="italic" font-weight="500"
+          font-size="33" font-style="italic" font-weight="500"
           fill="#FBF7EE">Orgánico</text>
-    <text x="220" y="42"
+    <text x="220" y="46"
           font-family="Inter, sans-serif"
-          font-size="10" letter-spacing="3.5"
+          font-size="11" letter-spacing="3.5"
           fill="#E8CD8C" fill-opacity="0.82" font-weight="500">CULTIVO</text>
 
     <!-- Item 3 -->
     <text x="440" y="0"
           font-family="Cormorant Garamond, Georgia, serif"
-          font-size="30" font-style="italic" font-weight="500"
+          font-size="33" font-style="italic" font-weight="500"
           fill="#FBF7EE">2,030 metros</text>
-    <text x="440" y="42"
+    <text x="440" y="46"
           font-family="Inter, sans-serif"
-          font-size="10" letter-spacing="3.5"
+          font-size="11" letter-spacing="3.5"
           fill="#E8CD8C" fill-opacity="0.82" font-weight="500">ALTITUD</text>
 
     <!-- Item 4 -->
-    <text x="740" y="0"
+    <text x="660" y="0"
           font-family="Cormorant Garamond, Georgia, serif"
-          font-size="30" font-style="italic" font-weight="500"
+          font-size="33" font-style="italic" font-weight="500"
           fill="#FBF7EE">Cero</text>
-    <text x="740" y="42"
+    <text x="660" y="46"
           font-family="Inter, sans-serif"
-          font-size="10" letter-spacing="3.5"
+          font-size="11" letter-spacing="3.5"
           fill="#E8CD8C" fill-opacity="0.82" font-weight="500">ADITIVOS</text>
   </g>
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- ═══════════ SLIDE 07 · EL PROCESO · STEP 05 EMBOTELLADO ═══════════
+       Media LEFT / copy RIGHT (site's odd-step alternation).
+       Photo placeholder — brand-owner will supply better imagery. -->
+
+  <defs>
+    <clipPath id="stepMediaClip"><rect x="90" y="90" width="840" height="900" rx="4"/></clipPath>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#FBF7EE"/>
+
+  <!-- ─── LEFT · step-media ─── -->
+  <g id="step-media">
+    <rect x="90" y="90" width="840" height="900" fill="#2A2218" rx="4"/>
+    <image xlink:href="stills/embotellado-b.jpg"
+           x="0" y="90" width="1000" height="900"
+           preserveAspectRatio="xMidYMid slice"
+           clip-path="url(#stepMediaClip)"/>
+    <rect x="90" y="820" width="840" height="170" fill="#0F0C08" fill-opacity="0.6"/>
+    <text x="130" y="920" font-family="Cormorant Garamond, Georgia, serif" font-size="98" font-style="italic" font-weight="500" fill="#E8CD8C">05</text>
+    <line x1="260" y1="880" x2="380" y2="880" stroke="#E8CD8C" stroke-width="1"/>
+    <text x="260" y="925" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" font-weight="500">EL PROCESO · PASO 05</text>
+    <text x="260" y="962" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-style="italic" fill="#FBF7EE">Numerado y firmado a mano.</text>
+  </g>
+
+  <!-- ─── RIGHT · step-copy ─── -->
+  <g id="step-copy" transform="translate(1010, 200)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="14" letter-spacing="5" fill="#8A4E1E" font-weight="500">05 — REPOSO Y EMBOTELLADO</text>
+
+    <text x="0" y="110" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="500" fill="#2A2218">Embotellado, taponado</text>
+    <text x="0" y="180" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="500" fill="#2A2218">y etiquetado <tspan font-style="italic" fill="#8A4E1E">a mano</tspan>.</text>
+
+    <line x1="0" y1="230" x2="120" y2="230" stroke="#8A4E1E" stroke-opacity="0.6" stroke-width="1"/>
+
+    <text x="0" y="300" font-family="Inter, sans-serif" font-size="17" fill="#584A38">
+      <tspan x="0" dy="0">El Blanco se embotella directo del alambique.</tspan>
+      <tspan x="0" dy="28">El Reposado descansa seis meses en roble francés.</tspan>
+      <tspan x="0" dy="28">El Extra Añejo, más de tres años.</tspan>
+    </text>
+
+    <text x="0" y="450" font-family="Inter, sans-serif" font-size="17" fill="#584A38">
+      <tspan x="0" dy="0">Cada botella se llena, se tapa y se etiqueta a mano.</tspan>
+      <tspan x="0" dy="28">Cada lote pequeño se termina antes de comenzar el</tspan>
+      <tspan x="0" dy="28">siguiente. Cada botella sale numerada.</tspan>
+    </text>
+
+    <text x="0" y="620" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#8A4E1E">— Lotes pequeños, uno a la vez.</text>
+  </g>
+
+  <line x1="1010" y1="910" x2="1830" y2="910" stroke="#C9B791" stroke-width="1"/>
+  <g id="step-nav" transform="translate(1010, 945)">
+    <g transform="translate(0,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">01</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">CULTIVO</text></g>
+    <g transform="translate(175,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">02</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">COCCIÓN</text></g>
+    <g transform="translate(350,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">03</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">FERMENTACIÓN</text></g>
+    <g transform="translate(525,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">04</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">DESTILACIÓN</text></g>
+    <g transform="translate(700,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A4E1E">05</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A4E1E" font-weight="500">EMBOTELLADO</text></g>
+  </g>
+</svg>

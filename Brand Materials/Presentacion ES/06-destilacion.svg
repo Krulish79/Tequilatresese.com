@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- ═══════════ SLIDE 06 · EL PROCESO · STEP 04 DESTILACIÓN ═══════════
+       Media RIGHT / copy LEFT (site's even-step alternation).
+       Photo placeholder — brand-owner will supply better imagery. -->
+
+  <defs>
+    <clipPath id="stepMediaClip"><rect x="990" y="90" width="840" height="900" rx="4"/></clipPath>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#FBF7EE"/>
+
+  <!-- ─── LEFT · step-copy ─── -->
+  <g id="step-copy" transform="translate(120, 200)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="14" letter-spacing="5" fill="#8A4E1E" font-weight="500">04 — DESTILACIÓN</text>
+
+    <text x="0" y="110" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="500" fill="#2A2218">Doble destilación,</text>
+    <text x="0" y="180" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="500" font-style="italic" fill="#8A4E1E">alambiques de cobre.</text>
+
+    <line x1="0" y1="230" x2="120" y2="230" stroke="#8A4E1E" stroke-opacity="0.6" stroke-width="1"/>
+
+    <text x="0" y="300" font-family="Inter, sans-serif" font-size="17" fill="#584A38">
+      <tspan x="0" dy="0">Doble destilación en alambiques de cobre, tal como</tspan>
+      <tspan x="0" dy="28">se ha hecho durante generaciones. El cobre pule los</tspan>
+      <tspan x="0" dy="28">sabores. La segunda pasada refina el corazón.</tspan>
+      <tspan x="0" dy="28">El resultado es un destilado limpio, sin necesidad</tspan>
+      <tspan x="0" dy="28">de mascarar nada.</tspan>
+    </text>
+
+    <text x="0" y="530" font-family="Cormorant Garamond, Georgia, serif" font-size="20" font-style="italic" fill="#8A4E1E">— Solo agave, fuego, madera, cobre y tiempo.</text>
+  </g>
+
+  <line x1="120" y1="910" x2="940" y2="910" stroke="#C9B791" stroke-width="1"/>
+  <g id="step-nav" transform="translate(120, 945)">
+    <g transform="translate(0,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">01</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">CULTIVO</text></g>
+    <g transform="translate(175,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">02</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">COCCIÓN</text></g>
+    <g transform="translate(350,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">03</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">FERMENTACIÓN</text></g>
+    <g transform="translate(525,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A4E1E">04</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A4E1E" font-weight="500">DESTILACIÓN</text></g>
+    <g transform="translate(700,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">05</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">EMBOTELLADO</text></g>
+  </g>
+
+  <!-- ─── RIGHT · step-media ─── -->
+  <g id="step-media">
+    <rect x="990" y="90" width="840" height="900" fill="#2A2218" rx="4"/>
+    <image xlink:href="../../images/slides/distillation/01.jpg"
+           x="900" y="90" width="1000" height="900"
+           preserveAspectRatio="xMidYMid slice"
+           clip-path="url(#stepMediaClip)"/>
+    <rect x="990" y="820" width="840" height="170" fill="#0F0C08" fill-opacity="0.6"/>
+    <text x="1030" y="920" font-family="Cormorant Garamond, Georgia, serif" font-size="98" font-style="italic" font-weight="500" fill="#E8CD8C">04</text>
+    <line x1="1160" y1="880" x2="1280" y2="880" stroke="#E8CD8C" stroke-width="1"/>
+    <text x="1160" y="925" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" font-weight="500">EL PROCESO · PASO 04</text>
+    <text x="1160" y="962" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-style="italic" fill="#FBF7EE">Alambiques de cobre, doble destilación.</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- ═══════════ SLIDE 05 · EL PROCESO · STEP 03 FERMENTACIÓN NATURAL ═══════════
+       Media LEFT / copy RIGHT (odd step in the site's alternation).
+       Photo placeholder — brand-owner will supply better imagery. -->
+
+  <defs>
+    <clipPath id="stepMediaClip"><rect x="90" y="90" width="840" height="900" rx="4"/></clipPath>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#FBF7EE"/>
+
+  <!-- ─── LEFT · step-media ─── -->
+  <g id="step-media">
+    <rect x="90" y="90" width="840" height="900" fill="#2A2218" rx="4"/>
+    <image xlink:href="stills/fermentacion-c.jpg"
+           x="0" y="90" width="1000" height="900"
+           preserveAspectRatio="xMidYMid slice"
+           clip-path="url(#stepMediaClip)"/>
+    <rect x="90" y="820" width="840" height="170" fill="#0F0C08" fill-opacity="0.6"/>
+    <text x="130" y="920" font-family="Cormorant Garamond, Georgia, serif" font-size="98" font-style="italic" font-weight="500" fill="#E8CD8C">03</text>
+    <line x1="260" y1="880" x2="380" y2="880" stroke="#E8CD8C" stroke-width="1"/>
+    <text x="260" y="925" font-family="Inter, sans-serif" font-size="11" letter-spacing="4" fill="#E8CD8C" font-weight="500">EL PROCESO · PASO 03</text>
+    <text x="260" y="962" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-style="italic" fill="#FBF7EE">Tinas abiertas de madera.</text>
+  </g>
+
+  <!-- ─── RIGHT · step-copy ─── -->
+  <g id="step-copy" transform="translate(1010, 200)">
+    <text x="0" y="0" font-family="Inter, sans-serif" font-size="14" letter-spacing="5" fill="#8A4E1E" font-weight="500">03 — FERMENTACIÓN NATURAL</text>
+
+    <text x="0" y="110" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="500" fill="#2A2218">Fermentación <tspan font-style="italic" fill="#8A4E1E">verdadera</tspan>.</text>
+    <text x="0" y="185" font-family="Cormorant Garamond, Georgia, serif" font-size="54" font-weight="500" fill="#2A2218">Carácter <tspan font-style="italic" fill="#8A4E1E">verdadero</tspan>.</text>
+
+    <line x1="0" y1="235" x2="120" y2="235" stroke="#8A4E1E" stroke-opacity="0.6" stroke-width="1"/>
+
+    <text x="0" y="305" font-family="Inter, sans-serif" font-size="17" fill="#584A38">
+      <tspan x="0" dy="0">Fermentamos en tinas abiertas de madera, con agua</tspan>
+      <tspan x="0" dy="28">extraída de un pozo de 400 metros en nuestra</tspan>
+      <tspan x="0" dy="28"><tspan font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="19" fill="#2A2218">hacienda</tspan> — filtrada por siglos de roca volcánica —</tspan>
+      <tspan x="0" dy="28">y solo las levaduras silvestres y nativas que viven</tspan>
+      <tspan x="0" dy="28">en los poros y ranuras de la madera de las tinas.</tspan>
+    </text>
+
+    <text x="0" y="530" font-family="Inter, sans-serif" font-size="17" fill="#584A38">
+      <tspan x="0" dy="0">Es más lento. Es menos predecible. Es exactamente</tspan>
+      <tspan x="0" dy="28">como el tequila siempre debió hacerse — paciente,</tspan>
+      <tspan x="0" dy="28">deliberado, vivo.</tspan>
+    </text>
+  </g>
+
+  <line x1="1010" y1="910" x2="1830" y2="910" stroke="#C9B791" stroke-width="1"/>
+  <g id="step-nav" transform="translate(1010, 945)">
+    <g transform="translate(0,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">01</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">CULTIVO</text></g>
+    <g transform="translate(175,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">02</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">COCCIÓN</text></g>
+    <g transform="translate(350,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A4E1E">03</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A4E1E" font-weight="500">FERMENTACIÓN</text></g>
+    <g transform="translate(525,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">04</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">DESTILACIÓN</text></g>
+    <g transform="translate(700,0)"><text x="0" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-style="italic" font-weight="500" fill="#8A7B62" opacity="0.5">05</text><text x="0" y="62" font-family="Inter, sans-serif" font-size="13" letter-spacing="3" fill="#8A7B62" opacity="0.6" font-weight="500">EMBOTELLADO</text></g>
+  </g>
+</svg>

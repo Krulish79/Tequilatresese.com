@@ -55,6 +55,35 @@
     .editor button.secondary{background:#fff;color:#1a1a1a;}
     .editor button:hover{opacity:.85;}
     @media print{.editor{display:none !important;}}
+
+    /* ─────────── USA PRICE SHEET · COMPACTION OVERRIDES ───────────
+       The USA sheets carry an extra Logistics section on top of the base
+       ficha structure. Everything below tightens the vertical rhythm and
+       shrinks the bottle so all sections fit on one Letter page. */
+    .sheet-content{ gap: 3.5mm; }
+    .sheet-lede{ font-size: 9.5pt; line-height: 1.4; }
+    .price-block{ padding: 3.5mm 0; margin: 1mm 0 2mm; }
+    .price-value{ font-size: 26pt; }
+    .price-value .currency{ font-size: 12pt; }
+    .price-case .case-value{ font-size: 14pt; }
+    .sheet-section-title{ font-size: 7pt; margin-bottom: 1.2mm; padding-bottom: .8mm; }
+    /* Tiles compacted: shorter rectangles, tighter grid gap. Same info,
+       less vertical footprint so the notes column fits without orphans. */
+    .sheet-specs{ gap: 1.4mm; }
+    .sheet-specs li{ padding: 0.9mm 2mm; gap: .1mm; }
+    .sheet-specs span{ font-size: 5.5pt; letter-spacing: .2em; }
+    .sheet-specs strong{ font-size: 8.5pt; line-height: 1.15; }
+    .sheet-specs .proof-cell strong{ font-size: 12pt; }
+    .price-notes{ font-size: 6.5pt; line-height: 1.5; }
+    .brand-block .brand-logo{ height: 20mm; }
+    /* Bottle: anchored inside its column with a comfortable pad-bottom
+       so its base + shadow clear the section divider. */
+    .sheet-bottle{ padding: 0 0 8mm; }
+    .sheet-bottle img{ width: 142mm; bottom: 0; }
+    /* Shadow lifted to tuck under the visible bottle base (the PNG has
+       transparent margin at the image bottom, so the shadow can't sit at
+       image bottom or it floats free of the base). */
+    .sheet-bottle::after{ width: 40mm; bottom: 7mm; }
   </style>
 </head>
 <body>
@@ -72,9 +101,17 @@
     <div class="row-2cols"><label>Case of 6</label><input type="text" data-key="case_price" placeholder="234" /><input type="text" data-key="case_currency" placeholder="USD" /></div>
     <div class="row"><label>Case meta</label><input type="text" data-key="case_meta" placeholder="6 × 700 mL · per case" /></div>
 
+    <div class="row"><label>Logistics · Case weight</label><input type="text" data-key="log_case_weight" placeholder="19.6 lbs" /></div>
+    <div class="row"><label>Logistics · Case size</label><input type="text" data-key="log_case_size" placeholder="30 × 20 × 35 cm" /></div>
+    <div class="row"><label>Logistics · Cases / pallet</label><input type="text" data-key="log_cases_pallet" placeholder="80" /></div>
+    <div class="row"><label>Logistics · Pallet size</label><input type="text" data-key="log_pallet_size" placeholder="47.2 × 39.4 × 66.9 in" /></div>
+    <div class="row"><label>Logistics · Pallet weight</label><input type="text" data-key="log_pallet_weight" placeholder="~2,400 lbs" /></div>
+    <div class="row"><label>Logistics · Volume</label><input type="text" data-key="log_pallet_cbm" placeholder="72 ft³" /></div>
+
     <div class="row"><label>Note · Prices</label><input type="text" data-key="note_precios" /></div>
     <div class="row"><label>Note · Shipping</label><input type="text" data-key="note_shipping" /></div>
     <div class="row"><label>Note · Availability</label><input type="text" data-key="note_disp" /></div>
+    <div class="row"><label>Note · Logistics</label><input type="text" data-key="note_log" /></div>
     <div class="row"><label>Footer · Signature</label><input type="text" data-key="foot_sig" /></div>
     <div class="row"><label>Footer · Date</label><input type="text" data-key="fecha" placeholder="June 19, 2026" /></div>
     <div class="row"><label>Footer · Made by</label><input type="text" data-key="elaborado" placeholder="Christopher Mir" /></div>
@@ -145,11 +182,24 @@
           </ul>
         </div>
 
+        <div>
+          <p class="sheet-section-title">Logistics · Per Pallet</p>
+          <ul class="sheet-specs">
+            <li><span>Case Weight</span><strong id="out-log-case-weight">19.6 lbs</strong></li>
+            <li><span>Case Size</span><strong id="out-log-case-size">9.8 × 7.1 × 10.2 in</strong></li>
+            <li><span>Cases / Pallet</span><strong id="out-log-cases-pallet">120</strong></li>
+            <li><span>Pallet Size</span><strong id="out-log-pallet-size">47.2 × 39.4 × 66.9 in</strong></li>
+            <li><span>Pallet Weight</span><strong id="out-log-pallet-weight">~2,400 lbs</strong></li>
+            <li><span>Volume</span><strong id="out-log-pallet-cbm">72 ft³</strong></li>
+          </ul>
+        </div>
+
         <div class="sheet-origin">
           <ul class="price-notes">
             <li><strong>Prices —</strong> <span id="out-note-precios">Prices in USD. Taxes, duties, and inland freight not included.</span></li>
-            <li><strong>Shipping —</strong> <span id="out-note-shipping">EXW Jalisco, México.</span></li>
+            <li><strong>Shipping —</strong> <span id="out-note-shipping">FOB San Julián, Jalisco.</span></li>
             <li><strong>Availability —</strong> <span id="out-note-disp">United States, continental distribution only.</span></li>
+            <li><strong>Logistics —</strong> <span id="out-note-log">120 cases (720 bottles) per EUR-tall pallet. Approximate; final figures on bill&nbsp;of&nbsp;lading.</span></li>
           </ul>
         </div>
       </div>
@@ -178,10 +228,10 @@
   </article>
 
 <script>
-  const STORAGE_KEY = 'tresese_pricelist_usa_reposado_v1';
+  const STORAGE_KEY = 'tresese_pricelist_usa_reposado_v3';
   const DEFAULTS = {
     audience:        'USA Distribution',
-    period:          'June 2026',
+    period:          'July 2026',
     lede:            'Wholesale pricing for distributors in the United States. Tres Ese Reposado Orgánico — rested 6 months in French oak, hand-bottled in Los Altos de Jalisco.',
     price:           '15.90',
     currency:        'USD',
@@ -189,11 +239,18 @@
     case_price:      '95.40',
     case_currency:   'USD',
     case_meta:       '6 × 700 mL · per case',
+    log_case_weight: '19.6 lbs',
+    log_case_size:   '9.8 × 7.1 × 10.2 in',
+    log_cases_pallet:'120',
+    log_pallet_size: '47.2 × 39.4 × 66.9 in',
+    log_pallet_weight:'~2,400 lbs',
+    log_pallet_cbm:  '72 ft³',
     note_precios:    'Prices in USD. Taxes, duties, and inland freight not included.',
-    note_shipping:   'EXW Jalisco, México.',
+    note_shipping:   'FOB San Julián, Jalisco.',
     note_disp:       'United States, continental distribution only.',
+    note_log:        '120 cases (720 bottles) per EUR-tall pallet. Approximate; final figures on bill of lading.',
     foot_sig:        'Tequila Tres Ese · Los Altos de Jalisco · Made in Mexico · 100% Blue Agave · Organic Cultivation · Zero Additives · Small Batches',
-    fecha:           'June 19, 2026',
+    fecha:           'July 22, 2026',
     elaborado:       'Christopher Mir',
     aprobado:        'R. Zambrano',
   };
@@ -207,9 +264,16 @@
     case_price:      'out-case-price',
     case_currency:   'out-case-currency',
     case_meta:       'out-case-meta',
+    log_case_weight: 'out-log-case-weight',
+    log_case_size:   'out-log-case-size',
+    log_cases_pallet:'out-log-cases-pallet',
+    log_pallet_size: 'out-log-pallet-size',
+    log_pallet_weight:'out-log-pallet-weight',
+    log_pallet_cbm:  'out-log-pallet-cbm',
     note_precios:    'out-note-precios',
     note_shipping:   'out-note-shipping',
     note_disp:       'out-note-disp',
+    note_log:        'out-note-log',
     foot_sig:        'out-foot-sig',
     fecha:           'out-fecha',
     elaborado:       'out-elaborado',
