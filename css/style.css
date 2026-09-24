@@ -2350,51 +2350,32 @@ body.lightbox-open{ overflow: hidden; }
     height: var(--hero-h, 100svh);
     max-height: var(--hero-h, 100svh);
   }
-  /* Background video/poster on mobile — cover-scale for full-viewport
-     atmosphere, anchored to the LEFT side of the source composition (the
-     empty cellar with light streaming through) so we're not fighting the
-     baked-in bottles. The standalone Reposado bottle PNG (below) overlays
-     centered on top for a clean hero. */
-  .hero-bg{
-    width: 100% !important;
-    max-width: none !important;
-    height: var(--hero-h, 100svh) !important;
-    max-height: var(--hero-h, 100svh);
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    object-fit: cover !important;
-    object-position: 15% 50% !important;
+  /* Mobile hero — no video. Use the poster image as a still background on
+     .hero itself (cheaper on battery + cellular data, no mask complications).
+     The Reposado bottle PNG below overlays centered on top for a clean hero. */
+  .hero-bg{ display: none !important; }
+  .hero{
+    background-image: url('images/home/hero-cellar.jpg.png?v=20260923new') !important;
+    background-size: cover !important;
+    /* Anchor at 72% horizontal — shows the RIGHT side of the source image
+       where the 3 bottles (Blanco, Reposado, Extra Añejo) live, so mobile
+       matches the desktop trio composition. */
+    background-position: 72% 60% !important;
+    background-repeat: no-repeat !important;
   }
   .hero-inner{
     display: block;
     padding: 0;
     text-align: left;
   }
-  /* Big title, lede, place line, in-hero label hidden on mobile — but the
-     hero-trio is NOT hidden; instead we show only its center bottle (Reposado)
-     as a clean single-bottle overlay on top of the cellar background. */
+  /* Big title, lede, place line, in-hero label, and hero-trio all hidden.
+     The 3 bottles are already in the background image (right-side crop),
+     so no standalone bottle overlay is needed. */
   .hero-place,
   .hero .lede,
   .hero-label,
-  .hero-title{ display: none !important; }
-  .hero-trio{
-    display: flex !important;
-    visibility: visible !important;   /* desktop base rule hides it — override here */
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: 0 !important;
-    bottom: 5rem !important;          /* clear the pinned .hero-meta stats row */
-    justify-content: center !important;
-    align-items: flex-end !important; /* bottle rests on the bottom edge */
-    min-height: 0 !important;
-    z-index: 2 !important;
-    pointer-events: none;
-    padding: 0 !important;
-    gap: 0 !important;
-  }
-  .hero-trio > *{ pointer-events: auto; }
+  .hero-title,
+  .hero-trio{ display: none !important; }
   /* Bigger, single-bottle mobile hero — Reposado (flagship) only */
   .hero-bottle--center img{
     height: auto !important;
