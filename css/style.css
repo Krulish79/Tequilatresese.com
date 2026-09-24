@@ -2355,7 +2355,7 @@ body.lightbox-open{ overflow: hidden; }
      The Reposado bottle PNG below overlays centered on top for a clean hero. */
   .hero-bg{ display: none !important; }
   .hero{
-    background-image: url('images/home/hero-cellar.jpg.png?v=20260923new') !important;
+    background-image: url('../images/home/hero-cellar.jpg.png?v=20260923new') !important;
     background-size: cover !important;
     /* Anchor at 72% horizontal — shows the RIGHT side of the source image
        where the 3 bottles (Blanco, Reposado, Extra Añejo) live, so mobile
