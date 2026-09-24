@@ -2356,12 +2356,12 @@ body.lightbox-open{ overflow: hidden; }
   .hero-bg{ display: none !important; }
   .hero{
     background-image: url('../images/home/hero-cellar.jpg.png?v=20260923new') !important;
-    background-size: cover !important;
-    /* Anchor at 72% horizontal — shows the RIGHT side of the source image
-       where the 3 bottles (Blanco, Reposado, Extra Añejo) live, so mobile
-       matches the desktop trio composition. */
-    background-position: 72% 60% !important;
+    /* Image sized to 60% of viewport height — bottles appear ~40% smaller
+       than at cover-scale. Dark hero background fills the surrounding area. */
+    background-size: auto 60vh !important;
+    background-position: 78% center !important;
     background-repeat: no-repeat !important;
+    background-color: #15100c !important;
   }
   .hero-inner{
     display: block;
